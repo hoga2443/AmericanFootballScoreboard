@@ -34,6 +34,7 @@ namespace American_Football_Scoreboard
         {
             InitializeComponent();
             LoadSettings();
+            InitializeUI();
         }
 
         private void LoadSettings()
@@ -42,12 +43,41 @@ namespace American_Football_Scoreboard
             txtPlayClockDuration.Text = Properties.Settings.Default.DefaultPlay;
             txtGoalText.Text = Properties.Settings.Default.GoalText;
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
+            txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
         }
 
+        private void InitializeUI()
+        {
+            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+            Task asyncTask = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
+            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+        }
+
+        /*
+        Function to add a specified number of points to a specified control
+        Called by all functions which alter a score
+        */
         private void AddScore(TextBox control, int points)
         {
             if(int.TryParse(s: control.Text, out int oldScore))
                 control.Text = (oldScore + points).ToString();
+        }
+
+        /*
+         
+        */
+        private void AddTimeout(TextBox control, int timeoutsToAdd)
+        {
+            if (int.TryParse(s: control.Text, out int currentTimeouts))
+            {
+                control.Text = (currentTimeouts + timeoutsToAdd).ToString();
+            }
+            else
+            {
+                control.Text = (timeoutsToAdd).ToString();
+            }
         }
 
         private void ButAwayAddOne_Click(object sender, EventArgs e)
@@ -72,12 +102,12 @@ namespace American_Football_Scoreboard
 
         private void ButAwayTimeoutsAdd_Click(object sender, EventArgs e)
         {
-            txtAwayTimeouts.Text = (int.Parse(txtAwayTimeouts.Text) + 1).ToString();
+            AddTimeout(txtAwayTimeouts, 1);
         }
 
         private void ButAwayTimeoutsSubtract_Click(object sender, EventArgs e)
         {
-            txtAwayTimeouts.Text = (int.Parse(txtAwayTimeouts.Text) - 1).ToString();
+            AddTimeout(txtAwayTimeouts, -1);
         }
 
         private void ButClearAway_Click(object sender, EventArgs e)
@@ -136,12 +166,12 @@ namespace American_Football_Scoreboard
 
         private void ButHomeTimeoutsAdd_Click(object sender, EventArgs e)
         {
-            txtHomeTimeouts.Text = (int.Parse(txtHomeTimeouts.Text) + 1).ToString();
+            AddTimeout(txtHomeTimeouts, 1);
         }
 
         private void ButHomeTimeoutsSubtract_Click(object sender, EventArgs e)
         {
-            txtHomeTimeouts.Text = (int.Parse(txtHomeTimeouts.Text) - 1).ToString();
+            AddTimeout(txtHomeTimeouts, -1);
         }
 
         private void ButNewPlayClock_Click(object sender, EventArgs e)
@@ -224,6 +254,17 @@ namespace American_Football_Scoreboard
             if (!playClockRunning)
             {
                 tmrClockRefresh.Enabled = false;
+            }
+        }
+
+        static async Task CopyFileAsync(string sourcePath, string destinationPath)
+        {
+            using (Stream source = File.Open(path: sourcePath, mode: FileMode.Open))
+            {
+                using (Stream destination = File.Create(path: destinationPath))
+                {
+                    await source.CopyToAsync(destination);
+                }
             }
         }
 
@@ -330,6 +371,24 @@ namespace American_Football_Scoreboard
         private void TxtAwayTimeouts_TextChanged(object sender, EventArgs e)
         {
             Task asyncTask = WriteFileAsync(awayTimeoutsRemainingFile, txtAwayTimeouts.Text);
+            switch (txtAwayTimeouts.Text)
+            {
+                case "0":
+                    var task0 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    break;
+                case "1":
+                    var task1 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    break;
+                case "2":
+                    var task2 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    break;
+                case "3":
+                    var task3 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    break;
+                default:
+                    var task4 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    break;
+            }
         }
 
         private void TxtDistance_TextChanged(object sender, EventArgs e)
@@ -350,6 +409,24 @@ namespace American_Football_Scoreboard
         private void TxtHomeTimeouts_TextChanged(object sender, EventArgs e)
         {
             Task asyncTask = WriteFileAsync(homeTimeoutsRemainingFile, txtHomeTimeouts.Text);
+            switch (txtHomeTimeouts.Text)
+            {
+                case "0":
+                    var task0 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    break;
+                case "1":
+                    var task1 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    break;
+                case "2":
+                    var task2 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    break;
+                case "3":
+                    var task3 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    break;
+                default:
+                    var task4 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    break;
+            }
         }
 
         private void TxtPeriodOT_TextChanged(object sender, EventArgs e)
