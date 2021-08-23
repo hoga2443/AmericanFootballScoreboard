@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -80,6 +80,246 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["TimeoutsPerHalf"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("G")]
+        public string HotKeyStartStopGameClock {
+            get {
+                return ((string)(this["HotKeyStartStopGameClock"]));
+            }
+            set {
+                this["HotKeyStartStopGameClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopGameClockAlt {
+            get {
+                return ((bool)(this["HotKeyStartStopGameClockAlt"]));
+            }
+            set {
+                this["HotKeyStartStopGameClockAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopGameClockCtrl {
+            get {
+                return ((bool)(this["HotKeyStartStopGameClockCtrl"]));
+            }
+            set {
+                this["HotKeyStartStopGameClockCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopGameClockShift {
+            get {
+                return ((bool)(this["HotKeyStartStopGameClockShift"]));
+            }
+            set {
+                this["HotKeyStartStopGameClockShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("P")]
+        public string HotKeyStartStopPlayClock {
+            get {
+                return ((string)(this["HotKeyStartStopPlayClock"]));
+            }
+            set {
+                this["HotKeyStartStopPlayClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopPlayClockAlt {
+            get {
+                return ((bool)(this["HotKeyStartStopPlayClockAlt"]));
+            }
+            set {
+                this["HotKeyStartStopPlayClockAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopPlayClockCtrl {
+            get {
+                return ((bool)(this["HotKeyStartStopPlayClockCtrl"]));
+            }
+            set {
+                this["HotKeyStartStopPlayClockCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyStartStopPlayClockShift {
+            get {
+                return ((bool)(this["HotKeyStartStopPlayClockShift"]));
+            }
+            set {
+                this["HotKeyStartStopPlayClockShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("N")]
+        public string HotKeyNewPlayClock {
+            get {
+                return ((string)(this["HotKeyNewPlayClock"]));
+            }
+            set {
+                this["HotKeyNewPlayClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNewPlayClockAlt {
+            get {
+                return ((bool)(this["HotKeyNewPlayClockAlt"]));
+            }
+            set {
+                this["HotKeyNewPlayClockAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNewPlayClockCtrl {
+            get {
+                return ((bool)(this["HotKeyNewPlayClockCtrl"]));
+            }
+            set {
+                this["HotKeyNewPlayClockCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNewPlayClockShift {
+            get {
+                return ((bool)(this["HotKeyNewPlayClockShift"]));
+            }
+            set {
+                this["HotKeyNewPlayClockShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C")]
+        public string HotKeyClearClocks {
+            get {
+                return ((string)(this["HotKeyClearClocks"]));
+            }
+            set {
+                this["HotKeyClearClocks"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyClearClocksAlt {
+            get {
+                return ((bool)(this["HotKeyClearClocksAlt"]));
+            }
+            set {
+                this["HotKeyClearClocksAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyClearClocksCtrl {
+            get {
+                return ((bool)(this["HotKeyClearClocksCtrl"]));
+            }
+            set {
+                this["HotKeyClearClocksCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyClearClocksShift {
+            get {
+                return ((bool)(this["HotKeyClearClocksShift"]));
+            }
+            set {
+                this["HotKeyClearClocksShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D")]
+        public string HotKeyNextDown {
+            get {
+                return ((string)(this["HotKeyNextDown"]));
+            }
+            set {
+                this["HotKeyNextDown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextDownAlt {
+            get {
+                return ((bool)(this["HotKeyNextDownAlt"]));
+            }
+            set {
+                this["HotKeyNextDownAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextDownCtrl {
+            get {
+                return ((bool)(this["HotKeyNextDownCtrl"]));
+            }
+            set {
+                this["HotKeyNextDownCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextDownShift {
+            get {
+                return ((bool)(this["HotKeyNextDownShift"]));
+            }
+            set {
+                this["HotKeyNextDownShift"] = value;
             }
         }
     }

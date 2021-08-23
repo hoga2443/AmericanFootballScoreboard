@@ -1,7 +1,7 @@
 ﻿
 namespace American_Football_Scoreboard
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace American_Football_Scoreboard
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.butClearClocks = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -79,12 +79,39 @@ namespace American_Football_Scoreboard
             this.txtHomeScore = new System.Windows.Forms.TextBox();
             this.lblHomeTeam = new System.Windows.Forms.Label();
             this.txtHomeTeam = new System.Windows.Forms.TextBox();
-            this.butStopPlayClock = new System.Windows.Forms.Button();
-            this.butStartPlayClock = new System.Windows.Forms.Button();
+            this.butStartStopPlayClock = new System.Windows.Forms.Button();
             this.txtPlayClock = new System.Windows.Forms.TextBox();
-            this.butStopGameClock = new System.Windows.Forms.Button();
-            this.butStartGameClock = new System.Windows.Forms.Button();
+            this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.butHotKeySave = new System.Windows.Forms.Button();
+            this.chkHotKeyNextDownShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNextDownCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNextDownAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyNextDown = new System.Windows.Forms.TextBox();
+            this.lblHotKeyNextDown = new System.Windows.Forms.Label();
+            this.chkHotKeyClearClocksShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyClearClocksCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyClearClocksAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyClearClocks = new System.Windows.Forms.TextBox();
+            this.lblHotKeyClearClocks = new System.Windows.Forms.Label();
+            this.chkHotKeyNewPlayClockShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNewPlayClockCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNewPlayClockAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyNewPlayClock = new System.Windows.Forms.TextBox();
+            this.lblHotKeyNewPlayClock = new System.Windows.Forms.Label();
+            this.chkHotKeyStartStopPlayClockShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyStartStopPlayClockCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyStartStopPlayClockAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyStartStopPlayClock = new System.Windows.Forms.TextBox();
+            this.lblHotKeyStartStopPlayClock = new System.Windows.Forms.Label();
+            this.chkHotKeyStartStopGameClockShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyStartStopGameClockCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyStartStopGameClockAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyStartStopGameClock = new System.Windows.Forms.TextBox();
+            this.lblHotKeyStartStopGameClock = new System.Windows.Forms.Label();
+            this.lblHotKeyKey = new System.Windows.Forms.Label();
+            this.lblHotKeyFunction = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblTimeoutsPerHalf = new System.Windows.Forms.Label();
             this.txtTimeoutsPerHalf = new System.Windows.Forms.TextBox();
@@ -100,25 +127,27 @@ namespace American_Football_Scoreboard
             this.lblPeriodDuration = new System.Windows.Forms.Label();
             this.fbdOutput = new System.Windows.Forms.FolderBrowserDialog();
             this.tmrClockRefresh = new System.Windows.Forms.Timer(this.components);
-            this.tabControl1.SuspendLayout();
+            this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbDown.SuspendLayout();
             this.gbPeriod.SuspendLayout();
             this.gbAway.SuspendLayout();
             this.gbHome.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabMain
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 357);
-            this.tabControl1.TabIndex = 0;
+            this.tabMain.Controls.Add(this.tabPage1);
+            this.tabMain.Controls.Add(this.tabPage3);
+            this.tabMain.Controls.Add(this.tabPage2);
+            this.tabMain.Location = new System.Drawing.Point(12, 12);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(776, 357);
+            this.tabMain.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -129,11 +158,9 @@ namespace American_Football_Scoreboard
             this.tabPage1.Controls.Add(this.gbPeriod);
             this.tabPage1.Controls.Add(this.gbAway);
             this.tabPage1.Controls.Add(this.gbHome);
-            this.tabPage1.Controls.Add(this.butStopPlayClock);
-            this.tabPage1.Controls.Add(this.butStartPlayClock);
+            this.tabPage1.Controls.Add(this.butStartStopPlayClock);
             this.tabPage1.Controls.Add(this.txtPlayClock);
-            this.tabPage1.Controls.Add(this.butStopGameClock);
-            this.tabPage1.Controls.Add(this.butStartGameClock);
+            this.tabPage1.Controls.Add(this.butStartStopGameClock);
             this.tabPage1.Controls.Add(this.txtGameClock);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -145,7 +172,7 @@ namespace American_Football_Scoreboard
             // 
             // butClearClocks
             // 
-            this.butClearClocks.Location = new System.Drawing.Point(441, 106);
+            this.butClearClocks.Location = new System.Drawing.Point(270, 106);
             this.butClearClocks.Name = "butClearClocks";
             this.butClearClocks.Size = new System.Drawing.Size(108, 23);
             this.butClearClocks.TabIndex = 17;
@@ -183,9 +210,9 @@ namespace American_Football_Scoreboard
             // 
             // butNewPlayClock
             // 
-            this.butNewPlayClock.Location = new System.Drawing.Point(335, 106);
+            this.butNewPlayClock.Location = new System.Drawing.Point(441, 106);
             this.butNewPlayClock.Name = "butNewPlayClock";
-            this.butNewPlayClock.Size = new System.Drawing.Size(100, 23);
+            this.butNewPlayClock.Size = new System.Drawing.Size(115, 23);
             this.butNewPlayClock.TabIndex = 15;
             this.butNewPlayClock.Text = "New Play Clock";
             this.butNewPlayClock.UseVisualStyleBackColor = true;
@@ -651,63 +678,338 @@ namespace American_Football_Scoreboard
             this.txtHomeTeam.TabIndex = 8;
             this.txtHomeTeam.Leave += new System.EventHandler(this.TxtHomeTeam_Leave);
             // 
-            // butStopPlayClock
+            // butStartStopPlayClock
             // 
-            this.butStopPlayClock.Location = new System.Drawing.Point(441, 66);
-            this.butStopPlayClock.Name = "butStopPlayClock";
-            this.butStopPlayClock.Size = new System.Drawing.Size(108, 23);
-            this.butStopPlayClock.TabIndex = 7;
-            this.butStopPlayClock.Text = "Stop Play Clock";
-            this.butStopPlayClock.UseVisualStyleBackColor = true;
-            this.butStopPlayClock.Click += new System.EventHandler(this.ButStopPlayClock_Click);
-            // 
-            // butStartPlayClock
-            // 
-            this.butStartPlayClock.Location = new System.Drawing.Point(221, 66);
-            this.butStartPlayClock.Name = "butStartPlayClock";
-            this.butStartPlayClock.Size = new System.Drawing.Size(108, 23);
-            this.butStartPlayClock.TabIndex = 6;
-            this.butStartPlayClock.Text = "Start Play Clock";
-            this.butStartPlayClock.UseVisualStyleBackColor = true;
-            this.butStartPlayClock.Click += new System.EventHandler(this.ButStartPlayClock_Click);
+            this.butStartStopPlayClock.Location = new System.Drawing.Point(441, 56);
+            this.butStartStopPlayClock.Name = "butStartStopPlayClock";
+            this.butStartStopPlayClock.Size = new System.Drawing.Size(115, 44);
+            this.butStartStopPlayClock.TabIndex = 6;
+            this.butStartStopPlayClock.Text = "Start Play Clock";
+            this.butStartStopPlayClock.UseVisualStyleBackColor = true;
+            this.butStartStopPlayClock.Click += new System.EventHandler(this.ButStartPlayClock_Click);
             // 
             // txtPlayClock
             // 
             this.txtPlayClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlayClock.Location = new System.Drawing.Point(335, 56);
+            this.txtPlayClock.Location = new System.Drawing.Point(274, 56);
             this.txtPlayClock.Name = "txtPlayClock";
             this.txtPlayClock.Size = new System.Drawing.Size(100, 44);
             this.txtPlayClock.TabIndex = 5;
             this.txtPlayClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // butStopGameClock
+            // butStartStopGameClock
             // 
-            this.butStopGameClock.Location = new System.Drawing.Point(495, 6);
-            this.butStopGameClock.Name = "butStopGameClock";
-            this.butStopGameClock.Size = new System.Drawing.Size(66, 54);
-            this.butStopGameClock.TabIndex = 4;
-            this.butStopGameClock.Text = "Stop Game Clock";
-            this.butStopGameClock.UseVisualStyleBackColor = true;
-            this.butStopGameClock.Click += new System.EventHandler(this.ButStopGameClock_Click);
-            // 
-            // butStartGameClock
-            // 
-            this.butStartGameClock.Location = new System.Drawing.Point(212, 6);
-            this.butStartGameClock.Name = "butStartGameClock";
-            this.butStartGameClock.Size = new System.Drawing.Size(68, 54);
-            this.butStartGameClock.TabIndex = 3;
-            this.butStartGameClock.Text = "Start Game Clock";
-            this.butStartGameClock.UseVisualStyleBackColor = true;
-            this.butStartGameClock.Click += new System.EventHandler(this.ButStartGameClock_Click);
+            this.butStartStopGameClock.Location = new System.Drawing.Point(441, 6);
+            this.butStartStopGameClock.Name = "butStartStopGameClock";
+            this.butStartStopGameClock.Size = new System.Drawing.Size(115, 44);
+            this.butStartStopGameClock.TabIndex = 3;
+            this.butStartStopGameClock.Text = "Start Game Clock";
+            this.butStartStopGameClock.UseVisualStyleBackColor = true;
+            this.butStartStopGameClock.Click += new System.EventHandler(this.ButStartStopGameClock_Click);
             // 
             // txtGameClock
             // 
             this.txtGameClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGameClock.Location = new System.Drawing.Point(286, 10);
+            this.txtGameClock.Location = new System.Drawing.Point(221, 6);
             this.txtGameClock.Name = "txtGameClock";
             this.txtGameClock.Size = new System.Drawing.Size(203, 44);
             this.txtGameClock.TabIndex = 2;
             this.txtGameClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.butHotKeySave);
+            this.tabPage3.Controls.Add(this.chkHotKeyNextDownShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyNextDownCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyNextDownAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyNextDown);
+            this.tabPage3.Controls.Add(this.lblHotKeyNextDown);
+            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyClearClocks);
+            this.tabPage3.Controls.Add(this.lblHotKeyClearClocks);
+            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyNewPlayClock);
+            this.tabPage3.Controls.Add(this.lblHotKeyNewPlayClock);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyStartStopPlayClock);
+            this.tabPage3.Controls.Add(this.lblHotKeyStartStopPlayClock);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyStartStopGameClock);
+            this.tabPage3.Controls.Add(this.lblHotKeyStartStopGameClock);
+            this.tabPage3.Controls.Add(this.lblHotKeyKey);
+            this.tabPage3.Controls.Add(this.lblHotKeyFunction);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(768, 331);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Hotkeys";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // butHotKeySave
+            // 
+            this.butHotKeySave.Location = new System.Drawing.Point(16, 300);
+            this.butHotKeySave.Name = "butHotKeySave";
+            this.butHotKeySave.Size = new System.Drawing.Size(75, 23);
+            this.butHotKeySave.TabIndex = 32;
+            this.butHotKeySave.Text = "Save";
+            this.butHotKeySave.UseVisualStyleBackColor = true;
+            this.butHotKeySave.Click += new System.EventHandler(this.ButHotKeySave_Click);
+            // 
+            // chkHotKeyNextDownShift
+            // 
+            this.chkHotKeyNextDownShift.AutoSize = true;
+            this.chkHotKeyNextDownShift.Location = new System.Drawing.Point(333, 139);
+            this.chkHotKeyNextDownShift.Name = "chkHotKeyNextDownShift";
+            this.chkHotKeyNextDownShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyNextDownShift.TabIndex = 20;
+            this.chkHotKeyNextDownShift.Text = "Shift";
+            this.chkHotKeyNextDownShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNextDownCtrl
+            // 
+            this.chkHotKeyNextDownCtrl.AutoSize = true;
+            this.chkHotKeyNextDownCtrl.Location = new System.Drawing.Point(286, 139);
+            this.chkHotKeyNextDownCtrl.Name = "chkHotKeyNextDownCtrl";
+            this.chkHotKeyNextDownCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyNextDownCtrl.TabIndex = 19;
+            this.chkHotKeyNextDownCtrl.Text = "Ctrl";
+            this.chkHotKeyNextDownCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNextDownAlt
+            // 
+            this.chkHotKeyNextDownAlt.AutoSize = true;
+            this.chkHotKeyNextDownAlt.Location = new System.Drawing.Point(242, 139);
+            this.chkHotKeyNextDownAlt.Name = "chkHotKeyNextDownAlt";
+            this.chkHotKeyNextDownAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyNextDownAlt.TabIndex = 18;
+            this.chkHotKeyNextDownAlt.Text = "Alt";
+            this.chkHotKeyNextDownAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyNextDown
+            // 
+            this.txtHotKeyNextDown.Location = new System.Drawing.Point(136, 136);
+            this.txtHotKeyNextDown.Name = "txtHotKeyNextDown";
+            this.txtHotKeyNextDown.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyNextDown.TabIndex = 17;
+            // 
+            // lblHotKeyNextDown
+            // 
+            this.lblHotKeyNextDown.AutoSize = true;
+            this.lblHotKeyNextDown.Location = new System.Drawing.Point(13, 140);
+            this.lblHotKeyNextDown.Name = "lblHotKeyNextDown";
+            this.lblHotKeyNextDown.Size = new System.Drawing.Size(60, 13);
+            this.lblHotKeyNextDown.TabIndex = 27;
+            this.lblHotKeyNextDown.Text = "Next Down";
+            // 
+            // chkHotKeyClearClocksShift
+            // 
+            this.chkHotKeyClearClocksShift.AutoSize = true;
+            this.chkHotKeyClearClocksShift.Location = new System.Drawing.Point(333, 113);
+            this.chkHotKeyClearClocksShift.Name = "chkHotKeyClearClocksShift";
+            this.chkHotKeyClearClocksShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyClearClocksShift.TabIndex = 16;
+            this.chkHotKeyClearClocksShift.Text = "Shift";
+            this.chkHotKeyClearClocksShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyClearClocksCtrl
+            // 
+            this.chkHotKeyClearClocksCtrl.AutoSize = true;
+            this.chkHotKeyClearClocksCtrl.Location = new System.Drawing.Point(286, 113);
+            this.chkHotKeyClearClocksCtrl.Name = "chkHotKeyClearClocksCtrl";
+            this.chkHotKeyClearClocksCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyClearClocksCtrl.TabIndex = 15;
+            this.chkHotKeyClearClocksCtrl.Text = "Ctrl";
+            this.chkHotKeyClearClocksCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyClearClocksAlt
+            // 
+            this.chkHotKeyClearClocksAlt.AutoSize = true;
+            this.chkHotKeyClearClocksAlt.Location = new System.Drawing.Point(242, 113);
+            this.chkHotKeyClearClocksAlt.Name = "chkHotKeyClearClocksAlt";
+            this.chkHotKeyClearClocksAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyClearClocksAlt.TabIndex = 14;
+            this.chkHotKeyClearClocksAlt.Text = "Alt";
+            this.chkHotKeyClearClocksAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyClearClocks
+            // 
+            this.txtHotKeyClearClocks.Location = new System.Drawing.Point(136, 110);
+            this.txtHotKeyClearClocks.Name = "txtHotKeyClearClocks";
+            this.txtHotKeyClearClocks.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyClearClocks.TabIndex = 13;
+            // 
+            // lblHotKeyClearClocks
+            // 
+            this.lblHotKeyClearClocks.AutoSize = true;
+            this.lblHotKeyClearClocks.Location = new System.Drawing.Point(13, 114);
+            this.lblHotKeyClearClocks.Name = "lblHotKeyClearClocks";
+            this.lblHotKeyClearClocks.Size = new System.Drawing.Size(66, 13);
+            this.lblHotKeyClearClocks.TabIndex = 22;
+            this.lblHotKeyClearClocks.Text = "Clear Clocks";
+            // 
+            // chkHotKeyNewPlayClockShift
+            // 
+            this.chkHotKeyNewPlayClockShift.AutoSize = true;
+            this.chkHotKeyNewPlayClockShift.Location = new System.Drawing.Point(333, 87);
+            this.chkHotKeyNewPlayClockShift.Name = "chkHotKeyNewPlayClockShift";
+            this.chkHotKeyNewPlayClockShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyNewPlayClockShift.TabIndex = 12;
+            this.chkHotKeyNewPlayClockShift.Text = "Shift";
+            this.chkHotKeyNewPlayClockShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNewPlayClockCtrl
+            // 
+            this.chkHotKeyNewPlayClockCtrl.AutoSize = true;
+            this.chkHotKeyNewPlayClockCtrl.Location = new System.Drawing.Point(286, 87);
+            this.chkHotKeyNewPlayClockCtrl.Name = "chkHotKeyNewPlayClockCtrl";
+            this.chkHotKeyNewPlayClockCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyNewPlayClockCtrl.TabIndex = 11;
+            this.chkHotKeyNewPlayClockCtrl.Text = "Ctrl";
+            this.chkHotKeyNewPlayClockCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNewPlayClockAlt
+            // 
+            this.chkHotKeyNewPlayClockAlt.AutoSize = true;
+            this.chkHotKeyNewPlayClockAlt.Location = new System.Drawing.Point(242, 87);
+            this.chkHotKeyNewPlayClockAlt.Name = "chkHotKeyNewPlayClockAlt";
+            this.chkHotKeyNewPlayClockAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyNewPlayClockAlt.TabIndex = 10;
+            this.chkHotKeyNewPlayClockAlt.Text = "Alt";
+            this.chkHotKeyNewPlayClockAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyNewPlayClock
+            // 
+            this.txtHotKeyNewPlayClock.Location = new System.Drawing.Point(136, 84);
+            this.txtHotKeyNewPlayClock.Name = "txtHotKeyNewPlayClock";
+            this.txtHotKeyNewPlayClock.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyNewPlayClock.TabIndex = 9;
+            // 
+            // lblHotKeyNewPlayClock
+            // 
+            this.lblHotKeyNewPlayClock.AutoSize = true;
+            this.lblHotKeyNewPlayClock.Location = new System.Drawing.Point(13, 88);
+            this.lblHotKeyNewPlayClock.Name = "lblHotKeyNewPlayClock";
+            this.lblHotKeyNewPlayClock.Size = new System.Drawing.Size(82, 13);
+            this.lblHotKeyNewPlayClock.TabIndex = 17;
+            this.lblHotKeyNewPlayClock.Text = "New Play Clock";
+            // 
+            // chkHotKeyStartStopPlayClockShift
+            // 
+            this.chkHotKeyStartStopPlayClockShift.AutoSize = true;
+            this.chkHotKeyStartStopPlayClockShift.Location = new System.Drawing.Point(333, 61);
+            this.chkHotKeyStartStopPlayClockShift.Name = "chkHotKeyStartStopPlayClockShift";
+            this.chkHotKeyStartStopPlayClockShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyStartStopPlayClockShift.TabIndex = 8;
+            this.chkHotKeyStartStopPlayClockShift.Text = "Shift";
+            this.chkHotKeyStartStopPlayClockShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyStartStopPlayClockCtrl
+            // 
+            this.chkHotKeyStartStopPlayClockCtrl.AutoSize = true;
+            this.chkHotKeyStartStopPlayClockCtrl.Location = new System.Drawing.Point(286, 61);
+            this.chkHotKeyStartStopPlayClockCtrl.Name = "chkHotKeyStartStopPlayClockCtrl";
+            this.chkHotKeyStartStopPlayClockCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyStartStopPlayClockCtrl.TabIndex = 7;
+            this.chkHotKeyStartStopPlayClockCtrl.Text = "Ctrl";
+            this.chkHotKeyStartStopPlayClockCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyStartStopPlayClockAlt
+            // 
+            this.chkHotKeyStartStopPlayClockAlt.AutoSize = true;
+            this.chkHotKeyStartStopPlayClockAlt.Location = new System.Drawing.Point(242, 61);
+            this.chkHotKeyStartStopPlayClockAlt.Name = "chkHotKeyStartStopPlayClockAlt";
+            this.chkHotKeyStartStopPlayClockAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyStartStopPlayClockAlt.TabIndex = 6;
+            this.chkHotKeyStartStopPlayClockAlt.Text = "Alt";
+            this.chkHotKeyStartStopPlayClockAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyStartStopPlayClock
+            // 
+            this.txtHotKeyStartStopPlayClock.Location = new System.Drawing.Point(136, 58);
+            this.txtHotKeyStartStopPlayClock.Name = "txtHotKeyStartStopPlayClock";
+            this.txtHotKeyStartStopPlayClock.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyStartStopPlayClock.TabIndex = 5;
+            // 
+            // lblHotKeyStartStopPlayClock
+            // 
+            this.lblHotKeyStartStopPlayClock.AutoSize = true;
+            this.lblHotKeyStartStopPlayClock.Location = new System.Drawing.Point(13, 62);
+            this.lblHotKeyStartStopPlayClock.Name = "lblHotKeyStartStopPlayClock";
+            this.lblHotKeyStartStopPlayClock.Size = new System.Drawing.Size(109, 13);
+            this.lblHotKeyStartStopPlayClock.TabIndex = 12;
+            this.lblHotKeyStartStopPlayClock.Text = "Start/Stop Play Clock";
+            // 
+            // chkHotKeyStartStopGameClockShift
+            // 
+            this.chkHotKeyStartStopGameClockShift.AutoSize = true;
+            this.chkHotKeyStartStopGameClockShift.Location = new System.Drawing.Point(333, 35);
+            this.chkHotKeyStartStopGameClockShift.Name = "chkHotKeyStartStopGameClockShift";
+            this.chkHotKeyStartStopGameClockShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyStartStopGameClockShift.TabIndex = 4;
+            this.chkHotKeyStartStopGameClockShift.Text = "Shift";
+            this.chkHotKeyStartStopGameClockShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyStartStopGameClockCtrl
+            // 
+            this.chkHotKeyStartStopGameClockCtrl.AutoSize = true;
+            this.chkHotKeyStartStopGameClockCtrl.Location = new System.Drawing.Point(286, 35);
+            this.chkHotKeyStartStopGameClockCtrl.Name = "chkHotKeyStartStopGameClockCtrl";
+            this.chkHotKeyStartStopGameClockCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyStartStopGameClockCtrl.TabIndex = 3;
+            this.chkHotKeyStartStopGameClockCtrl.Text = "Ctrl";
+            this.chkHotKeyStartStopGameClockCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyStartStopGameClockAlt
+            // 
+            this.chkHotKeyStartStopGameClockAlt.AutoSize = true;
+            this.chkHotKeyStartStopGameClockAlt.Location = new System.Drawing.Point(242, 35);
+            this.chkHotKeyStartStopGameClockAlt.Name = "chkHotKeyStartStopGameClockAlt";
+            this.chkHotKeyStartStopGameClockAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyStartStopGameClockAlt.TabIndex = 2;
+            this.chkHotKeyStartStopGameClockAlt.Text = "Alt";
+            this.chkHotKeyStartStopGameClockAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyStartStopGameClock
+            // 
+            this.txtHotKeyStartStopGameClock.Location = new System.Drawing.Point(136, 32);
+            this.txtHotKeyStartStopGameClock.Name = "txtHotKeyStartStopGameClock";
+            this.txtHotKeyStartStopGameClock.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyStartStopGameClock.TabIndex = 1;
+            // 
+            // lblHotKeyStartStopGameClock
+            // 
+            this.lblHotKeyStartStopGameClock.AutoSize = true;
+            this.lblHotKeyStartStopGameClock.Location = new System.Drawing.Point(13, 35);
+            this.lblHotKeyStartStopGameClock.Name = "lblHotKeyStartStopGameClock";
+            this.lblHotKeyStartStopGameClock.Size = new System.Drawing.Size(117, 13);
+            this.lblHotKeyStartStopGameClock.TabIndex = 7;
+            this.lblHotKeyStartStopGameClock.Text = "Start/Stop Game Clock";
+            // 
+            // lblHotKeyKey
+            // 
+            this.lblHotKeyKey.AutoSize = true;
+            this.lblHotKeyKey.Location = new System.Drawing.Point(133, 13);
+            this.lblHotKeyKey.Name = "lblHotKeyKey";
+            this.lblHotKeyKey.Size = new System.Drawing.Size(25, 13);
+            this.lblHotKeyKey.TabIndex = 2;
+            this.lblHotKeyKey.Text = "Key";
+            // 
+            // lblHotKeyFunction
+            // 
+            this.lblHotKeyFunction.AutoSize = true;
+            this.lblHotKeyFunction.Location = new System.Drawing.Point(13, 13);
+            this.lblHotKeyFunction.Name = "lblHotKeyFunction";
+            this.lblHotKeyFunction.Size = new System.Drawing.Size(48, 13);
+            this.lblHotKeyFunction.TabIndex = 1;
+            this.lblHotKeyFunction.Text = "Function";
             // 
             // tabPage2
             // 
@@ -833,18 +1135,20 @@ namespace American_Football_Scoreboard
             // 
             // tmrClockRefresh
             // 
-            this.tmrClockRefresh.Interval = 900;
+            this.tmrClockRefresh.Interval = 450;
             this.tmrClockRefresh.Tick += new System.EventHandler(this.TmrClockRefresh_Tick);
             // 
-            // frmMain
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 380);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "frmMain";
+            this.Controls.Add(this.tabMain);
+            this.KeyPreview = true;
+            this.Name = "FrmMain";
             this.Text = "American Football Scoreboard";
-            this.tabControl1.ResumeLayout(false);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyDown);
+            this.tabMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -857,6 +1161,8 @@ namespace American_Football_Scoreboard
             this.gbAway.PerformLayout();
             this.gbHome.ResumeLayout(false);
             this.gbHome.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -865,7 +1171,7 @@ namespace American_Football_Scoreboard
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label lblAwayTeam;
         private System.Windows.Forms.Label lblHomeTeam;
@@ -873,13 +1179,11 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.TextBox txtGameClock;
         private System.Windows.Forms.TextBox txtPeriodDuration;
         private System.Windows.Forms.Label lblPeriodDuration;
-        private System.Windows.Forms.Button butStopGameClock;
-        private System.Windows.Forms.Button butStartGameClock;
+        private System.Windows.Forms.Button butStartStopGameClock;
         private System.Windows.Forms.TextBox txtPlayClock;
         private System.Windows.Forms.TextBox txtPlayClockDuration;
         private System.Windows.Forms.Label lblPlayClockDuration;
-        private System.Windows.Forms.Button butStopPlayClock;
-        private System.Windows.Forms.Button butStartPlayClock;
+        private System.Windows.Forms.Button butStartStopPlayClock;
         private System.Windows.Forms.TextBox txtAwayTeam;
         private System.Windows.Forms.TextBox txtHomeTeam;
         private System.Windows.Forms.TextBox txtOutputFolder;
@@ -935,6 +1239,35 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.TextBox txtHomeTimeouts;
         private System.Windows.Forms.Label lblHomeTimeouts;
         private System.Windows.Forms.Button butClearClocks;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockShift;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockAlt;
+        private System.Windows.Forms.TextBox txtHotKeyStartStopGameClock;
+        private System.Windows.Forms.Label lblHotKeyStartStopGameClock;
+        private System.Windows.Forms.Label lblHotKeyKey;
+        private System.Windows.Forms.Label lblHotKeyFunction;
+        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockShift;
+        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockAlt;
+        private System.Windows.Forms.TextBox txtHotKeyNewPlayClock;
+        private System.Windows.Forms.Label lblHotKeyNewPlayClock;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockShift;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockAlt;
+        private System.Windows.Forms.TextBox txtHotKeyStartStopPlayClock;
+        private System.Windows.Forms.Label lblHotKeyStartStopPlayClock;
+        private System.Windows.Forms.CheckBox chkHotKeyClearClocksShift;
+        private System.Windows.Forms.CheckBox chkHotKeyClearClocksCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyClearClocksAlt;
+        private System.Windows.Forms.TextBox txtHotKeyClearClocks;
+        private System.Windows.Forms.Label lblHotKeyClearClocks;
+        private System.Windows.Forms.CheckBox chkHotKeyNextDownShift;
+        private System.Windows.Forms.CheckBox chkHotKeyNextDownCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyNextDownAlt;
+        private System.Windows.Forms.TextBox txtHotKeyNextDown;
+        private System.Windows.Forms.Label lblHotKeyNextDown;
+        private System.Windows.Forms.Button butHotKeySave;
     }
 }
 

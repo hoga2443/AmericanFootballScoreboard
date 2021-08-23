@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace American_Football_Scoreboard
 {
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
         const string awayTeamNameFile = "AwayTeamName.txt";
         const string awayTeamScoreFile = "AwayTeamScore.txt";
@@ -30,7 +30,7 @@ namespace American_Football_Scoreboard
         private DateTime playTimeEnd = DateTime.UtcNow;
         private TimeSpan playTimeRemaining = new TimeSpan(0, 0, 0);
 
-        public frmMain()
+        public FrmMain()
         {
             InitializeComponent();
             LoadSettings();
@@ -44,15 +44,89 @@ namespace American_Football_Scoreboard
             txtGoalText.Text = Properties.Settings.Default.GoalText;
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
+            chkHotKeyStartStopGameClockAlt.Checked = Properties.Settings.Default.HotKeyStartStopGameClockAlt;
+            chkHotKeyStartStopGameClockCtrl.Checked = Properties.Settings.Default.HotKeyStartStopGameClockCtrl;
+            chkHotKeyStartStopGameClockShift.Checked = Properties.Settings.Default.HotKeyStartStopGameClockShift;
+            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
+            chkHotKeyStartStopPlayClockAlt.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockAlt;
+            chkHotKeyStartStopPlayClockCtrl.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockCtrl;
+            chkHotKeyStartStopPlayClockShift.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockShift;
+            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
+            chkHotKeyNewPlayClockAlt.Checked = Properties.Settings.Default.HotKeyNewPlayClockAlt;
+            chkHotKeyNewPlayClockCtrl.Checked = Properties.Settings.Default.HotKeyNewPlayClockCtrl;
+            chkHotKeyNewPlayClockShift.Checked = Properties.Settings.Default.HotKeyNewPlayClockShift;
+            txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
+            chkHotKeyClearClocksAlt.Checked = Properties.Settings.Default.HotKeyClearClocksAlt;
+            chkHotKeyClearClocksCtrl.Checked = Properties.Settings.Default.HotKeyClearClocksCtrl;
+            chkHotKeyClearClocksShift.Checked = Properties.Settings.Default.HotKeyClearClocksShift;
+            txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
+            chkHotKeyNextDownAlt.Checked = Properties.Settings.Default.HotKeyNextDownAlt;
+            chkHotKeyNextDownCtrl.Checked = Properties.Settings.Default.HotKeyNextDownCtrl;
+            chkHotKeyNextDownShift.Checked = Properties.Settings.Default.HotKeyNextDownShift;
         }
 
         private void InitializeUI()
         {
             txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
-            Task asyncTask = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+        }
+
+        private void FrmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*
+            Start/Stop Game Clock
+            */
+            if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopGameClock
+                && e.Alt == Properties.Settings.Default.HotKeyStartStopGameClockAlt
+                && e.Control == Properties.Settings.Default.HotKeyStartStopGameClockCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyStartStopGameClockShift)
+            {
+                butStartStopGameClock.PerformClick();
+            }
+            /*
+            Start/Stop Play Clock
+            */
+            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopPlayClock
+                && e.Alt == Properties.Settings.Default.HotKeyStartStopPlayClockAlt
+                && e.Control == Properties.Settings.Default.HotKeyStartStopPlayClockCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyStartStopPlayClockShift)
+            {
+                butStartStopPlayClock.PerformClick();
+            }
+            /*
+            New Play Clock
+            */
+            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNewPlayClock
+                && e.Alt == Properties.Settings.Default.HotKeyNewPlayClockAlt
+                && e.Control == Properties.Settings.Default.HotKeyNewPlayClockCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyNewPlayClockShift)
+            {
+                butNewPlayClock.PerformClick();
+            }
+            /*
+            Clear Clocks
+            */
+            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyClearClocks
+                && e.Alt == Properties.Settings.Default.HotKeyClearClocksAlt
+                && e.Control == Properties.Settings.Default.HotKeyClearClocksCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyClearClocksShift)
+            {
+                butClearClocks.PerformClick();
+            }
+            /*
+            Next Down 
+            */
+            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNextDown
+                && e.Alt == Properties.Settings.Default.HotKeyNextDownAlt
+                && e.Control == Properties.Settings.Default.HotKeyNextDownCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyNextDownShift)
+            {
+                NextDown();
+            }
         }
 
         /*
@@ -119,8 +193,12 @@ namespace American_Football_Scoreboard
 
         private void ButClearClocks_Click(object sender, EventArgs e)
         {
+            tmrClockRefresh.Enabled = false;
+            playClockRunning = false;
             txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
+            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
 
         private void ButClearHome_Click(object sender, EventArgs e)
@@ -174,6 +252,31 @@ namespace American_Football_Scoreboard
             AddTimeout(txtHomeTimeouts, -1);
         }
 
+        private void ButHotKeySave_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
+            Properties.Settings.Default["HotKeyStartStopGameClockAlt"] = chkHotKeyStartStopGameClockAlt.Checked;
+            Properties.Settings.Default["HotKeyStartStopGameClockCtrl"] = chkHotKeyStartStopGameClockCtrl.Checked;
+            Properties.Settings.Default["HotKeyStartStopGameClockShift"] = chkHotKeyStartStopGameClockShift.Checked;
+            Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
+            Properties.Settings.Default["HotKeyStartStopPlayClockAlt"] = chkHotKeyStartStopPlayClockAlt.Checked;
+            Properties.Settings.Default["HotKeyStartStopPlayClockCtrl"] = chkHotKeyStartStopPlayClockCtrl.Checked;
+            Properties.Settings.Default["HotKeyStartStopPlayClockShift"] = chkHotKeyStartStopPlayClockShift.Checked;
+            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
+            Properties.Settings.Default["HotKeyNewPlayClockAlt"] = chkHotKeyNewPlayClockAlt.Checked;
+            Properties.Settings.Default["HotKeyNewPlayClockCtrl"] = chkHotKeyNewPlayClockCtrl.Checked;
+            Properties.Settings.Default["HotKeyNewPlayClockShift"] = chkHotKeyNewPlayClockShift.Checked;
+            Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
+            Properties.Settings.Default["HotKeyClearClocksAlt"] = chkHotKeyClearClocksAlt.Checked;
+            Properties.Settings.Default["HotKeyClearClocksCtrl"] = chkHotKeyClearClocksCtrl.Checked;
+            Properties.Settings.Default["HotKeyClearClocksShift"] = chkHotKeyClearClocksShift.Checked;
+            Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
+            Properties.Settings.Default["HotKeyNextDownAlt"] = chkHotKeyNextDownAlt.Checked;
+            Properties.Settings.Default["HotKeyNextDownCtrl"] = chkHotKeyNextDownCtrl.Checked;
+            Properties.Settings.Default["HotKeyNextDownShift"] = chkHotKeyNextDownShift.Checked;
+            Properties.Settings.Default.Save();
+        }
+
         private void ButNewPlayClock_Click(object sender, EventArgs e)
         {
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
@@ -214,37 +317,54 @@ namespace American_Football_Scoreboard
 
         private void ButSendSupplemental_Click(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(supplementalFile, txtSupplemental.Text);
+            _ = WriteFileAsync(supplementalFile, txtSupplemental.Text);
         }
 
-        private void ButStartGameClock_Click(object sender, EventArgs e)
+        private void ButStartStopGameClock_Click(object sender, EventArgs e)
         {
-            if (!tmrClockRefresh.Enabled)
-                tmrClockRefresh.Enabled = true;
-            if (txtGameClock.Text.Trim().Length == 0)
-                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
-            periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
-            periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
-            periodClockRunning = true;
+            if (periodClockRunning)
+            {
+                periodClockRunning = false;
+                if (!playClockRunning)
+                {
+                    tmrClockRefresh.Enabled = false;
+                }
+                butStartStopGameClock.Text = "Start Game Clock";
+            }
+            else
+            {
+                periodClockRunning = true;
+                if (!tmrClockRefresh.Enabled)
+                    tmrClockRefresh.Enabled = true;
+                if (txtGameClock.Text.Trim().Length == 0)
+                    txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
+                periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
+                periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
+                butStartStopGameClock.Text = "Stop Game Clock";
+            }
         }
 
         private void ButStartPlayClock_Click(object sender, EventArgs e)
         {
-            if (!tmrClockRefresh.Enabled)
-                tmrClockRefresh.Enabled = true;
-            if (txtPlayClock.Text.Trim().Length == 0)
-                txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
-            playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
-            playTimeEnd = DateTime.UtcNow + playTimeRemaining;
-            playClockRunning = true;
-        }
-
-        private void ButStopGameClock_Click(object sender, EventArgs e)
-        {
-            periodClockRunning = false;
-            if (!playClockRunning)
+            if (playClockRunning)
             {
-                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                if (!playClockRunning)
+                {
+                    tmrClockRefresh.Enabled = false;
+                }
+                butStartStopPlayClock.Text = "Start Play Clock";
+            }
+            else
+            {
+                playClockRunning = true;
+                if (!tmrClockRefresh.Enabled)
+                    tmrClockRefresh.Enabled = true;
+                if (txtPlayClock.Text.Trim().Length == 0)
+                    txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
+                playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
+                playTimeEnd = DateTime.UtcNow + playTimeRemaining;
+                butStartStopPlayClock.Text = "Stop Play Clock";
             }
         }
 
@@ -272,7 +392,7 @@ namespace American_Football_Scoreboard
         {
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
             txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
-            Task asyncTask = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
             if (txtGameClock.Text == "00:00")
                 periodClockRunning = false;
         }
@@ -280,11 +400,35 @@ namespace American_Football_Scoreboard
         private void DecementPlayClock()
         {
             playTimeRemaining = playTimeEnd - DateTime.UtcNow;
-            txtPlayClock.Text = (int.Parse(txtPlayClock.Text) - 1).ToString();
-            Task asyncTask = WriteFileAsync(playClockFile, txtPlayClock.Text);
+            txtPlayClock.Text = ((int)playTimeRemaining.TotalSeconds).ToString();
+            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
             if (txtPlayClock.Text == "0")
             {
                 playClockRunning = false;
+            }
+        }
+
+        /*
+        
+        */
+        private void NextDown()
+        {
+            if (rbDownOne.Checked == true)
+            {
+                rbDownTwo.Checked = true;
+            }
+            else if (rbDownTwo.Checked == true)
+            {
+                rbDownThree.Checked = true;
+            }
+            else if (rbDownThree.Checked == true)
+            {
+                rbDownFour.Checked = true;
+            }
+            else
+            {
+                rbDownOne.Checked = true;
+                txtDistance.Text = "10";
             }
         }
 
@@ -292,7 +436,7 @@ namespace American_Football_Scoreboard
         {
             if (rbDownFour.Checked)
             {
-                Task asyncTask = WriteFileAsync(downFile, "4th");
+                _ = WriteFileAsync(downFile, "4th");
             }
         }
 
@@ -300,7 +444,7 @@ namespace American_Football_Scoreboard
         {
             if (rbDownOne.Checked)
             {
-                Task asyncTask = WriteFileAsync(downFile, "1st");
+                _ = WriteFileAsync(downFile, "1st");
                 txtDistance.Text = "10";
             }
         }
@@ -309,7 +453,7 @@ namespace American_Football_Scoreboard
         {
             if (rbDownThree.Checked)
             {
-                Task asyncTask = WriteFileAsync(downFile, "3rd");
+                _ = WriteFileAsync(downFile, "3rd");
             }
         }
 
@@ -317,33 +461,33 @@ namespace American_Football_Scoreboard
         {
             if (rbDownTwo.Checked)
             {
-                Task asyncTask = WriteFileAsync(downFile, "2nd");
+                _ = WriteFileAsync(downFile, "2nd");
             }
         }
 
         private void RbPeriod1_CheckedChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, "1");
+            _ = WriteFileAsync(periodFile, "1");
         }
 
         private void RbPeriod2_CheckedChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, "2");
+            _ = WriteFileAsync(periodFile, "2");
         }
 
         private void RbPeriod3_CheckedChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, "3");
+            _ = WriteFileAsync(periodFile, "3");
         }
 
         private void RbPeriod4_CheckedChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, "4");
+            _ = WriteFileAsync(periodFile, "4");
         }
 
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, txtPeriodOT.Text);
+            _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -360,78 +504,78 @@ namespace American_Football_Scoreboard
 
         private void TxtAwayScore_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
+            _ = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
         }
 
         private void TxtAwayTeam_Leave(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(awayTeamNameFile, txtAwayTeam.Text);
+            _ = WriteFileAsync(awayTeamNameFile, txtAwayTeam.Text);
         }
 
         private void TxtAwayTimeouts_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(awayTimeoutsRemainingFile, txtAwayTimeouts.Text);
+            _ = WriteFileAsync(awayTimeoutsRemainingFile, txtAwayTimeouts.Text);
             switch (txtAwayTimeouts.Text)
             {
                 case "0":
-                    var task0 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
                     break;
                 case "1":
-                    var task1 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
                     break;
                 case "2":
-                    var task2 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
                     break;
                 case "3":
-                    var task3 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
                     break;
                 default:
-                    var task4 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
                     break;
             }
         }
 
         private void TxtDistance_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(distanceFile, txtDistance.Text);
+            _ = WriteFileAsync(distanceFile, txtDistance.Text);
         }
 
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
+            _ = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
         }
 
         private void TxtHomeTeam_Leave(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(homeTeamNameFile, txtHomeTeam.Text);
+            _ = WriteFileAsync(homeTeamNameFile, txtHomeTeam.Text);
         }
 
         private void TxtHomeTimeouts_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(homeTimeoutsRemainingFile, txtHomeTimeouts.Text);
+            _ = WriteFileAsync(homeTimeoutsRemainingFile, txtHomeTimeouts.Text);
             switch (txtHomeTimeouts.Text)
             {
                 case "0":
-                    var task0 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
                     break;
                 case "1":
-                    var task1 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
                     break;
                 case "2":
-                    var task2 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
                     break;
                 case "3":
-                    var task3 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
                     break;
                 default:
-                    var task4 = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
                     break;
             }
         }
 
         private void TxtPeriodOT_TextChanged(object sender, EventArgs e)
         {
-            Task asyncTask = WriteFileAsync(periodFile, txtPeriodOT.Text);
+            _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
         }
 
         static async Task WriteFileAsync(string file, string content)

@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("American Football Scoreboard")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("American Football Scoreboard")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Hogaboam Law Offices, PLLC")]
 [assembly: AssemblyProduct("American Football Scoreboard")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
