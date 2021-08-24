@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.2.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -320,6 +320,54 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["HotKeyNextDownShift"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Q")]
+        public string HotKeyNextPeriod {
+            get {
+                return ((string)(this["HotKeyNextPeriod"]));
+            }
+            set {
+                this["HotKeyNextPeriod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextPeriodAlt {
+            get {
+                return ((bool)(this["HotKeyNextPeriodAlt"]));
+            }
+            set {
+                this["HotKeyNextPeriodAlt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextPeriodCtrl {
+            get {
+                return ((bool)(this["HotKeyNextPeriodCtrl"]));
+            }
+            set {
+                this["HotKeyNextPeriodCtrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HotKeyNextPeriodShift {
+            get {
+                return ((bool)(this["HotKeyNextPeriodShift"]));
+            }
+            set {
+                this["HotKeyNextPeriodShift"] = value;
             }
         }
     }

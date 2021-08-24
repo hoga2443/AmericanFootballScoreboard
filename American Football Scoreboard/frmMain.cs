@@ -64,6 +64,10 @@ namespace American_Football_Scoreboard
             chkHotKeyNextDownAlt.Checked = Properties.Settings.Default.HotKeyNextDownAlt;
             chkHotKeyNextDownCtrl.Checked = Properties.Settings.Default.HotKeyNextDownCtrl;
             chkHotKeyNextDownShift.Checked = Properties.Settings.Default.HotKeyNextDownShift;
+            txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
+            chkHotKeyNextPeriodAlt.Checked = Properties.Settings.Default.HotKeyNextPeriodAlt;
+            chkHotKeyNextPeriodCtrl.Checked = Properties.Settings.Default.HotKeyNextPeriodCtrl;
+            chkHotKeyNextPeriodShift.Checked = Properties.Settings.Default.HotKeyNextPeriodShift;
         }
 
         private void InitializeUI()
@@ -140,7 +144,8 @@ namespace American_Football_Scoreboard
         }
 
         /*
-         
+        Function to increase/decrease the number of timeouts in a specified control
+        Called by all functions which alter a number of timeouts
         */
         private void AddTimeout(TextBox control, int timeoutsToAdd)
         {
@@ -274,12 +279,19 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyNextDownAlt"] = chkHotKeyNextDownAlt.Checked;
             Properties.Settings.Default["HotKeyNextDownCtrl"] = chkHotKeyNextDownCtrl.Checked;
             Properties.Settings.Default["HotKeyNextDownShift"] = chkHotKeyNextDownShift.Checked;
+            Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
+            Properties.Settings.Default["HotKeyNextPeriodAlt"] = chkHotKeyNextPeriodAlt.Checked;
+            Properties.Settings.Default["HotKeyNextPeriodCtrl"] = chkHotKeyNextPeriodCtrl.Checked;
+            Properties.Settings.Default["HotKeyNextPeriodShift"] = chkHotKeyNextPeriodShift.Checked;
             Properties.Settings.Default.Save();
         }
 
         private void ButNewPlayClock_Click(object sender, EventArgs e)
         {
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
+            playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
+            playTimeEnd = DateTime.UtcNow + playTimeRemaining;
+            butStartStopPlayClock.Text = "Stop Play Clock"; 
             if (!tmrClockRefresh.Enabled)
             {
                 tmrClockRefresh.Enabled = true;
@@ -377,6 +389,10 @@ namespace American_Football_Scoreboard
             }
         }
 
+        /*
+        Copy a file in the filesystem
+        Used to update the timeouts remaining images
+        */
         static async Task CopyFileAsync(string sourcePath, string destinationPath)
         {
             using (Stream source = File.Open(path: sourcePath, mode: FileMode.Open))
@@ -408,9 +424,6 @@ namespace American_Football_Scoreboard
             }
         }
 
-        /*
-        
-        */
         private void NextDown()
         {
             if (rbDownOne.Checked == true)
@@ -502,6 +515,33 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/wiki");
+        }
+
+        private void ToolStripMenuItemClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            this.Close();
+        }
+
+        private void ToolStripMenuItemOpenOutputFolder_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = Properties.Settings.Default.OutputPath,
+                UseShellExecute = true,
+                Verb = "open"
+            });
+        }
+
+        private void ToolStripMenuItemSaveSettings_Click(object sender, EventArgs e)
+        {
+            butHotKeySave.PerformClick();
+            butSaveSettings.PerformClick();
+        }
+
         private void TxtAwayScore_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
@@ -578,6 +618,10 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
         }
 
+        /*
+        Write a specified value to a specified file.
+        Values are only available to applications using the scoreboard after the file has been written.
+        */
         static async Task WriteFileAsync(string file, string content)
         {
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(Properties.Settings.Default.OutputPath, file)))
@@ -585,5 +629,6 @@ namespace American_Football_Scoreboard
                 await outputFile.WriteAsync(content);
             }
         }
+
     }
 }

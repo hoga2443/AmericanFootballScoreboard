@@ -99,6 +99,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\AmericanFootballSocreboardIcon.ico" />
     <Content Include="Output\AwayTeamName.txt" />
     <Content Include="Output\AwayTeamScore.txt" />
     <Content Include="Output\Distance.txt" />

@@ -30,6 +30,7 @@ namespace American_Football_Scoreboard
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.butClearClocks = new System.Windows.Forms.Button();
@@ -84,6 +85,11 @@ namespace American_Football_Scoreboard
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkHotKeyNextPeriodShift = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNextPeriodCtrl = new System.Windows.Forms.CheckBox();
+            this.chkHotKeyNextPeriodAlt = new System.Windows.Forms.CheckBox();
+            this.txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
+            this.lblHotKeyNextPeriod = new System.Windows.Forms.Label();
             this.butHotKeySave = new System.Windows.Forms.Button();
             this.chkHotKeyNextDownShift = new System.Windows.Forms.CheckBox();
             this.chkHotKeyNextDownCtrl = new System.Windows.Forms.CheckBox();
@@ -127,6 +133,13 @@ namespace American_Football_Scoreboard
             this.lblPeriodDuration = new System.Windows.Forms.Label();
             this.fbdOutput = new System.Windows.Forms.FolderBrowserDialog();
             this.tmrClockRefresh = new System.Windows.Forms.Timer(this.components);
+            this.msMain = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openOutputFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -136,6 +149,7 @@ namespace American_Football_Scoreboard
             this.gbHome.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.msMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -143,7 +157,7 @@ namespace American_Football_Scoreboard
             this.tabMain.Controls.Add(this.tabPage1);
             this.tabMain.Controls.Add(this.tabPage3);
             this.tabMain.Controls.Add(this.tabPage2);
-            this.tabMain.Location = new System.Drawing.Point(12, 12);
+            this.tabMain.Location = new System.Drawing.Point(0, 27);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(776, 357);
@@ -718,6 +732,11 @@ namespace American_Football_Scoreboard
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodShift);
+            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodCtrl);
+            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyNextPeriod);
+            this.tabPage3.Controls.Add(this.lblHotKeyNextPeriod);
             this.tabPage3.Controls.Add(this.butHotKeySave);
             this.tabPage3.Controls.Add(this.chkHotKeyNextDownShift);
             this.tabPage3.Controls.Add(this.chkHotKeyNextDownCtrl);
@@ -752,6 +771,52 @@ namespace American_Football_Scoreboard
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hotkeys";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNextPeriodShift
+            // 
+            this.chkHotKeyNextPeriodShift.AutoSize = true;
+            this.chkHotKeyNextPeriodShift.Location = new System.Drawing.Point(333, 165);
+            this.chkHotKeyNextPeriodShift.Name = "chkHotKeyNextPeriodShift";
+            this.chkHotKeyNextPeriodShift.Size = new System.Drawing.Size(47, 17);
+            this.chkHotKeyNextPeriodShift.TabIndex = 36;
+            this.chkHotKeyNextPeriodShift.Text = "Shift";
+            this.chkHotKeyNextPeriodShift.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNextPeriodCtrl
+            // 
+            this.chkHotKeyNextPeriodCtrl.AutoSize = true;
+            this.chkHotKeyNextPeriodCtrl.Location = new System.Drawing.Point(286, 165);
+            this.chkHotKeyNextPeriodCtrl.Name = "chkHotKeyNextPeriodCtrl";
+            this.chkHotKeyNextPeriodCtrl.Size = new System.Drawing.Size(41, 17);
+            this.chkHotKeyNextPeriodCtrl.TabIndex = 35;
+            this.chkHotKeyNextPeriodCtrl.Text = "Ctrl";
+            this.chkHotKeyNextPeriodCtrl.UseVisualStyleBackColor = true;
+            // 
+            // chkHotKeyNextPeriodAlt
+            // 
+            this.chkHotKeyNextPeriodAlt.AutoSize = true;
+            this.chkHotKeyNextPeriodAlt.Location = new System.Drawing.Point(242, 165);
+            this.chkHotKeyNextPeriodAlt.Name = "chkHotKeyNextPeriodAlt";
+            this.chkHotKeyNextPeriodAlt.Size = new System.Drawing.Size(38, 17);
+            this.chkHotKeyNextPeriodAlt.TabIndex = 34;
+            this.chkHotKeyNextPeriodAlt.Text = "Alt";
+            this.chkHotKeyNextPeriodAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyNextPeriod
+            // 
+            this.txtHotKeyNextPeriod.Location = new System.Drawing.Point(136, 162);
+            this.txtHotKeyNextPeriod.Name = "txtHotKeyNextPeriod";
+            this.txtHotKeyNextPeriod.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyNextPeriod.TabIndex = 33;
+            // 
+            // lblHotKeyNextPeriod
+            // 
+            this.lblHotKeyNextPeriod.AutoSize = true;
+            this.lblHotKeyNextPeriod.Location = new System.Drawing.Point(13, 166);
+            this.lblHotKeyNextPeriod.Name = "lblHotKeyNextPeriod";
+            this.lblHotKeyNextPeriod.Size = new System.Drawing.Size(62, 13);
+            this.lblHotKeyNextPeriod.TabIndex = 37;
+            this.lblHotKeyNextPeriod.Text = "Next Period";
             // 
             // butHotKeySave
             // 
@@ -1138,13 +1203,72 @@ namespace American_Football_Scoreboard
             this.tmrClockRefresh.Interval = 450;
             this.tmrClockRefresh.Tick += new System.EventHandler(this.TmrClockRefresh_Tick);
             // 
+            // msMain
+            // 
+            this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.msMain.Location = new System.Drawing.Point(0, 0);
+            this.msMain.Name = "msMain";
+            this.msMain.Size = new System.Drawing.Size(775, 24);
+            this.msMain.TabIndex = 1;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveSettingsToolStripMenuItem,
+            this.openOutputFolderToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveSettingsToolStripMenuItem
+            // 
+            this.saveSettingsToolStripMenuItem.Name = "saveSettingsToolStripMenuItem";
+            this.saveSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveSettingsToolStripMenuItem.Text = "Save Settings";
+            this.saveSettingsToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemSaveSettings_Click);
+            // 
+            // openOutputFolderToolStripMenuItem
+            // 
+            this.openOutputFolderToolStripMenuItem.Name = "openOutputFolderToolStripMenuItem";
+            this.openOutputFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openOutputFolderToolStripMenuItem.Text = "Open Output Folder";
+            this.openOutputFolderToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemOpenOutputFolder_Click);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemClose_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 380);
+            this.ClientSize = new System.Drawing.Size(775, 383);
             this.Controls.Add(this.tabMain);
+            this.Controls.Add(this.msMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MainMenuStrip = this.msMain;
             this.Name = "FrmMain";
             this.Text = "American Football Scoreboard";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyDown);
@@ -1165,7 +1289,10 @@ namespace American_Football_Scoreboard
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.msMain.ResumeLayout(false);
+            this.msMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1268,6 +1395,18 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.TextBox txtHotKeyNextDown;
         private System.Windows.Forms.Label lblHotKeyNextDown;
         private System.Windows.Forms.Button butHotKeySave;
+        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodShift;
+        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodCtrl;
+        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodAlt;
+        private System.Windows.Forms.TextBox txtHotKeyNextPeriod;
+        private System.Windows.Forms.Label lblHotKeyNextPeriod;
+        private System.Windows.Forms.MenuStrip msMain;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openOutputFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
