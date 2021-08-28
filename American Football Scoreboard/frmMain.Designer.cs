@@ -50,10 +50,10 @@ namespace American_Football_Scoreboard
             this.txtPeriodOT = new System.Windows.Forms.TextBox();
             this.butPeriodClear = new System.Windows.Forms.Button();
             this.rbPeriodOT = new System.Windows.Forms.RadioButton();
-            this.rbPeriod4 = new System.Windows.Forms.RadioButton();
-            this.rbPeriod3 = new System.Windows.Forms.RadioButton();
-            this.rbPeriod2 = new System.Windows.Forms.RadioButton();
-            this.rbPeriod1 = new System.Windows.Forms.RadioButton();
+            this.rbPeriodFour = new System.Windows.Forms.RadioButton();
+            this.rbPeriodThree = new System.Windows.Forms.RadioButton();
+            this.rbPeriodTwo = new System.Windows.Forms.RadioButton();
+            this.rbPeriodOne = new System.Windows.Forms.RadioButton();
             this.gbAway = new System.Windows.Forms.GroupBox();
             this.butAwayTimeoutsAdd = new System.Windows.Forms.Button();
             this.butAwayTimeoutsSubtract = new System.Windows.Forms.Button();
@@ -85,35 +85,17 @@ namespace American_Football_Scoreboard
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chkHotKeyNextPeriodShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNextPeriodCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNextPeriodAlt = new System.Windows.Forms.CheckBox();
             this.txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
             this.lblHotKeyNextPeriod = new System.Windows.Forms.Label();
-            this.butHotKeySave = new System.Windows.Forms.Button();
-            this.chkHotKeyNextDownShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNextDownCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNextDownAlt = new System.Windows.Forms.CheckBox();
+            this.butSaveHotKey = new System.Windows.Forms.Button();
             this.txtHotKeyNextDown = new System.Windows.Forms.TextBox();
             this.lblHotKeyNextDown = new System.Windows.Forms.Label();
-            this.chkHotKeyClearClocksShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyClearClocksCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyClearClocksAlt = new System.Windows.Forms.CheckBox();
             this.txtHotKeyClearClocks = new System.Windows.Forms.TextBox();
             this.lblHotKeyClearClocks = new System.Windows.Forms.Label();
-            this.chkHotKeyNewPlayClockShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNewPlayClockCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyNewPlayClockAlt = new System.Windows.Forms.CheckBox();
             this.txtHotKeyNewPlayClock = new System.Windows.Forms.TextBox();
             this.lblHotKeyNewPlayClock = new System.Windows.Forms.Label();
-            this.chkHotKeyStartStopPlayClockShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyStartStopPlayClockCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyStartStopPlayClockAlt = new System.Windows.Forms.CheckBox();
             this.txtHotKeyStartStopPlayClock = new System.Windows.Forms.TextBox();
             this.lblHotKeyStartStopPlayClock = new System.Windows.Forms.Label();
-            this.chkHotKeyStartStopGameClockShift = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyStartStopGameClockCtrl = new System.Windows.Forms.CheckBox();
-            this.chkHotKeyStartStopGameClockAlt = new System.Windows.Forms.CheckBox();
             this.txtHotKeyStartStopGameClock = new System.Windows.Forms.TextBox();
             this.lblHotKeyStartStopGameClock = new System.Windows.Forms.Label();
             this.lblHotKeyKey = new System.Windows.Forms.Label();
@@ -140,6 +122,26 @@ namespace American_Football_Scoreboard
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtHotKeyHome6 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -329,10 +331,10 @@ namespace American_Football_Scoreboard
             this.gbPeriod.Controls.Add(this.txtPeriodOT);
             this.gbPeriod.Controls.Add(this.butPeriodClear);
             this.gbPeriod.Controls.Add(this.rbPeriodOT);
-            this.gbPeriod.Controls.Add(this.rbPeriod4);
-            this.gbPeriod.Controls.Add(this.rbPeriod3);
-            this.gbPeriod.Controls.Add(this.rbPeriod2);
-            this.gbPeriod.Controls.Add(this.rbPeriod1);
+            this.gbPeriod.Controls.Add(this.rbPeriodFour);
+            this.gbPeriod.Controls.Add(this.rbPeriodThree);
+            this.gbPeriod.Controls.Add(this.rbPeriodTwo);
+            this.gbPeriod.Controls.Add(this.rbPeriodOne);
             this.gbPeriod.Location = new System.Drawing.Point(418, 165);
             this.gbPeriod.Name = "gbPeriod";
             this.gbPeriod.Size = new System.Drawing.Size(131, 101);
@@ -370,53 +372,53 @@ namespace American_Football_Scoreboard
             this.rbPeriodOT.UseVisualStyleBackColor = true;
             this.rbPeriodOT.CheckedChanged += new System.EventHandler(this.RbPeriodOT_CheckedChanged);
             // 
-            // rbPeriod4
+            // rbPeriodFour
             // 
-            this.rbPeriod4.AutoSize = true;
-            this.rbPeriod4.Location = new System.Drawing.Point(68, 19);
-            this.rbPeriod4.Name = "rbPeriod4";
-            this.rbPeriod4.Size = new System.Drawing.Size(31, 17);
-            this.rbPeriod4.TabIndex = 3;
-            this.rbPeriod4.TabStop = true;
-            this.rbPeriod4.Text = "4";
-            this.rbPeriod4.UseVisualStyleBackColor = true;
-            this.rbPeriod4.CheckedChanged += new System.EventHandler(this.RbPeriod4_CheckedChanged);
+            this.rbPeriodFour.AutoSize = true;
+            this.rbPeriodFour.Location = new System.Drawing.Point(68, 19);
+            this.rbPeriodFour.Name = "rbPeriodFour";
+            this.rbPeriodFour.Size = new System.Drawing.Size(31, 17);
+            this.rbPeriodFour.TabIndex = 3;
+            this.rbPeriodFour.TabStop = true;
+            this.rbPeriodFour.Text = "4";
+            this.rbPeriodFour.UseVisualStyleBackColor = true;
+            this.rbPeriodFour.CheckedChanged += new System.EventHandler(this.RbPeriodFour_CheckedChanged);
             // 
-            // rbPeriod3
+            // rbPeriodThree
             // 
-            this.rbPeriod3.AutoSize = true;
-            this.rbPeriod3.Location = new System.Drawing.Point(7, 68);
-            this.rbPeriod3.Name = "rbPeriod3";
-            this.rbPeriod3.Size = new System.Drawing.Size(31, 17);
-            this.rbPeriod3.TabIndex = 2;
-            this.rbPeriod3.TabStop = true;
-            this.rbPeriod3.Text = "3";
-            this.rbPeriod3.UseVisualStyleBackColor = true;
-            this.rbPeriod3.CheckedChanged += new System.EventHandler(this.RbPeriod3_CheckedChanged);
+            this.rbPeriodThree.AutoSize = true;
+            this.rbPeriodThree.Location = new System.Drawing.Point(7, 68);
+            this.rbPeriodThree.Name = "rbPeriodThree";
+            this.rbPeriodThree.Size = new System.Drawing.Size(31, 17);
+            this.rbPeriodThree.TabIndex = 2;
+            this.rbPeriodThree.TabStop = true;
+            this.rbPeriodThree.Text = "3";
+            this.rbPeriodThree.UseVisualStyleBackColor = true;
+            this.rbPeriodThree.CheckedChanged += new System.EventHandler(this.RbPeriodThree_CheckedChanged);
             // 
-            // rbPeriod2
+            // rbPeriodTwo
             // 
-            this.rbPeriod2.AutoSize = true;
-            this.rbPeriod2.Location = new System.Drawing.Point(7, 44);
-            this.rbPeriod2.Name = "rbPeriod2";
-            this.rbPeriod2.Size = new System.Drawing.Size(31, 17);
-            this.rbPeriod2.TabIndex = 1;
-            this.rbPeriod2.TabStop = true;
-            this.rbPeriod2.Text = "2";
-            this.rbPeriod2.UseVisualStyleBackColor = true;
-            this.rbPeriod2.CheckedChanged += new System.EventHandler(this.RbPeriod2_CheckedChanged);
+            this.rbPeriodTwo.AutoSize = true;
+            this.rbPeriodTwo.Location = new System.Drawing.Point(7, 44);
+            this.rbPeriodTwo.Name = "rbPeriodTwo";
+            this.rbPeriodTwo.Size = new System.Drawing.Size(31, 17);
+            this.rbPeriodTwo.TabIndex = 1;
+            this.rbPeriodTwo.TabStop = true;
+            this.rbPeriodTwo.Text = "2";
+            this.rbPeriodTwo.UseVisualStyleBackColor = true;
+            this.rbPeriodTwo.CheckedChanged += new System.EventHandler(this.RbPeriodTwo_CheckedChanged);
             // 
-            // rbPeriod1
+            // rbPeriodOne
             // 
-            this.rbPeriod1.AutoSize = true;
-            this.rbPeriod1.Location = new System.Drawing.Point(7, 20);
-            this.rbPeriod1.Name = "rbPeriod1";
-            this.rbPeriod1.Size = new System.Drawing.Size(31, 17);
-            this.rbPeriod1.TabIndex = 0;
-            this.rbPeriod1.TabStop = true;
-            this.rbPeriod1.Text = "1";
-            this.rbPeriod1.UseVisualStyleBackColor = true;
-            this.rbPeriod1.CheckedChanged += new System.EventHandler(this.RbPeriod1_CheckedChanged);
+            this.rbPeriodOne.AutoSize = true;
+            this.rbPeriodOne.Location = new System.Drawing.Point(7, 20);
+            this.rbPeriodOne.Name = "rbPeriodOne";
+            this.rbPeriodOne.Size = new System.Drawing.Size(31, 17);
+            this.rbPeriodOne.TabIndex = 0;
+            this.rbPeriodOne.TabStop = true;
+            this.rbPeriodOne.Text = "1";
+            this.rbPeriodOne.UseVisualStyleBackColor = true;
+            this.rbPeriodOne.CheckedChanged += new System.EventHandler(this.RbPeriodOne_CheckedChanged);
             // 
             // gbAway
             // 
@@ -732,35 +734,37 @@ namespace American_Football_Scoreboard
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyNextPeriodAlt);
+            this.tabPage3.Controls.Add(this.txtHotKeyAway6);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.txtHotKeyAway3);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.txtHotKeyAway2);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.txtHotKeyAway1);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.txtHotKeyHome6);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.txtHotKeyHome3);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.txtHotKeyHome2);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.txtHotKeyHome1);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.txtHotKeyNextPeriod);
             this.tabPage3.Controls.Add(this.lblHotKeyNextPeriod);
-            this.tabPage3.Controls.Add(this.butHotKeySave);
-            this.tabPage3.Controls.Add(this.chkHotKeyNextDownShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyNextDownCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyNextDownAlt);
+            this.tabPage3.Controls.Add(this.butSaveHotKey);
             this.tabPage3.Controls.Add(this.txtHotKeyNextDown);
             this.tabPage3.Controls.Add(this.lblHotKeyNextDown);
-            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyClearClocksAlt);
             this.tabPage3.Controls.Add(this.txtHotKeyClearClocks);
             this.tabPage3.Controls.Add(this.lblHotKeyClearClocks);
-            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyNewPlayClockAlt);
             this.tabPage3.Controls.Add(this.txtHotKeyNewPlayClock);
             this.tabPage3.Controls.Add(this.lblHotKeyNewPlayClock);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopPlayClockAlt);
             this.tabPage3.Controls.Add(this.txtHotKeyStartStopPlayClock);
             this.tabPage3.Controls.Add(this.lblHotKeyStartStopPlayClock);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockShift);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockCtrl);
-            this.tabPage3.Controls.Add(this.chkHotKeyStartStopGameClockAlt);
             this.tabPage3.Controls.Add(this.txtHotKeyStartStopGameClock);
             this.tabPage3.Controls.Add(this.lblHotKeyStartStopGameClock);
             this.tabPage3.Controls.Add(this.lblHotKeyKey);
@@ -772,42 +776,12 @@ namespace American_Football_Scoreboard
             this.tabPage3.Text = "Hotkeys";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chkHotKeyNextPeriodShift
-            // 
-            this.chkHotKeyNextPeriodShift.AutoSize = true;
-            this.chkHotKeyNextPeriodShift.Location = new System.Drawing.Point(333, 165);
-            this.chkHotKeyNextPeriodShift.Name = "chkHotKeyNextPeriodShift";
-            this.chkHotKeyNextPeriodShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyNextPeriodShift.TabIndex = 36;
-            this.chkHotKeyNextPeriodShift.Text = "Shift";
-            this.chkHotKeyNextPeriodShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNextPeriodCtrl
-            // 
-            this.chkHotKeyNextPeriodCtrl.AutoSize = true;
-            this.chkHotKeyNextPeriodCtrl.Location = new System.Drawing.Point(286, 165);
-            this.chkHotKeyNextPeriodCtrl.Name = "chkHotKeyNextPeriodCtrl";
-            this.chkHotKeyNextPeriodCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyNextPeriodCtrl.TabIndex = 35;
-            this.chkHotKeyNextPeriodCtrl.Text = "Ctrl";
-            this.chkHotKeyNextPeriodCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNextPeriodAlt
-            // 
-            this.chkHotKeyNextPeriodAlt.AutoSize = true;
-            this.chkHotKeyNextPeriodAlt.Location = new System.Drawing.Point(242, 165);
-            this.chkHotKeyNextPeriodAlt.Name = "chkHotKeyNextPeriodAlt";
-            this.chkHotKeyNextPeriodAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyNextPeriodAlt.TabIndex = 34;
-            this.chkHotKeyNextPeriodAlt.Text = "Alt";
-            this.chkHotKeyNextPeriodAlt.UseVisualStyleBackColor = true;
-            // 
             // txtHotKeyNextPeriod
             // 
             this.txtHotKeyNextPeriod.Location = new System.Drawing.Point(136, 162);
             this.txtHotKeyNextPeriod.Name = "txtHotKeyNextPeriod";
             this.txtHotKeyNextPeriod.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyNextPeriod.TabIndex = 33;
+            this.txtHotKeyNextPeriod.TabIndex = 6;
             // 
             // lblHotKeyNextPeriod
             // 
@@ -818,52 +792,22 @@ namespace American_Football_Scoreboard
             this.lblHotKeyNextPeriod.TabIndex = 37;
             this.lblHotKeyNextPeriod.Text = "Next Period";
             // 
-            // butHotKeySave
+            // butSaveHotKey
             // 
-            this.butHotKeySave.Location = new System.Drawing.Point(16, 300);
-            this.butHotKeySave.Name = "butHotKeySave";
-            this.butHotKeySave.Size = new System.Drawing.Size(75, 23);
-            this.butHotKeySave.TabIndex = 32;
-            this.butHotKeySave.Text = "Save";
-            this.butHotKeySave.UseVisualStyleBackColor = true;
-            this.butHotKeySave.Click += new System.EventHandler(this.ButHotKeySave_Click);
-            // 
-            // chkHotKeyNextDownShift
-            // 
-            this.chkHotKeyNextDownShift.AutoSize = true;
-            this.chkHotKeyNextDownShift.Location = new System.Drawing.Point(333, 139);
-            this.chkHotKeyNextDownShift.Name = "chkHotKeyNextDownShift";
-            this.chkHotKeyNextDownShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyNextDownShift.TabIndex = 20;
-            this.chkHotKeyNextDownShift.Text = "Shift";
-            this.chkHotKeyNextDownShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNextDownCtrl
-            // 
-            this.chkHotKeyNextDownCtrl.AutoSize = true;
-            this.chkHotKeyNextDownCtrl.Location = new System.Drawing.Point(286, 139);
-            this.chkHotKeyNextDownCtrl.Name = "chkHotKeyNextDownCtrl";
-            this.chkHotKeyNextDownCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyNextDownCtrl.TabIndex = 19;
-            this.chkHotKeyNextDownCtrl.Text = "Ctrl";
-            this.chkHotKeyNextDownCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNextDownAlt
-            // 
-            this.chkHotKeyNextDownAlt.AutoSize = true;
-            this.chkHotKeyNextDownAlt.Location = new System.Drawing.Point(242, 139);
-            this.chkHotKeyNextDownAlt.Name = "chkHotKeyNextDownAlt";
-            this.chkHotKeyNextDownAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyNextDownAlt.TabIndex = 18;
-            this.chkHotKeyNextDownAlt.Text = "Alt";
-            this.chkHotKeyNextDownAlt.UseVisualStyleBackColor = true;
+            this.butSaveHotKey.Location = new System.Drawing.Point(16, 300);
+            this.butSaveHotKey.Name = "butSaveHotKey";
+            this.butSaveHotKey.Size = new System.Drawing.Size(75, 23);
+            this.butSaveHotKey.TabIndex = 15;
+            this.butSaveHotKey.Text = "Save";
+            this.butSaveHotKey.UseVisualStyleBackColor = true;
+            this.butSaveHotKey.Click += new System.EventHandler(this.ButSaveHotKey_Click);
             // 
             // txtHotKeyNextDown
             // 
             this.txtHotKeyNextDown.Location = new System.Drawing.Point(136, 136);
             this.txtHotKeyNextDown.Name = "txtHotKeyNextDown";
             this.txtHotKeyNextDown.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyNextDown.TabIndex = 17;
+            this.txtHotKeyNextDown.TabIndex = 5;
             // 
             // lblHotKeyNextDown
             // 
@@ -874,42 +818,12 @@ namespace American_Football_Scoreboard
             this.lblHotKeyNextDown.TabIndex = 27;
             this.lblHotKeyNextDown.Text = "Next Down";
             // 
-            // chkHotKeyClearClocksShift
-            // 
-            this.chkHotKeyClearClocksShift.AutoSize = true;
-            this.chkHotKeyClearClocksShift.Location = new System.Drawing.Point(333, 113);
-            this.chkHotKeyClearClocksShift.Name = "chkHotKeyClearClocksShift";
-            this.chkHotKeyClearClocksShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyClearClocksShift.TabIndex = 16;
-            this.chkHotKeyClearClocksShift.Text = "Shift";
-            this.chkHotKeyClearClocksShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyClearClocksCtrl
-            // 
-            this.chkHotKeyClearClocksCtrl.AutoSize = true;
-            this.chkHotKeyClearClocksCtrl.Location = new System.Drawing.Point(286, 113);
-            this.chkHotKeyClearClocksCtrl.Name = "chkHotKeyClearClocksCtrl";
-            this.chkHotKeyClearClocksCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyClearClocksCtrl.TabIndex = 15;
-            this.chkHotKeyClearClocksCtrl.Text = "Ctrl";
-            this.chkHotKeyClearClocksCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyClearClocksAlt
-            // 
-            this.chkHotKeyClearClocksAlt.AutoSize = true;
-            this.chkHotKeyClearClocksAlt.Location = new System.Drawing.Point(242, 113);
-            this.chkHotKeyClearClocksAlt.Name = "chkHotKeyClearClocksAlt";
-            this.chkHotKeyClearClocksAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyClearClocksAlt.TabIndex = 14;
-            this.chkHotKeyClearClocksAlt.Text = "Alt";
-            this.chkHotKeyClearClocksAlt.UseVisualStyleBackColor = true;
-            // 
             // txtHotKeyClearClocks
             // 
             this.txtHotKeyClearClocks.Location = new System.Drawing.Point(136, 110);
             this.txtHotKeyClearClocks.Name = "txtHotKeyClearClocks";
             this.txtHotKeyClearClocks.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyClearClocks.TabIndex = 13;
+            this.txtHotKeyClearClocks.TabIndex = 4;
             // 
             // lblHotKeyClearClocks
             // 
@@ -920,42 +834,12 @@ namespace American_Football_Scoreboard
             this.lblHotKeyClearClocks.TabIndex = 22;
             this.lblHotKeyClearClocks.Text = "Clear Clocks";
             // 
-            // chkHotKeyNewPlayClockShift
-            // 
-            this.chkHotKeyNewPlayClockShift.AutoSize = true;
-            this.chkHotKeyNewPlayClockShift.Location = new System.Drawing.Point(333, 87);
-            this.chkHotKeyNewPlayClockShift.Name = "chkHotKeyNewPlayClockShift";
-            this.chkHotKeyNewPlayClockShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyNewPlayClockShift.TabIndex = 12;
-            this.chkHotKeyNewPlayClockShift.Text = "Shift";
-            this.chkHotKeyNewPlayClockShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNewPlayClockCtrl
-            // 
-            this.chkHotKeyNewPlayClockCtrl.AutoSize = true;
-            this.chkHotKeyNewPlayClockCtrl.Location = new System.Drawing.Point(286, 87);
-            this.chkHotKeyNewPlayClockCtrl.Name = "chkHotKeyNewPlayClockCtrl";
-            this.chkHotKeyNewPlayClockCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyNewPlayClockCtrl.TabIndex = 11;
-            this.chkHotKeyNewPlayClockCtrl.Text = "Ctrl";
-            this.chkHotKeyNewPlayClockCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyNewPlayClockAlt
-            // 
-            this.chkHotKeyNewPlayClockAlt.AutoSize = true;
-            this.chkHotKeyNewPlayClockAlt.Location = new System.Drawing.Point(242, 87);
-            this.chkHotKeyNewPlayClockAlt.Name = "chkHotKeyNewPlayClockAlt";
-            this.chkHotKeyNewPlayClockAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyNewPlayClockAlt.TabIndex = 10;
-            this.chkHotKeyNewPlayClockAlt.Text = "Alt";
-            this.chkHotKeyNewPlayClockAlt.UseVisualStyleBackColor = true;
-            // 
             // txtHotKeyNewPlayClock
             // 
             this.txtHotKeyNewPlayClock.Location = new System.Drawing.Point(136, 84);
             this.txtHotKeyNewPlayClock.Name = "txtHotKeyNewPlayClock";
             this.txtHotKeyNewPlayClock.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyNewPlayClock.TabIndex = 9;
+            this.txtHotKeyNewPlayClock.TabIndex = 3;
             // 
             // lblHotKeyNewPlayClock
             // 
@@ -966,42 +850,12 @@ namespace American_Football_Scoreboard
             this.lblHotKeyNewPlayClock.TabIndex = 17;
             this.lblHotKeyNewPlayClock.Text = "New Play Clock";
             // 
-            // chkHotKeyStartStopPlayClockShift
-            // 
-            this.chkHotKeyStartStopPlayClockShift.AutoSize = true;
-            this.chkHotKeyStartStopPlayClockShift.Location = new System.Drawing.Point(333, 61);
-            this.chkHotKeyStartStopPlayClockShift.Name = "chkHotKeyStartStopPlayClockShift";
-            this.chkHotKeyStartStopPlayClockShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyStartStopPlayClockShift.TabIndex = 8;
-            this.chkHotKeyStartStopPlayClockShift.Text = "Shift";
-            this.chkHotKeyStartStopPlayClockShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyStartStopPlayClockCtrl
-            // 
-            this.chkHotKeyStartStopPlayClockCtrl.AutoSize = true;
-            this.chkHotKeyStartStopPlayClockCtrl.Location = new System.Drawing.Point(286, 61);
-            this.chkHotKeyStartStopPlayClockCtrl.Name = "chkHotKeyStartStopPlayClockCtrl";
-            this.chkHotKeyStartStopPlayClockCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyStartStopPlayClockCtrl.TabIndex = 7;
-            this.chkHotKeyStartStopPlayClockCtrl.Text = "Ctrl";
-            this.chkHotKeyStartStopPlayClockCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyStartStopPlayClockAlt
-            // 
-            this.chkHotKeyStartStopPlayClockAlt.AutoSize = true;
-            this.chkHotKeyStartStopPlayClockAlt.Location = new System.Drawing.Point(242, 61);
-            this.chkHotKeyStartStopPlayClockAlt.Name = "chkHotKeyStartStopPlayClockAlt";
-            this.chkHotKeyStartStopPlayClockAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyStartStopPlayClockAlt.TabIndex = 6;
-            this.chkHotKeyStartStopPlayClockAlt.Text = "Alt";
-            this.chkHotKeyStartStopPlayClockAlt.UseVisualStyleBackColor = true;
-            // 
             // txtHotKeyStartStopPlayClock
             // 
             this.txtHotKeyStartStopPlayClock.Location = new System.Drawing.Point(136, 58);
             this.txtHotKeyStartStopPlayClock.Name = "txtHotKeyStartStopPlayClock";
             this.txtHotKeyStartStopPlayClock.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyStartStopPlayClock.TabIndex = 5;
+            this.txtHotKeyStartStopPlayClock.TabIndex = 2;
             // 
             // lblHotKeyStartStopPlayClock
             // 
@@ -1011,36 +865,6 @@ namespace American_Football_Scoreboard
             this.lblHotKeyStartStopPlayClock.Size = new System.Drawing.Size(109, 13);
             this.lblHotKeyStartStopPlayClock.TabIndex = 12;
             this.lblHotKeyStartStopPlayClock.Text = "Start/Stop Play Clock";
-            // 
-            // chkHotKeyStartStopGameClockShift
-            // 
-            this.chkHotKeyStartStopGameClockShift.AutoSize = true;
-            this.chkHotKeyStartStopGameClockShift.Location = new System.Drawing.Point(333, 35);
-            this.chkHotKeyStartStopGameClockShift.Name = "chkHotKeyStartStopGameClockShift";
-            this.chkHotKeyStartStopGameClockShift.Size = new System.Drawing.Size(47, 17);
-            this.chkHotKeyStartStopGameClockShift.TabIndex = 4;
-            this.chkHotKeyStartStopGameClockShift.Text = "Shift";
-            this.chkHotKeyStartStopGameClockShift.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyStartStopGameClockCtrl
-            // 
-            this.chkHotKeyStartStopGameClockCtrl.AutoSize = true;
-            this.chkHotKeyStartStopGameClockCtrl.Location = new System.Drawing.Point(286, 35);
-            this.chkHotKeyStartStopGameClockCtrl.Name = "chkHotKeyStartStopGameClockCtrl";
-            this.chkHotKeyStartStopGameClockCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkHotKeyStartStopGameClockCtrl.TabIndex = 3;
-            this.chkHotKeyStartStopGameClockCtrl.Text = "Ctrl";
-            this.chkHotKeyStartStopGameClockCtrl.UseVisualStyleBackColor = true;
-            // 
-            // chkHotKeyStartStopGameClockAlt
-            // 
-            this.chkHotKeyStartStopGameClockAlt.AutoSize = true;
-            this.chkHotKeyStartStopGameClockAlt.Location = new System.Drawing.Point(242, 35);
-            this.chkHotKeyStartStopGameClockAlt.Name = "chkHotKeyStartStopGameClockAlt";
-            this.chkHotKeyStartStopGameClockAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkHotKeyStartStopGameClockAlt.TabIndex = 2;
-            this.chkHotKeyStartStopGameClockAlt.Text = "Alt";
-            this.chkHotKeyStartStopGameClockAlt.UseVisualStyleBackColor = true;
             // 
             // txtHotKeyStartStopGameClock
             // 
@@ -1205,6 +1029,7 @@ namespace American_Football_Scoreboard
             // 
             // msMain
             // 
+            this.msMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -1259,6 +1084,170 @@ namespace American_Football_Scoreboard
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
+            // txtHotKeyHome6
+            // 
+            this.txtHotKeyHome6.Location = new System.Drawing.Point(287, 110);
+            this.txtHotKeyHome6.Name = "txtHotKeyHome6";
+            this.txtHotKeyHome6.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome6.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "+6";
+            // 
+            // txtHotKeyHome3
+            // 
+            this.txtHotKeyHome3.Location = new System.Drawing.Point(287, 81);
+            this.txtHotKeyHome3.Name = "txtHotKeyHome3";
+            this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome3.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(242, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "+3";
+            // 
+            // txtHotKeyHome2
+            // 
+            this.txtHotKeyHome2.Location = new System.Drawing.Point(287, 58);
+            this.txtHotKeyHome2.Name = "txtHotKeyHome2";
+            this.txtHotKeyHome2.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(242, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "+2";
+            // 
+            // txtHotKeyHome1
+            // 
+            this.txtHotKeyHome1.Location = new System.Drawing.Point(287, 32);
+            this.txtHotKeyHome1.Name = "txtHotKeyHome1";
+            this.txtHotKeyHome1.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(242, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "+1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(284, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Key";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(242, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Home";
+            // 
+            // txtHotKeyAway6
+            // 
+            this.txtHotKeyAway6.Location = new System.Drawing.Point(435, 110);
+            this.txtHotKeyAway6.Name = "txtHotKeyAway6";
+            this.txtHotKeyAway6.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway6.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(393, 114);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "+6";
+            // 
+            // txtHotKeyAway3
+            // 
+            this.txtHotKeyAway3.Location = new System.Drawing.Point(435, 84);
+            this.txtHotKeyAway3.Name = "txtHotKeyAway3";
+            this.txtHotKeyAway3.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway3.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(393, 88);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "+3";
+            // 
+            // txtHotKeyAway2
+            // 
+            this.txtHotKeyAway2.Location = new System.Drawing.Point(435, 58);
+            this.txtHotKeyAway2.Name = "txtHotKeyAway2";
+            this.txtHotKeyAway2.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway2.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(393, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "+2";
+            // 
+            // txtHotKeyAway1
+            // 
+            this.txtHotKeyAway1.Location = new System.Drawing.Point(435, 32);
+            this.txtHotKeyAway1.Name = "txtHotKeyAway1";
+            this.txtHotKeyAway1.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway1.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(393, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 52;
+            this.label10.Text = "+1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(432, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 13);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Key";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(393, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Away";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1267,11 +1256,9 @@ namespace American_Football_Scoreboard
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.msMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.KeyPreview = true;
             this.MainMenuStrip = this.msMain;
             this.Name = "FrmMain";
-            this.Text = "American Football Scoreboard";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyDown);
+            this.Text = "AFS";
             this.tabMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1340,10 +1327,10 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Button butOutputFolder;
         private System.Windows.Forms.Button butNewPlayClock;
         private System.Windows.Forms.RadioButton rbPeriodOT;
-        private System.Windows.Forms.RadioButton rbPeriod4;
-        private System.Windows.Forms.RadioButton rbPeriod3;
-        private System.Windows.Forms.RadioButton rbPeriod2;
-        private System.Windows.Forms.RadioButton rbPeriod1;
+        private System.Windows.Forms.RadioButton rbPeriodFour;
+        private System.Windows.Forms.RadioButton rbPeriodThree;
+        private System.Windows.Forms.RadioButton rbPeriodTwo;
+        private System.Windows.Forms.RadioButton rbPeriodOne;
         private System.Windows.Forms.Button butClearAway;
         private System.Windows.Forms.Button butClearHome;
         private System.Windows.Forms.Button butDownClear;
@@ -1367,37 +1354,19 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label lblHomeTimeouts;
         private System.Windows.Forms.Button butClearClocks;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockShift;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopGameClockAlt;
         private System.Windows.Forms.TextBox txtHotKeyStartStopGameClock;
         private System.Windows.Forms.Label lblHotKeyStartStopGameClock;
         private System.Windows.Forms.Label lblHotKeyKey;
         private System.Windows.Forms.Label lblHotKeyFunction;
-        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockShift;
-        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyNewPlayClockAlt;
         private System.Windows.Forms.TextBox txtHotKeyNewPlayClock;
         private System.Windows.Forms.Label lblHotKeyNewPlayClock;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockShift;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyStartStopPlayClockAlt;
         private System.Windows.Forms.TextBox txtHotKeyStartStopPlayClock;
         private System.Windows.Forms.Label lblHotKeyStartStopPlayClock;
-        private System.Windows.Forms.CheckBox chkHotKeyClearClocksShift;
-        private System.Windows.Forms.CheckBox chkHotKeyClearClocksCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyClearClocksAlt;
         private System.Windows.Forms.TextBox txtHotKeyClearClocks;
         private System.Windows.Forms.Label lblHotKeyClearClocks;
-        private System.Windows.Forms.CheckBox chkHotKeyNextDownShift;
-        private System.Windows.Forms.CheckBox chkHotKeyNextDownCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyNextDownAlt;
         private System.Windows.Forms.TextBox txtHotKeyNextDown;
         private System.Windows.Forms.Label lblHotKeyNextDown;
-        private System.Windows.Forms.Button butHotKeySave;
-        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodShift;
-        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodCtrl;
-        private System.Windows.Forms.CheckBox chkHotKeyNextPeriodAlt;
+        private System.Windows.Forms.Button butSaveHotKey;
         private System.Windows.Forms.TextBox txtHotKeyNextPeriod;
         private System.Windows.Forms.Label lblHotKeyNextPeriod;
         private System.Windows.Forms.MenuStrip msMain;
@@ -1407,6 +1376,26 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtHotKeyAway6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtHotKeyAway3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtHotKeyAway2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtHotKeyAway1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtHotKeyHome6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtHotKeyHome3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtHotKeyHome2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtHotKeyHome1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

@@ -35,6 +35,7 @@ namespace American_Football_Scoreboard
             InitializeComponent();
             LoadSettings();
             InitializeUI();
+            RegisterHotKeys();
         }
 
         private void LoadSettings()
@@ -45,29 +46,11 @@ namespace American_Football_Scoreboard
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
-            chkHotKeyStartStopGameClockAlt.Checked = Properties.Settings.Default.HotKeyStartStopGameClockAlt;
-            chkHotKeyStartStopGameClockCtrl.Checked = Properties.Settings.Default.HotKeyStartStopGameClockCtrl;
-            chkHotKeyStartStopGameClockShift.Checked = Properties.Settings.Default.HotKeyStartStopGameClockShift;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            chkHotKeyStartStopPlayClockAlt.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockAlt;
-            chkHotKeyStartStopPlayClockCtrl.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockCtrl;
-            chkHotKeyStartStopPlayClockShift.Checked = Properties.Settings.Default.HotKeyStartStopPlayClockShift;
             txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
-            chkHotKeyNewPlayClockAlt.Checked = Properties.Settings.Default.HotKeyNewPlayClockAlt;
-            chkHotKeyNewPlayClockCtrl.Checked = Properties.Settings.Default.HotKeyNewPlayClockCtrl;
-            chkHotKeyNewPlayClockShift.Checked = Properties.Settings.Default.HotKeyNewPlayClockShift;
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
-            chkHotKeyClearClocksAlt.Checked = Properties.Settings.Default.HotKeyClearClocksAlt;
-            chkHotKeyClearClocksCtrl.Checked = Properties.Settings.Default.HotKeyClearClocksCtrl;
-            chkHotKeyClearClocksShift.Checked = Properties.Settings.Default.HotKeyClearClocksShift;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
-            chkHotKeyNextDownAlt.Checked = Properties.Settings.Default.HotKeyNextDownAlt;
-            chkHotKeyNextDownCtrl.Checked = Properties.Settings.Default.HotKeyNextDownCtrl;
-            chkHotKeyNextDownShift.Checked = Properties.Settings.Default.HotKeyNextDownShift;
             txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
-            chkHotKeyNextPeriodAlt.Checked = Properties.Settings.Default.HotKeyNextPeriodAlt;
-            chkHotKeyNextPeriodCtrl.Checked = Properties.Settings.Default.HotKeyNextPeriodCtrl;
-            chkHotKeyNextPeriodShift.Checked = Properties.Settings.Default.HotKeyNextPeriodShift;
         }
 
         private void InitializeUI()
@@ -79,11 +62,10 @@ namespace American_Football_Scoreboard
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
         }
 
+        /*
         private void FrmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            /*
-            Start/Stop Game Clock
-            */
+            // Start/Stop Game Clock
             if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopGameClock
                 && e.Alt == Properties.Settings.Default.HotKeyStartStopGameClockAlt
                 && e.Control == Properties.Settings.Default.HotKeyStartStopGameClockCtrl
@@ -91,9 +73,7 @@ namespace American_Football_Scoreboard
             {
                 butStartStopGameClock.PerformClick();
             }
-            /*
-            Start/Stop Play Clock
-            */
+            // Start/Stop Play Clock
             else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopPlayClock
                 && e.Alt == Properties.Settings.Default.HotKeyStartStopPlayClockAlt
                 && e.Control == Properties.Settings.Default.HotKeyStartStopPlayClockCtrl
@@ -101,9 +81,7 @@ namespace American_Football_Scoreboard
             {
                 butStartStopPlayClock.PerformClick();
             }
-            /*
-            New Play Clock
-            */
+            // New Play Clock
             else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNewPlayClock
                 && e.Alt == Properties.Settings.Default.HotKeyNewPlayClockAlt
                 && e.Control == Properties.Settings.Default.HotKeyNewPlayClockCtrl
@@ -111,9 +89,7 @@ namespace American_Football_Scoreboard
             {
                 butNewPlayClock.PerformClick();
             }
-            /*
-            Clear Clocks
-            */
+            // Clear Clocks
             else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyClearClocks
                 && e.Alt == Properties.Settings.Default.HotKeyClearClocksAlt
                 && e.Control == Properties.Settings.Default.HotKeyClearClocksCtrl
@@ -121,9 +97,7 @@ namespace American_Football_Scoreboard
             {
                 butClearClocks.PerformClick();
             }
-            /*
-            Next Down 
-            */
+            // Next Down
             else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNextDown
                 && e.Alt == Properties.Settings.Default.HotKeyNextDownAlt
                 && e.Control == Properties.Settings.Default.HotKeyNextDownCtrl
@@ -131,7 +105,16 @@ namespace American_Football_Scoreboard
             {
                 NextDown();
             }
+            // Next Period
+            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNextPeriod
+                && e.Alt == Properties.Settings.Default.HotKeyNextPeriodAlt
+                && e.Control == Properties.Settings.Default.HotKeyNextPeriodCtrl
+                && e.Shift == Properties.Settings.Default.HotKeyNextPeriodShift)
+            {
+                NextPeriod();
+            }
         }
+        */
 
         /*
         Function to add a specified number of points to a specified control
@@ -257,35 +240,6 @@ namespace American_Football_Scoreboard
             AddTimeout(txtHomeTimeouts, -1);
         }
 
-        private void ButHotKeySave_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
-            Properties.Settings.Default["HotKeyStartStopGameClockAlt"] = chkHotKeyStartStopGameClockAlt.Checked;
-            Properties.Settings.Default["HotKeyStartStopGameClockCtrl"] = chkHotKeyStartStopGameClockCtrl.Checked;
-            Properties.Settings.Default["HotKeyStartStopGameClockShift"] = chkHotKeyStartStopGameClockShift.Checked;
-            Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
-            Properties.Settings.Default["HotKeyStartStopPlayClockAlt"] = chkHotKeyStartStopPlayClockAlt.Checked;
-            Properties.Settings.Default["HotKeyStartStopPlayClockCtrl"] = chkHotKeyStartStopPlayClockCtrl.Checked;
-            Properties.Settings.Default["HotKeyStartStopPlayClockShift"] = chkHotKeyStartStopPlayClockShift.Checked;
-            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
-            Properties.Settings.Default["HotKeyNewPlayClockAlt"] = chkHotKeyNewPlayClockAlt.Checked;
-            Properties.Settings.Default["HotKeyNewPlayClockCtrl"] = chkHotKeyNewPlayClockCtrl.Checked;
-            Properties.Settings.Default["HotKeyNewPlayClockShift"] = chkHotKeyNewPlayClockShift.Checked;
-            Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
-            Properties.Settings.Default["HotKeyClearClocksAlt"] = chkHotKeyClearClocksAlt.Checked;
-            Properties.Settings.Default["HotKeyClearClocksCtrl"] = chkHotKeyClearClocksCtrl.Checked;
-            Properties.Settings.Default["HotKeyClearClocksShift"] = chkHotKeyClearClocksShift.Checked;
-            Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
-            Properties.Settings.Default["HotKeyNextDownAlt"] = chkHotKeyNextDownAlt.Checked;
-            Properties.Settings.Default["HotKeyNextDownCtrl"] = chkHotKeyNextDownCtrl.Checked;
-            Properties.Settings.Default["HotKeyNextDownShift"] = chkHotKeyNextDownShift.Checked;
-            Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
-            Properties.Settings.Default["HotKeyNextPeriodAlt"] = chkHotKeyNextPeriodAlt.Checked;
-            Properties.Settings.Default["HotKeyNextPeriodCtrl"] = chkHotKeyNextPeriodCtrl.Checked;
-            Properties.Settings.Default["HotKeyNextPeriodShift"] = chkHotKeyNextPeriodShift.Checked;
-            Properties.Settings.Default.Save();
-        }
-
         private void ButNewPlayClock_Click(object sender, EventArgs e)
         {
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
@@ -310,11 +264,32 @@ namespace American_Football_Scoreboard
 
         private void ButPeriodClear_Click(object sender, EventArgs e)
         {
-            rbPeriod1.Checked = false;
-            rbPeriod2.Checked = false;
-            rbPeriod3.Checked = false;
-            rbPeriod4.Checked = false;
+            rbPeriodOne.Checked = false;
+            rbPeriodTwo.Checked = false;
+            rbPeriodThree.Checked = false;
+            rbPeriodFour.Checked = false;
             rbPeriodOT.Checked = false;
+        }
+
+        private void ButSaveHotKey_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
+            Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
+            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
+            Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
+            Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
+            Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
+            Properties.Settings.Default["HotKeyAway1"] = txtHotKeyAway1.Text;
+            Properties.Settings.Default["HotKeyAway2"] = txtHotKeyAway2.Text;
+            Properties.Settings.Default["HotKeyAway3"] = txtHotKeyAway3.Text;
+            Properties.Settings.Default["HotKeyAway6"] = txtHotKeyAway6.Text;
+            Properties.Settings.Default["HotKeyHome1"] = txtHotKeyHome1.Text;
+            Properties.Settings.Default["HotKeyHome2"] = txtHotKeyHome2.Text;
+            Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
+            Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show(text: "Restart Application to Re-load HotKeys", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
         }
 
         private void ButSaveSettings_Click(object sender, EventArgs e)
@@ -445,6 +420,27 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void NextPeriod()
+        {
+            if (rbPeriodOne.Checked == true)
+            {
+                rbPeriodTwo.Checked = true;
+            }
+            else if (rbPeriodTwo.Checked == true)
+            {
+                rbPeriodThree.Checked = true;
+            }
+            else if (rbPeriodThree.Checked == true)
+            {
+                rbPeriodFour.Checked = true;
+            }
+            else
+            {
+                rbPeriodOne.Checked = true;
+                txtDistance.Text = "10";
+            }
+        }
+
         private void RbDownFour_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownFour.Checked)
@@ -478,22 +474,22 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void RbPeriod1_CheckedChanged(object sender, EventArgs e)
+        private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(periodFile, "1");
         }
 
-        private void RbPeriod2_CheckedChanged(object sender, EventArgs e)
+        private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(periodFile, "2");
         }
 
-        private void RbPeriod3_CheckedChanged(object sender, EventArgs e)
+        private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(periodFile, "3");
         }
 
-        private void RbPeriod4_CheckedChanged(object sender, EventArgs e)
+        private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(periodFile, "4");
         }
@@ -501,6 +497,24 @@ namespace American_Football_Scoreboard
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
+        }
+
+        private void RegisterHotKeys()
+        {
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopGameClock.ToString(), () => butStartStopGameClock.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock.ToString(), () => butStartStopPlayClock.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock.ToString(), () => butNewPlayClock.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks.ToString(), () => butClearClocks.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown.ToString(), () => NextDown());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextPeriod.ToString(), () => NextPeriod());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome1.ToString(), () => butHomeAddOne.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome2.ToString(), () => butHomeAddTwo.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome3.ToString(), () => butHomeAddThree.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome6.ToString(), () => butHomeAddSix.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway1.ToString(), () => butAwayAddOne.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway2.ToString(), () => butAwayAddTwo.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway3.ToString(), () => butAwayAddThree.PerformClick());
+            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway6.ToString(), () => butAwayAddSix.PerformClick());
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -538,7 +552,7 @@ namespace American_Football_Scoreboard
 
         private void ToolStripMenuItemSaveSettings_Click(object sender, EventArgs e)
         {
-            butHotKeySave.PerformClick();
+            butSaveHotKey.PerformClick();
             butSaveSettings.PerformClick();
         }
 
@@ -629,6 +643,5 @@ namespace American_Football_Scoreboard
                 await outputFile.WriteAsync(content);
             }
         }
-
     }
 }

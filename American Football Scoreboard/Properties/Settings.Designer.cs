@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.2.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -85,7 +85,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("G")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + G")]
         public string HotKeyStartStopGameClock {
             get {
                 return ((string)(this["HotKeyStartStopGameClock"]));
@@ -97,43 +97,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopGameClockAlt {
-            get {
-                return ((bool)(this["HotKeyStartStopGameClockAlt"]));
-            }
-            set {
-                this["HotKeyStartStopGameClockAlt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopGameClockCtrl {
-            get {
-                return ((bool)(this["HotKeyStartStopGameClockCtrl"]));
-            }
-            set {
-                this["HotKeyStartStopGameClockCtrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopGameClockShift {
-            get {
-                return ((bool)(this["HotKeyStartStopGameClockShift"]));
-            }
-            set {
-                this["HotKeyStartStopGameClockShift"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("P")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + P")]
         public string HotKeyStartStopPlayClock {
             get {
                 return ((string)(this["HotKeyStartStopPlayClock"]));
@@ -145,43 +109,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopPlayClockAlt {
-            get {
-                return ((bool)(this["HotKeyStartStopPlayClockAlt"]));
-            }
-            set {
-                this["HotKeyStartStopPlayClockAlt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopPlayClockCtrl {
-            get {
-                return ((bool)(this["HotKeyStartStopPlayClockCtrl"]));
-            }
-            set {
-                this["HotKeyStartStopPlayClockCtrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyStartStopPlayClockShift {
-            get {
-                return ((bool)(this["HotKeyStartStopPlayClockShift"]));
-            }
-            set {
-                this["HotKeyStartStopPlayClockShift"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + N")]
         public string HotKeyNewPlayClock {
             get {
                 return ((string)(this["HotKeyNewPlayClock"]));
@@ -193,43 +121,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNewPlayClockAlt {
-            get {
-                return ((bool)(this["HotKeyNewPlayClockAlt"]));
-            }
-            set {
-                this["HotKeyNewPlayClockAlt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNewPlayClockCtrl {
-            get {
-                return ((bool)(this["HotKeyNewPlayClockCtrl"]));
-            }
-            set {
-                this["HotKeyNewPlayClockCtrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNewPlayClockShift {
-            get {
-                return ((bool)(this["HotKeyNewPlayClockShift"]));
-            }
-            set {
-                this["HotKeyNewPlayClockShift"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + C")]
         public string HotKeyClearClocks {
             get {
                 return ((string)(this["HotKeyClearClocks"]));
@@ -241,43 +133,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyClearClocksAlt {
-            get {
-                return ((bool)(this["HotKeyClearClocksAlt"]));
-            }
-            set {
-                this["HotKeyClearClocksAlt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyClearClocksCtrl {
-            get {
-                return ((bool)(this["HotKeyClearClocksCtrl"]));
-            }
-            set {
-                this["HotKeyClearClocksCtrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyClearClocksShift {
-            get {
-                return ((bool)(this["HotKeyClearClocksShift"]));
-            }
-            set {
-                this["HotKeyClearClocksShift"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + D")]
         public string HotKeyNextDown {
             get {
                 return ((string)(this["HotKeyNextDown"]));
@@ -289,43 +145,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextDownAlt {
-            get {
-                return ((bool)(this["HotKeyNextDownAlt"]));
-            }
-            set {
-                this["HotKeyNextDownAlt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextDownCtrl {
-            get {
-                return ((bool)(this["HotKeyNextDownCtrl"]));
-            }
-            set {
-                this["HotKeyNextDownCtrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextDownShift {
-            get {
-                return ((bool)(this["HotKeyNextDownShift"]));
-            }
-            set {
-                this["HotKeyNextDownShift"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Q")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + Q")]
         public string HotKeyNextPeriod {
             get {
                 return ((string)(this["HotKeyNextPeriod"]));
@@ -337,37 +157,97 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextPeriodAlt {
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 1")]
+        public string HotKeyAway1 {
             get {
-                return ((bool)(this["HotKeyNextPeriodAlt"]));
+                return ((string)(this["HotKeyAway1"]));
             }
             set {
-                this["HotKeyNextPeriodAlt"] = value;
+                this["HotKeyAway1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextPeriodCtrl {
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 2")]
+        public string HotKeyAway2 {
             get {
-                return ((bool)(this["HotKeyNextPeriodCtrl"]));
+                return ((string)(this["HotKeyAway2"]));
             }
             set {
-                this["HotKeyNextPeriodCtrl"] = value;
+                this["HotKeyAway2"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool HotKeyNextPeriodShift {
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 3")]
+        public string HotKeyAway3 {
             get {
-                return ((bool)(this["HotKeyNextPeriodShift"]));
+                return ((string)(this["HotKeyAway3"]));
             }
             set {
-                this["HotKeyNextPeriodShift"] = value;
+                this["HotKeyAway3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 4")]
+        public string HotKeyAway6 {
+            get {
+                return ((string)(this["HotKeyAway6"]));
+            }
+            set {
+                this["HotKeyAway6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 5")]
+        public string HotKeyHome1 {
+            get {
+                return ((string)(this["HotKeyHome1"]));
+            }
+            set {
+                this["HotKeyHome1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 6")]
+        public string HotKeyHome2 {
+            get {
+                return ((string)(this["HotKeyHome2"]));
+            }
+            set {
+                this["HotKeyHome2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 7")]
+        public string HotKeyHome3 {
+            get {
+                return ((string)(this["HotKeyHome3"]));
+            }
+            set {
+                this["HotKeyHome3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 8")]
+        public string HotKeyHome6 {
+            get {
+                return ((string)(this["HotKeyHome6"]));
+            }
+            set {
+                this["HotKeyHome6"] = value;
             }
         }
     }
