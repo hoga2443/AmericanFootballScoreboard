@@ -250,5 +250,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyHome6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int RefreshInterval {
+            get {
+                return ((int)(this["RefreshInterval"]));
+            }
+            set {
+                this["RefreshInterval"] = value;
+            }
+        }
     }
 }

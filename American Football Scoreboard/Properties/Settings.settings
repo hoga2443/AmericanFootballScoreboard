@@ -59,5 +59,8 @@
     <Setting Name="HotKeyHome6" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + 8</Value>
     </Setting>
+    <Setting Name="RefreshInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -85,6 +85,26 @@ namespace American_Football_Scoreboard
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtHotKeyAway1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome6 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtHotKeyHome1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
             this.lblHotKeyNextPeriod = new System.Windows.Forms.Label();
             this.butSaveHotKey = new System.Windows.Forms.Button();
@@ -122,26 +142,8 @@ namespace American_Football_Scoreboard
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtHotKeyHome6 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
+            this.lblRefreshInterval = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -734,6 +736,8 @@ namespace American_Football_Scoreboard
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.txtRefreshInterval);
+            this.tabPage3.Controls.Add(this.lblRefreshInterval);
             this.tabPage3.Controls.Add(this.txtHotKeyAway6);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.txtHotKeyAway3);
@@ -775,6 +779,170 @@ namespace American_Football_Scoreboard
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hotkeys";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txtHotKeyAway6
+            // 
+            this.txtHotKeyAway6.Location = new System.Drawing.Point(435, 110);
+            this.txtHotKeyAway6.Name = "txtHotKeyAway6";
+            this.txtHotKeyAway6.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway6.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(393, 114);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "+6";
+            // 
+            // txtHotKeyAway3
+            // 
+            this.txtHotKeyAway3.Location = new System.Drawing.Point(435, 84);
+            this.txtHotKeyAway3.Name = "txtHotKeyAway3";
+            this.txtHotKeyAway3.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway3.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(393, 88);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "+3";
+            // 
+            // txtHotKeyAway2
+            // 
+            this.txtHotKeyAway2.Location = new System.Drawing.Point(435, 58);
+            this.txtHotKeyAway2.Name = "txtHotKeyAway2";
+            this.txtHotKeyAway2.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway2.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(393, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "+2";
+            // 
+            // txtHotKeyAway1
+            // 
+            this.txtHotKeyAway1.Location = new System.Drawing.Point(435, 32);
+            this.txtHotKeyAway1.Name = "txtHotKeyAway1";
+            this.txtHotKeyAway1.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyAway1.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(393, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 52;
+            this.label10.Text = "+1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(432, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 13);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Key";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(393, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Away";
+            // 
+            // txtHotKeyHome6
+            // 
+            this.txtHotKeyHome6.Location = new System.Drawing.Point(287, 110);
+            this.txtHotKeyHome6.Name = "txtHotKeyHome6";
+            this.txtHotKeyHome6.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome6.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "+6";
+            // 
+            // txtHotKeyHome3
+            // 
+            this.txtHotKeyHome3.Location = new System.Drawing.Point(287, 81);
+            this.txtHotKeyHome3.Name = "txtHotKeyHome3";
+            this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome3.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(242, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "+3";
+            // 
+            // txtHotKeyHome2
+            // 
+            this.txtHotKeyHome2.Location = new System.Drawing.Point(287, 58);
+            this.txtHotKeyHome2.Name = "txtHotKeyHome2";
+            this.txtHotKeyHome2.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome2.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(242, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "+2";
+            // 
+            // txtHotKeyHome1
+            // 
+            this.txtHotKeyHome1.Location = new System.Drawing.Point(287, 32);
+            this.txtHotKeyHome1.Name = "txtHotKeyHome1";
+            this.txtHotKeyHome1.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyHome1.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(242, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "+1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(284, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Key";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(242, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Home";
             // 
             // txtHotKeyNextPeriod
             // 
@@ -879,7 +1047,7 @@ namespace American_Football_Scoreboard
             this.lblHotKeyStartStopGameClock.Location = new System.Drawing.Point(13, 35);
             this.lblHotKeyStartStopGameClock.Name = "lblHotKeyStartStopGameClock";
             this.lblHotKeyStartStopGameClock.Size = new System.Drawing.Size(117, 13);
-            this.lblHotKeyStartStopGameClock.TabIndex = 7;
+            this.lblHotKeyStartStopGameClock.TabIndex = 0;
             this.lblHotKeyStartStopGameClock.Text = "Start/Stop Game Clock";
             // 
             // lblHotKeyKey
@@ -1024,7 +1192,7 @@ namespace American_Football_Scoreboard
             // 
             // tmrClockRefresh
             // 
-            this.tmrClockRefresh.Interval = 450;
+            this.tmrClockRefresh.Interval = 500;
             this.tmrClockRefresh.Tick += new System.EventHandler(this.TmrClockRefresh_Tick);
             // 
             // msMain
@@ -1084,169 +1252,21 @@ namespace American_Football_Scoreboard
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
-            // txtHotKeyHome6
+            // txtRefreshInterval
             // 
-            this.txtHotKeyHome6.Location = new System.Drawing.Point(287, 110);
-            this.txtHotKeyHome6.Name = "txtHotKeyHome6";
-            this.txtHotKeyHome6.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome6.TabIndex = 10;
+            this.txtRefreshInterval.Location = new System.Drawing.Point(136, 188);
+            this.txtRefreshInterval.Name = "txtRefreshInterval";
+            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
+            this.txtRefreshInterval.TabIndex = 7;
             // 
-            // label1
+            // lblRefreshInterval
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "+6";
-            // 
-            // txtHotKeyHome3
-            // 
-            this.txtHotKeyHome3.Location = new System.Drawing.Point(287, 81);
-            this.txtHotKeyHome3.Name = "txtHotKeyHome3";
-            this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome3.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(242, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "+3";
-            // 
-            // txtHotKeyHome2
-            // 
-            this.txtHotKeyHome2.Location = new System.Drawing.Point(287, 58);
-            this.txtHotKeyHome2.Name = "txtHotKeyHome2";
-            this.txtHotKeyHome2.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome2.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(242, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "+2";
-            // 
-            // txtHotKeyHome1
-            // 
-            this.txtHotKeyHome1.Location = new System.Drawing.Point(287, 32);
-            this.txtHotKeyHome1.Name = "txtHotKeyHome1";
-            this.txtHotKeyHome1.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome1.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(242, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "+1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(284, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 13);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Key";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(242, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Home";
-            // 
-            // txtHotKeyAway6
-            // 
-            this.txtHotKeyAway6.Location = new System.Drawing.Point(435, 110);
-            this.txtHotKeyAway6.Name = "txtHotKeyAway6";
-            this.txtHotKeyAway6.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway6.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(393, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 13);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "+6";
-            // 
-            // txtHotKeyAway3
-            // 
-            this.txtHotKeyAway3.Location = new System.Drawing.Point(435, 84);
-            this.txtHotKeyAway3.Name = "txtHotKeyAway3";
-            this.txtHotKeyAway3.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway3.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(393, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "+3";
-            // 
-            // txtHotKeyAway2
-            // 
-            this.txtHotKeyAway2.Location = new System.Drawing.Point(435, 58);
-            this.txtHotKeyAway2.Name = "txtHotKeyAway2";
-            this.txtHotKeyAway2.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway2.TabIndex = 12;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(393, 62);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "+2";
-            // 
-            // txtHotKeyAway1
-            // 
-            this.txtHotKeyAway1.Location = new System.Drawing.Point(435, 32);
-            this.txtHotKeyAway1.Name = "txtHotKeyAway1";
-            this.txtHotKeyAway1.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway1.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(393, 35);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 52;
-            this.label10.Text = "+1";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(432, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(25, 13);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Key";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(393, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(33, 13);
-            this.label12.TabIndex = 49;
-            this.label12.Text = "Away";
+            this.lblRefreshInterval.AutoSize = true;
+            this.lblRefreshInterval.Location = new System.Drawing.Point(13, 192);
+            this.lblRefreshInterval.Name = "lblRefreshInterval";
+            this.lblRefreshInterval.Size = new System.Drawing.Size(107, 13);
+            this.lblRefreshInterval.TabIndex = 59;
+            this.lblRefreshInterval.Text = "Refersh Inverval (ms)";
             // 
             // FrmMain
             // 
@@ -1396,6 +1416,8 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtRefreshInterval;
+        private System.Windows.Forms.Label lblRefreshInterval;
     }
 }
 

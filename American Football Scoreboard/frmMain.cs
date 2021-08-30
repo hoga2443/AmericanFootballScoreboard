@@ -51,6 +51,16 @@ namespace American_Football_Scoreboard
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
             txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
+            txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
+            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
+            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
+            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
+            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
+            txtHotKeyAway1.Text = Properties.Settings.Default.HotKeyAway1;
+            txtHotKeyAway2.Text = Properties.Settings.Default.HotKeyAway2;
+            txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
+            txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
+            tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
         }
 
         private void InitializeUI()
@@ -289,7 +299,11 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
             Properties.Settings.Default.Save();
 
-            MessageBox.Show(text: "Restart Application to Re-load HotKeys", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+            MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+
+            // GlobalHotKey.DeRegisterHotKeys();
+            
+            // RegisterHotKeys();
         }
 
         private void ButSaveSettings_Click(object sender, EventArgs e)
@@ -299,7 +313,9 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["GoalText"] = txtGoalText.Text;
             Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
             Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
+            Properties.Settings.Default["RefreshInterval"] = txtRefreshInterval.Text;
             Properties.Settings.Default.Save();
+            tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
         }
 
         private void ButSendSupplemental_Click(object sender, EventArgs e)
@@ -501,20 +517,104 @@ namespace American_Football_Scoreboard
 
         private void RegisterHotKeys()
         {
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopGameClock.ToString(), () => butStartStopGameClock.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock.ToString(), () => butStartStopPlayClock.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock.ToString(), () => butNewPlayClock.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks.ToString(), () => butClearClocks.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown.ToString(), () => NextDown());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextPeriod.ToString(), () => NextPeriod());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome1.ToString(), () => butHomeAddOne.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome2.ToString(), () => butHomeAddTwo.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome3.ToString(), () => butHomeAddThree.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome6.ToString(), () => butHomeAddSix.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway1.ToString(), () => butAwayAddOne.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway2.ToString(), () => butAwayAddTwo.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway3.ToString(), () => butAwayAddThree.PerformClick());
-            GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway6.ToString(), () => butAwayAddSix.PerformClick());
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyStartStopGameClock.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopGameClock.ToString(), () => butStartStopGameClock.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyStartStopPlayClock.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock.ToString(), () => butStartStopPlayClock.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyNewPlayClock.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock.ToString(), () => butNewPlayClock.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyClearClocks.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks.ToString(), () => butClearClocks.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyNextDown.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown.ToString(), () => NextDown()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyNextPeriod.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextPeriod.ToString(), () => NextPeriod()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Next Period!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyHome1.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome1.ToString(), () => butHomeAddOne.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyHome2.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome2.ToString(), () => butHomeAddTwo.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 2 point2!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyHome3.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome3.ToString(), () => butHomeAddThree.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 3 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyHome6.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome6.ToString(), () => butHomeAddSix.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 6 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyAway1.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway1.ToString(), () => butAwayAddOne.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyAway2.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway2.ToString(), () => butAwayAddTwo.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyAway3.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway3.ToString(), () => butAwayAddThree.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HotKeyAway6.ToString()))
+            {
+                if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway6.ToString(), () => butAwayAddSix.PerformClick()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -572,19 +672,19 @@ namespace American_Football_Scoreboard
             switch (txtAwayTimeouts.Text)
             {
                 case "0":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "1":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "2":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "3":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 default:
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts2.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
             }
         }
@@ -610,19 +710,19 @@ namespace American_Football_Scoreboard
             switch (txtHomeTimeouts.Text)
             {
                 case "0":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "1":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "2":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "3":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 default:
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Timeouts1.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
             }
         }

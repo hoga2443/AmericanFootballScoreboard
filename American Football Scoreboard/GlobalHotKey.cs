@@ -11,6 +11,24 @@ public class GlobalHotKey : IDisposable
     /// <param name="aKeyGesture">e.g. Alt + Shift + Control + Win + S</param>
     /// <param name="aAction">Action to be called when hotkey is pressed</param>
     /// <returns>true, if registration succeeded, otherwise false</returns>
+
+    public static bool DeRegisterHotKeys()
+    {
+        // unregister all the registered hot keys.
+        try
+        {
+            for (int i = currentID; i > 0; i--)
+            {
+                UnregisterHotKey(window.Handle, i);
+            }
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public static bool RegisterHotKey(string aKeyGestureString, Action aAction)
     {
         var c = new KeyGestureConverter();
