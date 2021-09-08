@@ -70,6 +70,7 @@ public class GlobalHotKey : IDisposable
 
         // dispose the inner native window.
         window.Dispose();
+        GC.SuppressFinalize(this);
     }
 
     static GlobalHotKey()
@@ -88,7 +89,7 @@ public class GlobalHotKey : IDisposable
 
     private static readonly InvisibleWindowForMessages window = new InvisibleWindowForMessages();
     private static int currentID;
-    private static uint MOD_NOREPEAT = 0x4000;
+    private static readonly uint MOD_NOREPEAT = 0x4000;
     private static List<HotKeyWithAction> registeredHotKeys = new List<HotKeyWithAction>();
 
     private class HotKeyWithAction
@@ -120,7 +121,7 @@ public class GlobalHotKey : IDisposable
             CreateHandle(new System.Windows.Forms.CreateParams());
         }
 
-        private static int WM_HOTKEY = 0x0312;
+        private static readonly int WM_HOTKEY = 0x0312;
         protected override void WndProc(ref System.Windows.Forms.Message m)
         {
             base.WndProc(ref m);
@@ -129,10 +130,7 @@ public class GlobalHotKey : IDisposable
             {
                 var aWPFKey = KeyInterop.KeyFromVirtualKey(((int)m.LParam >> 16) & 0xFFFF);
                 ModifierKeys modifier = (ModifierKeys)((int)m.LParam & 0xFFFF);
-                if (KeyPressed != null)
-                {
-                    KeyPressed(this, new HotKeyPressedEventArgs(modifier, aWPFKey));
-                }
+                KeyPressed?.Invoke(this, new HotKeyPressedEventArgs(modifier, aWPFKey));
             }
         }
 

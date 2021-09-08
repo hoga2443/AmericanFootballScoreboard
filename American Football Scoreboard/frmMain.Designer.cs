@@ -85,6 +85,8 @@ namespace American_Football_Scoreboard
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
+            this.lblRefreshInterval = new System.Windows.Forms.Label();
             this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
@@ -142,8 +144,7 @@ namespace American_Football_Scoreboard
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
-            this.lblRefreshInterval = new System.Windows.Forms.Label();
+            this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -780,6 +781,22 @@ namespace American_Football_Scoreboard
             this.tabPage3.Text = "Hotkeys";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // txtRefreshInterval
+            // 
+            this.txtRefreshInterval.Location = new System.Drawing.Point(136, 188);
+            this.txtRefreshInterval.Name = "txtRefreshInterval";
+            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
+            this.txtRefreshInterval.TabIndex = 7;
+            // 
+            // lblRefreshInterval
+            // 
+            this.lblRefreshInterval.AutoSize = true;
+            this.lblRefreshInterval.Location = new System.Drawing.Point(13, 192);
+            this.lblRefreshInterval.Name = "lblRefreshInterval";
+            this.lblRefreshInterval.Size = new System.Drawing.Size(107, 13);
+            this.lblRefreshInterval.TabIndex = 59;
+            this.lblRefreshInterval.Text = "Refersh Inverval (ms)";
+            // 
             // txtHotKeyAway6
             // 
             this.txtHotKeyAway6.Location = new System.Drawing.Point(435, 110);
@@ -1240,6 +1257,7 @@ namespace American_Football_Scoreboard
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportIssueToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -1248,25 +1266,16 @@ namespace American_Football_Scoreboard
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
-            // txtRefreshInterval
+            // reportIssueToolStripMenuItem
             // 
-            this.txtRefreshInterval.Location = new System.Drawing.Point(136, 188);
-            this.txtRefreshInterval.Name = "txtRefreshInterval";
-            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
-            this.txtRefreshInterval.TabIndex = 7;
-            // 
-            // lblRefreshInterval
-            // 
-            this.lblRefreshInterval.AutoSize = true;
-            this.lblRefreshInterval.Location = new System.Drawing.Point(13, 192);
-            this.lblRefreshInterval.Name = "lblRefreshInterval";
-            this.lblRefreshInterval.Size = new System.Drawing.Size(107, 13);
-            this.lblRefreshInterval.TabIndex = 59;
-            this.lblRefreshInterval.Text = "Refersh Inverval (ms)";
+            this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
+            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportIssueToolStripMenuItem.Text = "Report Issue";
+            this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemReportIssue_Click);
             // 
             // FrmMain
             // 
@@ -1418,6 +1427,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtRefreshInterval;
         private System.Windows.Forms.Label lblRefreshInterval;
+        private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
     }
 }
 
