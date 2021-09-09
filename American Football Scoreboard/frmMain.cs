@@ -38,99 +38,6 @@ namespace American_Football_Scoreboard
             RegisterHotKeys();
         }
 
-        private void LoadSettings()
-        {
-            txtPeriodDuration.Text = Properties.Settings.Default.DefaultPeriod;
-            txtPlayClockDuration.Text = Properties.Settings.Default.DefaultPlay;
-            txtGoalText.Text = Properties.Settings.Default.GoalText;
-            txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
-            txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
-            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
-            txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
-            txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
-            txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
-            txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
-            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
-            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
-            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
-            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
-            txtHotKeyAway1.Text = Properties.Settings.Default.HotKeyAway1;
-            txtHotKeyAway2.Text = Properties.Settings.Default.HotKeyAway2;
-            txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
-            txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
-            tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
-        }
-
-        private void InitializeUI()
-        {
-            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
-            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
-            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
-            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
-            InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
-            InitializeTextBox(textBox: txtAwayTeam, fileName: awayTeamNameFile);
-            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile);
-            InitializeTextBox(textBox: txtAwayTimeouts, fileName: awayTimeoutsRemainingFile);
-            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
-            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
-            InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
-
-            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, downFile);
-            if (!File.Exists(currentFile))
-            {
-                FileStream fs = File.Create(currentFile);
-                fs.Close();
-            }
-            string down = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, downFile));
-            switch (down)
-            {
-                case "1":
-                    rbDownOne.Checked = true;
-                    break;
-                case "2":
-                    rbDownTwo.Checked = true;
-                    break;
-                case "3":
-                    rbDownThree.Checked = true;
-                    break;
-                case "4":
-                    rbDownFour.Checked = true;
-                    break;
-            }
-            currentFile = Path.Combine(Properties.Settings.Default.OutputPath, periodFile);
-            if (!File.Exists(currentFile))
-            {
-                FileStream fs = File.Create(currentFile);
-                fs.Close();
-            }
-
-            string quarter = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, periodFile));
-            switch (quarter)
-            {
-                case "1":
-                    rbPeriodOne.Checked = true;
-                    break;
-                case "2":
-                    rbPeriodTwo.Checked = true;
-                    break;
-                case "3":
-                    rbPeriodThree.Checked = true;
-                    break;
-                case "4":
-                    rbPeriodFour.Checked = true;
-                    break;
-                default:
-                    txtPeriodOT.Text = quarter;
-                    rbPeriodOT.Checked = true;
-                    break;
-            }
-        }
-
         /*
         private void FrmMain_KeyDown(object sender, KeyEventArgs e)
         {
@@ -356,13 +263,15 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyHome2"] = txtHotKeyHome2.Text;
             Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
             Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
+            Properties.Settings.Default["HotKeyPossession"] = txtHotKeyPossession.Text;
             Properties.Settings.Default.Save();
 
-            MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-
-            // GlobalHotKey.DeRegisterHotKeys();
-            
-            // RegisterHotKeys();
+            DialogResult result = MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect. Restart Now?", caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                Application.Restart();
+                Environment.Exit(0);
+            }
         }
 
         private void ButSaveSettings_Click(object sender, EventArgs e)
@@ -370,9 +279,19 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
             Properties.Settings.Default["DefaultPlay"] = txtPlayClockDuration.Text;
             Properties.Settings.Default["GoalText"] = txtGoalText.Text;
-            Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
+            if (!string.IsNullOrEmpty(txtOutputFolder.Text))
+            {
+                Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
+            }
             Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
-            Properties.Settings.Default["RefreshInterval"] = txtRefreshInterval.Text;
+            if (int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
+            {
+                Properties.Settings.Default["RefreshInterval"] = refreshInterval;
+            }
+            else
+            {
+                Properties.Settings.Default["RefreshInterval"] = 400;
+            }
             Properties.Settings.Default.Save();
             tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
         }
@@ -439,6 +358,44 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void ChkAwayPossession_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAwayPossession.Checked)
+            {
+                chkHomePossession.Checked = false;
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
+            }
+            else
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
+            }
+        }
+
+        private void ChkHomePossession_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkHomePossession.Checked)
+            {
+                chkAwayPossession.Checked = false;
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
+            }
+            else
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
+            }
+        }
+
+        private void TogglePossession()
+        {
+            if (!chkHomePossession.Checked)
+            {
+                chkHomePossession.Checked = true;
+            }
+            else
+            {
+                chkAwayPossession.Checked = true;
+            }
+        }
+
         /*
         Copy a file in the filesystem
         Used to update the timeouts remaining images
@@ -483,6 +440,101 @@ namespace American_Football_Scoreboard
                 fs.Close();
             }
             textBox.Text = File.ReadAllText(currentFile);
+        }
+
+        private void InitializeUI()
+        {
+            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
+            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
+            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
+            InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
+            InitializeTextBox(textBox: txtAwayTeam, fileName: awayTeamNameFile);
+            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile);
+            InitializeTextBox(textBox: txtAwayTimeouts, fileName: awayTimeoutsRemainingFile);
+            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
+            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
+            InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
+            InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
+
+            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, downFile);
+            if (!File.Exists(currentFile))
+            {
+                FileStream fs = File.Create(currentFile);
+                fs.Close();
+            }
+            string down = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, downFile));
+            switch (down)
+            {
+                case "2nd":
+                    rbDownTwo.Checked = true;
+                    break;
+                case "3rd":
+                    rbDownThree.Checked = true;
+                    break;
+                case "4th":
+                    rbDownFour.Checked = true;
+                    break;
+                default:
+                    rbDownOne.Checked = true;
+                    break;
+            }
+            currentFile = Path.Combine(Properties.Settings.Default.OutputPath, periodFile);
+            if (!File.Exists(currentFile))
+            {
+                FileStream fs = File.Create(currentFile);
+                fs.Close();
+            }
+
+            string quarter = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, periodFile));
+            switch (quarter)
+            {
+                case "1":
+                    rbPeriodOne.Checked = true;
+                    break;
+                case "2":
+                    rbPeriodTwo.Checked = true;
+                    break;
+                case "3":
+                    rbPeriodThree.Checked = true;
+                    break;
+                case "4":
+                    rbPeriodFour.Checked = true;
+                    break;
+                default:
+                    txtPeriodOT.Text = quarter;
+                    rbPeriodOT.Checked = true;
+                    break;
+            }
+        }
+
+        private void LoadSettings()
+        {
+            txtPeriodDuration.Text = Properties.Settings.Default.DefaultPeriod;
+            txtPlayClockDuration.Text = Properties.Settings.Default.DefaultPlay;
+            txtGoalText.Text = Properties.Settings.Default.GoalText;
+            txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
+            txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
+            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
+            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
+            txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
+            txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
+            txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
+            txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
+            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
+            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
+            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
+            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
+            txtHotKeyAway1.Text = Properties.Settings.Default.HotKeyAway1;
+            txtHotKeyAway2.Text = Properties.Settings.Default.HotKeyAway2;
+            txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
+            txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
+            txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
         }
 
         private void NextDown()
@@ -712,6 +764,15 @@ namespace American_Football_Scoreboard
                     MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                 }
             }
+
+            settingValue = Properties.Settings.Default.HotKeyPossession;
+            if (!string.IsNullOrEmpty(settingValue))
+            {
+                if (!GlobalHotKey.RegisterHotKey(settingValue, () => TogglePossession()))
+                {
+                    MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -752,9 +813,13 @@ namespace American_Football_Scoreboard
             });
         }
 
-        private void ToolStripMenuItemSaveSettings_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSaveHotKeys_Click(object sender, EventArgs e)
         {
             butSaveHotKey.PerformClick();
+        }
+
+        private void ToolStripMenuItemSaveSettings_Click(object sender, EventArgs e)
+        {
             butSaveSettings.PerformClick();
         }
 
@@ -844,6 +909,11 @@ namespace American_Football_Scoreboard
             {
                 await outputFile.WriteAsync(content);
             }
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalHotKey.DeRegisterHotKeys();
         }
     }
 }

@@ -128,6 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\..\Downloads\NonPossession.png">
+      <Link>Output\Possession\NonPossession.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="img\AmericanFootballSocreboardIcon.ico" />
     <Content Include="Output\AwayTeamName.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -192,6 +196,9 @@
     <Content Include="Output\PlayClock.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Output\Possession\Possession.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Output\Supplemental.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -208,5 +215,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -55,6 +55,7 @@ namespace American_Football_Scoreboard
             this.rbPeriodTwo = new System.Windows.Forms.RadioButton();
             this.rbPeriodOne = new System.Windows.Forms.RadioButton();
             this.gbAway = new System.Windows.Forms.GroupBox();
+            this.chkAwayPossession = new System.Windows.Forms.CheckBox();
             this.butAwayTimeoutsAdd = new System.Windows.Forms.Button();
             this.butAwayTimeoutsSubtract = new System.Windows.Forms.Button();
             this.txtAwayTimeouts = new System.Windows.Forms.TextBox();
@@ -68,6 +69,7 @@ namespace American_Football_Scoreboard
             this.lblAwayTeam = new System.Windows.Forms.Label();
             this.txtAwayTeam = new System.Windows.Forms.TextBox();
             this.gbHome = new System.Windows.Forms.GroupBox();
+            this.chkHomePossession = new System.Windows.Forms.CheckBox();
             this.butHomeTimeoutsAdd = new System.Windows.Forms.Button();
             this.butHomeTimeoutsSubtract = new System.Windows.Forms.Button();
             this.txtHomeTimeouts = new System.Windows.Forms.TextBox();
@@ -85,8 +87,6 @@ namespace American_Football_Scoreboard
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.txtGameClock = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
-            this.lblRefreshInterval = new System.Windows.Forms.Label();
             this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
@@ -139,12 +139,17 @@ namespace American_Football_Scoreboard
             this.tmrClockRefresh = new System.Windows.Forms.Timer(this.components);
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveHotKeysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openOutputFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtHotKeyPossession = new System.Windows.Forms.TextBox();
+            this.lblHotKeyPossession = new System.Windows.Forms.Label();
+            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
+            this.lblRefreshInterval = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -425,6 +430,7 @@ namespace American_Football_Scoreboard
             // 
             // gbAway
             // 
+            this.gbAway.Controls.Add(this.chkAwayPossession);
             this.gbAway.Controls.Add(this.butAwayTimeoutsAdd);
             this.gbAway.Controls.Add(this.butAwayTimeoutsSubtract);
             this.gbAway.Controls.Add(this.txtAwayTimeouts);
@@ -443,6 +449,17 @@ namespace American_Football_Scoreboard
             this.gbAway.TabIndex = 12;
             this.gbAway.TabStop = false;
             this.gbAway.Text = "Away";
+            // 
+            // chkAwayPossession
+            // 
+            this.chkAwayPossession.AutoSize = true;
+            this.chkAwayPossession.Location = new System.Drawing.Point(74, 167);
+            this.chkAwayPossession.Name = "chkAwayPossession";
+            this.chkAwayPossession.Size = new System.Drawing.Size(79, 17);
+            this.chkAwayPossession.TabIndex = 23;
+            this.chkAwayPossession.Text = "Possession";
+            this.chkAwayPossession.UseVisualStyleBackColor = true;
+            this.chkAwayPossession.CheckedChanged += new System.EventHandler(this.ChkAwayPossession_CheckedChanged);
             // 
             // butAwayTimeoutsAdd
             // 
@@ -562,6 +579,7 @@ namespace American_Football_Scoreboard
             // 
             // gbHome
             // 
+            this.gbHome.Controls.Add(this.chkHomePossession);
             this.gbHome.Controls.Add(this.butHomeTimeoutsAdd);
             this.gbHome.Controls.Add(this.butHomeTimeoutsSubtract);
             this.gbHome.Controls.Add(this.txtHomeTimeouts);
@@ -580,6 +598,17 @@ namespace American_Football_Scoreboard
             this.gbHome.TabIndex = 11;
             this.gbHome.TabStop = false;
             this.gbHome.Text = "Home";
+            // 
+            // chkHomePossession
+            // 
+            this.chkHomePossession.AutoSize = true;
+            this.chkHomePossession.Location = new System.Drawing.Point(57, 167);
+            this.chkHomePossession.Name = "chkHomePossession";
+            this.chkHomePossession.Size = new System.Drawing.Size(79, 17);
+            this.chkHomePossession.TabIndex = 19;
+            this.chkHomePossession.Text = "Possession";
+            this.chkHomePossession.UseVisualStyleBackColor = true;
+            this.chkHomePossession.CheckedChanged += new System.EventHandler(this.ChkHomePossession_CheckedChanged);
             // 
             // butHomeTimeoutsAdd
             // 
@@ -737,8 +766,8 @@ namespace American_Football_Scoreboard
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.txtRefreshInterval);
-            this.tabPage3.Controls.Add(this.lblRefreshInterval);
+            this.tabPage3.Controls.Add(this.txtHotKeyPossession);
+            this.tabPage3.Controls.Add(this.lblHotKeyPossession);
             this.tabPage3.Controls.Add(this.txtHotKeyAway6);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.txtHotKeyAway3);
@@ -780,22 +809,6 @@ namespace American_Football_Scoreboard
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hotkeys";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // txtRefreshInterval
-            // 
-            this.txtRefreshInterval.Location = new System.Drawing.Point(136, 188);
-            this.txtRefreshInterval.Name = "txtRefreshInterval";
-            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
-            this.txtRefreshInterval.TabIndex = 7;
-            // 
-            // lblRefreshInterval
-            // 
-            this.lblRefreshInterval.AutoSize = true;
-            this.lblRefreshInterval.Location = new System.Drawing.Point(13, 192);
-            this.lblRefreshInterval.Name = "lblRefreshInterval";
-            this.lblRefreshInterval.Size = new System.Drawing.Size(107, 13);
-            this.lblRefreshInterval.TabIndex = 59;
-            this.lblRefreshInterval.Text = "Refersh Inverval (ms)";
             // 
             // txtHotKeyAway6
             // 
@@ -897,7 +910,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyHome3
             // 
-            this.txtHotKeyHome3.Location = new System.Drawing.Point(287, 81);
+            this.txtHotKeyHome3.Location = new System.Drawing.Point(287, 84);
             this.txtHotKeyHome3.Name = "txtHotKeyHome3";
             this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyHome3.TabIndex = 10;
@@ -982,7 +995,7 @@ namespace American_Football_Scoreboard
             this.butSaveHotKey.Location = new System.Drawing.Point(16, 300);
             this.butSaveHotKey.Name = "butSaveHotKey";
             this.butSaveHotKey.Size = new System.Drawing.Size(75, 23);
-            this.butSaveHotKey.TabIndex = 15;
+            this.butSaveHotKey.TabIndex = 16;
             this.butSaveHotKey.Text = "Save";
             this.butSaveHotKey.UseVisualStyleBackColor = true;
             this.butSaveHotKey.Click += new System.EventHandler(this.ButSaveHotKey_Click);
@@ -1087,6 +1100,8 @@ namespace American_Football_Scoreboard
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtRefreshInterval);
+            this.tabPage2.Controls.Add(this.lblRefreshInterval);
             this.tabPage2.Controls.Add(this.lblTimeoutsPerHalf);
             this.tabPage2.Controls.Add(this.txtTimeoutsPerHalf);
             this.tabPage2.Controls.Add(this.txtGoalText);
@@ -1110,7 +1125,7 @@ namespace American_Football_Scoreboard
             // lblTimeoutsPerHalf
             // 
             this.lblTimeoutsPerHalf.AutoSize = true;
-            this.lblTimeoutsPerHalf.Location = new System.Drawing.Point(16, 128);
+            this.lblTimeoutsPerHalf.Location = new System.Drawing.Point(17, 124);
             this.lblTimeoutsPerHalf.Name = "lblTimeoutsPerHalf";
             this.lblTimeoutsPerHalf.Size = new System.Drawing.Size(91, 13);
             this.lblTimeoutsPerHalf.TabIndex = 13;
@@ -1133,7 +1148,7 @@ namespace American_Football_Scoreboard
             // lblGoalDistanceLabel
             // 
             this.lblGoalDistanceLabel.AutoSize = true;
-            this.lblGoalDistanceLabel.Location = new System.Drawing.Point(16, 98);
+            this.lblGoalDistanceLabel.Location = new System.Drawing.Point(17, 98);
             this.lblGoalDistanceLabel.Name = "lblGoalDistanceLabel";
             this.lblGoalDistanceLabel.Size = new System.Drawing.Size(103, 13);
             this.lblGoalDistanceLabel.TabIndex = 10;
@@ -1151,10 +1166,10 @@ namespace American_Football_Scoreboard
             // 
             // butSaveSettings
             // 
-            this.butSaveSettings.Location = new System.Drawing.Point(140, 147);
+            this.butSaveSettings.Location = new System.Drawing.Point(20, 299);
             this.butSaveSettings.Name = "butSaveSettings";
             this.butSaveSettings.Size = new System.Drawing.Size(100, 23);
-            this.butSaveSettings.TabIndex = 6;
+            this.butSaveSettings.TabIndex = 7;
             this.butSaveSettings.Text = "Save";
             this.butSaveSettings.UseVisualStyleBackColor = true;
             this.butSaveSettings.Click += new System.EventHandler(this.ButSaveSettings_Click);
@@ -1169,7 +1184,7 @@ namespace American_Football_Scoreboard
             // lblOutputFolder
             // 
             this.lblOutputFolder.AutoSize = true;
-            this.lblOutputFolder.Location = new System.Drawing.Point(16, 71);
+            this.lblOutputFolder.Location = new System.Drawing.Point(17, 71);
             this.lblOutputFolder.Name = "lblOutputFolder";
             this.lblOutputFolder.Size = new System.Drawing.Size(71, 13);
             this.lblOutputFolder.TabIndex = 4;
@@ -1226,12 +1241,20 @@ namespace American_Football_Scoreboard
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveHotKeysToolStripMenuItem,
             this.saveSettingsToolStripMenuItem,
             this.openOutputFolderToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveHotKeysToolStripMenuItem
+            // 
+            this.saveHotKeysToolStripMenuItem.Name = "saveHotKeysToolStripMenuItem";
+            this.saveHotKeysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveHotKeysToolStripMenuItem.Text = "Save HotKeys";
+            this.saveHotKeysToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemSaveHotKeys_Click);
             // 
             // saveSettingsToolStripMenuItem
             // 
@@ -1263,19 +1286,51 @@ namespace American_Football_Scoreboard
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
-            // 
             // reportIssueToolStripMenuItem
             // 
             this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
-            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.reportIssueToolStripMenuItem.Text = "Report Issue";
             this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemReportIssue_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
+            // 
+            // txtHotKeyPossession
+            // 
+            this.txtHotKeyPossession.Location = new System.Drawing.Point(136, 188);
+            this.txtHotKeyPossession.Name = "txtHotKeyPossession";
+            this.txtHotKeyPossession.Size = new System.Drawing.Size(100, 20);
+            this.txtHotKeyPossession.TabIndex = 7;
+            // 
+            // lblHotKeyPossession
+            // 
+            this.lblHotKeyPossession.AutoSize = true;
+            this.lblHotKeyPossession.Location = new System.Drawing.Point(13, 192);
+            this.lblHotKeyPossession.Name = "lblHotKeyPossession";
+            this.lblHotKeyPossession.Size = new System.Drawing.Size(60, 13);
+            this.lblHotKeyPossession.TabIndex = 61;
+            this.lblHotKeyPossession.Text = "Possession";
+            // 
+            // txtRefreshInterval
+            // 
+            this.txtRefreshInterval.Location = new System.Drawing.Point(140, 147);
+            this.txtRefreshInterval.Name = "txtRefreshInterval";
+            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
+            this.txtRefreshInterval.TabIndex = 6;
+            // 
+            // lblRefreshInterval
+            // 
+            this.lblRefreshInterval.AutoSize = true;
+            this.lblRefreshInterval.Location = new System.Drawing.Point(17, 150);
+            this.lblRefreshInterval.Name = "lblRefreshInterval";
+            this.lblRefreshInterval.Size = new System.Drawing.Size(107, 13);
+            this.lblRefreshInterval.TabIndex = 61;
+            this.lblRefreshInterval.Text = "Refersh Inverval (ms)";
             // 
             // FrmMain
             // 
@@ -1288,6 +1343,7 @@ namespace American_Football_Scoreboard
             this.MainMenuStrip = this.msMain;
             this.Name = "FrmMain";
             this.Text = "AFS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.tabMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1425,9 +1481,14 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveHotKeysToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chkAwayPossession;
+        private System.Windows.Forms.CheckBox chkHomePossession;
+        private System.Windows.Forms.TextBox txtHotKeyPossession;
+        private System.Windows.Forms.Label lblHotKeyPossession;
         private System.Windows.Forms.TextBox txtRefreshInterval;
         private System.Windows.Forms.Label lblRefreshInterval;
-        private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
     }
 }
 
