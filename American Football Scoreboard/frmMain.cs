@@ -276,24 +276,39 @@ namespace American_Football_Scoreboard
 
         private void ButSaveSettings_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
-            Properties.Settings.Default["DefaultPlay"] = txtPlayClockDuration.Text;
-            Properties.Settings.Default["GoalText"] = txtGoalText.Text;
-            if (!string.IsNullOrEmpty(txtOutputFolder.Text))
+            string errorMessage = "";
+            if (txtPeriodDuration.Text.Length != 5)
             {
-                Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
+                errorMessage += "Default Period Duration must be in format 00:00.  ";
             }
-            Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
-            if (int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
+            if (!int.TryParse(s: txtPlayClockDuration.Text, out int playClock))
             {
+                errorMessage += "Default Play Clock must be an integer.  ";
+            }
+            if (string.IsNullOrEmpty(txtOutputFolder.Text))
+            {
+                errorMessage += "Please specify an output folder.  ";
+            }
+            if (!int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
+            {
+                errorMessage += "Refresh Interval must be an integer.  ";
+            }
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
+                Properties.Settings.Default["DefaultPlay"] = txtPlayClockDuration.Text;
+                Properties.Settings.Default["GoalText"] = txtGoalText.Text;
+                Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
+                Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
+                Properties.Settings.Default.Save();
+                tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
             {
-                Properties.Settings.Default["RefreshInterval"] = 400;
+                MessageBox.Show(text: errorMessage.Trim(), caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
             }
-            Properties.Settings.Default.Save();
-            tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
         }
 
         private void ButSendSupplemental_Click(object sender, EventArgs e)
@@ -318,7 +333,13 @@ namespace American_Football_Scoreboard
                 if (!tmrClockRefresh.Enabled)
                     tmrClockRefresh.Enabled = true;
                 if (txtGameClock.Text.Trim().Length == 0)
+                {
                     txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
+                }
+                else if (txtGameClock.Text.Trim().Length < 5)
+                {
+                    txtGameClock.Text = ("00000" + txtGameClock.Text).Substring(txtGameClock.Text.Length);
+                }
                 periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
                 periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
                 butStartStopGameClock.Text = "Stop Game Clock";
@@ -431,7 +452,7 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void InitializeTextBox(TextBox textBox, string fileName)
+        private static void InitializeTextBox(TextBox textBox, string fileName)
         {
             string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, fileName);
             if (!File.Exists(currentFile))

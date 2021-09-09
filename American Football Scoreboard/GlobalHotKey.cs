@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
 
-public class GlobalHotKey : IDisposable
+public sealed class GlobalHotKey : IDisposable
 {
     /// <summary>
     /// Registers a global hotkey
@@ -11,6 +11,11 @@ public class GlobalHotKey : IDisposable
     /// <param name="aKeyGesture">e.g. Alt + Shift + Control + Win + S</param>
     /// <param name="aAction">Action to be called when hotkey is pressed</param>
     /// <returns>true, if registration succeeded, otherwise false</returns>
+
+    /// GlobalHotKey Code Attribution
+    /// https://stackoverflow.com/questions/2450373/set-global-hotkeys-using-c-sharp
+    /// Code posted on about December 22, 2020 by Lumo
+    /// Code retrieved on about August 31, 2021
 
     public static bool DeRegisterHotKeys()
     {
@@ -89,7 +94,7 @@ public class GlobalHotKey : IDisposable
 
     private static readonly InvisibleWindowForMessages window = new InvisibleWindowForMessages();
     private static int currentID;
-    private static readonly uint MOD_NOREPEAT = 0x4000;
+    private const uint MOD_NOREPEAT = 0x4000;
     private static List<HotKeyWithAction> registeredHotKeys = new List<HotKeyWithAction>();
 
     private class HotKeyWithAction
@@ -121,7 +126,7 @@ public class GlobalHotKey : IDisposable
             CreateHandle(new System.Windows.Forms.CreateParams());
         }
 
-        private static readonly int WM_HOTKEY = 0x0312;
+        private const int WM_HOTKEY = 0x0312;
         protected override void WndProc(ref System.Windows.Forms.Message m)
         {
             base.WndProc(ref m);

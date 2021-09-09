@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>American Football Scoreboard</ProductName>
     <PublisherName>Hogaboam Law Offices, PLLC</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
