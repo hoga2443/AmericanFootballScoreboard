@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Squirrel;
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,6 +36,7 @@ namespace American_Football_Scoreboard
         public FrmMain()
         {
             InitializeComponent();
+            AddVersionNumber();
             LoadSettings();
             InitializeUI();
             RegisterHotKeys();
@@ -403,6 +407,11 @@ namespace American_Football_Scoreboard
             {
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
             }
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalHotKey.DeRegisterHotKeys();
         }
 
         private void TogglePossession()
@@ -818,6 +827,11 @@ namespace American_Football_Scoreboard
             System.Diagnostics.Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/issues");
         }
 
+        private void ToolStripMenuItemCheckForUpdate_Click(object sender, EventArgs e)
+        {
+            CheckForUpdates();
+        }
+
         private void ToolStripMenuItemClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -882,6 +896,11 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(distanceFile, txtDistance.Text);
         }
 
+        private void TxtGameClock_Leave(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
+        }
+
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
@@ -920,6 +939,11 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
         }
 
+        private void TxtPlayClock_Leave(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
+        }
+
         /*
         Write a specified value to a specified file.
         Values are only available to applications using the scoreboard after the file has been written.
@@ -932,9 +956,50 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        private void AddVersionNumber()
         {
-            GlobalHotKey.DeRegisterHotKeys();
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            this.Text += $" v.{versionInfo.FileVersion }";
+        }
+
+        private async Task CheckForUpdates()
+        {
+            using (var manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/hoga2443/AmericanFootballScoreboard"))
+            {
+                try
+                {
+                    var updateInfo = await manager.CheckForUpdate();
+
+                    if (updateInfo.ReleasesToApply.Count > 0)
+                    {
+                        var versionCount = updateInfo.ReleasesToApply.Count;
+
+                        var versionWord = versionCount > 1 ? "versions" : "version";
+                        var message = new StringBuilder().AppendLine($"App is {versionCount} {versionWord} behind.").
+                                                          AppendLine("If you choose to update, changes wont take affect until AFS is restarted.").
+                                                          AppendLine("Would you like to download and install them?").
+                                                          ToString();
+
+                        var result = MessageBox.Show(message, "App Update", MessageBoxButtons.YesNo);
+                        if (result != DialogResult.Yes)
+                        {
+                            return;
+                        }
+
+                        var updateResult = await manager.UpdateApp();
+                        MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(text: "You have the latest version, no update is available!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                    }
+                }
+                catch 
+                {
+                    MessageBox.Show(text: "Error checking for updates!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
