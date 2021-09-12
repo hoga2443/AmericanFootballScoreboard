@@ -97,7 +97,7 @@ namespace American_Football_Scoreboard
         */
 
         /*
-        Function to add a specified number of points to a specified control
+        Method to add a specified number of points to a specified control
         Called by all functions which alter a score
         */
         private void AddScore(TextBox control, int points)
@@ -107,7 +107,7 @@ namespace American_Football_Scoreboard
         }
 
         /*
-        Function to increase/decrease the number of timeouts in a specified control
+        Method to increase/decrease the number of timeouts in a specified control
         Called by all functions which alter a number of timeouts
         */
         private void AddTimeout(TextBox control, int timeoutsToAdd)
@@ -120,6 +120,13 @@ namespace American_Football_Scoreboard
             {
                 control.Text = (timeoutsToAdd).ToString();
             }
+        }
+
+        private void AddVersionNumber()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            this.Text += $" v.{versionInfo.FileVersion }";
         }
 
         private void ButAwayAddOne_Click(object sender, EventArgs e)
@@ -161,6 +168,11 @@ namespace American_Football_Scoreboard
 
         private void ButClearClocks_Click(object sender, EventArgs e)
         {
+            ClearClocks();
+        }
+
+        private void ClearClocks()
+        {
             tmrClockRefresh.Enabled = false;
             playClockRunning = false;
             txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
@@ -168,7 +180,6 @@ namespace American_Football_Scoreboard
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
-
         private void ButClearHome_Click(object sender, EventArgs e)
         {
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
@@ -383,6 +394,45 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private async Task CheckForUpdates()
+        {
+            using (var manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/hoga2443/AmericanFootballScoreboard"))
+            {
+                try
+                {
+                    var updateInfo = await manager.CheckForUpdate();
+
+                    if (updateInfo.ReleasesToApply.Count > 0)
+                    {
+                        var versionCount = updateInfo.ReleasesToApply.Count;
+
+                        var versionWord = versionCount > 1 ? "versions" : "version";
+                        var message = new StringBuilder().AppendLine($"App is {versionCount} {versionWord} behind.").
+                                                          AppendLine("If you choose to update, changes wont take affect until AFS is restarted.").
+                                                          AppendLine("Would you like to download and install them?").
+                                                          ToString();
+
+                        var result = MessageBox.Show(message, "App Update", MessageBoxButtons.YesNo);
+                        if (result != DialogResult.Yes)
+                        {
+                            return;
+                        }
+
+                        var updateResult = await manager.UpdateApp();
+                        MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(text: "You have the latest version, no update is available!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(text: "Error checking for updates!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void ChkAwayPossession_CheckedChanged(object sender, EventArgs e)
         {
             if (chkAwayPossession.Checked)
@@ -446,8 +496,26 @@ namespace American_Football_Scoreboard
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
             txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
             _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            if (txtGameClock.Text == "00:00")
+            if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
+            {
+                butStartStopGameClock.Text = "Start Game Clock";
                 periodClockRunning = false;
+                if (rbPeriodOne.Checked)
+                {
+                    rbPeriodTwo.Checked = true;
+                    ClearClocks();
+                }
+                else if (rbPeriodTwo.Checked)
+                {
+                    rbPeriodThree.Checked = true;
+                    ClearClocks();
+                }
+                else if (rbPeriodThree.Checked)
+                {
+                    rbPeriodFour.Checked = true;
+                    ClearClocks();
+                }
+            }
         }
 
         private void DecementPlayClock()
@@ -606,6 +674,14 @@ namespace American_Football_Scoreboard
             {
                 rbPeriodOne.Checked = true;
                 txtDistance.Text = "10";
+            }
+        }
+
+        private void RbDownBlank_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDownBlank.Checked)
+            {
+                _ = WriteFileAsync(downFile, string.Empty);
             }
         }
 
@@ -953,52 +1029,6 @@ namespace American_Football_Scoreboard
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(Properties.Settings.Default.OutputPath, file)))
             {
                 await outputFile.WriteAsync(content);
-            }
-        }
-
-        private void AddVersionNumber()
-        {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            this.Text += $" v.{versionInfo.FileVersion }";
-        }
-
-        private async Task CheckForUpdates()
-        {
-            using (var manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/hoga2443/AmericanFootballScoreboard"))
-            {
-                try
-                {
-                    var updateInfo = await manager.CheckForUpdate();
-
-                    if (updateInfo.ReleasesToApply.Count > 0)
-                    {
-                        var versionCount = updateInfo.ReleasesToApply.Count;
-
-                        var versionWord = versionCount > 1 ? "versions" : "version";
-                        var message = new StringBuilder().AppendLine($"App is {versionCount} {versionWord} behind.").
-                                                          AppendLine("If you choose to update, changes wont take affect until AFS is restarted.").
-                                                          AppendLine("Would you like to download and install them?").
-                                                          ToString();
-
-                        var result = MessageBox.Show(message, "App Update", MessageBoxButtons.YesNo);
-                        if (result != DialogResult.Yes)
-                        {
-                            return;
-                        }
-
-                        var updateResult = await manager.UpdateApp();
-                        MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(text: "You have the latest version, no update is available!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                    }
-                }
-                catch 
-                {
-                    MessageBox.Show(text: "Error checking for updates!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
         }
     }
