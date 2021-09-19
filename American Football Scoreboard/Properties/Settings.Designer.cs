@@ -274,5 +274,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyPossession"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AdvanceQuarter {
+            get {
+                return ((bool)(this["AdvanceQuarter"]));
+            }
+            set {
+                this["AdvanceQuarter"] = value;
+            }
+        }
     }
 }

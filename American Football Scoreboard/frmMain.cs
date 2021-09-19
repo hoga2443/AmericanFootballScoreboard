@@ -33,6 +33,8 @@ namespace American_Football_Scoreboard
         private DateTime playTimeEnd = DateTime.UtcNow;
         private TimeSpan playTimeRemaining = new TimeSpan(0, 0, 0);
 
+        private bool advanceQuarter = false;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -318,6 +320,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
                 Properties.Settings.Default.Save();
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
@@ -496,24 +499,27 @@ namespace American_Football_Scoreboard
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
             txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
             _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
+            if (advanceQuarter)
             {
-                butStartStopGameClock.Text = "Start Game Clock";
-                periodClockRunning = false;
-                if (rbPeriodOne.Checked)
+                if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
                 {
-                    rbPeriodTwo.Checked = true;
-                    ClearClocks();
-                }
-                else if (rbPeriodTwo.Checked)
-                {
-                    rbPeriodThree.Checked = true;
-                    ClearClocks();
-                }
-                else if (rbPeriodThree.Checked)
-                {
-                    rbPeriodFour.Checked = true;
-                    ClearClocks();
+                    butStartStopGameClock.Text = "Start Game Clock";
+                    periodClockRunning = false;
+                    if (rbPeriodOne.Checked)
+                    {
+                        rbPeriodTwo.Checked = true;
+                        ClearClocks();
+                    }
+                    else if (rbPeriodTwo.Checked)
+                    {
+                        rbPeriodThree.Checked = true;
+                        ClearClocks();
+                    }
+                    else if (rbPeriodThree.Checked)
+                    {
+                        rbPeriodFour.Checked = true;
+                        ClearClocks();
+                    }
                 }
             }
         }
@@ -542,11 +548,6 @@ namespace American_Football_Scoreboard
 
         private void InitializeUI()
         {
-            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
-            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
-            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
             InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
             InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
@@ -617,6 +618,7 @@ namespace American_Football_Scoreboard
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
             tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+            chkAdvanceQuarter.Checked = Properties.Settings.Default.AdvanceQuarter;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
             txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
@@ -950,19 +952,19 @@ namespace American_Football_Scoreboard
             switch (txtAwayTimeouts.Text)
             {
                 case "0":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "1":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "2":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 case "3":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
                 default:
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
                     break;
             }
         }
@@ -993,19 +995,19 @@ namespace American_Football_Scoreboard
             switch (txtHomeTimeouts.Text)
             {
                 case "0":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts.png"));
                     break;
                 case "1":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts\\1Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts.png"));
                     break;
                 case "2":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts\\2Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts.png"));
                     break;
                 case "3":
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts\\3Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts.png"));
                     break;
                 default:
-                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts\\AwayTimeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayTimeouts.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts\\0Timeouts.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomeTimeouts.png"));
                     break;
             }
         }

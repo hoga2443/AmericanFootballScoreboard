@@ -65,5 +65,8 @@
     <Setting Name="HotKeyPossession" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + 9</Value>
     </Setting>
+    <Setting Name="AdvanceQuarter" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
