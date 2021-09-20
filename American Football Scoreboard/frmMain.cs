@@ -25,7 +25,7 @@ namespace American_Football_Scoreboard
 
         const char padZero = '0';
 
-        private bool periodClockRunning = false;
+        private bool gameClockRunning = false;
         private DateTime periodClockEnd = DateTime.UtcNow;
         private TimeSpan periodTimeRemaining = new TimeSpan(0, 0, 0);
 
@@ -44,64 +44,6 @@ namespace American_Football_Scoreboard
             RegisterHotKeys();
         }
 
-        /*
-        private void FrmMain_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Start/Stop Game Clock
-            if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopGameClock
-                && e.Alt == Properties.Settings.Default.HotKeyStartStopGameClockAlt
-                && e.Control == Properties.Settings.Default.HotKeyStartStopGameClockCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyStartStopGameClockShift)
-            {
-                butStartStopGameClock.PerformClick();
-            }
-            // Start/Stop Play Clock
-            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyStartStopPlayClock
-                && e.Alt == Properties.Settings.Default.HotKeyStartStopPlayClockAlt
-                && e.Control == Properties.Settings.Default.HotKeyStartStopPlayClockCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyStartStopPlayClockShift)
-            {
-                butStartStopPlayClock.PerformClick();
-            }
-            // New Play Clock
-            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNewPlayClock
-                && e.Alt == Properties.Settings.Default.HotKeyNewPlayClockAlt
-                && e.Control == Properties.Settings.Default.HotKeyNewPlayClockCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyNewPlayClockShift)
-            {
-                butNewPlayClock.PerformClick();
-            }
-            // Clear Clocks
-            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyClearClocks
-                && e.Alt == Properties.Settings.Default.HotKeyClearClocksAlt
-                && e.Control == Properties.Settings.Default.HotKeyClearClocksCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyClearClocksShift)
-            {
-                butClearClocks.PerformClick();
-            }
-            // Next Down
-            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNextDown
-                && e.Alt == Properties.Settings.Default.HotKeyNextDownAlt
-                && e.Control == Properties.Settings.Default.HotKeyNextDownCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyNextDownShift)
-            {
-                NextDown();
-            }
-            // Next Period
-            else if (e.KeyCode.ToString() == Properties.Settings.Default.HotKeyNextPeriod
-                && e.Alt == Properties.Settings.Default.HotKeyNextPeriodAlt
-                && e.Control == Properties.Settings.Default.HotKeyNextPeriodCtrl
-                && e.Shift == Properties.Settings.Default.HotKeyNextPeriodShift)
-            {
-                NextPeriod();
-            }
-        }
-        */
-
-        /*
-        Method to add a specified number of points to a specified control
-        Called by all functions which alter a score
-        */
         private void AddScore(TextBox control, int points)
         {
             if(int.TryParse(s: control.Text, out int oldScore))
@@ -129,6 +71,27 @@ namespace American_Football_Scoreboard
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             this.Text += $" v.{versionInfo.FileVersion }";
+        }
+
+        private void AdvanceQuarter()
+        {
+            butStartStopGameClock.Text = "Start Game Clock";
+            gameClockRunning = false;
+            if (rbPeriodOne.Checked)
+            {
+                rbPeriodTwo.Checked = true;
+                ClearClocks();
+            }
+            else if (rbPeriodTwo.Checked)
+            {
+                rbPeriodThree.Checked = true;
+                ClearClocks();
+            }
+            else if (rbPeriodThree.Checked)
+            {
+                rbPeriodFour.Checked = true;
+                ClearClocks();
+            }
         }
 
         private void ButAwayAddOne_Click(object sender, EventArgs e)
@@ -182,6 +145,7 @@ namespace American_Football_Scoreboard
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
+
         private void ButClearHome_Click(object sender, EventArgs e)
         {
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
@@ -196,6 +160,7 @@ namespace American_Football_Scoreboard
 
         private void ButDownClear_Click(object sender, EventArgs e)
         {
+            rbDownBlank.Checked = true;
             rbDownOne.Checked = false;
             rbDownTwo.Checked = false;
             rbDownThree.Checked = false;
@@ -295,21 +260,13 @@ namespace American_Football_Scoreboard
         {
             string errorMessage = "";
             if (txtPeriodDuration.Text.Length != 5)
-            {
                 errorMessage += "Default Period Duration must be in format 00:00.  ";
-            }
             if (!int.TryParse(s: txtPlayClockDuration.Text, out int playClock))
-            {
                 errorMessage += "Default Play Clock must be an integer.  ";
-            }
             if (string.IsNullOrEmpty(txtOutputFolder.Text))
-            {
                 errorMessage += "Please specify an output folder.  ";
-            }
             if (!int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
-            {
                 errorMessage += "Refresh Interval must be an integer.  ";
-            }
             if (string.IsNullOrEmpty(errorMessage))
             {
                 Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
@@ -321,12 +278,14 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default.Save();
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
+                Properties.Settings.Default["Period1"] = txtSettingPeriod1.Text;
+                Properties.Settings.Default["Period2"] = txtSettingPeriod2.Text;
+                Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
+                Properties.Settings.Default["Period4"] = txtSettingPeriod4.Text;
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
-            {
                 MessageBox.Show(text: errorMessage.Trim(), caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-            }
         }
 
         private void ButSendSupplemental_Click(object sender, EventArgs e)
@@ -336,32 +295,25 @@ namespace American_Football_Scoreboard
 
         private void ButStartStopGameClock_Click(object sender, EventArgs e)
         {
-            if (periodClockRunning)
+            if (gameClockRunning)
             {
-                periodClockRunning = false;
                 if (!playClockRunning)
-                {
                     tmrClockRefresh.Enabled = false;
-                }
                 butStartStopGameClock.Text = "Start Game Clock";
             }
             else
             {
-                periodClockRunning = true;
                 if (!tmrClockRefresh.Enabled)
                     tmrClockRefresh.Enabled = true;
                 if (txtGameClock.Text.Trim().Length == 0)
-                {
                     txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
-                }
                 else if (txtGameClock.Text.Trim().Length < 5)
-                {
                     txtGameClock.Text = ("00000" + txtGameClock.Text).Substring(txtGameClock.Text.Length);
-                }
                 periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
                 periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
                 butStartStopGameClock.Text = "Stop Game Clock";
             }
+            gameClockRunning = !gameClockRunning;
         }
 
         private void ButStartPlayClock_Click(object sender, EventArgs e)
@@ -370,9 +322,7 @@ namespace American_Football_Scoreboard
             {
                 playClockRunning = false;
                 if (!playClockRunning)
-                {
                     tmrClockRefresh.Enabled = false;
-                }
                 butStartStopPlayClock.Text = "Start Play Clock";
             }
             else
@@ -411,11 +361,11 @@ namespace American_Football_Scoreboard
 
                         var versionWord = versionCount > 1 ? "versions" : "version";
                         var message = new StringBuilder().AppendLine($"App is {versionCount} {versionWord} behind.").
-                                                          AppendLine("If you choose to update, changes wont take affect until AFS is restarted.").
-                                                          AppendLine("Would you like to download and install them?").
+                                                          AppendLine("If you choose to update, changes won't take affect until AFS is restarted.").
+                                                          AppendLine("Would you like to download and install the update?").
                                                           ToString();
 
-                        var result = MessageBox.Show(message, "App Update", MessageBoxButtons.YesNo);
+                        var result = MessageBox.Show(text: message, caption: "AFS", buttons: MessageBoxButtons.YesNo);
                         if (result != DialogResult.Yes)
                         {
                             return;
@@ -462,26 +412,9 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            GlobalHotKey.DeRegisterHotKeys();
-        }
-
-        private void TogglePossession()
-        {
-            if (!chkHomePossession.Checked)
-            {
-                chkHomePossession.Checked = true;
-            }
-            else
-            {
-                chkAwayPossession.Checked = true;
-            }
-        }
-
         /*
         Copy a file in the filesystem
-        Used to update the timeouts remaining images
+        Used to update the timeouts remaining and possession images
         */
         static async Task CopyFileAsync(string sourcePath, string destinationPath)
         {
@@ -503,23 +436,7 @@ namespace American_Football_Scoreboard
             {
                 if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
                 {
-                    butStartStopGameClock.Text = "Start Game Clock";
-                    periodClockRunning = false;
-                    if (rbPeriodOne.Checked)
-                    {
-                        rbPeriodTwo.Checked = true;
-                        ClearClocks();
-                    }
-                    else if (rbPeriodTwo.Checked)
-                    {
-                        rbPeriodThree.Checked = true;
-                        ClearClocks();
-                    }
-                    else if (rbPeriodThree.Checked)
-                    {
-                        rbPeriodFour.Checked = true;
-                        ClearClocks();
-                    }
+                    AdvanceQuarter();
                 }
             }
         }
@@ -535,6 +452,11 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalHotKey.DeRegisterHotKeys();
+        }
+
         private static void InitializeTextBox(TextBox textBox, string fileName)
         {
             string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, fileName);
@@ -546,26 +468,15 @@ namespace American_Football_Scoreboard
             textBox.Text = File.ReadAllText(currentFile);
         }
 
-        private void InitializeUI()
+        private void InitializeDown()
         {
-            InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
-            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
-            InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
-            InitializeTextBox(textBox: txtAwayTeam, fileName: awayTeamNameFile);
-            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile);
-            InitializeTextBox(textBox: txtAwayTimeouts, fileName: awayTimeoutsRemainingFile);
-            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
-            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
-            InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
-            InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
-
             string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, downFile);
             if (!File.Exists(currentFile))
             {
                 FileStream fs = File.Create(currentFile);
                 fs.Close();
             }
-            string down = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, downFile));
+            string down = File.ReadAllText(currentFile);
             switch (down)
             {
                 case "2nd":
@@ -581,14 +492,18 @@ namespace American_Football_Scoreboard
                     rbDownOne.Checked = true;
                     break;
             }
-            currentFile = Path.Combine(Properties.Settings.Default.OutputPath, periodFile);
+        }
+
+        private void InitializeQuarter()
+        {
+            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, periodFile);
             if (!File.Exists(currentFile))
             {
                 FileStream fs = File.Create(currentFile);
                 fs.Close();
             }
 
-            string quarter = File.ReadAllText(Path.Combine(Properties.Settings.Default.OutputPath, periodFile));
+            string quarter = File.ReadAllText(currentFile);
             switch (quarter)
             {
                 case "1":
@@ -610,7 +525,23 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void LoadSettings()
+        private void InitializeUI()
+        {
+            InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
+            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
+            InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
+            InitializeTextBox(textBox: txtAwayTeam, fileName: awayTeamNameFile);
+            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile);
+            InitializeTextBox(textBox: txtAwayTimeouts, fileName: awayTimeoutsRemainingFile);
+            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
+            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
+            InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
+            InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
+            InitializeDown();
+            InitializeQuarter();
+        }
+
+        private void LoadApplicationSettings()
         {
             txtPeriodDuration.Text = Properties.Settings.Default.DefaultPeriod;
             txtPlayClockDuration.Text = Properties.Settings.Default.DefaultPlay;
@@ -619,13 +550,15 @@ namespace American_Football_Scoreboard
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
             tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
             chkAdvanceQuarter.Checked = Properties.Settings.Default.AdvanceQuarter;
-            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
-            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
-            txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
-            txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
-            txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
             txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
+            txtSettingPeriod1.Text = Properties.Settings.Default.Period1;
+            txtSettingPeriod2.Text = Properties.Settings.Default.Period2;
+            txtSettingPeriod3.Text = Properties.Settings.Default.Period3;
+            txtSettingPeriod4.Text = Properties.Settings.Default.Period4;
+        }
+
+        private void LoadHotKeySettings()
+        {
             txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
             txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
             txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
@@ -635,6 +568,18 @@ namespace American_Football_Scoreboard
             txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
             txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
+            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
+            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
+            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
+            txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
+            txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
+            txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
+        }
+
+        private void LoadSettings()
+        {
+            LoadApplicationSettings();
+            LoadHotKeySettings();
         }
 
         private void NextDown()
@@ -722,27 +667,27 @@ namespace American_Football_Scoreboard
 
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(periodFile, "1");
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
         }
 
         private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(periodFile, "2");
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
         }
 
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(periodFile, "3");
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
         }
 
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(periodFile, "4");
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
         }
 
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(periodFile, txtPeriodOT.Text);
+            _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
         }
 
         private void RegisterHotKeys()
@@ -751,141 +696,111 @@ namespace American_Football_Scoreboard
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butStartStopGameClock.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyStartStopPlayClock;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butStartStopPlayClock.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyNewPlayClock;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butNewPlayClock.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyClearClocks;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butClearClocks.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyNextDown;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => NextDown()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyNextPeriod;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => NextPeriod()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Next Period!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyHome1;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddOne.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Home Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyHome2;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddTwo.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Home Team 2 point2!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyHome3;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddThree.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Home Team 3 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyHome6;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddSix.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Home Team 6 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyAway1;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddOne.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Away Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyAway2;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddTwo.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Away Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyAway3;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddThree.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Away Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyAway6;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddSix.PerformClick()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
 
             settingValue = Properties.Settings.Default.HotKeyPossession;
             if (!string.IsNullOrEmpty(settingValue))
             {
                 if (!GlobalHotKey.RegisterHotKey(settingValue, () => TogglePossession()))
-                {
                     MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                }
             }
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
         {
-            if (periodClockRunning)
+            if (gameClockRunning)
             {
                 DecrementGameClock();
             }
@@ -895,14 +810,26 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void TogglePossession()
+        {
+            if (!chkHomePossession.Checked)
+            {
+                chkHomePossession.Checked = true;
+            }
+            else
+            {
+                chkAwayPossession.Checked = true;
+            }
+        }
+
         private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/wiki");
+            Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/wiki");
         }
 
         private void ToolStripMenuItemReportIssue_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/issues");
+            Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/issues");
         }
 
         private void ToolStripMenuItemCheckForUpdate_Click(object sender, EventArgs e)
@@ -918,7 +845,7 @@ namespace American_Football_Scoreboard
 
         private void ToolStripMenuItemOpenOutputFolder_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            Process.Start(new ProcessStartInfo()
             {
                 FileName = Properties.Settings.Default.OutputPath,
                 UseShellExecute = true,

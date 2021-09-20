@@ -68,5 +68,17 @@
     <Setting Name="AdvanceQuarter" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Period1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1st</Value>
+    </Setting>
+    <Setting Name="Period2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2nd</Value>
+    </Setting>
+    <Setting Name="Period3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3rd</Value>
+    </Setting>
+    <Setting Name="Period4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4th</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
