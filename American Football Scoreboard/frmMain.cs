@@ -57,13 +57,9 @@ namespace American_Football_Scoreboard
         private void AddTimeout(TextBox control, int timeoutsToAdd)
         {
             if (int.TryParse(s: control.Text, out int currentTimeouts))
-            {
                 control.Text = (currentTimeouts + timeoutsToAdd).ToString();
-            }
             else
-            {
                 control.Text = (timeoutsToAdd).ToString();
-            }
         }
 
         private void AddVersionNumber()
@@ -136,16 +132,6 @@ namespace American_Football_Scoreboard
             ClearClocks();
         }
 
-        private void ClearClocks()
-        {
-            tmrClockRefresh.Enabled = false;
-            playClockRunning = false;
-            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
-            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
-            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
-        }
-
         private void ButClearHome_Click(object sender, EventArgs e)
         {
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
@@ -205,9 +191,7 @@ namespace American_Football_Scoreboard
             playTimeEnd = DateTime.UtcNow + playTimeRemaining;
             butStartStopPlayClock.Text = "Stop Play Clock"; 
             if (!tmrClockRefresh.Enabled)
-            {
                 tmrClockRefresh.Enabled = true;
-            }
             playClockRunning = true;
         }
 
@@ -215,9 +199,7 @@ namespace American_Football_Scoreboard
         {
             DialogResult result = fbdOutput.ShowDialog();
             if (result == DialogResult.OK)
-            {
                 txtOutputFolder.Text = fbdOutput.SelectedPath;
-            }
         }
 
         private void ButPeriodClear_Click(object sender, EventArgs e)
@@ -316,7 +298,7 @@ namespace American_Football_Scoreboard
             gameClockRunning = !gameClockRunning;
         }
 
-        private void ButStartPlayClock_Click(object sender, EventArgs e)
+        private void ButStartStopPlayClock_Click(object sender, EventArgs e)
         {
             if (playClockRunning)
             {
@@ -338,15 +320,6 @@ namespace American_Football_Scoreboard
             }
         }
 
-        private void ButStopPlayClock_Click(object sender, EventArgs e)
-        {
-            playClockRunning = false;
-            if (!playClockRunning)
-            {
-                tmrClockRefresh.Enabled = false;
-            }
-        }
-
         private async Task CheckForUpdates()
         {
             using (var manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/hoga2443/AmericanFootballScoreboard"))
@@ -359,25 +332,30 @@ namespace American_Football_Scoreboard
                     {
                         var versionCount = updateInfo.ReleasesToApply.Count;
 
-                        var versionWord = versionCount > 1 ? "versions" : "version";
-                        var message = new StringBuilder().AppendLine($"App is {versionCount} {versionWord} behind.").
+                        var versionWord = versionCount > 1 ? "releases" : "release";
+                        var message = new StringBuilder().AppendLine($"Your installation is {versionCount} {versionWord} behind.").
                                                           AppendLine("If you choose to update, changes won't take affect until AFS is restarted.").
                                                           AppendLine("Would you like to download and install the update?").
                                                           ToString();
 
-                        var result = MessageBox.Show(text: message, caption: "AFS", buttons: MessageBoxButtons.YesNo);
+                        DialogResult result = MessageBox.Show(text: message, caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question);
                         if (result != DialogResult.Yes)
-                        {
                             return;
-                        }
 
                         var updateResult = await manager.UpdateApp();
-                        MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                        result = MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted. Restart Now?", 
+                            caption: "AFS", 
+                            buttons: MessageBoxButtons.YesNo, 
+                            icon: MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            Application.Restart();
+                            Environment.Exit(0);
+
+                        }
                     }
                     else
-                    {
                         MessageBox.Show(text: "You have the latest version, no update is available!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                    }
                 }
                 catch
                 {
@@ -394,9 +372,7 @@ namespace American_Football_Scoreboard
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
             }
             else
-            {
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
-            }
         }
 
         private void ChkHomePossession_CheckedChanged(object sender, EventArgs e)
@@ -407,9 +383,17 @@ namespace American_Football_Scoreboard
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
             }
             else
-            {
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
-            }
+        }
+
+        private void ClearClocks()
+        {
+            tmrClockRefresh.Enabled = false;
+            playClockRunning = false;
+            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
+            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
 
         /*
@@ -435,9 +419,7 @@ namespace American_Football_Scoreboard
             if (advanceQuarter)
             {
                 if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
-                {
                     AdvanceQuarter();
-                }
             }
         }
 
@@ -447,25 +429,12 @@ namespace American_Football_Scoreboard
             txtPlayClock.Text = ((int)playTimeRemaining.TotalSeconds).ToString();
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
             if (txtPlayClock.Text == "0")
-            {
                 playClockRunning = false;
-            }
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             GlobalHotKey.DeRegisterHotKeys();
-        }
-
-        private static void InitializeTextBox(TextBox textBox, string fileName)
-        {
-            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, fileName);
-            if (!File.Exists(currentFile))
-            {
-                FileStream fs = File.Create(currentFile);
-                fs.Close();
-            }
-            textBox.Text = File.ReadAllText(currentFile);
         }
 
         private void InitializeDown()
@@ -523,6 +492,17 @@ namespace American_Football_Scoreboard
                     rbPeriodOT.Checked = true;
                     break;
             }
+        }
+
+        private static void InitializeTextBox(TextBox textBox, string fileName)
+        {
+            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, fileName);
+            if (!File.Exists(currentFile))
+            {
+                FileStream fs = File.Create(currentFile);
+                fs.Close();
+            }
+            textBox.Text = File.ReadAllText(currentFile);
         }
 
         private void InitializeUI()
@@ -585,17 +565,11 @@ namespace American_Football_Scoreboard
         private void NextDown()
         {
             if (rbDownOne.Checked == true)
-            {
                 rbDownTwo.Checked = true;
-            }
             else if (rbDownTwo.Checked == true)
-            {
                 rbDownThree.Checked = true;
-            }
             else if (rbDownThree.Checked == true)
-            {
                 rbDownFour.Checked = true;
-            }
             else
             {
                 rbDownOne.Checked = true;
@@ -606,17 +580,11 @@ namespace American_Football_Scoreboard
         private void NextPeriod()
         {
             if (rbPeriodOne.Checked == true)
-            {
                 rbPeriodTwo.Checked = true;
-            }
             else if (rbPeriodTwo.Checked == true)
-            {
                 rbPeriodThree.Checked = true;
-            }
             else if (rbPeriodThree.Checked == true)
-            {
                 rbPeriodFour.Checked = true;
-            }
             else
             {
                 rbPeriodOne.Checked = true;
@@ -629,15 +597,14 @@ namespace American_Football_Scoreboard
             if (rbDownBlank.Checked)
             {
                 _ = WriteFileAsync(downFile, string.Empty);
+                txtDistance.Text = string.Empty;
             }
         }
 
         private void RbDownFour_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownFour.Checked)
-            {
                 _ = WriteFileAsync(downFile, "4th");
-            }
         }
 
         private void RbDownOne_CheckedChanged(object sender, EventArgs e)
@@ -652,32 +619,13 @@ namespace American_Football_Scoreboard
         private void RbDownThree_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownThree.Checked)
-            {
                 _ = WriteFileAsync(downFile, "3rd");
-            }
         }
 
         private void RbDownTwo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownTwo.Checked)
-            {
                 _ = WriteFileAsync(downFile, "2nd");
-            }
-        }
-
-        private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
-        }
-
-        private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
-        }
-
-        private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
         }
 
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
@@ -685,9 +633,24 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
         }
 
+        private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
+        }
+
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
+        }
+
+        private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
+        }
+
+        private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
         }
 
         private void RegisterHotKeys()
@@ -801,35 +764,22 @@ namespace American_Football_Scoreboard
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
         {
             if (gameClockRunning)
-            {
                 DecrementGameClock();
-            }
             if (playClockRunning)
-            {
                 DecementPlayClock();
-            }
         }
 
         private void TogglePossession()
         {
             if (!chkHomePossession.Checked)
-            {
                 chkHomePossession.Checked = true;
-            }
             else
-            {
                 chkAwayPossession.Checked = true;
-            }
         }
 
         private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/wiki");
-        }
-
-        private void ToolStripMenuItemReportIssue_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/issues");
         }
 
         private void ToolStripMenuItemCheckForUpdate_Click(object sender, EventArgs e)
@@ -851,6 +801,11 @@ namespace American_Football_Scoreboard
                 UseShellExecute = true,
                 Verb = "open"
             });
+        }
+
+        private void ToolStripMenuItemReportIssue_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/hoga2443/AmericanFootballScoreboard/issues");
         }
 
         private void ToolStripMenuItemSaveHotKeys_Click(object sender, EventArgs e)

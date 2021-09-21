@@ -769,7 +769,7 @@ namespace American_Football_Scoreboard
             this.butStartStopPlayClock.TabIndex = 6;
             this.butStartStopPlayClock.Text = "Start Play Clock";
             this.butStartStopPlayClock.UseVisualStyleBackColor = true;
-            this.butStartStopPlayClock.Click += new System.EventHandler(this.ButStartPlayClock_Click);
+            this.butStartStopPlayClock.Click += new System.EventHandler(this.ButStartStopPlayClock_Click);
             // 
             // txtPlayClock
             // 
