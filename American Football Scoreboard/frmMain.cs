@@ -260,6 +260,10 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default.Save();
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
+                Properties.Settings.Default["Down1"] = txtSettingDown1.Text;
+                Properties.Settings.Default["Down2"] = txtSettingDown2.Text;
+                Properties.Settings.Default["Down3"] = txtSettingDown3.Text;
+                Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
                 Properties.Settings.Default["Period1"] = txtSettingPeriod1.Text;
                 Properties.Settings.Default["Period2"] = txtSettingPeriod2.Text;
                 Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
@@ -332,8 +336,8 @@ namespace American_Football_Scoreboard
                     {
                         var versionCount = updateInfo.ReleasesToApply.Count;
 
-                        var versionWord = versionCount > 1 ? "releases" : "release";
-                        var message = new StringBuilder().AppendLine($"Your installation is {versionCount} {versionWord} behind.").
+                        string versionWord = versionCount > 1 ? "releases" : "release";
+                        string message = new StringBuilder().AppendLine($"Your installation is {versionCount} {versionWord} behind.").
                                                           AppendLine("If you choose to update, changes won't take affect until AFS is restarted.").
                                                           AppendLine("Would you like to download and install the update?").
                                                           ToString();
@@ -351,7 +355,6 @@ namespace American_Football_Scoreboard
                         {
                             Application.Restart();
                             Environment.Exit(0);
-
                         }
                     }
                     else
@@ -416,10 +419,16 @@ namespace American_Football_Scoreboard
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
             txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
             _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            if (advanceQuarter)
+            if (DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
+                txtGameClock.Text = "00:00";
+            if (txtGameClock.Text == "00:00")
             {
-                if (txtGameClock.Text == "00:00" || DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
+                gameClockRunning = false;
+                butStartStopGameClock.Text = "Start Game Clock";
+                if (advanceQuarter)
                     AdvanceQuarter();
+                if (!playClockRunning)
+                    tmrClockRefresh.Enabled = false;
             }
         }
 
@@ -428,8 +437,15 @@ namespace American_Football_Scoreboard
             playTimeRemaining = playTimeEnd - DateTime.UtcNow;
             txtPlayClock.Text = ((int)playTimeRemaining.TotalSeconds).ToString();
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
+            if (DateTime.Compare(playTimeEnd, DateTime.UtcNow) <= 0)
+                txtPlayClock.Text = "0";
             if (txtPlayClock.Text == "0")
+            {
                 playClockRunning = false;
+                butStartStopPlayClock.Text = "Start Play Clock";
+                if (!gameClockRunning)
+                    tmrClockRefresh.Enabled = false;
+            }
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -446,21 +462,16 @@ namespace American_Football_Scoreboard
                 fs.Close();
             }
             string down = File.ReadAllText(currentFile);
-            switch (down)
-            {
-                case "2nd":
-                    rbDownTwo.Checked = true;
-                    break;
-                case "3rd":
-                    rbDownThree.Checked = true;
-                    break;
-                case "4th":
-                    rbDownFour.Checked = true;
-                    break;
-                default:
-                    rbDownOne.Checked = true;
-                    break;
-            }
+            if (down == Properties.Settings.Default.Down1)
+                rbDownOne.Checked = true;
+            else if (down == Properties.Settings.Default.Down2)
+                rbDownTwo.Checked = true;
+            else if (down == Properties.Settings.Default.Down3)
+                rbDownThree.Checked = true;
+            else if (down == Properties.Settings.Default.Down4)
+                rbDownFour.Checked = true;
+            else
+                rbDownBlank.Checked = true;
         }
 
         private void InitializeQuarter()
@@ -473,24 +484,18 @@ namespace American_Football_Scoreboard
             }
 
             string quarter = File.ReadAllText(currentFile);
-            switch (quarter)
+            if (quarter == Properties.Settings.Default.Period1)
+                rbPeriodOne.Checked = true;
+            else if (quarter == Properties.Settings.Default.Period2)
+                rbPeriodTwo.Checked = true;
+            else if (quarter == Properties.Settings.Default.Period3)
+                rbPeriodThree.Checked = true;
+            else if (quarter == Properties.Settings.Default.Period4)
+                rbPeriodFour.Checked = true;
+            else
             {
-                case "1":
-                    rbPeriodOne.Checked = true;
-                    break;
-                case "2":
-                    rbPeriodTwo.Checked = true;
-                    break;
-                case "3":
-                    rbPeriodThree.Checked = true;
-                    break;
-                case "4":
-                    rbPeriodFour.Checked = true;
-                    break;
-                default:
-                    txtPeriodOT.Text = quarter;
-                    rbPeriodOT.Checked = true;
-                    break;
+                rbPeriodOT.Checked = true;
+                txtPeriodOT.Text = quarter;
             }
         }
 
@@ -535,6 +540,10 @@ namespace American_Football_Scoreboard
             txtSettingPeriod2.Text = Properties.Settings.Default.Period2;
             txtSettingPeriod3.Text = Properties.Settings.Default.Period3;
             txtSettingPeriod4.Text = Properties.Settings.Default.Period4;
+            txtSettingDown1.Text = Properties.Settings.Default.Down1;
+            txtSettingDown2.Text = Properties.Settings.Default.Down2;
+            txtSettingDown3.Text = Properties.Settings.Default.Down3;
+            txtSettingDown4.Text = Properties.Settings.Default.Down4;
         }
 
         private void LoadHotKeySettings()
@@ -596,7 +605,7 @@ namespace American_Football_Scoreboard
         {
             if (rbDownBlank.Checked)
             {
-                _ = WriteFileAsync(downFile, string.Empty);
+                _ = WriteFileAsync(file: downFile, content: string.Empty);
                 txtDistance.Text = string.Empty;
             }
         }
@@ -604,14 +613,14 @@ namespace American_Football_Scoreboard
         private void RbDownFour_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownFour.Checked)
-                _ = WriteFileAsync(downFile, "4th");
+                _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down4);
         }
 
         private void RbDownOne_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownOne.Checked)
             {
-                _ = WriteFileAsync(downFile, "1st");
+                _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down1);
                 txtDistance.Text = "10";
             }
         }
@@ -619,13 +628,13 @@ namespace American_Football_Scoreboard
         private void RbDownThree_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownThree.Checked)
-                _ = WriteFileAsync(downFile, "3rd");
+                _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down3);
         }
 
         private void RbDownTwo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownTwo.Checked)
-                _ = WriteFileAsync(downFile, "2nd");
+                _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down2);
         }
 
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)

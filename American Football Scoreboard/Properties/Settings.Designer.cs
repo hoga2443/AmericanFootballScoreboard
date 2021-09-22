@@ -334,5 +334,53 @@ namespace American_Football_Scoreboard.Properties {
                 this["Period4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string Down1 {
+            get {
+                return ((string)(this["Down1"]));
+            }
+            set {
+                this["Down1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public string Down2 {
+            get {
+                return ((string)(this["Down2"]));
+            }
+            set {
+                this["Down2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public string Down3 {
+            get {
+                return ((string)(this["Down3"]));
+            }
+            set {
+                this["Down3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public string Down4 {
+            get {
+                return ((string)(this["Down4"]));
+            }
+            set {
+                this["Down4"] = value;
+            }
+        }
     }
 }
