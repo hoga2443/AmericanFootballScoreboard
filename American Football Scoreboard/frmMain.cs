@@ -257,7 +257,6 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
-                Properties.Settings.Default.Save();
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 Properties.Settings.Default["Down1"] = txtSettingDown1.Text;
@@ -268,6 +267,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Period2"] = txtSettingPeriod2.Text;
                 Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
                 Properties.Settings.Default["Period4"] = txtSettingPeriod4.Text;
+                Properties.Settings.Default.Save();
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
@@ -373,6 +373,7 @@ namespace American_Football_Scoreboard
             {
                 chkHomePossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
+                rbDownOne.Checked = true;
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
@@ -384,6 +385,7 @@ namespace American_Football_Scoreboard
             {
                 chkAwayPossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\Possession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
+                rbDownOne.Checked = true;
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "HomePossession.png"));
@@ -522,6 +524,7 @@ namespace American_Football_Scoreboard
             InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
             InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
             InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
+            chkHomePossession.Checked = true;
             InitializeDown();
             InitializeQuarter();
         }
