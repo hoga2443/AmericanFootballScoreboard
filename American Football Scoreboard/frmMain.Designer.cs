@@ -37,6 +37,8 @@ namespace American_Football_Scoreboard
             this.butSendSupplemental = new System.Windows.Forms.Button();
             this.txtSupplemental = new System.Windows.Forms.TextBox();
             this.gbDown = new System.Windows.Forms.GroupBox();
+            this.txtSpot = new System.Windows.Forms.TextBox();
+            this.lblSpot = new System.Windows.Forms.Label();
             this.lblDistance = new System.Windows.Forms.Label();
             this.rbDownBlank = new System.Windows.Forms.RadioButton();
             this.butDistanceGoal = new System.Windows.Forms.Button();
@@ -179,8 +181,6 @@ namespace American_Football_Scoreboard
             this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblSpot = new System.Windows.Forms.Label();
-            this.txtSpot = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.tpScoreboard.SuspendLayout();
             this.gbSupplemental.SuspendLayout();
@@ -272,6 +272,23 @@ namespace American_Football_Scoreboard
             this.gbDown.TabIndex = 14;
             this.gbDown.TabStop = false;
             this.gbDown.Text = "Down - Distance";
+            // 
+            // txtSpot
+            // 
+            this.txtSpot.Location = new System.Drawing.Point(119, 77);
+            this.txtSpot.Name = "txtSpot";
+            this.txtSpot.Size = new System.Drawing.Size(37, 20);
+            this.txtSpot.TabIndex = 10;
+            this.txtSpot.TextChanged += new System.EventHandler(this.TxtSpot_TextChanged);
+            // 
+            // lblSpot
+            // 
+            this.lblSpot.AutoSize = true;
+            this.lblSpot.Location = new System.Drawing.Point(84, 80);
+            this.lblSpot.Name = "lblSpot";
+            this.lblSpot.Size = new System.Drawing.Size(29, 13);
+            this.lblSpot.TabIndex = 9;
+            this.lblSpot.Text = "Spot";
             // 
             // lblDistance
             // 
@@ -938,11 +955,11 @@ namespace American_Football_Scoreboard
             // lblAwayHotKeyKey
             // 
             this.lblAwayHotKeyKey.AutoSize = true;
-            this.lblAwayHotKeyKey.Location = new System.Drawing.Point(45, 16);
+            this.lblAwayHotKeyKey.Location = new System.Drawing.Point(64, 16);
             this.lblAwayHotKeyKey.Name = "lblAwayHotKeyKey";
-            this.lblAwayHotKeyKey.Size = new System.Drawing.Size(25, 13);
+            this.lblAwayHotKeyKey.Size = new System.Drawing.Size(30, 13);
             this.lblAwayHotKeyKey.TabIndex = 50;
-            this.lblAwayHotKeyKey.Text = "Key";
+            this.lblAwayHotKeyKey.Text = "Keys";
             // 
             // lblAwayHotKey1
             // 
@@ -955,14 +972,14 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyAway1
             // 
-            this.txtHotKeyAway1.Location = new System.Drawing.Point(48, 35);
+            this.txtHotKeyAway1.Location = new System.Drawing.Point(31, 35);
             this.txtHotKeyAway1.Name = "txtHotKeyAway1";
             this.txtHotKeyAway1.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyAway1.TabIndex = 0;
             // 
             // txtHotKeyAway6
             // 
-            this.txtHotKeyAway6.Location = new System.Drawing.Point(48, 113);
+            this.txtHotKeyAway6.Location = new System.Drawing.Point(31, 113);
             this.txtHotKeyAway6.Name = "txtHotKeyAway6";
             this.txtHotKeyAway6.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyAway6.TabIndex = 3;
@@ -970,7 +987,7 @@ namespace American_Football_Scoreboard
             // lblAwayHotKey2
             // 
             this.lblAwayHotKey2.AutoSize = true;
-            this.lblAwayHotKey2.Location = new System.Drawing.Point(6, 65);
+            this.lblAwayHotKey2.Location = new System.Drawing.Point(6, 64);
             this.lblAwayHotKey2.Name = "lblAwayHotKey2";
             this.lblAwayHotKey2.Size = new System.Drawing.Size(19, 13);
             this.lblAwayHotKey2.TabIndex = 54;
@@ -979,7 +996,7 @@ namespace American_Football_Scoreboard
             // lblAwayHotKey6
             // 
             this.lblAwayHotKey6.AutoSize = true;
-            this.lblAwayHotKey6.Location = new System.Drawing.Point(6, 117);
+            this.lblAwayHotKey6.Location = new System.Drawing.Point(6, 116);
             this.lblAwayHotKey6.Name = "lblAwayHotKey6";
             this.lblAwayHotKey6.Size = new System.Drawing.Size(19, 13);
             this.lblAwayHotKey6.TabIndex = 57;
@@ -987,14 +1004,14 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyAway2
             // 
-            this.txtHotKeyAway2.Location = new System.Drawing.Point(48, 61);
+            this.txtHotKeyAway2.Location = new System.Drawing.Point(31, 61);
             this.txtHotKeyAway2.Name = "txtHotKeyAway2";
             this.txtHotKeyAway2.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyAway2.TabIndex = 1;
             // 
             // txtHotKeyAway3
             // 
-            this.txtHotKeyAway3.Location = new System.Drawing.Point(48, 87);
+            this.txtHotKeyAway3.Location = new System.Drawing.Point(31, 87);
             this.txtHotKeyAway3.Name = "txtHotKeyAway3";
             this.txtHotKeyAway3.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyAway3.TabIndex = 2;
@@ -1002,7 +1019,7 @@ namespace American_Football_Scoreboard
             // lblAwayHotKey3
             // 
             this.lblAwayHotKey3.AutoSize = true;
-            this.lblAwayHotKey3.Location = new System.Drawing.Point(6, 91);
+            this.lblAwayHotKey3.Location = new System.Drawing.Point(6, 90);
             this.lblAwayHotKey3.Name = "lblAwayHotKey3";
             this.lblAwayHotKey3.Size = new System.Drawing.Size(19, 13);
             this.lblAwayHotKey3.TabIndex = 56;
@@ -1039,11 +1056,11 @@ namespace American_Football_Scoreboard
             // lblHomeHotKeyKey
             // 
             this.lblHomeHotKeyKey.AutoSize = true;
-            this.lblHomeHotKeyKey.Location = new System.Drawing.Point(48, 16);
+            this.lblHomeHotKeyKey.Location = new System.Drawing.Point(65, 16);
             this.lblHomeHotKeyKey.Name = "lblHomeHotKeyKey";
-            this.lblHomeHotKeyKey.Size = new System.Drawing.Size(25, 13);
+            this.lblHomeHotKeyKey.Size = new System.Drawing.Size(30, 13);
             this.lblHomeHotKeyKey.TabIndex = 40;
-            this.lblHomeHotKeyKey.Text = "Key";
+            this.lblHomeHotKeyKey.Text = "Keys";
             // 
             // lblHomeHotKey1
             // 
@@ -1056,7 +1073,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyHome1
             // 
-            this.txtHotKeyHome1.Location = new System.Drawing.Point(51, 35);
+            this.txtHotKeyHome1.Location = new System.Drawing.Point(31, 35);
             this.txtHotKeyHome1.Name = "txtHotKeyHome1";
             this.txtHotKeyHome1.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyHome1.TabIndex = 0;
@@ -1064,7 +1081,7 @@ namespace American_Football_Scoreboard
             // lblHomeHotKey2
             // 
             this.lblHomeHotKey2.AutoSize = true;
-            this.lblHomeHotKey2.Location = new System.Drawing.Point(6, 65);
+            this.lblHomeHotKey2.Location = new System.Drawing.Point(6, 64);
             this.lblHomeHotKey2.Name = "lblHomeHotKey2";
             this.lblHomeHotKey2.Size = new System.Drawing.Size(19, 13);
             this.lblHomeHotKey2.TabIndex = 44;
@@ -1072,7 +1089,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyHome2
             // 
-            this.txtHotKeyHome2.Location = new System.Drawing.Point(51, 61);
+            this.txtHotKeyHome2.Location = new System.Drawing.Point(31, 61);
             this.txtHotKeyHome2.Name = "txtHotKeyHome2";
             this.txtHotKeyHome2.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyHome2.TabIndex = 1;
@@ -1080,7 +1097,7 @@ namespace American_Football_Scoreboard
             // lblHomeHotKey3
             // 
             this.lblHomeHotKey3.AutoSize = true;
-            this.lblHomeHotKey3.Location = new System.Drawing.Point(6, 91);
+            this.lblHomeHotKey3.Location = new System.Drawing.Point(6, 90);
             this.lblHomeHotKey3.Name = "lblHomeHotKey3";
             this.lblHomeHotKey3.Size = new System.Drawing.Size(19, 13);
             this.lblHomeHotKey3.TabIndex = 46;
@@ -1088,7 +1105,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyHome3
             // 
-            this.txtHotKeyHome3.Location = new System.Drawing.Point(51, 87);
+            this.txtHotKeyHome3.Location = new System.Drawing.Point(31, 87);
             this.txtHotKeyHome3.Name = "txtHotKeyHome3";
             this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyHome3.TabIndex = 2;
@@ -1096,7 +1113,7 @@ namespace American_Football_Scoreboard
             // lblHomeHotKey6
             // 
             this.lblHomeHotKey6.AutoSize = true;
-            this.lblHomeHotKey6.Location = new System.Drawing.Point(6, 117);
+            this.lblHomeHotKey6.Location = new System.Drawing.Point(6, 116);
             this.lblHomeHotKey6.Name = "lblHomeHotKey6";
             this.lblHomeHotKey6.Size = new System.Drawing.Size(19, 13);
             this.lblHomeHotKey6.TabIndex = 47;
@@ -1104,7 +1121,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHotKeyHome6
             // 
-            this.txtHotKeyHome6.Location = new System.Drawing.Point(51, 113);
+            this.txtHotKeyHome6.Location = new System.Drawing.Point(31, 113);
             this.txtHotKeyHome6.Name = "txtHotKeyHome6";
             this.txtHotKeyHome6.Size = new System.Drawing.Size(100, 20);
             this.txtHotKeyHome6.TabIndex = 3;
@@ -1234,11 +1251,11 @@ namespace American_Football_Scoreboard
             // lblHotKeyKey
             // 
             this.lblHotKeyKey.AutoSize = true;
-            this.lblHotKeyKey.Location = new System.Drawing.Point(133, 13);
+            this.lblHotKeyKey.Location = new System.Drawing.Point(174, 13);
             this.lblHotKeyKey.Name = "lblHotKeyKey";
-            this.lblHotKeyKey.Size = new System.Drawing.Size(25, 13);
+            this.lblHotKeyKey.Size = new System.Drawing.Size(30, 13);
             this.lblHotKeyKey.TabIndex = 2;
-            this.lblHotKeyKey.Text = "Key";
+            this.lblHotKeyKey.Text = "Keys";
             // 
             // lblHotKeyFunction
             // 
@@ -1650,23 +1667,6 @@ namespace American_Football_Scoreboard
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
-            // 
-            // lblSpot
-            // 
-            this.lblSpot.AutoSize = true;
-            this.lblSpot.Location = new System.Drawing.Point(64, 80);
-            this.lblSpot.Name = "lblSpot";
-            this.lblSpot.Size = new System.Drawing.Size(29, 13);
-            this.lblSpot.TabIndex = 9;
-            this.lblSpot.Text = "Spot";
-            // 
-            // txtSpot
-            // 
-            this.txtSpot.Location = new System.Drawing.Point(119, 77);
-            this.txtSpot.Name = "txtSpot";
-            this.txtSpot.Size = new System.Drawing.Size(37, 20);
-            this.txtSpot.TabIndex = 10;
-            this.txtSpot.TextChanged += new System.EventHandler(this.TxtSpot_TextChanged);
             // 
             // FrmMain
             // 
