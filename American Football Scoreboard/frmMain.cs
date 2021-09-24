@@ -21,6 +21,7 @@ namespace American_Football_Scoreboard
         const string homeTimeoutsRemainingFile = "HomeTimeoutsRemaining.txt";
         const string periodFile = "Period.txt";
         const string playClockFile = "PlayClock.txt";
+        const string spotFile = "Spot.txt";
         const string supplementalFile = "Supplemental.txt";
 
         const char padZero = '0';
@@ -347,15 +348,10 @@ namespace American_Football_Scoreboard
                             return;
 
                         var updateResult = await manager.UpdateApp();
-                        result = MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted. Restart Now?", 
+                        result = MessageBox.Show(text: $"New version {updateResult.Version} has been installed and will take effect when AFS is restarted.", 
                             caption: "AFS", 
-                            buttons: MessageBoxButtons.YesNo, 
-                            icon: MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            Application.Restart();
-                            Environment.Exit(0);
-                        }
+                            buttons: MessageBoxButtons.OK, 
+                            icon: MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show(text: "You have the latest version, no update is available!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
@@ -523,6 +519,7 @@ namespace American_Football_Scoreboard
             InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
             InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
             InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
+            InitializeTextBox(textBox: txtSpot, fileName: spotFile);
             InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
             chkHomePossession.Checked = true;
             InitializeDown();
@@ -667,110 +664,36 @@ namespace American_Football_Scoreboard
 
         private void RegisterHotKeys()
         {
-            String settingValue = Properties.Settings.Default.HotKeyStartStopGameClock;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butStartStopGameClock.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butStartStopPlayClock.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyNewPlayClock;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butNewPlayClock.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyClearClocks;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butClearClocks.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyNextDown;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => NextDown()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyNextPeriod;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => NextPeriod()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Next Period!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyHome1;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddOne.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyHome2;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddTwo.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 2 point2!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyHome3;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddThree.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 3 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyHome6;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butHomeAddSix.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Home Team 6 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyAway1;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddOne.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyAway2;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddTwo.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyAway3;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddThree.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyAway6;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => butAwayAddSix.PerformClick()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
-
-            settingValue = Properties.Settings.Default.HotKeyPossession;
-            if (!string.IsNullOrEmpty(settingValue))
-            {
-                if (!GlobalHotKey.RegisterHotKey(settingValue, () => TogglePossession()))
-                    MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            }
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopGameClock, () => butStartStopGameClock.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock, () => butStartStopPlayClock.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock, () => butNewPlayClock.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks, () => butClearClocks.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown, () => NextDown()))
+                MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextPeriod, () => NextPeriod()))
+                MessageBox.Show(text: "Unable to register Hot Key for Next Period!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome1, () => butHomeAddOne.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome2, () => butHomeAddTwo.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome3, () => butHomeAddThree.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyHome6, () => butHomeAddSix.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway1, () => butAwayAddOne.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway2, () => butAwayAddTwo.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway3, () => butAwayAddThree.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyAway6, () => butAwayAddSix.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyPossession, () => TogglePossession()))
+                MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -914,6 +837,11 @@ namespace American_Football_Scoreboard
         private void TxtPlayClock_Leave(object sender, EventArgs e)
         {
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
+        }
+
+        private void TxtSpot_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(spotFile, txtSpot.Text);
         }
 
         /*

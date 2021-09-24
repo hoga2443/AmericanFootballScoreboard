@@ -36,6 +36,8 @@ public sealed class GlobalHotKey : IDisposable
 
     public static bool RegisterHotKey(string aKeyGestureString, Action aAction)
     {
+        if (string.IsNullOrEmpty(aKeyGestureString))
+            return true;
         var c = new KeyGestureConverter();
         KeyGesture aKeyGesture = (KeyGesture)c.ConvertFrom(aKeyGestureString);
         return RegisterHotKey(aKeyGesture.Modifiers, aKeyGesture.Key, aAction);

@@ -30,7 +30,7 @@
     <ProductName>American Football Scoreboard</ProductName>
     <PublisherName>Hogaboam Law Offices, PLLC</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.6.0</ApplicationVersion>
+    <ApplicationVersion>1.0.8.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -233,6 +233,7 @@
     <Content Include="Output\Possession\Possession.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Output\Spot.txt" />
     <Content Include="Output\Supplemental.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

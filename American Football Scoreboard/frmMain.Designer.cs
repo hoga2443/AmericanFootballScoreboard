@@ -134,6 +134,15 @@ namespace American_Football_Scoreboard
             this.lblHotKeyKey = new System.Windows.Forms.Label();
             this.lblHotKeyFunction = new System.Windows.Forms.Label();
             this.tpSettings = new System.Windows.Forms.TabPage();
+            this.gbSettingDown = new System.Windows.Forms.GroupBox();
+            this.txtSettingDown4 = new System.Windows.Forms.TextBox();
+            this.txtSettingDown3 = new System.Windows.Forms.TextBox();
+            this.txtSettingDown2 = new System.Windows.Forms.TextBox();
+            this.txtSettingDown1 = new System.Windows.Forms.TextBox();
+            this.lblSettingDown4 = new System.Windows.Forms.Label();
+            this.lblSettingDown3 = new System.Windows.Forms.Label();
+            this.lblSettingDown2 = new System.Windows.Forms.Label();
+            this.lblSettingDown1 = new System.Windows.Forms.Label();
             this.gbSettingPeriod = new System.Windows.Forms.GroupBox();
             this.txtSettingPeriod4 = new System.Windows.Forms.TextBox();
             this.txtSettingPeriod3 = new System.Windows.Forms.TextBox();
@@ -170,15 +179,8 @@ namespace American_Football_Scoreboard
             this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gbSettingDown = new System.Windows.Forms.GroupBox();
-            this.txtSettingDown4 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown3 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown2 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown1 = new System.Windows.Forms.TextBox();
-            this.lblSettingDown4 = new System.Windows.Forms.Label();
-            this.lblSettingDown3 = new System.Windows.Forms.Label();
-            this.lblSettingDown2 = new System.Windows.Forms.Label();
-            this.lblSettingDown1 = new System.Windows.Forms.Label();
+            this.lblSpot = new System.Windows.Forms.Label();
+            this.txtSpot = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.tpScoreboard.SuspendLayout();
             this.gbSupplemental.SuspendLayout();
@@ -191,9 +193,9 @@ namespace American_Football_Scoreboard
             this.gbHotKeysAway.SuspendLayout();
             this.gbHotKeysHome.SuspendLayout();
             this.tpSettings.SuspendLayout();
+            this.gbSettingDown.SuspendLayout();
             this.gbSettingPeriod.SuspendLayout();
             this.msMain.SuspendLayout();
-            this.gbSettingDown.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -253,6 +255,8 @@ namespace American_Football_Scoreboard
             // 
             // gbDown
             // 
+            this.gbDown.Controls.Add(this.txtSpot);
+            this.gbDown.Controls.Add(this.lblSpot);
             this.gbDown.Controls.Add(this.lblDistance);
             this.gbDown.Controls.Add(this.rbDownBlank);
             this.gbDown.Controls.Add(this.butDistanceGoal);
@@ -272,7 +276,7 @@ namespace American_Football_Scoreboard
             // lblDistance
             // 
             this.lblDistance.AutoSize = true;
-            this.lblDistance.Location = new System.Drawing.Point(94, 16);
+            this.lblDistance.Location = new System.Drawing.Point(64, 16);
             this.lblDistance.Name = "lblDistance";
             this.lblDistance.Size = new System.Drawing.Size(49, 13);
             this.lblDistance.TabIndex = 8;
@@ -292,9 +296,9 @@ namespace American_Football_Scoreboard
             // 
             // butDistanceGoal
             // 
-            this.butDistanceGoal.Location = new System.Drawing.Point(97, 62);
+            this.butDistanceGoal.Location = new System.Drawing.Point(119, 40);
             this.butDistanceGoal.Name = "butDistanceGoal";
-            this.butDistanceGoal.Size = new System.Drawing.Size(46, 23);
+            this.butDistanceGoal.Size = new System.Drawing.Size(37, 23);
             this.butDistanceGoal.TabIndex = 6;
             this.butDistanceGoal.Text = "Goal";
             this.butDistanceGoal.UseVisualStyleBackColor = true;
@@ -312,9 +316,9 @@ namespace American_Football_Scoreboard
             // 
             // txtDistance
             // 
-            this.txtDistance.Location = new System.Drawing.Point(97, 37);
+            this.txtDistance.Location = new System.Drawing.Point(119, 14);
             this.txtDistance.Name = "txtDistance";
-            this.txtDistance.Size = new System.Drawing.Size(46, 20);
+            this.txtDistance.Size = new System.Drawing.Size(37, 20);
             this.txtDistance.TabIndex = 4;
             this.txtDistance.TextChanged += new System.EventHandler(this.TxtDistance_TextChanged);
             // 
@@ -1272,6 +1276,87 @@ namespace American_Football_Scoreboard
             this.tpSettings.Text = "Settings";
             this.tpSettings.UseVisualStyleBackColor = true;
             // 
+            // gbSettingDown
+            // 
+            this.gbSettingDown.Controls.Add(this.txtSettingDown4);
+            this.gbSettingDown.Controls.Add(this.txtSettingDown3);
+            this.gbSettingDown.Controls.Add(this.txtSettingDown2);
+            this.gbSettingDown.Controls.Add(this.txtSettingDown1);
+            this.gbSettingDown.Controls.Add(this.lblSettingDown4);
+            this.gbSettingDown.Controls.Add(this.lblSettingDown3);
+            this.gbSettingDown.Controls.Add(this.lblSettingDown2);
+            this.gbSettingDown.Controls.Add(this.lblSettingDown1);
+            this.gbSettingDown.Location = new System.Drawing.Point(347, 6);
+            this.gbSettingDown.Name = "gbSettingDown";
+            this.gbSettingDown.Size = new System.Drawing.Size(171, 131);
+            this.gbSettingDown.TabIndex = 8;
+            this.gbSettingDown.TabStop = false;
+            this.gbSettingDown.Text = "Down";
+            // 
+            // txtSettingDown4
+            // 
+            this.txtSettingDown4.Location = new System.Drawing.Point(59, 95);
+            this.txtSettingDown4.Name = "txtSettingDown4";
+            this.txtSettingDown4.Size = new System.Drawing.Size(100, 20);
+            this.txtSettingDown4.TabIndex = 3;
+            // 
+            // txtSettingDown3
+            // 
+            this.txtSettingDown3.Location = new System.Drawing.Point(59, 69);
+            this.txtSettingDown3.Name = "txtSettingDown3";
+            this.txtSettingDown3.Size = new System.Drawing.Size(100, 20);
+            this.txtSettingDown3.TabIndex = 2;
+            // 
+            // txtSettingDown2
+            // 
+            this.txtSettingDown2.Location = new System.Drawing.Point(59, 43);
+            this.txtSettingDown2.Name = "txtSettingDown2";
+            this.txtSettingDown2.Size = new System.Drawing.Size(100, 20);
+            this.txtSettingDown2.TabIndex = 1;
+            // 
+            // txtSettingDown1
+            // 
+            this.txtSettingDown1.Location = new System.Drawing.Point(59, 17);
+            this.txtSettingDown1.Name = "txtSettingDown1";
+            this.txtSettingDown1.Size = new System.Drawing.Size(100, 20);
+            this.txtSettingDown1.TabIndex = 0;
+            // 
+            // lblSettingDown4
+            // 
+            this.lblSettingDown4.AutoSize = true;
+            this.lblSettingDown4.Location = new System.Drawing.Point(7, 98);
+            this.lblSettingDown4.Name = "lblSettingDown4";
+            this.lblSettingDown4.Size = new System.Drawing.Size(44, 13);
+            this.lblSettingDown4.TabIndex = 3;
+            this.lblSettingDown4.Text = "Down 4";
+            // 
+            // lblSettingDown3
+            // 
+            this.lblSettingDown3.AutoSize = true;
+            this.lblSettingDown3.Location = new System.Drawing.Point(7, 72);
+            this.lblSettingDown3.Name = "lblSettingDown3";
+            this.lblSettingDown3.Size = new System.Drawing.Size(44, 13);
+            this.lblSettingDown3.TabIndex = 2;
+            this.lblSettingDown3.Text = "Down 3";
+            // 
+            // lblSettingDown2
+            // 
+            this.lblSettingDown2.AutoSize = true;
+            this.lblSettingDown2.Location = new System.Drawing.Point(7, 46);
+            this.lblSettingDown2.Name = "lblSettingDown2";
+            this.lblSettingDown2.Size = new System.Drawing.Size(44, 13);
+            this.lblSettingDown2.TabIndex = 1;
+            this.lblSettingDown2.Text = "Down 2";
+            // 
+            // lblSettingDown1
+            // 
+            this.lblSettingDown1.AutoSize = true;
+            this.lblSettingDown1.Location = new System.Drawing.Point(7, 20);
+            this.lblSettingDown1.Name = "lblSettingDown1";
+            this.lblSettingDown1.Size = new System.Drawing.Size(44, 13);
+            this.lblSettingDown1.TabIndex = 0;
+            this.lblSettingDown1.Text = "Down 1";
+            // 
             // gbSettingPeriod
             // 
             this.gbSettingPeriod.Controls.Add(this.txtSettingPeriod4);
@@ -1548,104 +1633,40 @@ namespace American_Football_Scoreboard
             // reportIssueToolStripMenuItem
             // 
             this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
-            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.reportIssueToolStripMenuItem.Text = "Report Issue";
             this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemReportIssue_Click);
             // 
             // checkForUpdateToolStripMenuItem
             // 
             this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
             this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemCheckForUpdate_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
-            // gbSettingDown
+            // lblSpot
             // 
-            this.gbSettingDown.Controls.Add(this.txtSettingDown4);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown3);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown2);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown1);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown4);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown3);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown2);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown1);
-            this.gbSettingDown.Location = new System.Drawing.Point(347, 6);
-            this.gbSettingDown.Name = "gbSettingDown";
-            this.gbSettingDown.Size = new System.Drawing.Size(171, 131);
-            this.gbSettingDown.TabIndex = 8;
-            this.gbSettingDown.TabStop = false;
-            this.gbSettingDown.Text = "Down";
+            this.lblSpot.AutoSize = true;
+            this.lblSpot.Location = new System.Drawing.Point(64, 80);
+            this.lblSpot.Name = "lblSpot";
+            this.lblSpot.Size = new System.Drawing.Size(29, 13);
+            this.lblSpot.TabIndex = 9;
+            this.lblSpot.Text = "Spot";
             // 
-            // txtSettingDown4
+            // txtSpot
             // 
-            this.txtSettingDown4.Location = new System.Drawing.Point(59, 95);
-            this.txtSettingDown4.Name = "txtSettingDown4";
-            this.txtSettingDown4.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown4.TabIndex = 3;
-            // 
-            // txtSettingDown3
-            // 
-            this.txtSettingDown3.Location = new System.Drawing.Point(59, 69);
-            this.txtSettingDown3.Name = "txtSettingDown3";
-            this.txtSettingDown3.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown3.TabIndex = 2;
-            // 
-            // txtSettingDown2
-            // 
-            this.txtSettingDown2.Location = new System.Drawing.Point(59, 43);
-            this.txtSettingDown2.Name = "txtSettingDown2";
-            this.txtSettingDown2.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown2.TabIndex = 1;
-            // 
-            // txtSettingDown1
-            // 
-            this.txtSettingDown1.Location = new System.Drawing.Point(59, 17);
-            this.txtSettingDown1.Name = "txtSettingDown1";
-            this.txtSettingDown1.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown1.TabIndex = 0;
-            // 
-            // lblSettingDown4
-            // 
-            this.lblSettingDown4.AutoSize = true;
-            this.lblSettingDown4.Location = new System.Drawing.Point(7, 98);
-            this.lblSettingDown4.Name = "lblSettingDown4";
-            this.lblSettingDown4.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown4.TabIndex = 3;
-            this.lblSettingDown4.Text = "Down 4";
-            // 
-            // lblSettingDown3
-            // 
-            this.lblSettingDown3.AutoSize = true;
-            this.lblSettingDown3.Location = new System.Drawing.Point(7, 72);
-            this.lblSettingDown3.Name = "lblSettingDown3";
-            this.lblSettingDown3.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown3.TabIndex = 2;
-            this.lblSettingDown3.Text = "Down 3";
-            // 
-            // lblSettingDown2
-            // 
-            this.lblSettingDown2.AutoSize = true;
-            this.lblSettingDown2.Location = new System.Drawing.Point(7, 46);
-            this.lblSettingDown2.Name = "lblSettingDown2";
-            this.lblSettingDown2.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown2.TabIndex = 1;
-            this.lblSettingDown2.Text = "Down 2";
-            // 
-            // lblSettingDown1
-            // 
-            this.lblSettingDown1.AutoSize = true;
-            this.lblSettingDown1.Location = new System.Drawing.Point(7, 20);
-            this.lblSettingDown1.Name = "lblSettingDown1";
-            this.lblSettingDown1.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown1.TabIndex = 0;
-            this.lblSettingDown1.Text = "Down 1";
+            this.txtSpot.Location = new System.Drawing.Point(119, 77);
+            this.txtSpot.Name = "txtSpot";
+            this.txtSpot.Size = new System.Drawing.Size(37, 20);
+            this.txtSpot.TabIndex = 10;
+            this.txtSpot.TextChanged += new System.EventHandler(this.TxtSpot_TextChanged);
             // 
             // FrmMain
             // 
@@ -1681,12 +1702,12 @@ namespace American_Football_Scoreboard
             this.gbHotKeysHome.PerformLayout();
             this.tpSettings.ResumeLayout(false);
             this.tpSettings.PerformLayout();
+            this.gbSettingDown.ResumeLayout(false);
+            this.gbSettingDown.PerformLayout();
             this.gbSettingPeriod.ResumeLayout(false);
             this.gbSettingPeriod.PerformLayout();
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
-            this.gbSettingDown.ResumeLayout(false);
-            this.gbSettingDown.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1842,6 +1863,8 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label lblSettingDown3;
         private System.Windows.Forms.Label lblSettingDown2;
         private System.Windows.Forms.Label lblSettingDown1;
+        private System.Windows.Forms.TextBox txtSpot;
+        private System.Windows.Forms.Label lblSpot;
     }
 }
 
