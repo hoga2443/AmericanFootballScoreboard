@@ -337,7 +337,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1st Down")]
         public string Down1 {
             get {
                 return ((string)(this["Down1"]));
@@ -349,7 +349,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2nd Down")]
         public string Down2 {
             get {
                 return ((string)(this["Down2"]));
@@ -361,7 +361,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3rd Down")]
         public string Down3 {
             get {
                 return ((string)(this["Down3"]));
@@ -373,7 +373,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4th Down")]
         public string Down4 {
             get {
                 return ((string)(this["Down4"]));

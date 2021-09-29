@@ -81,16 +81,16 @@
       <Value Profile="(Default)">4th</Value>
     </Setting>
     <Setting Name="Down1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">1st Down</Value>
     </Setting>
     <Setting Name="Down2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">2nd Down</Value>
     </Setting>
     <Setting Name="Down3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">3rd Down</Value>
     </Setting>
     <Setting Name="Down4" Type="System.String" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">4th Down</Value>
     </Setting>
   </Settings>
 </SettingsFile>

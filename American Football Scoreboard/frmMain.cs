@@ -510,16 +510,31 @@ namespace American_Football_Scoreboard
             textBox.Text = File.ReadAllText(currentFile);
         }
 
+        private static void InitializeTextBox(TextBox textBox, string fileName, string defaultValue)
+        {
+            string currentFile = Path.Combine(Properties.Settings.Default.OutputPath, fileName);
+            if (!File.Exists(currentFile))
+            {
+                FileStream fs = File.Create(currentFile);
+                fs.Close();
+            }
+            string initialText = File.ReadAllText(currentFile);
+            if (initialText == string.Empty)
+                textBox.Text = defaultValue;
+            else
+                textBox.Text = File.ReadAllText(currentFile);
+        }
+
         private void InitializeUI()
         {
             InitializeTextBox(textBox: txtHomeTeam, fileName: homeTeamNameFile);
-            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile);
+            InitializeTextBox(textBox: txtHomeScore, fileName: homeTeamScoreFile, defaultValue: "0");
             InitializeTextBox(textBox: txtHomeTimeouts, fileName: homeTimeoutsRemainingFile);
             InitializeTextBox(textBox: txtAwayTeam, fileName: awayTeamNameFile);
-            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile);
+            InitializeTextBox(textBox: txtAwayScore, fileName: awayTeamScoreFile, defaultValue: "0");
             InitializeTextBox(textBox: txtAwayTimeouts, fileName: awayTimeoutsRemainingFile);
-            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile);
-            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile);
+            InitializeTextBox(textBox: txtGameClock, fileName: gameClockFile, defaultValue: "00:00");
+            InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile, defaultValue: "0");
             InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
             InitializeTextBox(textBox: txtSpot, fileName: spotFile);
             InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
@@ -757,7 +772,7 @@ namespace American_Football_Scoreboard
 
         private void TxtAwayScore_TextChanged(object sender, EventArgs e)
         {
-            if (!int.TryParse(s: txtHomeScore.Text, result: out _))
+            if (!int.TryParse(s: txtAwayScore.Text, result: out _) && txtAwayScore.Text != string.Empty)
                 MessageBox.Show(text: "Please enter an integer for away score.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
             else
                 _ = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
@@ -803,7 +818,7 @@ namespace American_Football_Scoreboard
 
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
         {
-            if (!int.TryParse(s: txtHomeScore.Text, result: out _))
+            if (!int.TryParse(s: txtHomeScore.Text, result: out _) && txtHomeScore.Text != string.Empty)
                 MessageBox.Show(text: "Please enter an integer for home score.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
             else
                 _ = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
@@ -841,7 +856,7 @@ namespace American_Football_Scoreboard
 
         private void TxtPlayClock_Leave(object sender, EventArgs e)
         {
-            if (!int.TryParse(s: txtPlayClock.Text, result: out _))
+            if (!int.TryParse(s: txtPlayClock.Text, result: out _) && txtPlayClock.Text != string.Empty)
                 MessageBox.Show(text: "Please enter an integer for play clock.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
             else
                 _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
@@ -857,6 +872,8 @@ namespace American_Football_Scoreboard
         */
         private bool ValidTime(string time)
         {
+            if (time == string.Empty)
+                return true;
             if (time.Length != 5)
                 return false;
             if (!int.TryParse(time.Substring(startIndex: 0, length: 2), out _))
