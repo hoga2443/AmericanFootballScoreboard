@@ -244,9 +244,9 @@ namespace American_Football_Scoreboard
         private void ButSaveSettings_Click(object sender, EventArgs e)
         {
             string errorMessage = String.Empty;
-            if (txtPeriodDuration.Text.Length != 5)
+            if (!ValidTime(txtPeriodDuration.Text))
                 errorMessage += "Default Period Duration must be in format 00:00.  ";
-            if (!int.TryParse(s: txtPlayClockDuration.Text, out int playClock))
+            if (!int.TryParse(s: txtPlayClockDuration.Text, out _))
                 errorMessage += "Default Play Clock must be an integer.  ";
             if (string.IsNullOrEmpty(txtOutputFolder.Text))
                 errorMessage += "Please specify an output folder.  ";
@@ -721,7 +721,7 @@ namespace American_Football_Scoreboard
 
         private void ToolStripMenuItemCheckForUpdate_Click(object sender, EventArgs e)
         {
-            CheckForUpdates();
+            _ = CheckForUpdates();
         }
 
         private void ToolStripMenuItemClose_Click(object sender, EventArgs e)
@@ -757,7 +757,10 @@ namespace American_Football_Scoreboard
 
         private void TxtAwayScore_TextChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
+            if (!int.TryParse(s: txtHomeScore.Text, result: out _))
+                MessageBox.Show(text: "Please enter an integer for away score.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
+            else
+                _ = WriteFileAsync(awayTeamScoreFile, txtAwayScore.Text);
         }
 
         private void TxtAwayTeam_Leave(object sender, EventArgs e)
@@ -792,12 +795,18 @@ namespace American_Football_Scoreboard
 
         private void TxtGameClock_Leave(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
+            if (!ValidTime(txtGameClock.Text))
+                MessageBox.Show(text: "Please enter a valid time mm:ss.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
+            else
+                _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
         }
 
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
+            if (!int.TryParse(s: txtHomeScore.Text, result: out _))
+                MessageBox.Show(text: "Please enter an integer for home score.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
+            else
+                _ = WriteFileAsync(homeTeamScoreFile, txtHomeScore.Text);
         }
 
         private void TxtHomeTeam_Leave(object sender, EventArgs e)
@@ -832,12 +841,33 @@ namespace American_Football_Scoreboard
 
         private void TxtPlayClock_Leave(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
+            if (!int.TryParse(s: txtPlayClock.Text, result: out _))
+                MessageBox.Show(text: "Please enter an integer for play clock.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
+            else
+                _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
 
         private void TxtSpot_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(spotFile, txtSpot.Text);
+        }
+
+        /*
+        Validate time in in a valid mm:ss format
+        */
+        private bool ValidTime(string time)
+        {
+            if (time.Length != 5)
+                return false;
+            if (!int.TryParse(time.Substring(startIndex: 0, length: 2), out _))
+                return false;
+            if (time.Substring(startIndex: 2, length: 1) != ":")
+                return false;
+            if (!int.TryParse(time.Substring(startIndex: 3, length: 2), out int seconds))
+                return false;
+            if (seconds > 59)
+                return false;
+            return true;
         }
 
         /*
