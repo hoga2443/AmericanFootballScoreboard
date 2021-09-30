@@ -382,5 +382,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["Down4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Half")]
+        public string PeriodHalf {
+            get {
+                return ((string)(this["PeriodHalf"]));
+            }
+            set {
+                this["PeriodHalf"] = value;
+            }
+        }
     }
 }

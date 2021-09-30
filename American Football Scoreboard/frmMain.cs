@@ -79,6 +79,11 @@ namespace American_Football_Scoreboard
             }
             else if (rbPeriodTwo.Checked)
             {
+                rbPeriodHalf.Checked = true;
+                ClearClocks();
+            }
+            else if (rbPeriodHalf.Checked)
+            {
                 rbPeriodThree.Checked = true;
                 ClearClocks();
             }
@@ -124,6 +129,8 @@ namespace American_Football_Scoreboard
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtAwayScore.Text = "0";
             txtAwayTeam.Text = string.Empty;
+            txtAwayTimeouts.Text = "0";
+            chkAwayPossession.Checked = true;
             _ = WriteFileAsync(file: awayTeamNameFile, content: string.Empty);
         }
 
@@ -137,6 +144,8 @@ namespace American_Football_Scoreboard
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtHomeScore.Text = "0";
             txtHomeTeam.Text = string.Empty;
+            txtHomeTimeouts.Text = "0";
+            chkHomePossession.Checked = true;
             _ = WriteFileAsync(file: homeTeamNameFile, content: string.Empty);
         }
 
@@ -268,6 +277,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
                 Properties.Settings.Default["Period1"] = txtSettingPeriod1.Text;
                 Properties.Settings.Default["Period2"] = txtSettingPeriod2.Text;
+                Properties.Settings.Default["PeriodHalf"] = txtSettingPeriodHalf.Text;
                 Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
                 Properties.Settings.Default["Period4"] = txtSettingPeriod4.Text;
                 Properties.Settings.Default.Save();
@@ -555,6 +565,7 @@ namespace American_Football_Scoreboard
             txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
             txtSettingPeriod1.Text = Properties.Settings.Default.Period1;
             txtSettingPeriod2.Text = Properties.Settings.Default.Period2;
+            txtSettingPeriodHalf.Text = Properties.Settings.Default.PeriodHalf;
             txtSettingPeriod3.Text = Properties.Settings.Default.Period3;
             txtSettingPeriod4.Text = Properties.Settings.Default.Period4;
             txtSettingDown1.Text = Properties.Settings.Default.Down1;
@@ -659,6 +670,13 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
         }
 
+        private void RbPeriodHalf_CheckedChanged(object sender, EventArgs e)
+        {
+            txtHomeTimeouts.Text = "0";
+            txtAwayTimeouts.Text = "0";
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodHalf);
+        }
+
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
@@ -671,6 +689,8 @@ namespace American_Football_Scoreboard
 
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
         {
+            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
         }
 

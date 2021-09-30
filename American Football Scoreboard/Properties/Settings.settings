@@ -92,5 +92,8 @@
     <Setting Name="Down4" Type="System.String" Scope="User">
       <Value Profile="(Default)">4th Down</Value>
     </Setting>
+    <Setting Name="PeriodHalf" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Half</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
