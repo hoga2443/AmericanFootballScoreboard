@@ -95,5 +95,8 @@
     <Setting Name="PeriodHalf" Type="System.String" Scope="User">
       <Value Profile="(Default)">Half</Value>
     </Setting>
+    <Setting Name="FlagDisplayDuration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15000</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

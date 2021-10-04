@@ -30,7 +30,7 @@
     <ProductName>American Football Scoreboard</ProductName>
     <PublisherName>Hogaboam Law Offices, PLLC</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.12.0</ApplicationVersion>
+    <ApplicationVersion>1.0.13.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -197,6 +197,8 @@
     <Content Include="Output\Down.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Output\Flag\Flag.png" />
+    <Content Include="Output\Flag\NoFlag.png" />
     <Content Include="Output\GameClock.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

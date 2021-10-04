@@ -394,5 +394,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["PeriodHalf"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15000")]
+        public int FlagDisplayDuration {
+            get {
+                return ((int)(this["FlagDisplayDuration"]));
+            }
+            set {
+                this["FlagDisplayDuration"] = value;
+            }
+        }
     }
 }

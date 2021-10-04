@@ -217,6 +217,7 @@ namespace American_Football_Scoreboard
         {
             rbPeriodOne.Checked = false;
             rbPeriodTwo.Checked = false;
+            rbPeriodHalf.Checked = false;
             rbPeriodThree.Checked = false;
             rbPeriodFour.Checked = false;
             rbPeriodOT.Checked = false;
@@ -261,6 +262,8 @@ namespace American_Football_Scoreboard
                 errorMessage += "Please specify an output folder.  ";
             if (!int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
                 errorMessage += "Refresh Interval must be an integer.  ";
+            if (!int.TryParse(s: txtFlagDisplayDuration.Text, out int flagDisplayDuration))
+                errorMessage += "Flag Display Duration must be an integer.  ";
             if (string.IsNullOrEmpty(errorMessage))
             {
                 Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
@@ -270,6 +273,8 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                Properties.Settings.Default["FlagDisplayDuration"] = flagDisplayDuration;
+                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 Properties.Settings.Default["Down1"] = txtSettingDown1.Text;
                 Properties.Settings.Default["Down2"] = txtSettingDown2.Text;
@@ -385,6 +390,23 @@ namespace American_Football_Scoreboard
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Possession\\NonPossession.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "AwayPossession.png"));
+        }
+
+        private void ChkFlag_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkFlag.Checked)
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag\\Flag.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag.png"));
+                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                tmrFlag.Enabled = true;
+                tmrFlag.Start();
+            }
+            else
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag\\NoFlag.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag.png"));
+                tmrFlag.Stop();
+                tmrFlag.Enabled = true;
+            }
         }
 
         private void ChkHomePossession_CheckedChanged(object sender, EventArgs e)
@@ -527,10 +549,8 @@ namespace American_Football_Scoreboard
             {
                 FileStream fs = File.Create(currentFile);
                 fs.Close();
-            }
-            string initialText = File.ReadAllText(currentFile);
-            if (initialText == string.Empty)
                 textBox.Text = defaultValue;
+            }
             else
                 textBox.Text = File.ReadAllText(currentFile);
         }
@@ -561,8 +581,10 @@ namespace American_Football_Scoreboard
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
             tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+            tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
             chkAdvanceQuarter.Checked = Properties.Settings.Default.AdvanceQuarter;
             txtRefreshInterval.Text = Properties.Settings.Default.RefreshInterval.ToString();
+            txtFlagDisplayDuration.Text = Properties.Settings.Default.FlagDisplayDuration.ToString();
             txtSettingPeriod1.Text = Properties.Settings.Default.Period1;
             txtSettingPeriod2.Text = Properties.Settings.Default.Period2;
             txtSettingPeriodHalf.Text = Properties.Settings.Default.PeriodHalf;
@@ -739,6 +761,11 @@ namespace American_Football_Scoreboard
                 DecrementGameClock();
             if (playClockRunning)
                 DecementPlayClock();
+        }
+
+        private void TmrFlag_Tick(object sender, EventArgs e)
+        {
+            chkFlag.Checked = false;
         }
 
         private void TogglePossession()
