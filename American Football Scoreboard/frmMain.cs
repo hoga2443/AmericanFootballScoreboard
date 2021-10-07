@@ -241,6 +241,7 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
             Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
             Properties.Settings.Default["HotKeyPossession"] = txtHotKeyPossession.Text;
+            Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
             Properties.Settings.Default.Save();
 
             DialogResult result = MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect. Restart Now?", caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information);
@@ -607,6 +608,7 @@ namespace American_Football_Scoreboard
             txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
             txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
+            txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
             txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
@@ -731,6 +733,8 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks, () => butClearClocks.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyFlag, () => TogglePossession()))
+                MessageBox.Show(text: "Unable to register Hot Key for Flag!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown, () => NextDown()))
                 MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextPeriod, () => NextPeriod()))

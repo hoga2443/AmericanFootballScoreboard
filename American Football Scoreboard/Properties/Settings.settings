@@ -98,5 +98,8 @@
     <Setting Name="FlagDisplayDuration" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">15000</Value>
     </Setting>
+    <Setting Name="HotKeyFlag" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

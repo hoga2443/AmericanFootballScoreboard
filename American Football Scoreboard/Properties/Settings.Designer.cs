@@ -406,5 +406,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["FlagDisplayDuration"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 0")]
+        public string HotKeyFlag {
+            get {
+                return ((string)(this["HotKeyFlag"]));
+            }
+            set {
+                this["HotKeyFlag"] = value;
+            }
+        }
     }
 }
