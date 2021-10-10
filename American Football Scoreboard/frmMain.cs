@@ -406,7 +406,7 @@ namespace American_Football_Scoreboard
             {
                 _ = CopyFileAsync(sourcePath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag\\NoFlag.png"), destinationPath: Path.Combine(Properties.Settings.Default.OutputPath, "Flag.png"));
                 tmrFlag.Stop();
-                tmrFlag.Enabled = true;
+                tmrFlag.Enabled = false;
             }
         }
 
