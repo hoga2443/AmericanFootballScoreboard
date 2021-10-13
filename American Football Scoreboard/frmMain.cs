@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,7 +64,7 @@ namespace American_Football_Scoreboard
 
         private void AddVersionNumber()
         {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             this.Text += $" v.{versionInfo.FileVersion }";
         }
@@ -73,25 +74,14 @@ namespace American_Football_Scoreboard
             butStartStopGameClock.Text = "Start Game Clock";
             gameClockRunning = false;
             if (rbPeriodOne.Checked)
-            {
                 rbPeriodTwo.Checked = true;
-                ClearClocks();
-            }
             else if (rbPeriodTwo.Checked)
-            {
                 rbPeriodHalf.Checked = true;
-                ClearClocks();
-            }
             else if (rbPeriodHalf.Checked)
-            {
                 rbPeriodThree.Checked = true;
-                ClearClocks();
-            }
             else if (rbPeriodThree.Checked)
-            {
                 rbPeriodFour.Checked = true;
-                ClearClocks();
-            }
+            ClearClocks();
         }
 
         private void ButAwayAddOne_Click(object sender, EventArgs e)
@@ -226,22 +216,22 @@ namespace American_Football_Scoreboard
 
         private void ButSaveHotKey_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
-            Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
-            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
-            Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
-            Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
-            Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
             Properties.Settings.Default["HotKeyAway1"] = txtHotKeyAway1.Text;
             Properties.Settings.Default["HotKeyAway2"] = txtHotKeyAway2.Text;
             Properties.Settings.Default["HotKeyAway3"] = txtHotKeyAway3.Text;
             Properties.Settings.Default["HotKeyAway6"] = txtHotKeyAway6.Text;
+            Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
+            Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
             Properties.Settings.Default["HotKeyHome1"] = txtHotKeyHome1.Text;
             Properties.Settings.Default["HotKeyHome2"] = txtHotKeyHome2.Text;
             Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
             Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
+            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
+            Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
+            Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
             Properties.Settings.Default["HotKeyPossession"] = txtHotKeyPossession.Text;
-            Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
+            Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
+            Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
             Properties.Settings.Default.Save();
 
             DialogResult result = MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect. Restart Now?", caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information);
@@ -256,36 +246,36 @@ namespace American_Football_Scoreboard
         {
             string errorMessage = String.Empty;
             if (!ValidTime(txtPeriodDuration.Text))
-                errorMessage += "Default Period Duration must be in format 00:00.  ";
+                errorMessage += "Default Period Duration must be in format 00:00. ";
             if (!int.TryParse(s: txtPlayClockDuration.Text, out _))
-                errorMessage += "Default Play Clock must be an integer.  ";
+                errorMessage += "Default Play Clock must be an integer. ";
             if (string.IsNullOrEmpty(txtOutputFolder.Text))
-                errorMessage += "Please specify an output folder.  ";
+                errorMessage += "Please specify an output folder. ";
             if (!int.TryParse(s: txtRefreshInterval.Text, out int refreshInterval))
-                errorMessage += "Refresh Interval must be an integer.  ";
+                errorMessage += "Refresh Interval must be an integer. ";
             if (!int.TryParse(s: txtFlagDisplayDuration.Text, out int flagDisplayDuration))
-                errorMessage += "Flag Display Duration must be an integer.  ";
+                errorMessage += "Flag Display Duration must be an integer. ";
             if (string.IsNullOrEmpty(errorMessage))
             {
+                Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
                 Properties.Settings.Default["DefaultPlay"] = txtPlayClockDuration.Text;
-                Properties.Settings.Default["GoalText"] = txtGoalText.Text;
-                Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
-                Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
-                Properties.Settings.Default["RefreshInterval"] = refreshInterval;
-                tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
-                Properties.Settings.Default["FlagDisplayDuration"] = flagDisplayDuration;
-                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
-                Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 Properties.Settings.Default["Down1"] = txtSettingDown1.Text;
                 Properties.Settings.Default["Down2"] = txtSettingDown2.Text;
                 Properties.Settings.Default["Down3"] = txtSettingDown3.Text;
                 Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
+                Properties.Settings.Default["FlagDisplayDuration"] = flagDisplayDuration;
+                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                Properties.Settings.Default["GoalText"] = txtGoalText.Text;
+                Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
                 Properties.Settings.Default["Period1"] = txtSettingPeriod1.Text;
                 Properties.Settings.Default["Period2"] = txtSettingPeriod2.Text;
-                Properties.Settings.Default["PeriodHalf"] = txtSettingPeriodHalf.Text;
                 Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
                 Properties.Settings.Default["Period4"] = txtSettingPeriod4.Text;
+                Properties.Settings.Default["PeriodHalf"] = txtSettingPeriodHalf.Text;
+                Properties.Settings.Default["RefreshInterval"] = refreshInterval;
+                tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
@@ -599,22 +589,22 @@ namespace American_Football_Scoreboard
 
         private void LoadHotKeySettings()
         {
-            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
-            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
-            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
-            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
             txtHotKeyAway1.Text = Properties.Settings.Default.HotKeyAway1;
             txtHotKeyAway2.Text = Properties.Settings.Default.HotKeyAway2;
             txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
             txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
-            txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
-            txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
-            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
-            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
+            txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
+            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
+            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
+            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
+            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
+            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
             txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
+            txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
+            txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
+            txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
         }
 
         private void LoadSettings()
@@ -698,6 +688,11 @@ namespace American_Football_Scoreboard
         {
             txtHomeTimeouts.Text = "0";
             txtAwayTimeouts.Text = "0";
+            rbDownBlank.Checked = true;
+            txtDistance.Text = string.Empty;
+            txtSpot.Text = string.Empty;
+            chkAwayPossession.Checked = false;
+            chkHomePossession.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodHalf);
         }
 
@@ -733,7 +728,7 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks, () => butClearClocks.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyFlag, () => TogglePossession()))
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyFlag, () => ToggleFlag()))
                 MessageBox.Show(text: "Unable to register Hot Key for Flag!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNextDown, () => NextDown()))
                 MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
@@ -770,6 +765,14 @@ namespace American_Football_Scoreboard
         private void TmrFlag_Tick(object sender, EventArgs e)
         {
             chkFlag.Checked = false;
+        }
+
+        private void ToggleFlag()
+        {
+        if (chkFlag.Checked)
+            chkFlag.Checked = false;
+        else
+            chkFlag.Checked = true;
         }
 
         private void TogglePossession()

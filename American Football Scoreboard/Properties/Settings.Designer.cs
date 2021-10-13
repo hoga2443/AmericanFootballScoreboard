@@ -289,7 +289,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1st")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1st Qtr")]
         public string Period1 {
             get {
                 return ((string)(this["Period1"]));
@@ -301,7 +301,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2nd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2nd Qtr")]
         public string Period2 {
             get {
                 return ((string)(this["Period2"]));
@@ -313,7 +313,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3rd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3rd Qtr")]
         public string Period3 {
             get {
                 return ((string)(this["Period3"]));
@@ -325,7 +325,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4th")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4th Qtr")]
         public string Period4 {
             get {
                 return ((string)(this["Period4"]));
@@ -409,7 +409,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + F")]
         public string HotKeyFlag {
             get {
                 return ((string)(this["HotKeyFlag"]));

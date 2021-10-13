@@ -69,16 +69,16 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Period1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1st</Value>
+      <Value Profile="(Default)">1st Qtr</Value>
     </Setting>
     <Setting Name="Period2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2nd</Value>
+      <Value Profile="(Default)">2nd Qtr</Value>
     </Setting>
     <Setting Name="Period3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3rd</Value>
+      <Value Profile="(Default)">3rd Qtr</Value>
     </Setting>
     <Setting Name="Period4" Type="System.String" Scope="User">
-      <Value Profile="(Default)">4th</Value>
+      <Value Profile="(Default)">4th Qtr</Value>
     </Setting>
     <Setting Name="Down1" Type="System.String" Scope="User">
       <Value Profile="(Default)">1st Down</Value>
@@ -99,7 +99,7 @@
       <Value Profile="(Default)">15000</Value>
     </Setting>
     <Setting Name="HotKeyFlag" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 0</Value>
+      <Value Profile="(Default)">Alt + Shift + F</Value>
     </Setting>
   </Settings>
 </SettingsFile>
