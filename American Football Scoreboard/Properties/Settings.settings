@@ -5,7 +5,7 @@
     <Setting Name="DefaultPeriod" Type="System.String" Scope="User">
       <Value Profile="(Default)">15:00</Value>
     </Setting>
-    <Setting Name="DefaultPlay" Type="System.String" Scope="User">
+    <Setting Name="DefaultPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">40</Value>
     </Setting>
     <Setting Name="OutputPath" Type="System.String" Scope="User">
@@ -100,6 +100,9 @@
     </Setting>
     <Setting Name="HotKeyFlag" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + F</Value>
+    </Setting>
+    <Setting Name="ShortPlayClock" Type="System.String" Scope="User">
+      <Value Profile="(Default)">25</Value>
     </Setting>
   </Settings>
 </SettingsFile>

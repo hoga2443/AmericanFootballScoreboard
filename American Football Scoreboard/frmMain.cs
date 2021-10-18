@@ -35,6 +35,8 @@ namespace American_Football_Scoreboard
         private DateTime playTimeEnd = DateTime.UtcNow;
         private TimeSpan playTimeRemaining = new TimeSpan(0, 0, 0);
 
+        private TimeSpan oneMinute = new TimeSpan(0, 0, 1, 0, 0);
+
         public FrmMain()
         {
             InitializeComponent();
@@ -46,6 +48,7 @@ namespace American_Football_Scoreboard
 
         private void AddScore(TextBox control, int points)
         {
+            rbDownBlank.Checked = true;
             if(int.TryParse(s: control.Text, out int oldScore))
                 control.Text = (oldScore + points).ToString();
         }
@@ -185,15 +188,14 @@ namespace American_Football_Scoreboard
             AddTimeout(txtHomeTimeouts, -1);
         }
 
-        private void ButNewPlayClock_Click(object sender, EventArgs e)
+        private void ButNewDefaultPlay_Click(object sender, EventArgs e)
         {
-            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
-            playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
-            playTimeEnd = DateTime.UtcNow + playTimeRemaining;
-            butStartStopPlayClock.Text = "Stop Play Clock"; 
-            if (!tmrClockRefresh.Enabled)
-                tmrClockRefresh.Enabled = true;
-            playClockRunning = true;
+            SetStartPlayClock(Properties.Settings.Default.DefaultPlayClock);
+        }
+
+        private void ButNewShortPlay_Click(object sender, EventArgs e)
+        {
+            SetStartPlayClock(Properties.Settings.Default.ShortPlayClock);
         }
 
         private void ButOutputFolder_Click(object sender, EventArgs e)
@@ -247,7 +249,7 @@ namespace American_Football_Scoreboard
             string errorMessage = String.Empty;
             if (!ValidTime(txtPeriodDuration.Text))
                 errorMessage += "Default Period Duration must be in format 00:00. ";
-            if (!int.TryParse(s: txtPlayClockDuration.Text, out _))
+            if (!int.TryParse(s: txtDefaultPlayClock.Text, out _))
                 errorMessage += "Default Play Clock must be an integer. ";
             if (string.IsNullOrEmpty(txtOutputFolder.Text))
                 errorMessage += "Please specify an output folder. ";
@@ -259,7 +261,7 @@ namespace American_Football_Scoreboard
             {
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
                 Properties.Settings.Default["DefaultPeriod"] = txtPeriodDuration.Text;
-                Properties.Settings.Default["DefaultPlay"] = txtPlayClockDuration.Text;
+                Properties.Settings.Default["DefaultPlayClock"] = txtDefaultPlayClock.Text;
                 Properties.Settings.Default["Down1"] = txtSettingDown1.Text;
                 Properties.Settings.Default["Down2"] = txtSettingDown2.Text;
                 Properties.Settings.Default["Down3"] = txtSettingDown3.Text;
@@ -275,6 +277,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["PeriodHalf"] = txtSettingPeriodHalf.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                Properties.Settings.Default["ShortPlayClock"] = txtShortPlayClock.Text;
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
@@ -300,11 +303,21 @@ namespace American_Football_Scoreboard
             {
                 if (!tmrClockRefresh.Enabled)
                     tmrClockRefresh.Enabled = true;
-                if (txtGameClock.Text.Trim().Length == 0)
+                if (txtGameClock.Text.Trim() == string.Empty)
                     txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
+                if (txtGameClock.Text.Contains("."))
+                {
+                    periodTimeRemaining = new TimeSpan(days: 0, hours: 0, minutes: int.Parse(txtGameClock.Text.Substring(0, 1)), seconds: int.Parse(txtGameClock.Text.Substring(2, 2)), milliseconds: int.Parse(txtGameClock.Text.Substring(5, 1)) * 100);
+                }
+                else
+                {
+                    periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
+                }
+                /*
                 else if (txtGameClock.Text.Trim().Length < 5)
                     txtGameClock.Text = ("00000" + txtGameClock.Text).Substring(txtGameClock.Text.Length);
                 periodTimeRemaining = new TimeSpan(0, int.Parse(txtGameClock.Text.Substring(0, 2)), int.Parse(txtGameClock.Text.Substring(3, 2)));
+                */
                 periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
                 butStartStopGameClock.Text = "Stop Game Clock";
             }
@@ -326,7 +339,7 @@ namespace American_Football_Scoreboard
                 if (!tmrClockRefresh.Enabled)
                     tmrClockRefresh.Enabled = true;
                 if (txtPlayClock.Text.Trim().Length == 0)
-                    txtPlayClock.Text = Properties.Settings.Default.DefaultPlay.ToString();
+                    txtPlayClock.Text = Properties.Settings.Default.DefaultPlayClock.ToString();
                 playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
                 playTimeEnd = DateTime.UtcNow + playTimeRemaining;
                 butStartStopPlayClock.Text = "Stop Play Clock";
@@ -418,7 +431,7 @@ namespace American_Football_Scoreboard
             playClockRunning = false;
             txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
             _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
-            txtPlayClock.Text = Properties.Settings.Default.DefaultPlay;
+            txtPlayClock.Text = Properties.Settings.Default.DefaultPlayClock;
             _ = WriteFileAsync(playClockFile, txtPlayClock.Text);
         }
 
@@ -440,11 +453,14 @@ namespace American_Football_Scoreboard
         private void DecrementGameClock()
         {
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
-            txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
+            if (periodTimeRemaining < oneMinute)
+                txtGameClock.Text = "0:" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero) + "." + periodTimeRemaining.Milliseconds.ToString().Substring(0,1);
+            else
+                txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(2, padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(2, padZero);
             _ = WriteFileAsync(gameClockFile, txtGameClock.Text);
             if (DateTime.Compare(periodClockEnd, DateTime.UtcNow) <= 0)
-                txtGameClock.Text = "00:00";
-            if (txtGameClock.Text == "00:00")
+                txtGameClock.Text = "0:00.0";
+            if (txtGameClock.Text == "0:00.0")
             {
                 gameClockRunning = false;
                 butStartStopGameClock.Text = "Start Game Clock";
@@ -567,9 +583,10 @@ namespace American_Football_Scoreboard
         private void LoadApplicationSettings()
         {
             txtPeriodDuration.Text = Properties.Settings.Default.DefaultPeriod;
-            txtPlayClockDuration.Text = Properties.Settings.Default.DefaultPlay;
+            txtDefaultPlayClock.Text = Properties.Settings.Default.DefaultPlayClock;
             txtGoalText.Text = Properties.Settings.Default.GoalText;
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
+            txtShortPlayClock.Text = Properties.Settings.Default.ShortPlayClock;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
             tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
             tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
@@ -724,7 +741,7 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock, () => butStartStopPlayClock.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock, () => butNewPlayClock.PerformClick()))
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock, () => butNewDefaultPlay.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks, () => butClearClocks.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
@@ -752,6 +769,17 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyPossession, () => TogglePossession()))
                 MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+        }
+
+        private void SetStartPlayClock(string duration)
+        {
+            txtPlayClock.Text = duration;
+            playTimeRemaining = new TimeSpan(0, 0, int.Parse(txtPlayClock.Text));
+            playTimeEnd = DateTime.UtcNow + playTimeRemaining;
+            butStartStopPlayClock.Text = "Stop Play Clock";
+            if (!tmrClockRefresh.Enabled)
+                tmrClockRefresh.Enabled = true;
+            playClockRunning = true;
         }
 
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
@@ -928,16 +956,34 @@ namespace American_Football_Scoreboard
         {
             if (time == string.Empty)
                 return true;
-            if (time.Length != 5)
+            if (time.Length > 6)
                 return false;
-            if (!int.TryParse(time.Substring(startIndex: 0, length: 2), out _))
-                return false;
-            if (time.Substring(startIndex: 2, length: 1) != ":")
-                return false;
-            if (!int.TryParse(time.Substring(startIndex: 3, length: 2), out int seconds))
-                return false;
-            if (seconds > 59)
-                return false;
+            if (time.Contains("."))
+            {
+                if (time.Substring(startIndex: 0, length: 1) != "0")
+                    return false;
+                if (time.Substring(startIndex: 1, length: 1) != ":")
+                    return false;
+                if (!int.TryParse(time.Substring(startIndex: 2, length: 2), out int seconds))
+                    return false;
+                if (seconds > 59)
+                    return false;
+                if (time.Substring(startIndex: 4, length: 1) != ".")
+                    return false;
+                if (!int.TryParse(time.Substring(startIndex: 5, length: 1), out _))
+                    return false;
+            }
+            else
+            {
+                if (!int.TryParse(time.Substring(startIndex: 0, length: 2), out _))
+                    return false;
+                if (time.Substring(startIndex: 2, length: 1) != ":")
+                    return false;
+                if (!int.TryParse(time.Substring(startIndex: 3, length: 2), out int seconds))
+                    return false;
+                if (seconds > 59)
+                    return false;
+            }
             return true;
         }
 

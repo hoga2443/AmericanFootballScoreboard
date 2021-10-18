@@ -38,12 +38,12 @@ namespace American_Football_Scoreboard.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("40")]
-        public string DefaultPlay {
+        public string DefaultPlayClock {
             get {
-                return ((string)(this["DefaultPlay"]));
+                return ((string)(this["DefaultPlayClock"]));
             }
             set {
-                this["DefaultPlay"] = value;
+                this["DefaultPlayClock"] = value;
             }
         }
         
@@ -416,6 +416,18 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["HotKeyFlag"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public string ShortPlayClock {
+            get {
+                return ((string)(this["ShortPlayClock"]));
+            }
+            set {
+                this["ShortPlayClock"] = value;
             }
         }
     }
