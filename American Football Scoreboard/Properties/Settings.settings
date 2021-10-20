@@ -107,5 +107,11 @@
     <Setting Name="HotKeyNewShortPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + S</Value>
     </Setting>
+    <Setting Name="AlwaysOnTop" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PeriodFinal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Final</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

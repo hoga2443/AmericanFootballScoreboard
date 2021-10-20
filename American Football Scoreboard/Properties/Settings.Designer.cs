@@ -442,5 +442,29 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyNewShortPlayClock"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AlwaysOnTop {
+            get {
+                return ((bool)(this["AlwaysOnTop"]));
+            }
+            set {
+                this["AlwaysOnTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Final")]
+        public string PeriodFinal {
+            get {
+                return ((string)(this["PeriodFinal"]));
+            }
+            set {
+                this["PeriodFinal"] = value;
+            }
+        }
     }
 }

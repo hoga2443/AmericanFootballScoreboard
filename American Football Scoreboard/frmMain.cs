@@ -205,12 +205,13 @@ namespace American_Football_Scoreboard
 
         private void ButPeriodClear_Click(object sender, EventArgs e)
         {
-            rbPeriodOne.Checked = false;
-            rbPeriodTwo.Checked = false;
-            rbPeriodHalf.Checked = false;
-            rbPeriodThree.Checked = false;
+            rbPeriodFinal.Checked = false;
             rbPeriodFour.Checked = false;
+            rbPeriodHalf.Checked = false;
+            rbPeriodOne.Checked = false;
             rbPeriodOT.Checked = false;
+            rbPeriodThree.Checked = false;
+            rbPeriodTwo.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: string.Empty);
         }
 
@@ -266,7 +267,6 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Down3"] = txtSettingDown3.Text;
                 Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
                 Properties.Settings.Default["FlagDisplayDuration"] = flagDisplayDuration;
-                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 Properties.Settings.Default["GoalText"] = txtGoalText.Text;
                 Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
                 Properties.Settings.Default["Period1"] = txtSettingPeriod1.Text;
@@ -274,11 +274,15 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Period3"] = txtSettingPeriod3.Text;
                 Properties.Settings.Default["Period4"] = txtSettingPeriod4.Text;
                 Properties.Settings.Default["PeriodHalf"] = txtSettingPeriodHalf.Text;
+                Properties.Settings.Default["PeriodFinal"] = txtSettingPeriodFinal.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
-                tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
                 Properties.Settings.Default["ShortPlayClock"] = txtShortPlayClock.Text;
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
+                Properties.Settings.Default["AlwaysOnTop"] = chkTop.Checked;
                 Properties.Settings.Default.Save();
+                tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
+                this.TopMost = Properties.Settings.Default.AlwaysOnTop;
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
@@ -594,13 +598,16 @@ namespace American_Football_Scoreboard
             txtFlagDisplayDuration.Text = Properties.Settings.Default.FlagDisplayDuration.ToString();
             txtSettingPeriod1.Text = Properties.Settings.Default.Period1;
             txtSettingPeriod2.Text = Properties.Settings.Default.Period2;
-            txtSettingPeriodHalf.Text = Properties.Settings.Default.PeriodHalf;
             txtSettingPeriod3.Text = Properties.Settings.Default.Period3;
             txtSettingPeriod4.Text = Properties.Settings.Default.Period4;
+            txtSettingPeriodHalf.Text = Properties.Settings.Default.PeriodHalf;
+            txtSettingPeriodFinal.Text = Properties.Settings.Default.PeriodFinal;
             txtSettingDown1.Text = Properties.Settings.Default.Down1;
             txtSettingDown2.Text = Properties.Settings.Default.Down2;
             txtSettingDown3.Text = Properties.Settings.Default.Down3;
             txtSettingDown4.Text = Properties.Settings.Default.Down4;
+            chkTop.Checked = Properties.Settings.Default.AlwaysOnTop;
+            this.TopMost = Properties.Settings.Default.AlwaysOnTop;
         }
 
         private void LoadHotKeySettings()
@@ -694,6 +701,11 @@ namespace American_Football_Scoreboard
         {
             if (rbDownTwo.Checked)
                 _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down2);
+        }
+
+        private void RbPeriodFinal_CheckedChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodFinal);
         }
 
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
