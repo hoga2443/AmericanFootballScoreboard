@@ -23,7 +23,7 @@
     <Setting Name="HotKeyStartStopPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + P</Value>
     </Setting>
-    <Setting Name="HotKeyNewPlayClock" Type="System.String" Scope="User">
+    <Setting Name="HotKeyNewDefaultPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + N</Value>
     </Setting>
     <Setting Name="HotKeyClearClocks" Type="System.String" Scope="User">
@@ -103,6 +103,9 @@
     </Setting>
     <Setting Name="ShortPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="HotKeyNewShortPlayClock" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + S</Value>
     </Setting>
   </Settings>
 </SettingsFile>

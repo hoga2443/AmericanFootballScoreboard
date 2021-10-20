@@ -122,9 +122,8 @@ namespace American_Football_Scoreboard
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtAwayScore.Text = "0";
             txtAwayTeam.Text = string.Empty;
-            txtAwayTimeouts.Text = "0";
-            chkAwayPossession.Checked = true;
-            _ = WriteFileAsync(file: awayTeamNameFile, content: string.Empty);
+            chkAwayPossession.Checked = false;
+            _ = WriteFileAsync(file: awayTeamNameFile, content: txtAwayTeam.Text);
         }
 
         private void ButClearClocks_Click(object sender, EventArgs e)
@@ -137,9 +136,8 @@ namespace American_Football_Scoreboard
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtHomeScore.Text = "0";
             txtHomeTeam.Text = string.Empty;
-            txtHomeTimeouts.Text = "0";
-            chkHomePossession.Checked = true;
-            _ = WriteFileAsync(file: homeTeamNameFile, content: string.Empty);
+            chkHomePossession.Checked = false;
+            _ = WriteFileAsync(file: homeTeamNameFile, content: txtHomeTeam.Text);
         }
 
         private void ButDistanceGoal_Click(object sender, EventArgs e)
@@ -228,7 +226,8 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyHome2"] = txtHotKeyHome2.Text;
             Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
             Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
-            Properties.Settings.Default["HotKeyNewPlayClock"] = txtHotKeyNewPlayClock.Text;
+            Properties.Settings.Default["HotKeyNewDefaultPlayClock"] = txtHotKeyNewDefaultPlayClock.Text;
+            Properties.Settings.Default["HotKeyNewShortPlayClock"] = txtHotKeyNewShortPlayClock.Text;
             Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
             Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
             Properties.Settings.Default["HotKeyPossession"] = txtHotKeyPossession.Text;
@@ -248,7 +247,7 @@ namespace American_Football_Scoreboard
         {
             string errorMessage = String.Empty;
             if (!ValidTime(txtPeriodDuration.Text))
-                errorMessage += "Default Period Duration must be in format 00:00. ";
+                errorMessage += "Default Period Duration must be in format 00:00 or 0:00.0. ";
             if (!int.TryParse(s: txtDefaultPlayClock.Text, out _))
                 errorMessage += "Default Play Clock must be an integer. ";
             if (string.IsNullOrEmpty(txtOutputFolder.Text))
@@ -616,7 +615,8 @@ namespace American_Football_Scoreboard
             txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
             txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
             txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
-            txtHotKeyNewPlayClock.Text = Properties.Settings.Default.HotKeyNewPlayClock;
+            txtHotKeyNewDefaultPlayClock.Text = Properties.Settings.Default.HotKeyNewDefaultPlayClock;
+            txtHotKeyNewShortPlayClock.Text = Properties.Settings.Default.HotKeyNewShortPlayClock;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
             txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
@@ -741,8 +741,10 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyStartStopPlayClock, () => butStartStopPlayClock.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewPlayClock, () => butNewDefaultPlay.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for New Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewDefaultPlayClock, () => butNewDefaultPlay.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for New Default Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyNewShortPlayClock, () => butNewShortPlay.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for New Short Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyClearClocks, () => butClearClocks.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(Properties.Settings.Default.HotKeyFlag, () => ToggleFlag()))
@@ -956,10 +958,10 @@ namespace American_Football_Scoreboard
         {
             if (time == string.Empty)
                 return true;
-            if (time.Length > 6)
-                return false;
             if (time.Contains("."))
             {
+                if (time.Length > 6)
+                    return false;
                 if (time.Substring(startIndex: 0, length: 1) != "0")
                     return false;
                 if (time.Substring(startIndex: 1, length: 1) != ":")
@@ -975,6 +977,8 @@ namespace American_Football_Scoreboard
             }
             else
             {
+                if (time.Length != 5)
+                    return false;
                 if (!int.TryParse(time.Substring(startIndex: 0, length: 2), out _))
                     return false;
                 if (time.Substring(startIndex: 2, length: 1) != ":")

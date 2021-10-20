@@ -110,12 +110,12 @@ namespace American_Football_Scoreboard.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + N")]
-        public string HotKeyNewPlayClock {
+        public string HotKeyNewDefaultPlayClock {
             get {
-                return ((string)(this["HotKeyNewPlayClock"]));
+                return ((string)(this["HotKeyNewDefaultPlayClock"]));
             }
             set {
-                this["HotKeyNewPlayClock"] = value;
+                this["HotKeyNewDefaultPlayClock"] = value;
             }
         }
         
@@ -428,6 +428,18 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["ShortPlayClock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + S")]
+        public string HotKeyNewShortPlayClock {
+            get {
+                return ((string)(this["HotKeyNewShortPlayClock"]));
+            }
+            set {
+                this["HotKeyNewShortPlayClock"] = value;
             }
         }
     }
