@@ -113,5 +113,11 @@
     <Setting Name="PeriodFinal" Type="System.String" Scope="User">
       <Value Profile="(Default)">Final</Value>
     </Setting>
+    <Setting Name="TouchdownDescription" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Touchdown</Value>
+    </Setting>
+    <Setting Name="FieldGoalDescription" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Field Goal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

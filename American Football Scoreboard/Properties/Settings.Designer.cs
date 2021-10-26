@@ -466,5 +466,29 @@ namespace American_Football_Scoreboard.Properties {
                 this["PeriodFinal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Touchdown")]
+        public string TouchdownDescription {
+            get {
+                return ((string)(this["TouchdownDescription"]));
+            }
+            set {
+                this["TouchdownDescription"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Field Goal")]
+        public string FieldGoalDescription {
+            get {
+                return ((string)(this["FieldGoalDescription"]));
+            }
+            set {
+                this["FieldGoalDescription"] = value;
+            }
+        }
     }
 }
