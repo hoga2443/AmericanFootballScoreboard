@@ -51,7 +51,7 @@ namespace American_Football_Scoreboard
         private void AddScore(TextBox textBox, int points, string message = "")
         {
             rbDownBlank.Checked = true;
-            if(int.TryParse(s: textBox.Text, out int oldScore))
+            if (int.TryParse(s: textBox.Text, out int oldScore))
                 textBox.Text = (oldScore + points).ToString();
             if (message != string.Empty)
             {
@@ -99,24 +99,56 @@ namespace American_Football_Scoreboard
             ClearClocks();
         }
 
-        private void ButAwayAddOne_Click(object sender, EventArgs e)
+        private void ButAwayFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: 1);
+            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.FieldGoal);
+            WriteScore(text: "Field Goal");
         }
 
-        private void ButAwayAddTwo_Click(object sender, EventArgs e)
+        private void ButAwayPatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: 2);
+            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.PatConversion);
+            WriteScore(text: "Conversion");
         }
 
-        private void ButAwayAddThree_Click(object sender, EventArgs e)
+        private void ButAwayPatKick_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: 3, message: Properties.Settings.Default.FieldGoalDescription);
+            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.PatKick);
+            WriteScore(text: "PAT");
         }
 
-        private void ButAwayAddSix_Click(object sender, EventArgs e)
+        private void ShowHidePlayer(Boolean home, Button button, TextBox textBox)
         {
-            AddScore(textBox: txtAwayScore, points: 6, message: Properties.Settings.Default.TouchdownDescription);
+            if (button.Text == "Show")
+            {
+                button.Text = "Hide";
+                if (!ShowPlayer(home: home, jersey: textBox.Text))
+                {
+                    textBox.Text = string.Empty;
+                    button.Text = "Show";
+                }
+                tmrPlayer.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                tmrPlayer.Enabled = true;
+                tmrPlayer.Start();
+            }
+            else
+            {
+                textBox.Text = string.Empty;
+                button.Text = "Show";
+                HidePlayer(home: home);
+                tmrPlayer.Enabled = false;
+            }
+        }
+
+        private void ButAwayPlayerShow_Click(object sender, EventArgs e)
+        {
+            ShowHidePlayer(home: false, button: butAwayPlayerShow, textBox: txtAwayPlayerNumber);
+        }
+
+        private void ButAwaySafety_Click(object sender, EventArgs e)
+        {
+            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.Safety);
+            WriteScore(text: "Safety");
         }
 
         private void ButAwayTimeoutsAdd_Click(object sender, EventArgs e)
@@ -127,6 +159,12 @@ namespace American_Football_Scoreboard
         private void ButAwayTimeoutsSubtract_Click(object sender, EventArgs e)
         {
             AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: -1);
+        }
+
+        private void ButAwayTouchdown_Click(object sender, EventArgs e)
+        {
+            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.Touchdown);
+            WriteScore(text: "Touchdown");
         }
 
         private void ButClearAway_Click(object sender, EventArgs e)
@@ -168,24 +206,33 @@ namespace American_Football_Scoreboard
             txtSpot.Text = String.Empty;
         }
 
-        private void ButHomeAddOne_Click(object sender, EventArgs e)
+        private void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: 1);
+            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.FieldGoal);
+            WriteScore(text: "Field Goal");
         }
 
-        private void ButHomeAddTwo_Click(object sender, EventArgs e)
+        private void ButHomePatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: 2);
+            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.PatConversion);
+            WriteScore(text: "Conversion");
         }
 
-        private void ButHomeAddThree_Click(object sender, EventArgs e)
+        private void ButHomePatKick_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: 3, message: Properties.Settings.Default.FieldGoalDescription);
+            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.PatKick);
+            WriteScore(text: "PAT");
         }
 
-        private void ButHomeAddSix_Click(object sender, EventArgs e)
+        private void ButHomePlayerShow_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: 6, message: Properties.Settings.Default.TouchdownDescription);
+            ShowHidePlayer(home: true, button: butHomePlayerShow, textBox: txtHomePlayerNumber);
+        }
+
+        private void ButHomeSafety_Click(object sender, EventArgs e)
+        {
+            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.Safety);
+            WriteScore(text: "Safety");
         }
 
         private void ButHomeTimeoutsAdd_Click(object sender, EventArgs e)
@@ -196,6 +243,12 @@ namespace American_Football_Scoreboard
         private void ButHomeTimeoutsSubtract_Click(object sender, EventArgs e)
         {
             AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
+        }
+
+        private void ButHomeTouchdown_Click(object sender, EventArgs e)
+        {
+            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
+            WriteScore(text: "Touchdown");
         }
 
         private void ButNewDefaultPlay_Click(object sender, EventArgs e)
@@ -229,16 +282,18 @@ namespace American_Football_Scoreboard
 
         private void ButSaveHotKey_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["HotKeyAway1"] = txtHotKeyAway1.Text;
-            Properties.Settings.Default["HotKeyAway2"] = txtHotKeyAway2.Text;
-            Properties.Settings.Default["HotKeyAway3"] = txtHotKeyAway3.Text;
-            Properties.Settings.Default["HotKeyAway6"] = txtHotKeyAway6.Text;
+            Properties.Settings.Default["HotKeyAwaySafety"] = txtHotKeyAwaySafety.Text;
+            Properties.Settings.Default["HotKeyAwayPatKick"] = txtHotKeyAwayPatKick.Text;
+            Properties.Settings.Default["HotKeyAwayPatConversion"] = txtHotKeyAwayPatConversion.Text;
+            Properties.Settings.Default["HotKeyAwayFieldGoal"] = txtHotKeyAwayFieldGoal.Text;
+            Properties.Settings.Default["HotKeyAwayTouchdown"] = txtHotKeyAwayTouchdown.Text;
             Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
             Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
-            Properties.Settings.Default["HotKeyHome1"] = txtHotKeyHome1.Text;
-            Properties.Settings.Default["HotKeyHome2"] = txtHotKeyHome2.Text;
-            Properties.Settings.Default["HotKeyHome3"] = txtHotKeyHome3.Text;
-            Properties.Settings.Default["HotKeyHome6"] = txtHotKeyHome6.Text;
+            Properties.Settings.Default["HotKeyHomeSafety"] = txtHotKeyHomeSafety.Text;
+            Properties.Settings.Default["HotKeyHomePatKick"] = txtHotKeyHomePatKick.Text;
+            Properties.Settings.Default["HotKeyHomePatConversion"] = txtHotKeyHomePatConversion.Text;
+            Properties.Settings.Default["HotKeyHomeFieldGoal"] = txtHotKeyHomeFieldGoal.Text;
+            Properties.Settings.Default["HotKeyHomeTouchdown"] = txtHotKeyHomeTouchdown.Text;
             Properties.Settings.Default["HotKeyNewDefaultPlayClock"] = txtHotKeyNewDefaultPlayClock.Text;
             Properties.Settings.Default["HotKeyNewShortPlayClock"] = txtHotKeyNewShortPlayClock.Text;
             Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
@@ -269,6 +324,16 @@ namespace American_Football_Scoreboard
                 errorMessage += "Refresh Interval must be an integer. ";
             if (!int.TryParse(s: txtFlagDisplayDuration.Text, out int flagDisplayDuration))
                 errorMessage += "Flag Display Duration must be an integer. ";
+            if (!int.TryParse(s: txtSettingSafety.Text, out int safetyPoints))
+                errorMessage += "Safety points must be an integer. ";
+            if (!int.TryParse(s: txtSettingPatKick.Text, out int patKickPoints))
+                errorMessage += "PAT - Kick points must be an integer. ";
+            if (!int.TryParse(s: txtSettingPatConversion.Text, out int patConvertionPoints))
+                errorMessage += "PAT - Conv points must be an integer. ";
+            if (!int.TryParse(s: txtSettingFieldGoal.Text, out int patFieldGoalPoints))
+                errorMessage += "Field Goal points must be an integer. ";
+            if (!int.TryParse(s: txtSettingTouchdown.Text, out int patTouchdownPoints))
+                errorMessage += "Touchdown points must be an integer. ";
             if (string.IsNullOrEmpty(value: errorMessage))
             {
                 Properties.Settings.Default["AdvanceQuarter"] = chkAdvanceQuarter.Checked;
@@ -280,7 +345,6 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Down3"] = txtSettingDown3.Text;
                 Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
                 Properties.Settings.Default["Down4"] = txtSettingDown4.Text;
-                Properties.Settings.Default["FieldGoalDescription"] = txtFieldGoalMessage.Text;
                 Properties.Settings.Default["FlagDisplayDuration"] = flagDisplayDuration;
                 Properties.Settings.Default["GoalText"] = txtGoalText.Text;
                 Properties.Settings.Default["OutputPath"] = txtOutputFolder.Text;
@@ -292,8 +356,14 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["PeriodFinal"] = txtSettingPeriodFinal.Text;
                 Properties.Settings.Default["RefreshInterval"] = refreshInterval;
                 Properties.Settings.Default["ShortPlayClock"] = txtShortPlayClock.Text;
+                Properties.Settings.Default["SubSecond"] = chkSubSecond.Checked;
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
-                Properties.Settings.Default["TouchdownDescription"] = txtTouchdownMessage.Text;
+                Properties.Settings.Default["Safety"] = safetyPoints;
+                Properties.Settings.Default["PatKick"] = patKickPoints;
+                Properties.Settings.Default["PatConversion"] = patConvertionPoints;
+                Properties.Settings.Default["FieldGoal"] = patFieldGoalPoints;
+                Properties.Settings.Default["Touchdown"] = patTouchdownPoints;
+
                 Properties.Settings.Default.Save();
                 tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
@@ -464,14 +534,14 @@ namespace American_Football_Scoreboard
         private void DecrementGameClock()
         {
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
-            if (periodTimeRemaining < oneMinute)
+            if (periodTimeRemaining < oneMinute && Properties.Settings.Default.SubSecond)
                 txtGameClock.Text = "0:" + periodTimeRemaining.Seconds.ToString().PadLeft(totalWidth: 2, paddingChar: padZero) + "." + periodTimeRemaining.Milliseconds.ToString().Substring(startIndex: 0, length: 1);
             else
                 txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(totalWidth: 2, paddingChar: padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(totalWidth: 2, paddingChar: padZero);
             _ = WriteFileAsync(file: gameClockFile, content: txtGameClock.Text);
             if (DateTime.Compare(t1: periodClockEnd, t2: DateTime.UtcNow) <= 0)
                 txtGameClock.Text = "0:00.0";
-            if (txtGameClock.Text == "0:00.0")
+            if (txtGameClock.Text == "0:00.0" || txtGameClock.Text == "00:00")
             {
                 gameClockRunning = false;
                 butStartStopGameClock.Text = "Start Game Clock";
@@ -501,6 +571,14 @@ namespace American_Football_Scoreboard
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             GlobalHotKey.DeRegisterHotKeys();
+        }
+
+        private void HidePlayer(bool home)
+        {
+            if (home)
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\blank.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+            else
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\blank.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
         }
 
         private void InitializeDown()
@@ -597,7 +675,6 @@ namespace American_Football_Scoreboard
             txtPeriodDuration.Text = Properties.Settings.Default.DefaultPeriod;
             txtDefaultPlayClock.Text = Properties.Settings.Default.DefaultPlayClock;
             txtGoalText.Text = Properties.Settings.Default.GoalText;
-            txtFieldGoalMessage.Text = Properties.Settings.Default.FieldGoalDescription;
             txtOutputFolder.Text = Properties.Settings.Default.OutputPath;
             txtShortPlayClock.Text = Properties.Settings.Default.ShortPlayClock;
             txtTimeoutsPerHalf.Text = Properties.Settings.Default.TimeoutsPerHalf;
@@ -617,22 +694,29 @@ namespace American_Football_Scoreboard
             txtSettingDown3.Text = Properties.Settings.Default.Down3;
             txtSettingDown4.Text = Properties.Settings.Default.Down4;
             chkTop.Checked = Properties.Settings.Default.AlwaysOnTop;
-            txtTouchdownMessage.Text = Properties.Settings.Default.TouchdownDescription;
+            chkSubSecond.Checked = Properties.Settings.Default.SubSecond;
+            txtSettingSafety.Text = Properties.Settings.Default.Safety.ToString();
+            txtSettingPatKick.Text = Properties.Settings.Default.PatKick.ToString();
+            txtSettingPatConversion.Text = Properties.Settings.Default.PatConversion.ToString();
+            txtSettingFieldGoal.Text = Properties.Settings.Default.FieldGoal.ToString();
+            txtSettingTouchdown.Text = Properties.Settings.Default.Touchdown.ToString();
             this.TopMost = Properties.Settings.Default.AlwaysOnTop;
         }
 
         private void LoadHotKeySettings()
         {
-            txtHotKeyAway1.Text = Properties.Settings.Default.HotKeyAway1;
-            txtHotKeyAway2.Text = Properties.Settings.Default.HotKeyAway2;
-            txtHotKeyAway3.Text = Properties.Settings.Default.HotKeyAway3;
-            txtHotKeyAway6.Text = Properties.Settings.Default.HotKeyAway6;
+            txtHotKeyHomeSafety.Text = Properties.Settings.Default.HotKeyHomeSafety;
+            txtHotKeyHomePatKick.Text = Properties.Settings.Default.HotKeyHomePatKick;
+            txtHotKeyHomePatConversion.Text = Properties.Settings.Default.HotKeyHomePatConversion;
+            txtHotKeyHomeFieldGoal.Text = Properties.Settings.Default.HotKeyHomeFieldGoal;
+            txtHotKeyHomeTouchdown.Text = Properties.Settings.Default.HotKeyHomeTouchdown;
+            txtHotKeyAwaySafety.Text = Properties.Settings.Default.HotKeyAwaySafety;
+            txtHotKeyAwayPatKick.Text = Properties.Settings.Default.HotKeyAwayPatKick;
+            txtHotKeyAwayPatConversion.Text = Properties.Settings.Default.HotKeyAwayPatConversion;
+            txtHotKeyAwayFieldGoal.Text = Properties.Settings.Default.HotKeyAwayFieldGoal;
+            txtHotKeyAwayTouchdown.Text = Properties.Settings.Default.HotKeyAwayTouchdown;
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
             txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
-            txtHotKeyHome1.Text = Properties.Settings.Default.HotKeyHome1;
-            txtHotKeyHome2.Text = Properties.Settings.Default.HotKeyHome2;
-            txtHotKeyHome3.Text = Properties.Settings.Default.HotKeyHome3;
-            txtHotKeyHome6.Text = Properties.Settings.Default.HotKeyHome6;
             txtHotKeyNewDefaultPlayClock.Text = Properties.Settings.Default.HotKeyNewDefaultPlayClock;
             txtHotKeyNewShortPlayClock.Text = Properties.Settings.Default.HotKeyNewShortPlayClock;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
@@ -779,22 +863,26 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyNextPeriod, aAction: () => NextPeriod()))
                 MessageBox.Show(text: "Unable to register Hot Key for Next Period!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHome1, aAction: () => butHomeAddOne.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Home Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHome2, aAction: () => butHomeAddTwo.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Home Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHome3, aAction: () => butHomeAddThree.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Home Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHome6, aAction: () => butHomeAddSix.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Home Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAway1, aAction: () => butAwayAddOne.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Away Team 1 point!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAway2, aAction: () => butAwayAddTwo.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Away Team 2 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAway3, aAction: () => butAwayAddThree.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Away Team 3 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAway6, aAction: () => butAwayAddSix.PerformClick()))
-                MessageBox.Show(text: "Unable to register Hot Key for Away Team 6 points!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomeSafety, aAction: () => butHomeSafety.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Safety!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomePatKick, aAction: () => butHomePatKick.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home PAT - Kick!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomePatConversion, aAction: () => butHomePatConversion.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home PAT - Conversion!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomeFieldGoal, aAction: () => butHomeFieldGoal.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Field Goal!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomeTouchdown, aAction: () => butHomeTouchdown.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Touchdown!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwaySafety, aAction: () => butAwaySafety.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Safety!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwayPatKick, aAction: () => butAwayPatKick.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away PAT - Kick!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwayPatConversion, aAction: () => butAwayPatConversion.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away PAT - Conversion!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwayFieldGoal, aAction: () => butAwayFieldGoal.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Field Goal!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwayTouchdown, aAction: () => butAwayTouchdown.PerformClick()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Touchdown!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyPossession, aAction: () => TogglePossession()))
                 MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
         }
@@ -810,6 +898,36 @@ namespace American_Football_Scoreboard
             playClockRunning = true;
         }
 
+        private bool ShowPlayer(bool home, string jersey)
+        {
+            bool success = false;
+            if (home)
+            {
+                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + ".png")))
+                {
+                    MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + ".png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                    success = true;
+                }
+            }
+            else
+            {
+                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + ".png")))
+                {
+                    MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + ".png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                    success = true;
+                }
+            }
+            return success;
+        }
+
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
         {
             if (gameClockRunning)
@@ -821,6 +939,14 @@ namespace American_Football_Scoreboard
         private void TmrFlag_Tick(object sender, EventArgs e)
         {
             chkFlag.Checked = false;
+        }
+
+        private void TmrPlayer_Tick(object sender, EventArgs e)
+        {
+            if (butHomePlayerShow.Text == "Hide")
+                butHomePlayerShow.PerformClick();
+            else if (butAwayPlayerShow.Text == "Hide")
+                butAwayPlayerShow.PerformClick();
         }
 
         private void TmrScore_Tick(object sender, EventArgs e)
@@ -886,6 +1012,14 @@ namespace American_Football_Scoreboard
             butSaveSettings.PerformClick();
         }
 
+        private void TxtAwayPlayerNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                butAwayPlayerShow.PerformClick();
+            }
+        }
+
         private void TxtAwayScore_TextChanged(object sender, EventArgs e)
         {
             if (!int.TryParse(s: txtAwayScore.Text, result: out _) && txtAwayScore.Text != string.Empty)
@@ -931,6 +1065,14 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Please enter a valid time mm:ss.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
             else
                 _ = WriteFileAsync(file: gameClockFile, content: txtGameClock.Text);
+        }
+
+        private void TxtHomePlayerNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                butHomePlayerShow.PerformClick();
+            }
         }
 
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
@@ -1048,6 +1190,14 @@ namespace American_Football_Scoreboard
             {
                 await outputFile.WriteAsync(content);
             }
+        }
+
+        private void WriteScore(string text)
+        {
+            _ = WriteFileAsync(file: scoreDescription, content: text);
+            tmrScore.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            tmrScore.Enabled = true;
+            tmrScore.Start();
         }
     }
 }

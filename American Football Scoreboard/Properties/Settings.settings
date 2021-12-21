@@ -35,35 +35,11 @@
     <Setting Name="HotKeyNextPeriod" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + Q</Value>
     </Setting>
-    <Setting Name="HotKeyAway1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 1</Value>
-    </Setting>
-    <Setting Name="HotKeyAway2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 2</Value>
-    </Setting>
-    <Setting Name="HotKeyAway3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 3</Value>
-    </Setting>
-    <Setting Name="HotKeyAway6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 4</Value>
-    </Setting>
-    <Setting Name="HotKeyHome1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 5</Value>
-    </Setting>
-    <Setting Name="HotKeyHome2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 6</Value>
-    </Setting>
-    <Setting Name="HotKeyHome3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 7</Value>
-    </Setting>
-    <Setting Name="HotKeyHome6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 8</Value>
-    </Setting>
     <Setting Name="RefreshInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="HotKeyPossession" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + 9</Value>
+      <Value Profile="(Default)">Alt + Shift + O</Value>
     </Setting>
     <Setting Name="AdvanceQuarter" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -113,11 +89,53 @@
     <Setting Name="PeriodFinal" Type="System.String" Scope="User">
       <Value Profile="(Default)">Final</Value>
     </Setting>
-    <Setting Name="TouchdownDescription" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Touchdown</Value>
+    <Setting Name="SubSecond" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="FieldGoalDescription" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Field Goal</Value>
+    <Setting Name="Safety" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="PatKick" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PatConversion" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="FieldGoal" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="Touchdown" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="HotKeyHomeSafety" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 5</Value>
+    </Setting>
+    <Setting Name="HotKeyHomePatKick" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 6</Value>
+    </Setting>
+    <Setting Name="HotKeyHomePatConversion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 7</Value>
+    </Setting>
+    <Setting Name="HotKeyHomeFieldGoal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 8</Value>
+    </Setting>
+    <Setting Name="HotKeyHomeTouchdown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 9</Value>
+    </Setting>
+    <Setting Name="HotKeyAwaySafety" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 0</Value>
+    </Setting>
+    <Setting Name="HotKeyAwayPatKick" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 1</Value>
+    </Setting>
+    <Setting Name="HotKeyAwayPatConversion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 2</Value>
+    </Setting>
+    <Setting Name="HotKeyAwayFieldGoal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 3</Value>
+    </Setting>
+    <Setting Name="HotKeyAwayTouchdown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + 4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

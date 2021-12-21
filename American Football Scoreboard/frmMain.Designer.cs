@@ -60,6 +60,14 @@ namespace American_Football_Scoreboard
             this.rbPeriodTwo = new System.Windows.Forms.RadioButton();
             this.rbPeriodOne = new System.Windows.Forms.RadioButton();
             this.gbAway = new System.Windows.Forms.GroupBox();
+            this.butAwayTouchdown = new System.Windows.Forms.Button();
+            this.butAwayFieldGoal = new System.Windows.Forms.Button();
+            this.butAwayPatConversion = new System.Windows.Forms.Button();
+            this.butAwayPatKick = new System.Windows.Forms.Button();
+            this.butAwaySafety = new System.Windows.Forms.Button();
+            this.butAwayPlayerShow = new System.Windows.Forms.Button();
+            this.txtAwayPlayerNumber = new System.Windows.Forms.TextBox();
+            this.lblAwayPlayerNumber = new System.Windows.Forms.Label();
             this.lblAwayTeamScore = new System.Windows.Forms.Label();
             this.chkAwayPossession = new System.Windows.Forms.CheckBox();
             this.butAwayTimeoutsAdd = new System.Windows.Forms.Button();
@@ -67,14 +75,18 @@ namespace American_Football_Scoreboard
             this.txtAwayTimeouts = new System.Windows.Forms.TextBox();
             this.lblAwayTimeouts = new System.Windows.Forms.Label();
             this.butClearAway = new System.Windows.Forms.Button();
-            this.butAwayAddSix = new System.Windows.Forms.Button();
-            this.butAwayAddThree = new System.Windows.Forms.Button();
-            this.butAwayAddTwo = new System.Windows.Forms.Button();
-            this.butAwayAddOne = new System.Windows.Forms.Button();
             this.txtAwayScore = new System.Windows.Forms.TextBox();
             this.lblAwayTeam = new System.Windows.Forms.Label();
             this.txtAwayTeam = new System.Windows.Forms.TextBox();
             this.gbHome = new System.Windows.Forms.GroupBox();
+            this.butHomeTouchdown = new System.Windows.Forms.Button();
+            this.butHomeFieldGoal = new System.Windows.Forms.Button();
+            this.butHomePatConversion = new System.Windows.Forms.Button();
+            this.butHomePatKick = new System.Windows.Forms.Button();
+            this.butHomeSafety = new System.Windows.Forms.Button();
+            this.butHomePlayerShow = new System.Windows.Forms.Button();
+            this.txtHomePlayerNumber = new System.Windows.Forms.TextBox();
+            this.lblHomePlayerNumber = new System.Windows.Forms.Label();
             this.lblHomeTeamScore = new System.Windows.Forms.Label();
             this.chkHomePossession = new System.Windows.Forms.CheckBox();
             this.butHomeTimeoutsAdd = new System.Windows.Forms.Button();
@@ -82,10 +94,6 @@ namespace American_Football_Scoreboard
             this.txtHomeTimeouts = new System.Windows.Forms.TextBox();
             this.lblHomeTimeouts = new System.Windows.Forms.Label();
             this.butClearHome = new System.Windows.Forms.Button();
-            this.butHomeAddSix = new System.Windows.Forms.Button();
-            this.butHomeAddThree = new System.Windows.Forms.Button();
-            this.butHomeAddTwo = new System.Windows.Forms.Button();
-            this.butHomeAddOne = new System.Windows.Forms.Button();
             this.txtHomeScore = new System.Windows.Forms.TextBox();
             this.lblHomeTeam = new System.Windows.Forms.Label();
             this.txtHomeTeam = new System.Windows.Forms.TextBox();
@@ -105,27 +113,31 @@ namespace American_Football_Scoreboard
             this.txtHotKeyFlag = new System.Windows.Forms.TextBox();
             this.lblHotKeyFlag = new System.Windows.Forms.Label();
             this.gbHotKeysAway = new System.Windows.Forms.GroupBox();
+            this.txtHotKeyAwayTouchdown = new System.Windows.Forms.TextBox();
+            this.lblAwayHotKeyTouchdown = new System.Windows.Forms.Label();
             this.lblAwayHotKeyFunction = new System.Windows.Forms.Label();
             this.lblAwayHotKeyKey = new System.Windows.Forms.Label();
-            this.lblAwayHotKey1 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway1 = new System.Windows.Forms.TextBox();
-            this.txtHotKeyAway6 = new System.Windows.Forms.TextBox();
-            this.lblAwayHotKey2 = new System.Windows.Forms.Label();
-            this.lblAwayHotKey6 = new System.Windows.Forms.Label();
-            this.txtHotKeyAway2 = new System.Windows.Forms.TextBox();
-            this.txtHotKeyAway3 = new System.Windows.Forms.TextBox();
-            this.lblAwayHotKey3 = new System.Windows.Forms.Label();
+            this.lblAwayHotKeySafety = new System.Windows.Forms.Label();
+            this.txtHotKeyAwaySafety = new System.Windows.Forms.TextBox();
+            this.txtHotKeyAwayFieldGoal = new System.Windows.Forms.TextBox();
+            this.lblAwayHotKeyPatKick = new System.Windows.Forms.Label();
+            this.lblAwayHotKeyFieldGoal = new System.Windows.Forms.Label();
+            this.txtHotKeyAwayPatKick = new System.Windows.Forms.TextBox();
+            this.txtHotKeyAwayPatConversion = new System.Windows.Forms.TextBox();
+            this.lblAwayHotKeyPatConversion = new System.Windows.Forms.Label();
             this.gbHotKeysHome = new System.Windows.Forms.GroupBox();
+            this.lblHomeHotKeyTouchdown = new System.Windows.Forms.Label();
+            this.txtHotKeyHomeTouchdown = new System.Windows.Forms.TextBox();
             this.lblHomeHotKeyPoints = new System.Windows.Forms.Label();
             this.lblHomeHotKeyKey = new System.Windows.Forms.Label();
-            this.lblHomeHotKey1 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome1 = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKey2 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome2 = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKey3 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome3 = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKey6 = new System.Windows.Forms.Label();
-            this.txtHotKeyHome6 = new System.Windows.Forms.TextBox();
+            this.lblHomeHotKeySafety = new System.Windows.Forms.Label();
+            this.txtHotKeyHomeSafety = new System.Windows.Forms.TextBox();
+            this.lblHomeHotKeyPatKick = new System.Windows.Forms.Label();
+            this.txtHotKeyHomePatKick = new System.Windows.Forms.TextBox();
+            this.lblHomeHotKeyPatConversion = new System.Windows.Forms.Label();
+            this.txtHotKeyHomePatConversion = new System.Windows.Forms.TextBox();
+            this.lblHomeHotKeyFieldGoal = new System.Windows.Forms.Label();
+            this.txtHotKeyHomeFieldGoal = new System.Windows.Forms.TextBox();
             this.txtHotKeyPossession = new System.Windows.Forms.TextBox();
             this.lblHotKeyPossession = new System.Windows.Forms.Label();
             this.txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
@@ -144,6 +156,18 @@ namespace American_Football_Scoreboard
             this.lblHotKeyKey = new System.Windows.Forms.Label();
             this.lblHotKeyFunction = new System.Windows.Forms.Label();
             this.tpSettings = new System.Windows.Forms.TabPage();
+            this.gbPoints = new System.Windows.Forms.GroupBox();
+            this.txtSettingTouchdown = new System.Windows.Forms.TextBox();
+            this.txtSettingFieldGoal = new System.Windows.Forms.TextBox();
+            this.txtSettingPatConversion = new System.Windows.Forms.TextBox();
+            this.txtSettingPatKick = new System.Windows.Forms.TextBox();
+            this.txtSettingSafety = new System.Windows.Forms.TextBox();
+            this.lblSettingTouchdown = new System.Windows.Forms.Label();
+            this.lblSettingFieldGoal = new System.Windows.Forms.Label();
+            this.lblSettingPatConversion = new System.Windows.Forms.Label();
+            this.lblSettingPatKick = new System.Windows.Forms.Label();
+            this.lblSettingSafety = new System.Windows.Forms.Label();
+            this.chkSubSecond = new System.Windows.Forms.CheckBox();
             this.chkTop = new System.Windows.Forms.CheckBox();
             this.txtShortPlayClock = new System.Windows.Forms.TextBox();
             this.lblShortPlayClock = new System.Windows.Forms.Label();
@@ -199,11 +223,8 @@ namespace American_Football_Scoreboard
             this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrFlag = new System.Windows.Forms.Timer(this.components);
-            this.txtFieldGoalMessage = new System.Windows.Forms.TextBox();
-            this.lblFieldGoalMessage = new System.Windows.Forms.Label();
-            this.txtTouchdownMessage = new System.Windows.Forms.TextBox();
-            this.lblTouchdownMessage = new System.Windows.Forms.Label();
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
+            this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
             this.tabMain.SuspendLayout();
             this.tpScoreboard.SuspendLayout();
             this.gbSupplemental.SuspendLayout();
@@ -216,6 +237,7 @@ namespace American_Football_Scoreboard
             this.gbHotKeysAway.SuspendLayout();
             this.gbHotKeysHome.SuspendLayout();
             this.tpSettings.SuspendLayout();
+            this.gbPoints.SuspendLayout();
             this.gbSettingDown.SuspendLayout();
             this.gbSettingPeriod.SuspendLayout();
             this.msMain.SuspendLayout();
@@ -545,6 +567,14 @@ namespace American_Football_Scoreboard
             // 
             // gbAway
             // 
+            this.gbAway.Controls.Add(this.butAwayTouchdown);
+            this.gbAway.Controls.Add(this.butAwayFieldGoal);
+            this.gbAway.Controls.Add(this.butAwayPatConversion);
+            this.gbAway.Controls.Add(this.butAwayPatKick);
+            this.gbAway.Controls.Add(this.butAwaySafety);
+            this.gbAway.Controls.Add(this.butAwayPlayerShow);
+            this.gbAway.Controls.Add(this.txtAwayPlayerNumber);
+            this.gbAway.Controls.Add(this.lblAwayPlayerNumber);
             this.gbAway.Controls.Add(this.lblAwayTeamScore);
             this.gbAway.Controls.Add(this.chkAwayPossession);
             this.gbAway.Controls.Add(this.butAwayTimeoutsAdd);
@@ -552,24 +582,97 @@ namespace American_Football_Scoreboard
             this.gbAway.Controls.Add(this.txtAwayTimeouts);
             this.gbAway.Controls.Add(this.lblAwayTimeouts);
             this.gbAway.Controls.Add(this.butClearAway);
-            this.gbAway.Controls.Add(this.butAwayAddSix);
-            this.gbAway.Controls.Add(this.butAwayAddThree);
-            this.gbAway.Controls.Add(this.butAwayAddTwo);
-            this.gbAway.Controls.Add(this.butAwayAddOne);
             this.gbAway.Controls.Add(this.txtAwayScore);
             this.gbAway.Controls.Add(this.lblAwayTeam);
             this.gbAway.Controls.Add(this.txtAwayTeam);
             this.gbAway.Location = new System.Drawing.Point(568, 6);
             this.gbAway.Name = "gbAway";
-            this.gbAway.Size = new System.Drawing.Size(200, 260);
+            this.gbAway.Size = new System.Drawing.Size(200, 288);
             this.gbAway.TabIndex = 12;
             this.gbAway.TabStop = false;
             this.gbAway.Text = "Away";
             // 
+            // butAwayTouchdown
+            // 
+            this.butAwayTouchdown.Location = new System.Drawing.Point(6, 190);
+            this.butAwayTouchdown.Name = "butAwayTouchdown";
+            this.butAwayTouchdown.Size = new System.Drawing.Size(75, 23);
+            this.butAwayTouchdown.TabIndex = 33;
+            this.butAwayTouchdown.Text = "Touchdown";
+            this.butAwayTouchdown.UseVisualStyleBackColor = true;
+            this.butAwayTouchdown.Click += new System.EventHandler(this.ButAwayTouchdown_Click);
+            // 
+            // butAwayFieldGoal
+            // 
+            this.butAwayFieldGoal.Location = new System.Drawing.Point(6, 162);
+            this.butAwayFieldGoal.Name = "butAwayFieldGoal";
+            this.butAwayFieldGoal.Size = new System.Drawing.Size(75, 23);
+            this.butAwayFieldGoal.TabIndex = 32;
+            this.butAwayFieldGoal.Text = "Field Goal";
+            this.butAwayFieldGoal.UseVisualStyleBackColor = true;
+            this.butAwayFieldGoal.Click += new System.EventHandler(this.ButAwayFieldGoal_Click);
+            // 
+            // butAwayPatConversion
+            // 
+            this.butAwayPatConversion.Location = new System.Drawing.Point(6, 133);
+            this.butAwayPatConversion.Name = "butAwayPatConversion";
+            this.butAwayPatConversion.Size = new System.Drawing.Size(75, 23);
+            this.butAwayPatConversion.TabIndex = 31;
+            this.butAwayPatConversion.Text = "PAT - Conv";
+            this.butAwayPatConversion.UseVisualStyleBackColor = true;
+            this.butAwayPatConversion.Click += new System.EventHandler(this.ButAwayPatConversion_Click);
+            // 
+            // butAwayPatKick
+            // 
+            this.butAwayPatKick.Location = new System.Drawing.Point(6, 104);
+            this.butAwayPatKick.Name = "butAwayPatKick";
+            this.butAwayPatKick.Size = new System.Drawing.Size(75, 23);
+            this.butAwayPatKick.TabIndex = 30;
+            this.butAwayPatKick.Text = "PAT - Kick";
+            this.butAwayPatKick.UseVisualStyleBackColor = true;
+            this.butAwayPatKick.Click += new System.EventHandler(this.ButAwayPatKick_Click);
+            // 
+            // butAwaySafety
+            // 
+            this.butAwaySafety.Location = new System.Drawing.Point(6, 76);
+            this.butAwaySafety.Name = "butAwaySafety";
+            this.butAwaySafety.Size = new System.Drawing.Size(75, 23);
+            this.butAwaySafety.TabIndex = 29;
+            this.butAwaySafety.Text = "Safety";
+            this.butAwaySafety.UseVisualStyleBackColor = true;
+            this.butAwaySafety.Click += new System.EventHandler(this.ButAwaySafety_Click);
+            // 
+            // butAwayPlayerShow
+            // 
+            this.butAwayPlayerShow.Location = new System.Drawing.Point(141, 260);
+            this.butAwayPlayerShow.Name = "butAwayPlayerShow";
+            this.butAwayPlayerShow.Size = new System.Drawing.Size(52, 23);
+            this.butAwayPlayerShow.TabIndex = 27;
+            this.butAwayPlayerShow.Text = "Show";
+            this.butAwayPlayerShow.UseVisualStyleBackColor = true;
+            this.butAwayPlayerShow.Click += new System.EventHandler(this.ButAwayPlayerShow_Click);
+            // 
+            // txtAwayPlayerNumber
+            // 
+            this.txtAwayPlayerNumber.Location = new System.Drawing.Point(35, 262);
+            this.txtAwayPlayerNumber.Name = "txtAwayPlayerNumber";
+            this.txtAwayPlayerNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtAwayPlayerNumber.TabIndex = 26;
+            this.txtAwayPlayerNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtAwayPlayerNumber_KeyDown);
+            // 
+            // lblAwayPlayerNumber
+            // 
+            this.lblAwayPlayerNumber.AutoSize = true;
+            this.lblAwayPlayerNumber.Location = new System.Drawing.Point(15, 265);
+            this.lblAwayPlayerNumber.Name = "lblAwayPlayerNumber";
+            this.lblAwayPlayerNumber.Size = new System.Drawing.Size(14, 13);
+            this.lblAwayPlayerNumber.TabIndex = 25;
+            this.lblAwayPlayerNumber.Text = "#";
+            // 
             // lblAwayTeamScore
             // 
             this.lblAwayTeamScore.AutoSize = true;
-            this.lblAwayTeamScore.Location = new System.Drawing.Point(56, 86);
+            this.lblAwayTeamScore.Location = new System.Drawing.Point(93, 91);
             this.lblAwayTeamScore.Name = "lblAwayTeamScore";
             this.lblAwayTeamScore.Size = new System.Drawing.Size(94, 13);
             this.lblAwayTeamScore.TabIndex = 24;
@@ -578,7 +681,7 @@ namespace American_Football_Scoreboard
             // chkAwayPossession
             // 
             this.chkAwayPossession.AutoSize = true;
-            this.chkAwayPossession.Location = new System.Drawing.Point(56, 167);
+            this.chkAwayPossession.Location = new System.Drawing.Point(114, 168);
             this.chkAwayPossession.Name = "chkAwayPossession";
             this.chkAwayPossession.Size = new System.Drawing.Size(79, 17);
             this.chkAwayPossession.TabIndex = 6;
@@ -589,7 +692,7 @@ namespace American_Football_Scoreboard
             // butAwayTimeoutsAdd
             // 
             this.butAwayTimeoutsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butAwayTimeoutsAdd.Location = new System.Drawing.Point(93, 220);
+            this.butAwayTimeoutsAdd.Location = new System.Drawing.Point(93, 217);
             this.butAwayTimeoutsAdd.Name = "butAwayTimeoutsAdd";
             this.butAwayTimeoutsAdd.Size = new System.Drawing.Size(34, 34);
             this.butAwayTimeoutsAdd.TabIndex = 9;
@@ -600,7 +703,7 @@ namespace American_Football_Scoreboard
             // butAwayTimeoutsSubtract
             // 
             this.butAwayTimeoutsSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butAwayTimeoutsSubtract.Location = new System.Drawing.Point(6, 220);
+            this.butAwayTimeoutsSubtract.Location = new System.Drawing.Point(3, 218);
             this.butAwayTimeoutsSubtract.Name = "butAwayTimeoutsSubtract";
             this.butAwayTimeoutsSubtract.Size = new System.Drawing.Size(34, 34);
             this.butAwayTimeoutsSubtract.TabIndex = 7;
@@ -619,7 +722,7 @@ namespace American_Football_Scoreboard
             // lblAwayTimeouts
             // 
             this.lblAwayTimeouts.AutoSize = true;
-            this.lblAwayTimeouts.Location = new System.Drawing.Point(43, 215);
+            this.lblAwayTimeouts.Location = new System.Drawing.Point(43, 216);
             this.lblAwayTimeouts.Name = "lblAwayTimeouts";
             this.lblAwayTimeouts.Size = new System.Drawing.Size(44, 13);
             this.lblAwayTimeouts.TabIndex = 19;
@@ -627,7 +730,7 @@ namespace American_Football_Scoreboard
             // 
             // butClearAway
             // 
-            this.butClearAway.Location = new System.Drawing.Point(135, 231);
+            this.butClearAway.Location = new System.Drawing.Point(133, 229);
             this.butClearAway.Name = "butClearAway";
             this.butClearAway.Size = new System.Drawing.Size(58, 23);
             this.butClearAway.TabIndex = 10;
@@ -635,50 +738,10 @@ namespace American_Football_Scoreboard
             this.butClearAway.UseVisualStyleBackColor = true;
             this.butClearAway.Click += new System.EventHandler(this.ButClearAway_Click);
             // 
-            // butAwayAddSix
-            // 
-            this.butAwayAddSix.Location = new System.Drawing.Point(6, 163);
-            this.butAwayAddSix.Name = "butAwayAddSix";
-            this.butAwayAddSix.Size = new System.Drawing.Size(44, 23);
-            this.butAwayAddSix.TabIndex = 4;
-            this.butAwayAddSix.Text = "+6";
-            this.butAwayAddSix.UseVisualStyleBackColor = true;
-            this.butAwayAddSix.Click += new System.EventHandler(this.ButAwayAddSix_Click);
-            // 
-            // butAwayAddThree
-            // 
-            this.butAwayAddThree.Location = new System.Drawing.Point(6, 134);
-            this.butAwayAddThree.Name = "butAwayAddThree";
-            this.butAwayAddThree.Size = new System.Drawing.Size(44, 23);
-            this.butAwayAddThree.TabIndex = 3;
-            this.butAwayAddThree.Text = "+3";
-            this.butAwayAddThree.UseVisualStyleBackColor = true;
-            this.butAwayAddThree.Click += new System.EventHandler(this.ButAwayAddThree_Click);
-            // 
-            // butAwayAddTwo
-            // 
-            this.butAwayAddTwo.Location = new System.Drawing.Point(6, 105);
-            this.butAwayAddTwo.Name = "butAwayAddTwo";
-            this.butAwayAddTwo.Size = new System.Drawing.Size(44, 23);
-            this.butAwayAddTwo.TabIndex = 2;
-            this.butAwayAddTwo.Text = "+2";
-            this.butAwayAddTwo.UseVisualStyleBackColor = true;
-            this.butAwayAddTwo.Click += new System.EventHandler(this.ButAwayAddTwo_Click);
-            // 
-            // butAwayAddOne
-            // 
-            this.butAwayAddOne.Location = new System.Drawing.Point(6, 76);
-            this.butAwayAddOne.Name = "butAwayAddOne";
-            this.butAwayAddOne.Size = new System.Drawing.Size(44, 23);
-            this.butAwayAddOne.TabIndex = 1;
-            this.butAwayAddOne.Text = "+1";
-            this.butAwayAddOne.UseVisualStyleBackColor = true;
-            this.butAwayAddOne.Click += new System.EventHandler(this.ButAwayAddOne_Click);
-            // 
             // txtAwayScore
             // 
             this.txtAwayScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAwayScore.Location = new System.Drawing.Point(56, 104);
+            this.txtAwayScore.Location = new System.Drawing.Point(93, 109);
             this.txtAwayScore.Name = "txtAwayScore";
             this.txtAwayScore.Size = new System.Drawing.Size(100, 53);
             this.txtAwayScore.TabIndex = 5;
@@ -706,6 +769,14 @@ namespace American_Football_Scoreboard
             // 
             // gbHome
             // 
+            this.gbHome.Controls.Add(this.butHomeTouchdown);
+            this.gbHome.Controls.Add(this.butHomeFieldGoal);
+            this.gbHome.Controls.Add(this.butHomePatConversion);
+            this.gbHome.Controls.Add(this.butHomePatKick);
+            this.gbHome.Controls.Add(this.butHomeSafety);
+            this.gbHome.Controls.Add(this.butHomePlayerShow);
+            this.gbHome.Controls.Add(this.txtHomePlayerNumber);
+            this.gbHome.Controls.Add(this.lblHomePlayerNumber);
             this.gbHome.Controls.Add(this.lblHomeTeamScore);
             this.gbHome.Controls.Add(this.chkHomePossession);
             this.gbHome.Controls.Add(this.butHomeTimeoutsAdd);
@@ -713,24 +784,97 @@ namespace American_Football_Scoreboard
             this.gbHome.Controls.Add(this.txtHomeTimeouts);
             this.gbHome.Controls.Add(this.lblHomeTimeouts);
             this.gbHome.Controls.Add(this.butClearHome);
-            this.gbHome.Controls.Add(this.butHomeAddSix);
-            this.gbHome.Controls.Add(this.butHomeAddThree);
-            this.gbHome.Controls.Add(this.butHomeAddTwo);
-            this.gbHome.Controls.Add(this.butHomeAddOne);
             this.gbHome.Controls.Add(this.txtHomeScore);
             this.gbHome.Controls.Add(this.lblHomeTeam);
             this.gbHome.Controls.Add(this.txtHomeTeam);
             this.gbHome.Location = new System.Drawing.Point(6, 6);
             this.gbHome.Name = "gbHome";
-            this.gbHome.Size = new System.Drawing.Size(200, 260);
+            this.gbHome.Size = new System.Drawing.Size(200, 288);
             this.gbHome.TabIndex = 11;
             this.gbHome.TabStop = false;
             this.gbHome.Text = "Home";
             // 
+            // butHomeTouchdown
+            // 
+            this.butHomeTouchdown.Location = new System.Drawing.Point(8, 190);
+            this.butHomeTouchdown.Name = "butHomeTouchdown";
+            this.butHomeTouchdown.Size = new System.Drawing.Size(75, 23);
+            this.butHomeTouchdown.TabIndex = 28;
+            this.butHomeTouchdown.Text = "Touchdown";
+            this.butHomeTouchdown.UseVisualStyleBackColor = true;
+            this.butHomeTouchdown.Click += new System.EventHandler(this.ButHomeTouchdown_Click);
+            // 
+            // butHomeFieldGoal
+            // 
+            this.butHomeFieldGoal.Location = new System.Drawing.Point(8, 162);
+            this.butHomeFieldGoal.Name = "butHomeFieldGoal";
+            this.butHomeFieldGoal.Size = new System.Drawing.Size(75, 23);
+            this.butHomeFieldGoal.TabIndex = 27;
+            this.butHomeFieldGoal.Text = "Field Goal";
+            this.butHomeFieldGoal.UseVisualStyleBackColor = true;
+            this.butHomeFieldGoal.Click += new System.EventHandler(this.ButHomeFieldGoal_Click);
+            // 
+            // butHomePatConversion
+            // 
+            this.butHomePatConversion.Location = new System.Drawing.Point(8, 133);
+            this.butHomePatConversion.Name = "butHomePatConversion";
+            this.butHomePatConversion.Size = new System.Drawing.Size(75, 23);
+            this.butHomePatConversion.TabIndex = 26;
+            this.butHomePatConversion.Text = "PAT - Conv";
+            this.butHomePatConversion.UseVisualStyleBackColor = true;
+            this.butHomePatConversion.Click += new System.EventHandler(this.ButHomePatConversion_Click);
+            // 
+            // butHomePatKick
+            // 
+            this.butHomePatKick.Location = new System.Drawing.Point(8, 104);
+            this.butHomePatKick.Name = "butHomePatKick";
+            this.butHomePatKick.Size = new System.Drawing.Size(75, 23);
+            this.butHomePatKick.TabIndex = 25;
+            this.butHomePatKick.Text = "PAT - Kick";
+            this.butHomePatKick.UseVisualStyleBackColor = true;
+            this.butHomePatKick.Click += new System.EventHandler(this.ButHomePatKick_Click);
+            // 
+            // butHomeSafety
+            // 
+            this.butHomeSafety.Location = new System.Drawing.Point(8, 76);
+            this.butHomeSafety.Name = "butHomeSafety";
+            this.butHomeSafety.Size = new System.Drawing.Size(75, 23);
+            this.butHomeSafety.TabIndex = 24;
+            this.butHomeSafety.Text = "Safety";
+            this.butHomeSafety.UseVisualStyleBackColor = true;
+            this.butHomeSafety.Click += new System.EventHandler(this.ButHomeSafety_Click);
+            // 
+            // butHomePlayerShow
+            // 
+            this.butHomePlayerShow.Location = new System.Drawing.Point(141, 259);
+            this.butHomePlayerShow.Name = "butHomePlayerShow";
+            this.butHomePlayerShow.Size = new System.Drawing.Size(52, 23);
+            this.butHomePlayerShow.TabIndex = 23;
+            this.butHomePlayerShow.Text = "Show";
+            this.butHomePlayerShow.UseVisualStyleBackColor = true;
+            this.butHomePlayerShow.Click += new System.EventHandler(this.ButHomePlayerShow_Click);
+            // 
+            // txtHomePlayerNumber
+            // 
+            this.txtHomePlayerNumber.Location = new System.Drawing.Point(35, 262);
+            this.txtHomePlayerNumber.Name = "txtHomePlayerNumber";
+            this.txtHomePlayerNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtHomePlayerNumber.TabIndex = 22;
+            this.txtHomePlayerNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtHomePlayerNumber_KeyDown);
+            // 
+            // lblHomePlayerNumber
+            // 
+            this.lblHomePlayerNumber.AutoSize = true;
+            this.lblHomePlayerNumber.Location = new System.Drawing.Point(15, 265);
+            this.lblHomePlayerNumber.Name = "lblHomePlayerNumber";
+            this.lblHomePlayerNumber.Size = new System.Drawing.Size(14, 13);
+            this.lblHomePlayerNumber.TabIndex = 21;
+            this.lblHomePlayerNumber.Text = "#";
+            // 
             // lblHomeTeamScore
             // 
             this.lblHomeTeamScore.AutoSize = true;
-            this.lblHomeTeamScore.Location = new System.Drawing.Point(57, 85);
+            this.lblHomeTeamScore.Location = new System.Drawing.Point(92, 90);
             this.lblHomeTeamScore.Name = "lblHomeTeamScore";
             this.lblHomeTeamScore.Size = new System.Drawing.Size(96, 13);
             this.lblHomeTeamScore.TabIndex = 20;
@@ -739,7 +883,7 @@ namespace American_Football_Scoreboard
             // chkHomePossession
             // 
             this.chkHomePossession.AutoSize = true;
-            this.chkHomePossession.Location = new System.Drawing.Point(57, 167);
+            this.chkHomePossession.Location = new System.Drawing.Point(113, 168);
             this.chkHomePossession.Name = "chkHomePossession";
             this.chkHomePossession.Size = new System.Drawing.Size(79, 17);
             this.chkHomePossession.TabIndex = 6;
@@ -771,7 +915,7 @@ namespace American_Football_Scoreboard
             // 
             // txtHomeTimeouts
             // 
-            this.txtHomeTimeouts.Location = new System.Drawing.Point(48, 229);
+            this.txtHomeTimeouts.Location = new System.Drawing.Point(48, 232);
             this.txtHomeTimeouts.Name = "txtHomeTimeouts";
             this.txtHomeTimeouts.Size = new System.Drawing.Size(41, 20);
             this.txtHomeTimeouts.TabIndex = 8;
@@ -780,7 +924,7 @@ namespace American_Football_Scoreboard
             // lblHomeTimeouts
             // 
             this.lblHomeTimeouts.AutoSize = true;
-            this.lblHomeTimeouts.Location = new System.Drawing.Point(45, 213);
+            this.lblHomeTimeouts.Location = new System.Drawing.Point(45, 217);
             this.lblHomeTimeouts.Name = "lblHomeTimeouts";
             this.lblHomeTimeouts.Size = new System.Drawing.Size(44, 13);
             this.lblHomeTimeouts.TabIndex = 15;
@@ -796,50 +940,10 @@ namespace American_Football_Scoreboard
             this.butClearHome.UseVisualStyleBackColor = true;
             this.butClearHome.Click += new System.EventHandler(this.ButClearHome_Click);
             // 
-            // butHomeAddSix
-            // 
-            this.butHomeAddSix.Location = new System.Drawing.Point(7, 163);
-            this.butHomeAddSix.Name = "butHomeAddSix";
-            this.butHomeAddSix.Size = new System.Drawing.Size(44, 23);
-            this.butHomeAddSix.TabIndex = 4;
-            this.butHomeAddSix.Text = "+6";
-            this.butHomeAddSix.UseVisualStyleBackColor = true;
-            this.butHomeAddSix.Click += new System.EventHandler(this.ButHomeAddSix_Click);
-            // 
-            // butHomeAddThree
-            // 
-            this.butHomeAddThree.Location = new System.Drawing.Point(7, 134);
-            this.butHomeAddThree.Name = "butHomeAddThree";
-            this.butHomeAddThree.Size = new System.Drawing.Size(44, 23);
-            this.butHomeAddThree.TabIndex = 3;
-            this.butHomeAddThree.Text = "+3";
-            this.butHomeAddThree.UseVisualStyleBackColor = true;
-            this.butHomeAddThree.Click += new System.EventHandler(this.ButHomeAddThree_Click);
-            // 
-            // butHomeAddTwo
-            // 
-            this.butHomeAddTwo.Location = new System.Drawing.Point(7, 105);
-            this.butHomeAddTwo.Name = "butHomeAddTwo";
-            this.butHomeAddTwo.Size = new System.Drawing.Size(44, 23);
-            this.butHomeAddTwo.TabIndex = 2;
-            this.butHomeAddTwo.Text = "+2";
-            this.butHomeAddTwo.UseVisualStyleBackColor = true;
-            this.butHomeAddTwo.Click += new System.EventHandler(this.ButHomeAddTwo_Click);
-            // 
-            // butHomeAddOne
-            // 
-            this.butHomeAddOne.Location = new System.Drawing.Point(7, 76);
-            this.butHomeAddOne.Name = "butHomeAddOne";
-            this.butHomeAddOne.Size = new System.Drawing.Size(44, 23);
-            this.butHomeAddOne.TabIndex = 1;
-            this.butHomeAddOne.Text = "+1";
-            this.butHomeAddOne.UseVisualStyleBackColor = true;
-            this.butHomeAddOne.Click += new System.EventHandler(this.ButHomeAddOne_Click);
-            // 
             // txtHomeScore
             // 
             this.txtHomeScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHomeScore.Location = new System.Drawing.Point(57, 104);
+            this.txtHomeScore.Location = new System.Drawing.Point(92, 109);
             this.txtHomeScore.Name = "txtHomeScore";
             this.txtHomeScore.Size = new System.Drawing.Size(100, 53);
             this.txtHomeScore.TabIndex = 5;
@@ -1039,22 +1143,40 @@ namespace American_Football_Scoreboard
             // 
             // gbHotKeysAway
             // 
+            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayTouchdown);
+            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyTouchdown);
             this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyFunction);
             this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyKey);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKey1);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAway1);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAway6);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKey2);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKey6);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAway2);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAway3);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKey3);
+            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeySafety);
+            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwaySafety);
+            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayFieldGoal);
+            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyPatKick);
+            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyFieldGoal);
+            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayPatKick);
+            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayPatConversion);
+            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyPatConversion);
             this.gbHotKeysAway.Location = new System.Drawing.Point(406, 13);
             this.gbHotKeysAway.Name = "gbHotKeysAway";
-            this.gbHotKeysAway.Size = new System.Drawing.Size(158, 145);
+            this.gbHotKeysAway.Size = new System.Drawing.Size(158, 169);
             this.gbHotKeysAway.TabIndex = 10;
             this.gbHotKeysAway.TabStop = false;
-            this.gbHotKeysAway.Text = "Away";
+            this.gbHotKeysAway.Text = "Away Scoring";
+            // 
+            // txtHotKeyAwayTouchdown
+            // 
+            this.txtHotKeyAwayTouchdown.Location = new System.Drawing.Point(76, 139);
+            this.txtHotKeyAwayTouchdown.Name = "txtHotKeyAwayTouchdown";
+            this.txtHotKeyAwayTouchdown.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyAwayTouchdown.TabIndex = 4;
+            // 
+            // lblAwayHotKeyTouchdown
+            // 
+            this.lblAwayHotKeyTouchdown.AutoSize = true;
+            this.lblAwayHotKeyTouchdown.Location = new System.Drawing.Point(6, 142);
+            this.lblAwayHotKeyTouchdown.Name = "lblAwayHotKeyTouchdown";
+            this.lblAwayHotKeyTouchdown.Size = new System.Drawing.Size(64, 13);
+            this.lblAwayHotKeyTouchdown.TabIndex = 59;
+            this.lblAwayHotKeyTouchdown.Text = "Touchdown";
             // 
             // lblAwayHotKeyFunction
             // 
@@ -1068,94 +1190,112 @@ namespace American_Football_Scoreboard
             // lblAwayHotKeyKey
             // 
             this.lblAwayHotKeyKey.AutoSize = true;
-            this.lblAwayHotKeyKey.Location = new System.Drawing.Point(64, 16);
+            this.lblAwayHotKeyKey.Location = new System.Drawing.Point(73, 16);
             this.lblAwayHotKeyKey.Name = "lblAwayHotKeyKey";
             this.lblAwayHotKeyKey.Size = new System.Drawing.Size(30, 13);
             this.lblAwayHotKeyKey.TabIndex = 50;
             this.lblAwayHotKeyKey.Text = "Keys";
             // 
-            // lblAwayHotKey1
+            // lblAwayHotKeySafety
             // 
-            this.lblAwayHotKey1.AutoSize = true;
-            this.lblAwayHotKey1.Location = new System.Drawing.Point(6, 38);
-            this.lblAwayHotKey1.Name = "lblAwayHotKey1";
-            this.lblAwayHotKey1.Size = new System.Drawing.Size(19, 13);
-            this.lblAwayHotKey1.TabIndex = 52;
-            this.lblAwayHotKey1.Text = "+1";
+            this.lblAwayHotKeySafety.AutoSize = true;
+            this.lblAwayHotKeySafety.Location = new System.Drawing.Point(6, 38);
+            this.lblAwayHotKeySafety.Name = "lblAwayHotKeySafety";
+            this.lblAwayHotKeySafety.Size = new System.Drawing.Size(37, 13);
+            this.lblAwayHotKeySafety.TabIndex = 52;
+            this.lblAwayHotKeySafety.Text = "Safety";
             // 
-            // txtHotKeyAway1
+            // txtHotKeyAwaySafety
             // 
-            this.txtHotKeyAway1.Location = new System.Drawing.Point(31, 35);
-            this.txtHotKeyAway1.Name = "txtHotKeyAway1";
-            this.txtHotKeyAway1.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway1.TabIndex = 0;
+            this.txtHotKeyAwaySafety.Location = new System.Drawing.Point(76, 35);
+            this.txtHotKeyAwaySafety.Name = "txtHotKeyAwaySafety";
+            this.txtHotKeyAwaySafety.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyAwaySafety.TabIndex = 0;
             // 
-            // txtHotKeyAway6
+            // txtHotKeyAwayFieldGoal
             // 
-            this.txtHotKeyAway6.Location = new System.Drawing.Point(31, 113);
-            this.txtHotKeyAway6.Name = "txtHotKeyAway6";
-            this.txtHotKeyAway6.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway6.TabIndex = 3;
+            this.txtHotKeyAwayFieldGoal.Location = new System.Drawing.Point(76, 113);
+            this.txtHotKeyAwayFieldGoal.Name = "txtHotKeyAwayFieldGoal";
+            this.txtHotKeyAwayFieldGoal.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyAwayFieldGoal.TabIndex = 3;
             // 
-            // lblAwayHotKey2
+            // lblAwayHotKeyPatKick
             // 
-            this.lblAwayHotKey2.AutoSize = true;
-            this.lblAwayHotKey2.Location = new System.Drawing.Point(6, 64);
-            this.lblAwayHotKey2.Name = "lblAwayHotKey2";
-            this.lblAwayHotKey2.Size = new System.Drawing.Size(19, 13);
-            this.lblAwayHotKey2.TabIndex = 54;
-            this.lblAwayHotKey2.Text = "+2";
+            this.lblAwayHotKeyPatKick.AutoSize = true;
+            this.lblAwayHotKeyPatKick.Location = new System.Drawing.Point(6, 64);
+            this.lblAwayHotKeyPatKick.Name = "lblAwayHotKeyPatKick";
+            this.lblAwayHotKeyPatKick.Size = new System.Drawing.Size(58, 13);
+            this.lblAwayHotKeyPatKick.TabIndex = 54;
+            this.lblAwayHotKeyPatKick.Text = "PAT - Kick";
             // 
-            // lblAwayHotKey6
+            // lblAwayHotKeyFieldGoal
             // 
-            this.lblAwayHotKey6.AutoSize = true;
-            this.lblAwayHotKey6.Location = new System.Drawing.Point(6, 116);
-            this.lblAwayHotKey6.Name = "lblAwayHotKey6";
-            this.lblAwayHotKey6.Size = new System.Drawing.Size(19, 13);
-            this.lblAwayHotKey6.TabIndex = 57;
-            this.lblAwayHotKey6.Text = "+6";
+            this.lblAwayHotKeyFieldGoal.AutoSize = true;
+            this.lblAwayHotKeyFieldGoal.Location = new System.Drawing.Point(6, 116);
+            this.lblAwayHotKeyFieldGoal.Name = "lblAwayHotKeyFieldGoal";
+            this.lblAwayHotKeyFieldGoal.Size = new System.Drawing.Size(54, 13);
+            this.lblAwayHotKeyFieldGoal.TabIndex = 57;
+            this.lblAwayHotKeyFieldGoal.Text = "Field Goal";
             // 
-            // txtHotKeyAway2
+            // txtHotKeyAwayPatKick
             // 
-            this.txtHotKeyAway2.Location = new System.Drawing.Point(31, 61);
-            this.txtHotKeyAway2.Name = "txtHotKeyAway2";
-            this.txtHotKeyAway2.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway2.TabIndex = 1;
+            this.txtHotKeyAwayPatKick.Location = new System.Drawing.Point(76, 61);
+            this.txtHotKeyAwayPatKick.Name = "txtHotKeyAwayPatKick";
+            this.txtHotKeyAwayPatKick.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyAwayPatKick.TabIndex = 1;
             // 
-            // txtHotKeyAway3
+            // txtHotKeyAwayPatConversion
             // 
-            this.txtHotKeyAway3.Location = new System.Drawing.Point(31, 87);
-            this.txtHotKeyAway3.Name = "txtHotKeyAway3";
-            this.txtHotKeyAway3.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyAway3.TabIndex = 2;
+            this.txtHotKeyAwayPatConversion.Location = new System.Drawing.Point(76, 87);
+            this.txtHotKeyAwayPatConversion.Name = "txtHotKeyAwayPatConversion";
+            this.txtHotKeyAwayPatConversion.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyAwayPatConversion.TabIndex = 2;
             // 
-            // lblAwayHotKey3
+            // lblAwayHotKeyPatConversion
             // 
-            this.lblAwayHotKey3.AutoSize = true;
-            this.lblAwayHotKey3.Location = new System.Drawing.Point(6, 90);
-            this.lblAwayHotKey3.Name = "lblAwayHotKey3";
-            this.lblAwayHotKey3.Size = new System.Drawing.Size(19, 13);
-            this.lblAwayHotKey3.TabIndex = 56;
-            this.lblAwayHotKey3.Text = "+3";
+            this.lblAwayHotKeyPatConversion.AutoSize = true;
+            this.lblAwayHotKeyPatConversion.Location = new System.Drawing.Point(6, 90);
+            this.lblAwayHotKeyPatConversion.Name = "lblAwayHotKeyPatConversion";
+            this.lblAwayHotKeyPatConversion.Size = new System.Drawing.Size(62, 13);
+            this.lblAwayHotKeyPatConversion.TabIndex = 56;
+            this.lblAwayHotKeyPatConversion.Text = "PAT - Conv";
             // 
             // gbHotKeysHome
             // 
+            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyTouchdown);
+            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeTouchdown);
             this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPoints);
             this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyKey);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKey1);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHome1);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKey2);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHome2);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKey3);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHome3);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKey6);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHome6);
+            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeySafety);
+            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeSafety);
+            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPatKick);
+            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomePatKick);
+            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPatConversion);
+            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomePatConversion);
+            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyFieldGoal);
+            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeFieldGoal);
             this.gbHotKeysHome.Location = new System.Drawing.Point(242, 13);
             this.gbHotKeysHome.Name = "gbHotKeysHome";
-            this.gbHotKeysHome.Size = new System.Drawing.Size(158, 145);
+            this.gbHotKeysHome.Size = new System.Drawing.Size(158, 169);
             this.gbHotKeysHome.TabIndex = 9;
             this.gbHotKeysHome.TabStop = false;
-            this.gbHotKeysHome.Text = "Home";
+            this.gbHotKeysHome.Text = "Home Scoring";
+            // 
+            // lblHomeHotKeyTouchdown
+            // 
+            this.lblHomeHotKeyTouchdown.AutoSize = true;
+            this.lblHomeHotKeyTouchdown.Location = new System.Drawing.Point(6, 142);
+            this.lblHomeHotKeyTouchdown.Name = "lblHomeHotKeyTouchdown";
+            this.lblHomeHotKeyTouchdown.Size = new System.Drawing.Size(64, 13);
+            this.lblHomeHotKeyTouchdown.TabIndex = 49;
+            this.lblHomeHotKeyTouchdown.Text = "Touchdown";
+            // 
+            // txtHotKeyHomeTouchdown
+            // 
+            this.txtHotKeyHomeTouchdown.Location = new System.Drawing.Point(76, 139);
+            this.txtHotKeyHomeTouchdown.Name = "txtHotKeyHomeTouchdown";
+            this.txtHotKeyHomeTouchdown.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyHomeTouchdown.TabIndex = 4;
             // 
             // lblHomeHotKeyPoints
             // 
@@ -1169,75 +1309,75 @@ namespace American_Football_Scoreboard
             // lblHomeHotKeyKey
             // 
             this.lblHomeHotKeyKey.AutoSize = true;
-            this.lblHomeHotKeyKey.Location = new System.Drawing.Point(65, 16);
+            this.lblHomeHotKeyKey.Location = new System.Drawing.Point(73, 16);
             this.lblHomeHotKeyKey.Name = "lblHomeHotKeyKey";
             this.lblHomeHotKeyKey.Size = new System.Drawing.Size(30, 13);
             this.lblHomeHotKeyKey.TabIndex = 40;
             this.lblHomeHotKeyKey.Text = "Keys";
             // 
-            // lblHomeHotKey1
+            // lblHomeHotKeySafety
             // 
-            this.lblHomeHotKey1.AutoSize = true;
-            this.lblHomeHotKey1.Location = new System.Drawing.Point(6, 38);
-            this.lblHomeHotKey1.Name = "lblHomeHotKey1";
-            this.lblHomeHotKey1.Size = new System.Drawing.Size(19, 13);
-            this.lblHomeHotKey1.TabIndex = 42;
-            this.lblHomeHotKey1.Text = "+1";
+            this.lblHomeHotKeySafety.AutoSize = true;
+            this.lblHomeHotKeySafety.Location = new System.Drawing.Point(6, 38);
+            this.lblHomeHotKeySafety.Name = "lblHomeHotKeySafety";
+            this.lblHomeHotKeySafety.Size = new System.Drawing.Size(37, 13);
+            this.lblHomeHotKeySafety.TabIndex = 42;
+            this.lblHomeHotKeySafety.Text = "Safety";
             // 
-            // txtHotKeyHome1
+            // txtHotKeyHomeSafety
             // 
-            this.txtHotKeyHome1.Location = new System.Drawing.Point(31, 35);
-            this.txtHotKeyHome1.Name = "txtHotKeyHome1";
-            this.txtHotKeyHome1.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome1.TabIndex = 0;
+            this.txtHotKeyHomeSafety.Location = new System.Drawing.Point(76, 35);
+            this.txtHotKeyHomeSafety.Name = "txtHotKeyHomeSafety";
+            this.txtHotKeyHomeSafety.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyHomeSafety.TabIndex = 0;
             // 
-            // lblHomeHotKey2
+            // lblHomeHotKeyPatKick
             // 
-            this.lblHomeHotKey2.AutoSize = true;
-            this.lblHomeHotKey2.Location = new System.Drawing.Point(6, 64);
-            this.lblHomeHotKey2.Name = "lblHomeHotKey2";
-            this.lblHomeHotKey2.Size = new System.Drawing.Size(19, 13);
-            this.lblHomeHotKey2.TabIndex = 44;
-            this.lblHomeHotKey2.Text = "+2";
+            this.lblHomeHotKeyPatKick.AutoSize = true;
+            this.lblHomeHotKeyPatKick.Location = new System.Drawing.Point(6, 64);
+            this.lblHomeHotKeyPatKick.Name = "lblHomeHotKeyPatKick";
+            this.lblHomeHotKeyPatKick.Size = new System.Drawing.Size(58, 13);
+            this.lblHomeHotKeyPatKick.TabIndex = 44;
+            this.lblHomeHotKeyPatKick.Text = "PAT - Kick";
             // 
-            // txtHotKeyHome2
+            // txtHotKeyHomePatKick
             // 
-            this.txtHotKeyHome2.Location = new System.Drawing.Point(31, 61);
-            this.txtHotKeyHome2.Name = "txtHotKeyHome2";
-            this.txtHotKeyHome2.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome2.TabIndex = 1;
+            this.txtHotKeyHomePatKick.Location = new System.Drawing.Point(76, 61);
+            this.txtHotKeyHomePatKick.Name = "txtHotKeyHomePatKick";
+            this.txtHotKeyHomePatKick.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyHomePatKick.TabIndex = 1;
             // 
-            // lblHomeHotKey3
+            // lblHomeHotKeyPatConversion
             // 
-            this.lblHomeHotKey3.AutoSize = true;
-            this.lblHomeHotKey3.Location = new System.Drawing.Point(6, 90);
-            this.lblHomeHotKey3.Name = "lblHomeHotKey3";
-            this.lblHomeHotKey3.Size = new System.Drawing.Size(19, 13);
-            this.lblHomeHotKey3.TabIndex = 46;
-            this.lblHomeHotKey3.Text = "+3";
+            this.lblHomeHotKeyPatConversion.AutoSize = true;
+            this.lblHomeHotKeyPatConversion.Location = new System.Drawing.Point(6, 90);
+            this.lblHomeHotKeyPatConversion.Name = "lblHomeHotKeyPatConversion";
+            this.lblHomeHotKeyPatConversion.Size = new System.Drawing.Size(62, 13);
+            this.lblHomeHotKeyPatConversion.TabIndex = 46;
+            this.lblHomeHotKeyPatConversion.Text = "PAT - Conv";
             // 
-            // txtHotKeyHome3
+            // txtHotKeyHomePatConversion
             // 
-            this.txtHotKeyHome3.Location = new System.Drawing.Point(31, 87);
-            this.txtHotKeyHome3.Name = "txtHotKeyHome3";
-            this.txtHotKeyHome3.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome3.TabIndex = 2;
+            this.txtHotKeyHomePatConversion.Location = new System.Drawing.Point(76, 87);
+            this.txtHotKeyHomePatConversion.Name = "txtHotKeyHomePatConversion";
+            this.txtHotKeyHomePatConversion.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyHomePatConversion.TabIndex = 2;
             // 
-            // lblHomeHotKey6
+            // lblHomeHotKeyFieldGoal
             // 
-            this.lblHomeHotKey6.AutoSize = true;
-            this.lblHomeHotKey6.Location = new System.Drawing.Point(6, 116);
-            this.lblHomeHotKey6.Name = "lblHomeHotKey6";
-            this.lblHomeHotKey6.Size = new System.Drawing.Size(19, 13);
-            this.lblHomeHotKey6.TabIndex = 47;
-            this.lblHomeHotKey6.Text = "+6";
+            this.lblHomeHotKeyFieldGoal.AutoSize = true;
+            this.lblHomeHotKeyFieldGoal.Location = new System.Drawing.Point(6, 116);
+            this.lblHomeHotKeyFieldGoal.Name = "lblHomeHotKeyFieldGoal";
+            this.lblHomeHotKeyFieldGoal.Size = new System.Drawing.Size(54, 13);
+            this.lblHomeHotKeyFieldGoal.TabIndex = 47;
+            this.lblHomeHotKeyFieldGoal.Text = "Field Goal";
             // 
-            // txtHotKeyHome6
+            // txtHotKeyHomeFieldGoal
             // 
-            this.txtHotKeyHome6.Location = new System.Drawing.Point(31, 113);
-            this.txtHotKeyHome6.Name = "txtHotKeyHome6";
-            this.txtHotKeyHome6.Size = new System.Drawing.Size(100, 20);
-            this.txtHotKeyHome6.TabIndex = 3;
+            this.txtHotKeyHomeFieldGoal.Location = new System.Drawing.Point(76, 113);
+            this.txtHotKeyHomeFieldGoal.Name = "txtHotKeyHomeFieldGoal";
+            this.txtHotKeyHomeFieldGoal.Size = new System.Drawing.Size(76, 20);
+            this.txtHotKeyHomeFieldGoal.TabIndex = 3;
             // 
             // txtHotKeyPossession
             // 
@@ -1381,10 +1521,8 @@ namespace American_Football_Scoreboard
             // 
             // tpSettings
             // 
-            this.tpSettings.Controls.Add(this.txtTouchdownMessage);
-            this.tpSettings.Controls.Add(this.lblTouchdownMessage);
-            this.tpSettings.Controls.Add(this.txtFieldGoalMessage);
-            this.tpSettings.Controls.Add(this.lblFieldGoalMessage);
+            this.tpSettings.Controls.Add(this.gbPoints);
+            this.tpSettings.Controls.Add(this.chkSubSecond);
             this.tpSettings.Controls.Add(this.chkTop);
             this.tpSettings.Controls.Add(this.txtShortPlayClock);
             this.tpSettings.Controls.Add(this.lblShortPlayClock);
@@ -1415,10 +1553,119 @@ namespace American_Football_Scoreboard
             this.tpSettings.Text = "Settings";
             this.tpSettings.UseVisualStyleBackColor = true;
             // 
+            // gbPoints
+            // 
+            this.gbPoints.Controls.Add(this.txtSettingTouchdown);
+            this.gbPoints.Controls.Add(this.txtSettingFieldGoal);
+            this.gbPoints.Controls.Add(this.txtSettingPatConversion);
+            this.gbPoints.Controls.Add(this.txtSettingPatKick);
+            this.gbPoints.Controls.Add(this.txtSettingSafety);
+            this.gbPoints.Controls.Add(this.lblSettingTouchdown);
+            this.gbPoints.Controls.Add(this.lblSettingFieldGoal);
+            this.gbPoints.Controls.Add(this.lblSettingPatConversion);
+            this.gbPoints.Controls.Add(this.lblSettingPatKick);
+            this.gbPoints.Controls.Add(this.lblSettingSafety);
+            this.gbPoints.Location = new System.Drawing.Point(347, 147);
+            this.gbPoints.Name = "gbPoints";
+            this.gbPoints.Size = new System.Drawing.Size(171, 154);
+            this.gbPoints.TabIndex = 10;
+            this.gbPoints.TabStop = false;
+            this.gbPoints.Text = "Points";
+            // 
+            // txtSettingTouchdown
+            // 
+            this.txtSettingTouchdown.Location = new System.Drawing.Point(77, 123);
+            this.txtSettingTouchdown.Name = "txtSettingTouchdown";
+            this.txtSettingTouchdown.Size = new System.Drawing.Size(82, 20);
+            this.txtSettingTouchdown.TabIndex = 4;
+            // 
+            // txtSettingFieldGoal
+            // 
+            this.txtSettingFieldGoal.Location = new System.Drawing.Point(77, 97);
+            this.txtSettingFieldGoal.Name = "txtSettingFieldGoal";
+            this.txtSettingFieldGoal.Size = new System.Drawing.Size(82, 20);
+            this.txtSettingFieldGoal.TabIndex = 3;
+            // 
+            // txtSettingPatConversion
+            // 
+            this.txtSettingPatConversion.Location = new System.Drawing.Point(77, 71);
+            this.txtSettingPatConversion.Name = "txtSettingPatConversion";
+            this.txtSettingPatConversion.Size = new System.Drawing.Size(82, 20);
+            this.txtSettingPatConversion.TabIndex = 2;
+            // 
+            // txtSettingPatKick
+            // 
+            this.txtSettingPatKick.Location = new System.Drawing.Point(77, 45);
+            this.txtSettingPatKick.Name = "txtSettingPatKick";
+            this.txtSettingPatKick.Size = new System.Drawing.Size(82, 20);
+            this.txtSettingPatKick.TabIndex = 1;
+            // 
+            // txtSettingSafety
+            // 
+            this.txtSettingSafety.Location = new System.Drawing.Point(77, 19);
+            this.txtSettingSafety.Name = "txtSettingSafety";
+            this.txtSettingSafety.Size = new System.Drawing.Size(82, 20);
+            this.txtSettingSafety.TabIndex = 0;
+            // 
+            // lblSettingTouchdown
+            // 
+            this.lblSettingTouchdown.AutoSize = true;
+            this.lblSettingTouchdown.Location = new System.Drawing.Point(7, 126);
+            this.lblSettingTouchdown.Name = "lblSettingTouchdown";
+            this.lblSettingTouchdown.Size = new System.Drawing.Size(64, 13);
+            this.lblSettingTouchdown.TabIndex = 4;
+            this.lblSettingTouchdown.Text = "Touchdown";
+            // 
+            // lblSettingFieldGoal
+            // 
+            this.lblSettingFieldGoal.AutoSize = true;
+            this.lblSettingFieldGoal.Location = new System.Drawing.Point(7, 100);
+            this.lblSettingFieldGoal.Name = "lblSettingFieldGoal";
+            this.lblSettingFieldGoal.Size = new System.Drawing.Size(54, 13);
+            this.lblSettingFieldGoal.TabIndex = 3;
+            this.lblSettingFieldGoal.Text = "Field Goal";
+            // 
+            // lblSettingPatConversion
+            // 
+            this.lblSettingPatConversion.AutoSize = true;
+            this.lblSettingPatConversion.Location = new System.Drawing.Point(7, 74);
+            this.lblSettingPatConversion.Name = "lblSettingPatConversion";
+            this.lblSettingPatConversion.Size = new System.Drawing.Size(62, 13);
+            this.lblSettingPatConversion.TabIndex = 2;
+            this.lblSettingPatConversion.Text = "PAT - Conv";
+            // 
+            // lblSettingPatKick
+            // 
+            this.lblSettingPatKick.AutoSize = true;
+            this.lblSettingPatKick.Location = new System.Drawing.Point(7, 48);
+            this.lblSettingPatKick.Name = "lblSettingPatKick";
+            this.lblSettingPatKick.Size = new System.Drawing.Size(58, 13);
+            this.lblSettingPatKick.TabIndex = 1;
+            this.lblSettingPatKick.Text = "PAT - Kick";
+            // 
+            // lblSettingSafety
+            // 
+            this.lblSettingSafety.AutoSize = true;
+            this.lblSettingSafety.Location = new System.Drawing.Point(7, 22);
+            this.lblSettingSafety.Name = "lblSettingSafety";
+            this.lblSettingSafety.Size = new System.Drawing.Size(37, 13);
+            this.lblSettingSafety.TabIndex = 0;
+            this.lblSettingSafety.Text = "Safety";
+            // 
+            // chkSubSecond
+            // 
+            this.chkSubSecond.AutoSize = true;
+            this.chkSubSecond.Location = new System.Drawing.Point(534, 240);
+            this.chkSubSecond.Name = "chkSubSecond";
+            this.chkSubSecond.Size = new System.Drawing.Size(146, 17);
+            this.chkSubSecond.TabIndex = 14;
+            this.chkSubSecond.Text = "Sub Second Game Clock";
+            this.chkSubSecond.UseVisualStyleBackColor = true;
+            // 
             // chkTop
             // 
             this.chkTop.AutoSize = true;
-            this.chkTop.Location = new System.Drawing.Point(347, 167);
+            this.chkTop.Location = new System.Drawing.Point(534, 216);
             this.chkTop.Name = "chkTop";
             this.chkTop.Size = new System.Drawing.Size(96, 17);
             this.chkTop.TabIndex = 13;
@@ -1470,7 +1717,7 @@ namespace American_Football_Scoreboard
             this.gbSettingDown.Location = new System.Drawing.Point(347, 6);
             this.gbSettingDown.Name = "gbSettingDown";
             this.gbSettingDown.Size = new System.Drawing.Size(171, 131);
-            this.gbSettingDown.TabIndex = 11;
+            this.gbSettingDown.TabIndex = 9;
             this.gbSettingDown.TabStop = false;
             this.gbSettingDown.Text = "Down Labels";
             // 
@@ -1555,7 +1802,7 @@ namespace American_Football_Scoreboard
             this.gbSettingPeriod.Location = new System.Drawing.Point(524, 6);
             this.gbSettingPeriod.Name = "gbSettingPeriod";
             this.gbSettingPeriod.Size = new System.Drawing.Size(171, 180);
-            this.gbSettingPeriod.TabIndex = 14;
+            this.gbSettingPeriod.TabIndex = 11;
             this.gbSettingPeriod.TabStop = false;
             this.gbSettingPeriod.Text = "Period Labels";
             // 
@@ -1658,7 +1905,7 @@ namespace American_Football_Scoreboard
             // chkAdvanceQuarter
             // 
             this.chkAdvanceQuarter.AutoSize = true;
-            this.chkAdvanceQuarter.Location = new System.Drawing.Point(347, 143);
+            this.chkAdvanceQuarter.Location = new System.Drawing.Point(534, 192);
             this.chkAdvanceQuarter.Name = "chkAdvanceQuarter";
             this.chkAdvanceQuarter.Size = new System.Drawing.Size(132, 17);
             this.chkAdvanceQuarter.TabIndex = 12;
@@ -1725,7 +1972,7 @@ namespace American_Football_Scoreboard
             // 
             // butSaveSettings
             // 
-            this.butSaveSettings.Location = new System.Drawing.Point(595, 244);
+            this.butSaveSettings.Location = new System.Drawing.Point(595, 278);
             this.butSaveSettings.Name = "butSaveSettings";
             this.butSaveSettings.Size = new System.Drawing.Size(100, 23);
             this.butSaveSettings.TabIndex = 15;
@@ -1873,41 +2120,15 @@ namespace American_Football_Scoreboard
             this.tmrFlag.Interval = 15000;
             this.tmrFlag.Tick += new System.EventHandler(this.TmrFlag_Tick);
             // 
-            // txtFieldGoalMessage
-            // 
-            this.txtFieldGoalMessage.Location = new System.Drawing.Point(152, 221);
-            this.txtFieldGoalMessage.Name = "txtFieldGoalMessage";
-            this.txtFieldGoalMessage.Size = new System.Drawing.Size(100, 20);
-            this.txtFieldGoalMessage.TabIndex = 9;
-            // 
-            // lblFieldGoalMessage
-            // 
-            this.lblFieldGoalMessage.AutoSize = true;
-            this.lblFieldGoalMessage.Location = new System.Drawing.Point(17, 223);
-            this.lblFieldGoalMessage.Name = "lblFieldGoalMessage";
-            this.lblFieldGoalMessage.Size = new System.Drawing.Size(100, 13);
-            this.lblFieldGoalMessage.TabIndex = 67;
-            this.lblFieldGoalMessage.Text = "Field Goal Message";
-            // 
-            // txtTouchdownMessage
-            // 
-            this.txtTouchdownMessage.Location = new System.Drawing.Point(152, 247);
-            this.txtTouchdownMessage.Name = "txtTouchdownMessage";
-            this.txtTouchdownMessage.Size = new System.Drawing.Size(100, 20);
-            this.txtTouchdownMessage.TabIndex = 10;
-            // 
-            // lblTouchdownMessage
-            // 
-            this.lblTouchdownMessage.AutoSize = true;
-            this.lblTouchdownMessage.Location = new System.Drawing.Point(17, 249);
-            this.lblTouchdownMessage.Name = "lblTouchdownMessage";
-            this.lblTouchdownMessage.Size = new System.Drawing.Size(110, 13);
-            this.lblTouchdownMessage.TabIndex = 69;
-            this.lblTouchdownMessage.Text = "Toughdown Message";
-            // 
             // tmrScore
             // 
+            this.tmrScore.Interval = 15000;
             this.tmrScore.Tick += new System.EventHandler(this.TmrScore_Tick);
+            // 
+            // tmrPlayer
+            // 
+            this.tmrPlayer.Interval = 15000;
+            this.tmrPlayer.Tick += new System.EventHandler(this.TmrPlayer_Tick);
             // 
             // FrmMain
             // 
@@ -1944,6 +2165,8 @@ namespace American_Football_Scoreboard
             this.gbHotKeysHome.PerformLayout();
             this.tpSettings.ResumeLayout(false);
             this.tpSettings.PerformLayout();
+            this.gbPoints.ResumeLayout(false);
+            this.gbPoints.PerformLayout();
             this.gbSettingDown.ResumeLayout(false);
             this.gbSettingDown.PerformLayout();
             this.gbSettingPeriod.ResumeLayout(false);
@@ -1978,15 +2201,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.GroupBox gbAway;
         private System.Windows.Forms.GroupBox gbHome;
         private System.Windows.Forms.TextBox txtHomeScore;
-        private System.Windows.Forms.Button butAwayAddSix;
-        private System.Windows.Forms.Button butAwayAddThree;
-        private System.Windows.Forms.Button butAwayAddTwo;
-        private System.Windows.Forms.Button butAwayAddOne;
         private System.Windows.Forms.TextBox txtAwayScore;
-        private System.Windows.Forms.Button butHomeAddSix;
-        private System.Windows.Forms.Button butHomeAddThree;
-        private System.Windows.Forms.Button butHomeAddTwo;
-        private System.Windows.Forms.Button butHomeAddOne;
         private System.Windows.Forms.Button butSaveSettings;
         private System.Windows.Forms.GroupBox gbPeriod;
         private System.Windows.Forms.GroupBox gbDown;
@@ -2048,24 +2263,24 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtHotKeyAway6;
-        private System.Windows.Forms.Label lblAwayHotKey6;
-        private System.Windows.Forms.TextBox txtHotKeyAway3;
-        private System.Windows.Forms.Label lblAwayHotKey3;
-        private System.Windows.Forms.TextBox txtHotKeyAway2;
-        private System.Windows.Forms.Label lblAwayHotKey2;
-        private System.Windows.Forms.TextBox txtHotKeyAway1;
-        private System.Windows.Forms.Label lblAwayHotKey1;
+        private System.Windows.Forms.TextBox txtHotKeyAwayFieldGoal;
+        private System.Windows.Forms.Label lblAwayHotKeyFieldGoal;
+        private System.Windows.Forms.TextBox txtHotKeyAwayPatConversion;
+        private System.Windows.Forms.Label lblAwayHotKeyPatConversion;
+        private System.Windows.Forms.TextBox txtHotKeyAwayPatKick;
+        private System.Windows.Forms.Label lblAwayHotKeyPatKick;
+        private System.Windows.Forms.TextBox txtHotKeyAwaySafety;
+        private System.Windows.Forms.Label lblAwayHotKeySafety;
         private System.Windows.Forms.Label lblAwayHotKeyKey;
         private System.Windows.Forms.Label lblAwayHotKeyFunction;
-        private System.Windows.Forms.TextBox txtHotKeyHome6;
-        private System.Windows.Forms.Label lblHomeHotKey6;
-        private System.Windows.Forms.TextBox txtHotKeyHome3;
-        private System.Windows.Forms.Label lblHomeHotKey3;
-        private System.Windows.Forms.TextBox txtHotKeyHome2;
-        private System.Windows.Forms.Label lblHomeHotKey2;
-        private System.Windows.Forms.TextBox txtHotKeyHome1;
-        private System.Windows.Forms.Label lblHomeHotKey1;
+        private System.Windows.Forms.TextBox txtHotKeyHomeFieldGoal;
+        private System.Windows.Forms.Label lblHomeHotKeyFieldGoal;
+        private System.Windows.Forms.TextBox txtHotKeyHomePatConversion;
+        private System.Windows.Forms.Label lblHomeHotKeyPatConversion;
+        private System.Windows.Forms.TextBox txtHotKeyHomePatKick;
+        private System.Windows.Forms.Label lblHomeHotKeyPatKick;
+        private System.Windows.Forms.TextBox txtHotKeyHomeSafety;
+        private System.Windows.Forms.Label lblHomeHotKeySafety;
         private System.Windows.Forms.Label lblHomeHotKeyKey;
         private System.Windows.Forms.Label lblHomeHotKeyPoints;
         private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
@@ -2125,11 +2340,40 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.TextBox txtSettingPeriodFinal;
         private System.Windows.Forms.Label lblSettingPeriodFinal;
         private System.Windows.Forms.RadioButton rbPeriodFinal;
-        private System.Windows.Forms.TextBox txtTouchdownMessage;
-        private System.Windows.Forms.Label lblTouchdownMessage;
-        private System.Windows.Forms.TextBox txtFieldGoalMessage;
-        private System.Windows.Forms.Label lblFieldGoalMessage;
         private System.Windows.Forms.Timer tmrScore;
+        private System.Windows.Forms.CheckBox chkSubSecond;
+        private System.Windows.Forms.Label lblAwayPlayerNumber;
+        private System.Windows.Forms.TextBox txtHomePlayerNumber;
+        private System.Windows.Forms.Label lblHomePlayerNumber;
+        private System.Windows.Forms.Button butAwayPlayerShow;
+        private System.Windows.Forms.TextBox txtAwayPlayerNumber;
+        private System.Windows.Forms.Button butHomePlayerShow;
+        private System.Windows.Forms.Button butHomeSafety;
+        private System.Windows.Forms.Button butHomePatKick;
+        private System.Windows.Forms.Button butAwayTouchdown;
+        private System.Windows.Forms.Button butAwayFieldGoal;
+        private System.Windows.Forms.Button butAwayPatConversion;
+        private System.Windows.Forms.Button butAwayPatKick;
+        private System.Windows.Forms.Button butAwaySafety;
+        private System.Windows.Forms.Button butHomeTouchdown;
+        private System.Windows.Forms.Button butHomeFieldGoal;
+        private System.Windows.Forms.Button butHomePatConversion;
+        private System.Windows.Forms.GroupBox gbPoints;
+        private System.Windows.Forms.TextBox txtSettingTouchdown;
+        private System.Windows.Forms.TextBox txtSettingFieldGoal;
+        private System.Windows.Forms.TextBox txtSettingPatConversion;
+        private System.Windows.Forms.TextBox txtSettingPatKick;
+        private System.Windows.Forms.TextBox txtSettingSafety;
+        private System.Windows.Forms.Label lblSettingTouchdown;
+        private System.Windows.Forms.Label lblSettingFieldGoal;
+        private System.Windows.Forms.Label lblSettingPatConversion;
+        private System.Windows.Forms.Label lblSettingPatKick;
+        private System.Windows.Forms.Label lblSettingSafety;
+        private System.Windows.Forms.Label lblHomeHotKeyTouchdown;
+        private System.Windows.Forms.TextBox txtHotKeyHomeTouchdown;
+        private System.Windows.Forms.TextBox txtHotKeyAwayTouchdown;
+        private System.Windows.Forms.Label lblAwayHotKeyTouchdown;
+        private System.Windows.Forms.Timer tmrPlayer;
     }
 }
 

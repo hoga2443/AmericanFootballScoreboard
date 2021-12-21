@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -157,102 +157,6 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 1")]
-        public string HotKeyAway1 {
-            get {
-                return ((string)(this["HotKeyAway1"]));
-            }
-            set {
-                this["HotKeyAway1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 2")]
-        public string HotKeyAway2 {
-            get {
-                return ((string)(this["HotKeyAway2"]));
-            }
-            set {
-                this["HotKeyAway2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 3")]
-        public string HotKeyAway3 {
-            get {
-                return ((string)(this["HotKeyAway3"]));
-            }
-            set {
-                this["HotKeyAway3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 4")]
-        public string HotKeyAway6 {
-            get {
-                return ((string)(this["HotKeyAway6"]));
-            }
-            set {
-                this["HotKeyAway6"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 5")]
-        public string HotKeyHome1 {
-            get {
-                return ((string)(this["HotKeyHome1"]));
-            }
-            set {
-                this["HotKeyHome1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 6")]
-        public string HotKeyHome2 {
-            get {
-                return ((string)(this["HotKeyHome2"]));
-            }
-            set {
-                this["HotKeyHome2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 7")]
-        public string HotKeyHome3 {
-            get {
-                return ((string)(this["HotKeyHome3"]));
-            }
-            set {
-                this["HotKeyHome3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 8")]
-        public string HotKeyHome6 {
-            get {
-                return ((string)(this["HotKeyHome6"]));
-            }
-            set {
-                this["HotKeyHome6"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public int RefreshInterval {
             get {
@@ -265,7 +169,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + O")]
         public string HotKeyPossession {
             get {
                 return ((string)(this["HotKeyPossession"]));
@@ -469,25 +373,193 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Touchdown")]
-        public string TouchdownDescription {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SubSecond {
             get {
-                return ((string)(this["TouchdownDescription"]));
+                return ((bool)(this["SubSecond"]));
             }
             set {
-                this["TouchdownDescription"] = value;
+                this["SubSecond"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Field Goal")]
-        public string FieldGoalDescription {
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int Safety {
             get {
-                return ((string)(this["FieldGoalDescription"]));
+                return ((int)(this["Safety"]));
             }
             set {
-                this["FieldGoalDescription"] = value;
+                this["Safety"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int PatKick {
+            get {
+                return ((int)(this["PatKick"]));
+            }
+            set {
+                this["PatKick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int PatConversion {
+            get {
+                return ((int)(this["PatConversion"]));
+            }
+            set {
+                this["PatConversion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int FieldGoal {
+            get {
+                return ((int)(this["FieldGoal"]));
+            }
+            set {
+                this["FieldGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int Touchdown {
+            get {
+                return ((int)(this["Touchdown"]));
+            }
+            set {
+                this["Touchdown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 5")]
+        public string HotKeyHomeSafety {
+            get {
+                return ((string)(this["HotKeyHomeSafety"]));
+            }
+            set {
+                this["HotKeyHomeSafety"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 6")]
+        public string HotKeyHomePatKick {
+            get {
+                return ((string)(this["HotKeyHomePatKick"]));
+            }
+            set {
+                this["HotKeyHomePatKick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 7")]
+        public string HotKeyHomePatConversion {
+            get {
+                return ((string)(this["HotKeyHomePatConversion"]));
+            }
+            set {
+                this["HotKeyHomePatConversion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 8")]
+        public string HotKeyHomeFieldGoal {
+            get {
+                return ((string)(this["HotKeyHomeFieldGoal"]));
+            }
+            set {
+                this["HotKeyHomeFieldGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 9")]
+        public string HotKeyHomeTouchdown {
+            get {
+                return ((string)(this["HotKeyHomeTouchdown"]));
+            }
+            set {
+                this["HotKeyHomeTouchdown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 0")]
+        public string HotKeyAwaySafety {
+            get {
+                return ((string)(this["HotKeyAwaySafety"]));
+            }
+            set {
+                this["HotKeyAwaySafety"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 1")]
+        public string HotKeyAwayPatKick {
+            get {
+                return ((string)(this["HotKeyAwayPatKick"]));
+            }
+            set {
+                this["HotKeyAwayPatKick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 2")]
+        public string HotKeyAwayPatConversion {
+            get {
+                return ((string)(this["HotKeyAwayPatConversion"]));
+            }
+            set {
+                this["HotKeyAwayPatConversion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 3")]
+        public string HotKeyAwayFieldGoal {
+            get {
+                return ((string)(this["HotKeyAwayFieldGoal"]));
+            }
+            set {
+                this["HotKeyAwayFieldGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + 4")]
+        public string HotKeyAwayTouchdown {
+            get {
+                return ((string)(this["HotKeyAwayTouchdown"]));
+            }
+            set {
+                this["HotKeyAwayTouchdown"] = value;
             }
         }
     }
