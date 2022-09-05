@@ -11,6 +11,11 @@ namespace American_Football_Scoreboard
 {
     public partial class FrmMain : Form
     {
+        const string awayPeriodScoreFirst = "AwayPeriodScoreFirst.txt";
+        const string awayPeriodScoreSecond = "AwayPeriodScoreSecond.txt";
+        const string awayPeriodScoreThird = "AwayPeriodScoreThird.txt";
+        const string awayPeriodScoreFourth = "AwayPeriodScoreFourth.txt";
+        const string awayPeriodScoreOT = "AwayPeriodScoreOT.txt";
         const string awayTeamNameFile = "AwayTeamName.txt";
         const string awayTeamScoreFile = "AwayTeamScore.txt";
         const string awayTimeoutsRemainingFile = "AwayTimeoutsRemaining.txt";
@@ -18,6 +23,11 @@ namespace American_Football_Scoreboard
         const string downFile = "Down.txt";
         const string downDistanceFile = "DownDistance.txt";
         const string gameClockFile = "GameClock.txt";
+        const string homePeriodScoreFirst = "HomePeriodScoreFirst.txt";
+        const string homePeriodScoreSecond = "HomePeriodScoreSecond.txt";
+        const string homePeriodScoreThird = "HomePeriodScoreThird.txt";
+        const string homePeriodScoreFourth = "HomePeriodScoreFourth.txt";
+        const string homePeriodScoreOT = "HomePeriodScoreOT.txt";
         const string homeTeamNameFile = "HomeTeamName.txt";
         const string homeTeamScoreFile = "HomeTeamScore.txt";
         const string homeTimeoutsRemainingFile = "HomeTimeoutsRemaining.txt";
@@ -471,7 +481,10 @@ namespace American_Football_Scoreboard
             {
                 chkHomePossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\AwayPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPossession.png"));
-                rbDownOne.Checked = true;
+                if (!rbDownBlank.Checked)
+                {
+                    rbDownOne.Checked = true;
+                }
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPossession.png"));
@@ -500,7 +513,10 @@ namespace American_Football_Scoreboard
             {
                 chkAwayPossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\HomePossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
-                rbDownOne.Checked = true;
+                if (!rbDownBlank.Checked)
+                {
+                    rbDownOne.Checked = true;
+                }
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
@@ -664,7 +680,17 @@ namespace American_Football_Scoreboard
             InitializeTextBox(textBox: txtPlayClock, fileName: playClockFile, defaultValue: "0");
             InitializeTextBox(textBox: txtDistance, fileName: distanceFile);
             InitializeTextBox(textBox: txtSpot, fileName: spotFile);
-            InitializeTextBox(textBox: txtSupplemental, fileName: supplementalFile);
+            InitializeTextBox(textBox: txtPeriodAwayFirst, fileName: awayPeriodScoreFirst);
+            InitializeTextBox(textBox: txtPeriodAwaySecond, fileName: awayPeriodScoreSecond);
+            InitializeTextBox(textBox: txtPeriodAwayThird, fileName: awayPeriodScoreThird);
+            InitializeTextBox(textBox: txtPeriodAwayFourth, fileName: awayPeriodScoreFourth);
+            InitializeTextBox(textBox: txtPeriodAwayOT, fileName: awayPeriodScoreOT);
+            InitializeTextBox(textBox: txtPeriodHomeFirst, fileName: homePeriodScoreFirst);
+            InitializeTextBox(textBox: txtPeriodHomeSecond, fileName: homePeriodScoreSecond);
+            InitializeTextBox(textBox: txtPeriodHomeThird, fileName: homePeriodScoreThird);
+            InitializeTextBox(textBox: txtPeriodHomeFourth, fileName: homePeriodScoreFourth);
+            InitializeTextBox(textBox: txtPeriodHomeOT, fileName: homePeriodScoreOT);
+
             chkHomePossession.Checked = true;
             InitializeDown();
             InitializeQuarter();
@@ -1108,6 +1134,56 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void TxtPeriodAwayFirst_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreFirst, content: txtPeriodAwayFirst.Text);
+        }
+
+        private void TxtPeriodAwaySecond_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreSecond, content: txtPeriodAwaySecond.Text);
+        }
+
+        private void TxtPeriodAwayThird_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreThird, content: txtPeriodAwayThird.Text);
+        }
+
+        private void TxtPeriodAwayFourth_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreFourth, content: txtPeriodAwayFourth.Text);
+        }
+
+        private void TxtPeriodAwayOT_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreOT, content: txtPeriodAwayOT.Text);
+        }
+
+        private void TxtPeriodHomeFirst_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreFirst, content: txtPeriodHomeFirst.Text);
+        }
+
+        private void TxtPeriodHomeSecond_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreSecond, content: txtPeriodHomeSecond.Text);
+        }
+
+        private void TxtPeriodHomeThird_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreThird, content: txtPeriodHomeThird.Text);
+        }
+
+        private void TxtPeriodHomeFourth_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreFourth, content: txtPeriodHomeFourth.Text);
+        }
+
+        private void TxtPeriodHomeOT_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreOT, content: txtPeriodHomeOT.Text);
+        }
+
         private void TxtPeriodOT_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
@@ -1199,5 +1275,6 @@ namespace American_Football_Scoreboard
             tmrScore.Enabled = true;
             tmrScore.Start();
         }
+
     }
 }
