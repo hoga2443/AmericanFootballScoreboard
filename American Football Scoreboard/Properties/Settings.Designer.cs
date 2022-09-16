@@ -562,5 +562,53 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyAwayTouchdown"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("png")]
+        public string PlayerImageFileType {
+            get {
+                return ((string)(this["PlayerImageFileType"]));
+            }
+            set {
+                this["PlayerImageFileType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + A")]
+        public string HotKeyFirstDown {
+            get {
+                return ((string)(this["HotKeyFirstDown"]));
+            }
+            set {
+                this["HotKeyFirstDown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + Z")]
+        public string HotKeyHomeTimeout {
+            get {
+                return ((string)(this["HotKeyHomeTimeout"]));
+            }
+            set {
+                this["HotKeyHomeTimeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + X")]
+        public string HotKeyAwayTimeout {
+            get {
+                return ((string)(this["HotKeyAwayTimeout"]));
+            }
+            set {
+                this["HotKeyAwayTimeout"] = value;
+            }
+        }
     }
 }

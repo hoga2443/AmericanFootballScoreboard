@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,12 +43,12 @@ namespace American_Football_Scoreboard
         private bool gameClockRunning = false;
         private DateTime periodClockEnd = DateTime.UtcNow;
         private TimeSpan periodTimeRemaining = new TimeSpan(hours: 0, minutes: 0, seconds: 0);
-
         private bool playClockRunning = false;
         private DateTime playTimeEnd = DateTime.UtcNow;
         private TimeSpan playTimeRemaining = new TimeSpan(hours: 0, minutes: 0, seconds: 0);
-
         private TimeSpan oneMinute = new TimeSpan(hours: 0, minutes: 1, seconds: 0);
+        private enum Period { One, Two, Half, Three, Four, OT, Final, Unknown };
+        private Period currentPeriod = Period.Unknown;
 
         public FrmMain()
         {
@@ -57,8 +58,7 @@ namespace American_Football_Scoreboard
             InitializeUI();
             RegisterHotKeys();
         }
-
-        private void AddScore(TextBox textBox, int points, string message = "")
+        private void AddScore(bool home, TextBox textBox, int points, string message = "")
         {
             rbDownBlank.Checked = true;
             if (int.TryParse(s: textBox.Text, out int oldScore))
@@ -68,6 +68,48 @@ namespace American_Football_Scoreboard
                 _ = WriteFileAsync(file: scoreDescription, content: message);
                 tmrScore.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 tmrScore.Enabled = true;
+            }
+            if (home)
+            {
+                switch (currentPeriod)
+                {
+                    case Period.One:
+                        UpdatePeriodScore(control: txtPeriodHomeFirst, points: points);
+                        break;
+                    case Period.Two:
+                        UpdatePeriodScore(control: txtPeriodHomeSecond, points: points);
+                        break;
+                    case Period.Three:
+                        UpdatePeriodScore(control: txtPeriodHomeThird, points: points);
+                        break;
+                    case Period.Four:
+                        UpdatePeriodScore(control: txtPeriodHomeFourth, points: points);
+                        break;
+                    case Period.OT:
+                        UpdatePeriodScore(control: txtPeriodHomeOT, points: points);
+                        break;
+                }
+            }
+            else
+            {
+                switch (currentPeriod)
+                {
+                    case Period.One:
+                        UpdatePeriodScore(control: txtPeriodAwayFirst, points: points);
+                        break;
+                    case Period.Two:
+                        UpdatePeriodScore(control: txtPeriodAwaySecond, points: points);
+                        break;
+                    case Period.Three:
+                        UpdatePeriodScore(control: txtPeriodAwayThird, points: points);
+                        break;
+                    case Period.Four:
+                        UpdatePeriodScore(control: txtPeriodAwayFourth, points: points);
+                        break;
+                    case Period.OT:
+                        UpdatePeriodScore(control: txtPeriodAwayOT, points: points);
+                        break;
+                }
             }
         }
 
@@ -109,45 +151,27 @@ namespace American_Football_Scoreboard
             ClearClocks();
         }
 
+        private void AwayTimeoutsSubtract()
+        {
+            AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: -1);
+        }
+
         private void ButAwayFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.FieldGoal);
+            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.FieldGoal);
             WriteScore(text: "Field Goal");
         }
 
         private void ButAwayPatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.PatConversion);
+            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatConversion);
             WriteScore(text: "Conversion");
         }
 
         private void ButAwayPatKick_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.PatKick);
+            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatKick);
             WriteScore(text: "PAT");
-        }
-
-        private void ShowHidePlayer(Boolean home, Button button, TextBox textBox)
-        {
-            if (button.Text == "Show")
-            {
-                button.Text = "Hide";
-                if (!ShowPlayer(home: home, jersey: textBox.Text))
-                {
-                    textBox.Text = string.Empty;
-                    button.Text = "Show";
-                }
-                tmrPlayer.Interval = Properties.Settings.Default.FlagDisplayDuration;
-                tmrPlayer.Enabled = true;
-                tmrPlayer.Start();
-            }
-            else
-            {
-                textBox.Text = string.Empty;
-                button.Text = "Show";
-                HidePlayer(home: home);
-                tmrPlayer.Enabled = false;
-            }
         }
 
         private void ButAwayPlayerShow_Click(object sender, EventArgs e)
@@ -157,7 +181,7 @@ namespace American_Football_Scoreboard
 
         private void ButAwaySafety_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.Safety);
+            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Safety);
             WriteScore(text: "Safety");
         }
 
@@ -173,7 +197,7 @@ namespace American_Football_Scoreboard
 
         private void ButAwayTouchdown_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtAwayScore, points: Properties.Settings.Default.Touchdown);
+            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Touchdown);
             WriteScore(text: "Touchdown");
         }
 
@@ -182,6 +206,11 @@ namespace American_Football_Scoreboard
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtAwayScore.Text = "0";
             txtAwayTeam.Text = string.Empty;
+            txtPeriodAwayFirst.Text = string.Empty;
+            txtPeriodAwaySecond.Text = string.Empty;
+            txtPeriodAwayThird.Text = string.Empty;
+            txtPeriodAwayFourth.Text = string.Empty;
+            txtPeriodAwayOT.Text = string.Empty;
             chkAwayPossession.Checked = false;
             _ = WriteFileAsync(file: awayTeamNameFile, content: txtAwayTeam.Text);
         }
@@ -196,6 +225,11 @@ namespace American_Football_Scoreboard
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtHomeScore.Text = "0";
             txtHomeTeam.Text = string.Empty;
+            txtPeriodHomeFirst.Text = string.Empty;
+            txtPeriodHomeSecond.Text = string.Empty;
+            txtPeriodHomeThird.Text = string.Empty;
+            txtPeriodHomeFourth.Text = string.Empty;
+            txtPeriodHomeOT.Text = string.Empty;
             chkHomePossession.Checked = false;
             _ = WriteFileAsync(file: homeTeamNameFile, content: txtHomeTeam.Text);
         }
@@ -218,19 +252,19 @@ namespace American_Football_Scoreboard
 
         private void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.FieldGoal);
+            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.FieldGoal);
             WriteScore(text: "Field Goal");
         }
 
         private void ButHomePatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.PatConversion);
+            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatConversion);
             WriteScore(text: "Conversion");
         }
 
         private void ButHomePatKick_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.PatKick);
+            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatKick);
             WriteScore(text: "PAT");
         }
 
@@ -241,7 +275,7 @@ namespace American_Football_Scoreboard
 
         private void ButHomeSafety_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.Safety);
+            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Safety);
             WriteScore(text: "Safety");
         }
 
@@ -255,9 +289,14 @@ namespace American_Football_Scoreboard
             AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
         }
 
+        private void HomeTimeoutsSubtract()
+        {
+            AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
+        }
+
         private void ButHomeTouchdown_Click(object sender, EventArgs e)
         {
-            AddScore(textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
+            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
             WriteScore(text: "Touchdown");
         }
 
@@ -288,6 +327,7 @@ namespace American_Football_Scoreboard
             rbPeriodThree.Checked = false;
             rbPeriodTwo.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: string.Empty);
+            currentPeriod = Period.Unknown;
         }
 
         private void ButSaveHotKey_Click(object sender, EventArgs e)
@@ -298,6 +338,7 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyAwayFieldGoal"] = txtHotKeyAwayFieldGoal.Text;
             Properties.Settings.Default["HotKeyAwayTouchdown"] = txtHotKeyAwayTouchdown.Text;
             Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
+            Properties.Settings.Default["HotKeyFirstDown"] = txtHotKeyFirstDown.Text;
             Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
             Properties.Settings.Default["HotKeyHomeSafety"] = txtHotKeyHomeSafety.Text;
             Properties.Settings.Default["HotKeyHomePatKick"] = txtHotKeyHomePatKick.Text;
@@ -373,6 +414,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["PatConversion"] = patConvertionPoints;
                 Properties.Settings.Default["FieldGoal"] = patFieldGoalPoints;
                 Properties.Settings.Default["Touchdown"] = patTouchdownPoints;
+                Properties.Settings.Default["PlayerImageFileType"] = lstPlayerImageFileType.Text;
 
                 Properties.Settings.Default.Save();
                 tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
@@ -584,6 +626,15 @@ namespace American_Football_Scoreboard
             }
         }
 
+        private void FirstDown()
+        {
+            if (rbDownOne.Checked != true)
+            {
+                rbDownOne.Checked = true;
+                txtDistance.Text = "10";
+            }
+        }
+
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             GlobalHotKey.DeRegisterHotKeys();
@@ -726,6 +777,7 @@ namespace American_Football_Scoreboard
             txtSettingPatConversion.Text = Properties.Settings.Default.PatConversion.ToString();
             txtSettingFieldGoal.Text = Properties.Settings.Default.FieldGoal.ToString();
             txtSettingTouchdown.Text = Properties.Settings.Default.Touchdown.ToString();
+            lstPlayerImageFileType.Text = Properties.Settings.Default.PlayerImageFileType.ToString();
             this.TopMost = Properties.Settings.Default.AlwaysOnTop;
         }
 
@@ -742,6 +794,7 @@ namespace American_Football_Scoreboard
             txtHotKeyAwayFieldGoal.Text = Properties.Settings.Default.HotKeyAwayFieldGoal;
             txtHotKeyAwayTouchdown.Text = Properties.Settings.Default.HotKeyAwayTouchdown;
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
+            txtHotKeyFirstDown.Text = Properties.Settings.Default.HotKeyFirstDown; 
             txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
             txtHotKeyNewDefaultPlayClock.Text = Properties.Settings.Default.HotKeyNewDefaultPlayClock;
             txtHotKeyNewShortPlayClock.Text = Properties.Settings.Default.HotKeyNewShortPlayClock;
@@ -750,6 +803,8 @@ namespace American_Football_Scoreboard
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
+            txtHotKeyHomeTimeout.Text = Properties.Settings.Default.HotKeyHomeTimeout;
+            txtHotKeyAwayTimeout.Text = Properties.Settings.Default.HotKeyAwayTimeout;
         }
 
         private void LoadSettings()
@@ -757,7 +812,6 @@ namespace American_Football_Scoreboard
             LoadApplicationSettings();
             LoadHotKeySettings();
         }
-
         private void NextDown()
         {
             if (rbDownOne.Checked == true)
@@ -835,6 +889,7 @@ namespace American_Football_Scoreboard
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
+            currentPeriod = Period.Four;
         }
 
         private void RbPeriodHalf_CheckedChanged(object sender, EventArgs e)
@@ -847,16 +902,19 @@ namespace American_Football_Scoreboard
             chkAwayPossession.Checked = false;
             chkHomePossession.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodHalf);
+            currentPeriod = Period.Half;
         }
 
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
+            currentPeriod = Period.One;
         }
 
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
+            currentPeriod = Period.OT;
         }
 
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
@@ -864,15 +922,19 @@ namespace American_Football_Scoreboard
             txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
+            currentPeriod = Period.Three;
         }
 
         private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
+            currentPeriod = Period.Two;
         }
 
         private void RegisterHotKeys()
         {
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyAwayTimeout, aAction: () => AwayTimeoutsSubtract()))
+                MessageBox.Show(text: "Unable to register Hot Key for Away Timeout!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyStartStopGameClock, aAction: () => butStartStopGameClock.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Start/Stop Game Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyStartStopPlayClock, aAction: () => butStartStopPlayClock.PerformClick()))
@@ -883,8 +945,12 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Unable to register Hot Key for New Short Play Clock!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyClearClocks, aAction: () => butClearClocks.PerformClick()))
                 MessageBox.Show(text: "Unable to register Hot Key for Clear Clocks!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyFirstDown, aAction: () => FirstDown()))
+                MessageBox.Show(text: "Unable to register Hot Key for First Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyFlag, aAction: () => ToggleFlag()))
                 MessageBox.Show(text: "Unable to register Hot Key for Flag!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyHomeTimeout, aAction: () => HomeTimeoutsSubtract()))
+                MessageBox.Show(text: "Unable to register Hot Key for Home Timeout!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyNextDown, aAction: () => NextDown()))
                 MessageBox.Show(text: "Unable to register Hot Key for Next Down!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyNextPeriod, aAction: () => NextPeriod()))
@@ -924,30 +990,53 @@ namespace American_Football_Scoreboard
             playClockRunning = true;
         }
 
+        private void ShowHidePlayer(bool home, Button button, TextBox textBox)
+        {
+            if (button.Text == "Show")
+            {
+                button.Text = "Hide";
+                if (!ShowPlayer(home: home, jersey: textBox.Text))
+                {
+                    textBox.Text = string.Empty;
+                    button.Text = "Show";
+                }
+                tmrPlayer.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                tmrPlayer.Enabled = true;
+                tmrPlayer.Start();
+            }
+            else
+            {
+                textBox.Text = string.Empty;
+                button.Text = "Show";
+                HidePlayer(home: home);
+                tmrPlayer.Enabled = false;
+            }
+        }
+
         private bool ShowPlayer(bool home, string jersey)
         {
             bool success = false;
             if (home)
             {
-                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + ".png")))
+                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"])))
                 {
                     MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + ".png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]));
                     success = true;
                 }
             }
             else
             {
-                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + ".png")))
+                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"])))
                 {
                     MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + ".png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]));
                     success = true;
                 }
             }
@@ -1216,6 +1305,17 @@ namespace American_Football_Scoreboard
                 _ = WriteFileAsync(file: downDistanceFile, content: string.Empty);
         }
 
+        private void UpdatePeriodScore(Control control, int points)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(control.Text))
+                    control.Text = "0";
+                control.Text = (int.Parse(s: control.Text) + points).ToString();
+            }
+            catch { }
+        }
+
         /*
         Validate time in in a valid mm:ss format
         */
@@ -1276,5 +1376,9 @@ namespace American_Football_Scoreboard
             tmrScore.Start();
         }
 
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

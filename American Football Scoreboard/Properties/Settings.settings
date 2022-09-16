@@ -137,5 +137,17 @@
     <Setting Name="HotKeyAwayTouchdown" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + 4</Value>
     </Setting>
+    <Setting Name="PlayerImageFileType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">png</Value>
+    </Setting>
+    <Setting Name="HotKeyFirstDown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + A</Value>
+    </Setting>
+    <Setting Name="HotKeyHomeTimeout" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + Z</Value>
+    </Setting>
+    <Setting Name="HotKeyAwayTimeout" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + X</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
