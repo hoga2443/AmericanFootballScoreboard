@@ -2436,7 +2436,6 @@ namespace American_Football_Scoreboard
             this.Name = "FrmMain";
             this.Text = "American Football Scoreboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.tabMain.ResumeLayout(false);
             this.tpScoreboard.ResumeLayout(false);
             this.tpScoreboard.PerformLayout();

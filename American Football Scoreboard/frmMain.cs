@@ -2,7 +2,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -812,6 +811,7 @@ namespace American_Football_Scoreboard
             LoadApplicationSettings();
             LoadHotKeySettings();
         }
+
         private void NextDown()
         {
             if (rbDownOne.Checked == true)
@@ -832,9 +832,15 @@ namespace American_Football_Scoreboard
             if (rbPeriodOne.Checked == true)
                 rbPeriodTwo.Checked = true;
             else if (rbPeriodTwo.Checked == true)
+                rbPeriodHalf.Checked = true;
+            else if (rbPeriodHalf.Checked == true)
                 rbPeriodThree.Checked = true;
             else if (rbPeriodThree.Checked == true)
                 rbPeriodFour.Checked = true;
+            else if (rbPeriodFour.Checked == true)
+                rbPeriodFinal.Checked = true;
+            else if (rbPeriodOT.Checked == true)
+                rbPeriodFinal.Checked = true;
             else
             {
                 rbPeriodOne.Checked = true;
@@ -883,6 +889,13 @@ namespace American_Football_Scoreboard
 
         private void RbPeriodFinal_CheckedChanged(object sender, EventArgs e)
         {
+            rbDownBlank.Checked = true;
+            txtAwayTimeouts.Text = "0";
+            txtHomeTimeouts.Text = "0";
+            txtDistance.Text = string.Empty;
+            txtSpot.Text = string.Empty;
+            chkAwayPossession.Checked = false;
+            chkHomePossession.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodFinal);
         }
 
@@ -907,28 +920,46 @@ namespace American_Football_Scoreboard
 
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
-            currentPeriod = Period.One;
+            if (rbPeriodOne.Checked)
+            {
+                _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
+                currentPeriod = Period.One;
+            }
         }
 
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
-            currentPeriod = Period.OT;
+            if (rbPeriodOT.Checked)
+            {
+                chkAwayPossession.Checked = false;
+                chkHomePossession.Checked = false;
+                txtAwayTimeouts.Text = "1";
+                txtHomeTimeouts.Text = "1";
+                _ = WriteFileAsync(file: periodFile, content: txtPeriodOT.Text);
+                currentPeriod = Period.OT;
+            }
         }
 
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
         {
-            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
-            currentPeriod = Period.Three;
+            if (rbPeriodThree.Checked)
+            {
+                txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+                txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+                chkAwayPossession.Checked = false;
+                chkHomePossession.Checked = false;
+                _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period3);
+                currentPeriod = Period.Three;
+            }
         }
 
         private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
-            currentPeriod = Period.Two;
+            if (rbPeriodTwo.Checked)
+            {
+                _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
+                currentPeriod = Period.Two;
+            }
         }
 
         private void RegisterHotKeys()
@@ -1016,29 +1047,26 @@ namespace American_Football_Scoreboard
         private bool ShowPlayer(bool home, string jersey)
         {
             bool success = false;
+            string destinationPath = string.Empty;
+            string sourcePath = string.Empty;
             if (home)
             {
-                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"])))
-                {
-                    MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]));
-                    success = true;
-                }
+                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]);
+                sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
             }
             else
             {
-                if (!File.Exists(Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"])))
-                {
-                    MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]));
-                    success = true;
-                }
+                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]);
+                sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
+            }
+            if (!File.Exists(sourcePath))
+            {
+                MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+            }
+            else
+            {
+                _ = CopyFileAsync(sourcePath: sourcePath, destinationPath: destinationPath);
+                success = true;
             }
             return success;
         }
@@ -1228,16 +1256,6 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(file: awayPeriodScoreFirst, content: txtPeriodAwayFirst.Text);
         }
 
-        private void TxtPeriodAwaySecond_TextChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: awayPeriodScoreSecond, content: txtPeriodAwaySecond.Text);
-        }
-
-        private void TxtPeriodAwayThird_TextChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: awayPeriodScoreThird, content: txtPeriodAwayThird.Text);
-        }
-
         private void TxtPeriodAwayFourth_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: awayPeriodScoreFourth, content: txtPeriodAwayFourth.Text);
@@ -1248,19 +1266,19 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(file: awayPeriodScoreOT, content: txtPeriodAwayOT.Text);
         }
 
+        private void TxtPeriodAwaySecond_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreSecond, content: txtPeriodAwaySecond.Text);
+        }
+
+        private void TxtPeriodAwayThird_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: awayPeriodScoreThird, content: txtPeriodAwayThird.Text);
+        }
+
         private void TxtPeriodHomeFirst_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: homePeriodScoreFirst, content: txtPeriodHomeFirst.Text);
-        }
-
-        private void TxtPeriodHomeSecond_TextChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: homePeriodScoreSecond, content: txtPeriodHomeSecond.Text);
-        }
-
-        private void TxtPeriodHomeThird_TextChanged(object sender, EventArgs e)
-        {
-            _ = WriteFileAsync(file: homePeriodScoreThird, content: txtPeriodHomeThird.Text);
         }
 
         private void TxtPeriodHomeFourth_TextChanged(object sender, EventArgs e)
@@ -1271,6 +1289,16 @@ namespace American_Football_Scoreboard
         private void TxtPeriodHomeOT_TextChanged(object sender, EventArgs e)
         {
             _ = WriteFileAsync(file: homePeriodScoreOT, content: txtPeriodHomeOT.Text);
+        }
+
+        private void TxtPeriodHomeSecond_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreSecond, content: txtPeriodHomeSecond.Text);
+        }
+
+        private void TxtPeriodHomeThird_TextChanged(object sender, EventArgs e)
+        {
+            _ = WriteFileAsync(file: homePeriodScoreThird, content: txtPeriodHomeThird.Text);
         }
 
         private void TxtPeriodOT_TextChanged(object sender, EventArgs e)
@@ -1374,11 +1402,6 @@ namespace American_Football_Scoreboard
             tmrScore.Interval = Properties.Settings.Default.FlagDisplayDuration;
             tmrScore.Enabled = true;
             tmrScore.Start();
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
