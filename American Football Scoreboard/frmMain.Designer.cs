@@ -251,6 +251,7 @@ namespace American_Football_Scoreboard
             this.tmrFlag = new System.Windows.Forms.Timer(this.components);
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
+            this.chkSettingFirstDown = new System.Windows.Forms.CheckBox();
             this.tabMain.SuspendLayout();
             this.tpScoreboard.SuspendLayout();
             this.gbScoreByPeriod.SuspendLayout();
@@ -1792,6 +1793,7 @@ namespace American_Football_Scoreboard
             // 
             // tpSettings
             // 
+            this.tpSettings.Controls.Add(this.chkSettingFirstDown);
             this.tpSettings.Controls.Add(this.lstPlayerImageFileType);
             this.tpSettings.Controls.Add(this.label1);
             this.tpSettings.Controls.Add(this.gbPoints);
@@ -1862,7 +1864,7 @@ namespace American_Football_Scoreboard
             this.gbPoints.Location = new System.Drawing.Point(347, 147);
             this.gbPoints.Name = "gbPoints";
             this.gbPoints.Size = new System.Drawing.Size(171, 154);
-            this.gbPoints.TabIndex = 11;
+            this.gbPoints.TabIndex = 15;
             this.gbPoints.TabStop = false;
             this.gbPoints.Text = "Points";
             // 
@@ -1949,20 +1951,20 @@ namespace American_Football_Scoreboard
             // chkSubSecond
             // 
             this.chkSubSecond.AutoSize = true;
-            this.chkSubSecond.Location = new System.Drawing.Point(534, 240);
+            this.chkSubSecond.Location = new System.Drawing.Point(20, 343);
             this.chkSubSecond.Name = "chkSubSecond";
             this.chkSubSecond.Size = new System.Drawing.Size(146, 17);
-            this.chkSubSecond.TabIndex = 15;
+            this.chkSubSecond.TabIndex = 13;
             this.chkSubSecond.Text = "Sub Second Game Clock";
             this.chkSubSecond.UseVisualStyleBackColor = true;
             // 
             // chkTop
             // 
             this.chkTop.AutoSize = true;
-            this.chkTop.Location = new System.Drawing.Point(534, 216);
+            this.chkTop.Location = new System.Drawing.Point(20, 319);
             this.chkTop.Name = "chkTop";
             this.chkTop.Size = new System.Drawing.Size(96, 17);
-            this.chkTop.TabIndex = 14;
+            this.chkTop.TabIndex = 12;
             this.chkTop.Text = "Always on Top";
             this.chkTop.UseVisualStyleBackColor = true;
             // 
@@ -2011,7 +2013,7 @@ namespace American_Football_Scoreboard
             this.gbSettingDown.Location = new System.Drawing.Point(347, 6);
             this.gbSettingDown.Name = "gbSettingDown";
             this.gbSettingDown.Size = new System.Drawing.Size(171, 131);
-            this.gbSettingDown.TabIndex = 10;
+            this.gbSettingDown.TabIndex = 14;
             this.gbSettingDown.TabStop = false;
             this.gbSettingDown.Text = "Down Labels";
             // 
@@ -2096,7 +2098,7 @@ namespace American_Football_Scoreboard
             this.gbSettingPeriod.Location = new System.Drawing.Point(524, 6);
             this.gbSettingPeriod.Name = "gbSettingPeriod";
             this.gbSettingPeriod.Size = new System.Drawing.Size(171, 180);
-            this.gbSettingPeriod.TabIndex = 12;
+            this.gbSettingPeriod.TabIndex = 16;
             this.gbSettingPeriod.TabStop = false;
             this.gbSettingPeriod.Text = "Period Labels";
             // 
@@ -2199,10 +2201,10 @@ namespace American_Football_Scoreboard
             // chkAdvanceQuarter
             // 
             this.chkAdvanceQuarter.AutoSize = true;
-            this.chkAdvanceQuarter.Location = new System.Drawing.Point(534, 192);
+            this.chkAdvanceQuarter.Location = new System.Drawing.Point(20, 295);
             this.chkAdvanceQuarter.Name = "chkAdvanceQuarter";
             this.chkAdvanceQuarter.Size = new System.Drawing.Size(132, 17);
-            this.chkAdvanceQuarter.TabIndex = 13;
+            this.chkAdvanceQuarter.TabIndex = 11;
             this.chkAdvanceQuarter.Text = "Auto-Advance Quarter";
             this.chkAdvanceQuarter.UseVisualStyleBackColor = true;
             // 
@@ -2269,7 +2271,7 @@ namespace American_Football_Scoreboard
             this.butSaveSettings.Location = new System.Drawing.Point(595, 278);
             this.butSaveSettings.Name = "butSaveSettings";
             this.butSaveSettings.Size = new System.Drawing.Size(100, 23);
-            this.butSaveSettings.TabIndex = 16;
+            this.butSaveSettings.TabIndex = 17;
             this.butSaveSettings.Text = "Save";
             this.butSaveSettings.UseVisualStyleBackColor = true;
             this.butSaveSettings.Click += new System.EventHandler(this.ButSaveSettings_Click);
@@ -2423,6 +2425,16 @@ namespace American_Football_Scoreboard
             // 
             this.tmrPlayer.Interval = 15000;
             this.tmrPlayer.Tick += new System.EventHandler(this.TmrPlayer_Tick);
+            // 
+            // chkSettingFirstDown
+            // 
+            this.chkSettingFirstDown.AutoSize = true;
+            this.chkSettingFirstDown.Location = new System.Drawing.Point(20, 272);
+            this.chkSettingFirstDown.Name = "chkSettingFirstDown";
+            this.chkSettingFirstDown.Size = new System.Drawing.Size(187, 17);
+            this.chkSettingFirstDown.TabIndex = 10;
+            this.chkSettingFirstDown.Text = "First Down on Possession Change";
+            this.chkSettingFirstDown.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -2696,6 +2708,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label lblHotKeyAwayTimeout;
         private System.Windows.Forms.TextBox txtHotKeyHomeTimeout;
         private System.Windows.Forms.Label lblHotKeyHomeTimeout;
+        private System.Windows.Forms.CheckBox chkSettingFirstDown;
     }
 }
 

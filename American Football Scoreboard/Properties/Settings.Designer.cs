@@ -610,5 +610,17 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyAwayTimeout"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PossessionChangeFirstDown {
+            get {
+                return ((bool)(this["PossessionChangeFirstDown"]));
+            }
+            set {
+                this["PossessionChangeFirstDown"] = value;
+            }
+        }
     }
 }

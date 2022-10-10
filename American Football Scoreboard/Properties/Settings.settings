@@ -149,5 +149,8 @@
     <Setting Name="HotKeyAwayTimeout" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + X</Value>
     </Setting>
+    <Setting Name="PossessionChangeFirstDown" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
