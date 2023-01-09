@@ -31,6 +31,7 @@ namespace American_Football_Scoreboard
         const string homeTeamNameFile = "HomeTeamName.txt";
         const string homeTeamScoreFile = "HomeTeamScore.txt";
         const string homeTimeoutsRemainingFile = "HomeTimeoutsRemaining.txt";
+        const string penaltyType = "PenaltyType.txt";
         const string periodFile = "Period.txt";
         const string playClockFile = "PlayClock.txt";
         const string scoreDescription = "ScoreDescription.txt";
@@ -337,6 +338,16 @@ namespace American_Football_Scoreboard
             rbPeriodThree.Checked = false;
             rbPeriodTwo.Checked = false;
             _ = WriteFileAsync(file: periodFile, content: string.Empty);
+            txtPeriodAwayFirst.Text = string.Empty;
+            txtPeriodAwaySecond.Text = string.Empty;
+            txtPeriodAwayThird.Text = string.Empty;
+            txtPeriodAwayFourth.Text = string.Empty;
+            txtPeriodAwayOT.Text = string.Empty;
+            txtPeriodHomeFirst.Text = string.Empty;
+            txtPeriodHomeSecond.Text = string.Empty;
+            txtPeriodHomeThird.Text = string.Empty;
+            txtPeriodHomeFourth.Text = string.Empty;
+            txtPeriodHomeOT.Text = string.Empty;
             currentPeriod = Period.Unknown;
         }
 
@@ -900,6 +911,12 @@ namespace American_Football_Scoreboard
             UpdateDownAndDistance();
         }
 
+        private void RbPenalty_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            WritePenaltyToFile(rb);
+        }
+
         private void RbPeriodFinal_CheckedChanged(object sender, EventArgs e)
         {
             rbDownBlank.Checked = true;
@@ -1123,6 +1140,18 @@ namespace American_Football_Scoreboard
         private void TmrFlag_Tick(object sender, EventArgs e)
         {
             chkFlag.Checked = false;
+            _ = WriteFileAsync(file: penaltyType, content: string.Empty);
+            foreach (Control control in this.gbPenalties.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        radio.Checked = false;
+                    }
+                }
+            }
         }
 
         private void TmrPlayer_Tick(object sender, EventArgs e)
@@ -1438,6 +1467,14 @@ namespace American_Football_Scoreboard
             {
                 await outputFile.WriteAsync(content);
             }
+        }
+
+        private void WritePenaltyToFile(Control radioButton)
+        {
+            _ = WriteFileAsync(file: penaltyType, content: " " + radioButton.Text + " ");
+            tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            tmrFlag.Enabled = true;
+            tmrFlag.Start();
         }
 
         private void WriteScore(string text)

@@ -125,6 +125,70 @@ namespace American_Football_Scoreboard
             this.txtPlayClock = new System.Windows.Forms.TextBox();
             this.butStartStopGameClock = new System.Windows.Forms.Button();
             this.butStartStopPlayClock = new System.Windows.Forms.Button();
+            this.tpPenalties = new System.Windows.Forms.TabPage();
+            this.gbPenalties = new System.Windows.Forms.GroupBox();
+            this.radioButton64 = new System.Windows.Forms.RadioButton();
+            this.radioButton63 = new System.Windows.Forms.RadioButton();
+            this.radioButton62 = new System.Windows.Forms.RadioButton();
+            this.radioButton61 = new System.Windows.Forms.RadioButton();
+            this.radioButton60 = new System.Windows.Forms.RadioButton();
+            this.radioButton59 = new System.Windows.Forms.RadioButton();
+            this.radioButton58 = new System.Windows.Forms.RadioButton();
+            this.radioButton57 = new System.Windows.Forms.RadioButton();
+            this.radioButton56 = new System.Windows.Forms.RadioButton();
+            this.radioButton55 = new System.Windows.Forms.RadioButton();
+            this.radioButton54 = new System.Windows.Forms.RadioButton();
+            this.radioButton53 = new System.Windows.Forms.RadioButton();
+            this.radioButton52 = new System.Windows.Forms.RadioButton();
+            this.radioButton51 = new System.Windows.Forms.RadioButton();
+            this.radioButton50 = new System.Windows.Forms.RadioButton();
+            this.radioButton49 = new System.Windows.Forms.RadioButton();
+            this.radioButton48 = new System.Windows.Forms.RadioButton();
+            this.radioButton46 = new System.Windows.Forms.RadioButton();
+            this.radioButton45 = new System.Windows.Forms.RadioButton();
+            this.radioButton44 = new System.Windows.Forms.RadioButton();
+            this.radioButton43 = new System.Windows.Forms.RadioButton();
+            this.radioButton42 = new System.Windows.Forms.RadioButton();
+            this.radioButton41 = new System.Windows.Forms.RadioButton();
+            this.radioButton40 = new System.Windows.Forms.RadioButton();
+            this.radioButton39 = new System.Windows.Forms.RadioButton();
+            this.radioButton38 = new System.Windows.Forms.RadioButton();
+            this.radioButton37 = new System.Windows.Forms.RadioButton();
+            this.radioButton36 = new System.Windows.Forms.RadioButton();
+            this.radioButton35 = new System.Windows.Forms.RadioButton();
+            this.radioButton34 = new System.Windows.Forms.RadioButton();
+            this.radioButton33 = new System.Windows.Forms.RadioButton();
+            this.radioButton32 = new System.Windows.Forms.RadioButton();
+            this.radioButton31 = new System.Windows.Forms.RadioButton();
+            this.radioButton30 = new System.Windows.Forms.RadioButton();
+            this.radioButton29 = new System.Windows.Forms.RadioButton();
+            this.radioButton28 = new System.Windows.Forms.RadioButton();
+            this.radioButton27 = new System.Windows.Forms.RadioButton();
+            this.radioButton26 = new System.Windows.Forms.RadioButton();
+            this.radioButton25 = new System.Windows.Forms.RadioButton();
+            this.radioButton24 = new System.Windows.Forms.RadioButton();
+            this.radioButton23 = new System.Windows.Forms.RadioButton();
+            this.radioButton22 = new System.Windows.Forms.RadioButton();
+            this.radioButton21 = new System.Windows.Forms.RadioButton();
+            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.radioButton19 = new System.Windows.Forms.RadioButton();
+            this.radioButton18 = new System.Windows.Forms.RadioButton();
+            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tpHotKeys = new System.Windows.Forms.TabPage();
             this.txtHotKeyAwayTimeout = new System.Windows.Forms.TextBox();
             this.lblHotKeyAwayTimeout = new System.Windows.Forms.Label();
@@ -180,6 +244,7 @@ namespace American_Football_Scoreboard
             this.lblHotKeyKey = new System.Windows.Forms.Label();
             this.lblHotKeyFunction = new System.Windows.Forms.Label();
             this.tpSettings = new System.Windows.Forms.TabPage();
+            this.chkSettingFirstDown = new System.Windows.Forms.CheckBox();
             this.lstPlayerImageFileType = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbPoints = new System.Windows.Forms.GroupBox();
@@ -251,7 +316,6 @@ namespace American_Football_Scoreboard
             this.tmrFlag = new System.Windows.Forms.Timer(this.components);
             this.tmrScore = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
-            this.chkSettingFirstDown = new System.Windows.Forms.CheckBox();
             this.tabMain.SuspendLayout();
             this.tpScoreboard.SuspendLayout();
             this.gbScoreByPeriod.SuspendLayout();
@@ -261,6 +325,8 @@ namespace American_Football_Scoreboard
             this.gbAway.SuspendLayout();
             this.gbHome.SuspendLayout();
             this.gbClock.SuspendLayout();
+            this.tpPenalties.SuspendLayout();
+            this.gbPenalties.SuspendLayout();
             this.tpHotKeys.SuspendLayout();
             this.gbHotKeysAway.SuspendLayout();
             this.gbHotKeysHome.SuspendLayout();
@@ -274,12 +340,13 @@ namespace American_Football_Scoreboard
             // tabMain
             // 
             this.tabMain.Controls.Add(this.tpScoreboard);
+            this.tabMain.Controls.Add(this.tpPenalties);
             this.tabMain.Controls.Add(this.tpHotKeys);
             this.tabMain.Controls.Add(this.tpSettings);
             this.tabMain.Location = new System.Drawing.Point(0, 27);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(786, 420);
+            this.tabMain.Size = new System.Drawing.Size(782, 427);
             this.tabMain.TabIndex = 0;
             // 
             // tpScoreboard
@@ -295,7 +362,7 @@ namespace American_Football_Scoreboard
             this.tpScoreboard.Location = new System.Drawing.Point(4, 22);
             this.tpScoreboard.Name = "tpScoreboard";
             this.tpScoreboard.Padding = new System.Windows.Forms.Padding(3);
-            this.tpScoreboard.Size = new System.Drawing.Size(778, 394);
+            this.tpScoreboard.Size = new System.Drawing.Size(774, 401);
             this.tpScoreboard.TabIndex = 0;
             this.tpScoreboard.Text = "Scoreboard";
             this.tpScoreboard.UseVisualStyleBackColor = true;
@@ -1295,6 +1362,831 @@ namespace American_Football_Scoreboard
             this.butStartStopPlayClock.UseVisualStyleBackColor = true;
             this.butStartStopPlayClock.Click += new System.EventHandler(this.ButStartStopPlayClock_Click);
             // 
+            // tpPenalties
+            // 
+            this.tpPenalties.Controls.Add(this.gbPenalties);
+            this.tpPenalties.Location = new System.Drawing.Point(4, 22);
+            this.tpPenalties.Name = "tpPenalties";
+            this.tpPenalties.Size = new System.Drawing.Size(774, 401);
+            this.tpPenalties.TabIndex = 3;
+            this.tpPenalties.Text = "Penalties";
+            this.tpPenalties.UseVisualStyleBackColor = true;
+            // 
+            // gbPenalties
+            // 
+            this.gbPenalties.Controls.Add(this.radioButton64);
+            this.gbPenalties.Controls.Add(this.radioButton63);
+            this.gbPenalties.Controls.Add(this.radioButton62);
+            this.gbPenalties.Controls.Add(this.radioButton61);
+            this.gbPenalties.Controls.Add(this.radioButton60);
+            this.gbPenalties.Controls.Add(this.radioButton59);
+            this.gbPenalties.Controls.Add(this.radioButton58);
+            this.gbPenalties.Controls.Add(this.radioButton57);
+            this.gbPenalties.Controls.Add(this.radioButton56);
+            this.gbPenalties.Controls.Add(this.radioButton55);
+            this.gbPenalties.Controls.Add(this.radioButton54);
+            this.gbPenalties.Controls.Add(this.radioButton53);
+            this.gbPenalties.Controls.Add(this.radioButton52);
+            this.gbPenalties.Controls.Add(this.radioButton51);
+            this.gbPenalties.Controls.Add(this.radioButton50);
+            this.gbPenalties.Controls.Add(this.radioButton49);
+            this.gbPenalties.Controls.Add(this.radioButton48);
+            this.gbPenalties.Controls.Add(this.radioButton46);
+            this.gbPenalties.Controls.Add(this.radioButton45);
+            this.gbPenalties.Controls.Add(this.radioButton44);
+            this.gbPenalties.Controls.Add(this.radioButton43);
+            this.gbPenalties.Controls.Add(this.radioButton42);
+            this.gbPenalties.Controls.Add(this.radioButton41);
+            this.gbPenalties.Controls.Add(this.radioButton40);
+            this.gbPenalties.Controls.Add(this.radioButton39);
+            this.gbPenalties.Controls.Add(this.radioButton38);
+            this.gbPenalties.Controls.Add(this.radioButton37);
+            this.gbPenalties.Controls.Add(this.radioButton36);
+            this.gbPenalties.Controls.Add(this.radioButton35);
+            this.gbPenalties.Controls.Add(this.radioButton34);
+            this.gbPenalties.Controls.Add(this.radioButton33);
+            this.gbPenalties.Controls.Add(this.radioButton32);
+            this.gbPenalties.Controls.Add(this.radioButton31);
+            this.gbPenalties.Controls.Add(this.radioButton30);
+            this.gbPenalties.Controls.Add(this.radioButton29);
+            this.gbPenalties.Controls.Add(this.radioButton28);
+            this.gbPenalties.Controls.Add(this.radioButton27);
+            this.gbPenalties.Controls.Add(this.radioButton26);
+            this.gbPenalties.Controls.Add(this.radioButton25);
+            this.gbPenalties.Controls.Add(this.radioButton24);
+            this.gbPenalties.Controls.Add(this.radioButton23);
+            this.gbPenalties.Controls.Add(this.radioButton22);
+            this.gbPenalties.Controls.Add(this.radioButton21);
+            this.gbPenalties.Controls.Add(this.radioButton20);
+            this.gbPenalties.Controls.Add(this.radioButton19);
+            this.gbPenalties.Controls.Add(this.radioButton18);
+            this.gbPenalties.Controls.Add(this.radioButton17);
+            this.gbPenalties.Controls.Add(this.radioButton16);
+            this.gbPenalties.Controls.Add(this.radioButton15);
+            this.gbPenalties.Controls.Add(this.radioButton14);
+            this.gbPenalties.Controls.Add(this.radioButton13);
+            this.gbPenalties.Controls.Add(this.radioButton12);
+            this.gbPenalties.Controls.Add(this.radioButton11);
+            this.gbPenalties.Controls.Add(this.radioButton10);
+            this.gbPenalties.Controls.Add(this.radioButton9);
+            this.gbPenalties.Controls.Add(this.radioButton8);
+            this.gbPenalties.Controls.Add(this.radioButton7);
+            this.gbPenalties.Controls.Add(this.radioButton5);
+            this.gbPenalties.Controls.Add(this.radioButton4);
+            this.gbPenalties.Controls.Add(this.radioButton3);
+            this.gbPenalties.Controls.Add(this.radioButton2);
+            this.gbPenalties.Controls.Add(this.radioButton1);
+            this.gbPenalties.Location = new System.Drawing.Point(3, 3);
+            this.gbPenalties.Name = "gbPenalties";
+            this.gbPenalties.Size = new System.Drawing.Size(762, 390);
+            this.gbPenalties.TabIndex = 0;
+            this.gbPenalties.TabStop = false;
+            this.gbPenalties.Text = "Penalties";
+            // 
+            // radioButton64
+            // 
+            this.radioButton64.AutoSize = true;
+            this.radioButton64.Location = new System.Drawing.Point(531, 341);
+            this.radioButton64.Name = "radioButton64";
+            this.radioButton64.Size = new System.Drawing.Size(94, 17);
+            this.radioButton64.TabIndex = 63;
+            this.radioButton64.TabStop = true;
+            this.radioButton64.Text = "Use Of Helmet";
+            this.radioButton64.UseVisualStyleBackColor = true;
+            this.radioButton64.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton63
+            // 
+            this.radioButton63.AutoSize = true;
+            this.radioButton63.Location = new System.Drawing.Point(531, 318);
+            this.radioButton63.Name = "radioButton63";
+            this.radioButton63.Size = new System.Drawing.Size(146, 17);
+            this.radioButton63.TabIndex = 62;
+            this.radioButton63.TabStop = true;
+            this.radioButton63.Text = "Unsportsmanlike Conduct";
+            this.radioButton63.UseVisualStyleBackColor = true;
+            this.radioButton63.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton62
+            // 
+            this.radioButton62.AutoSize = true;
+            this.radioButton62.Location = new System.Drawing.Point(531, 295);
+            this.radioButton62.Name = "radioButton62";
+            this.radioButton62.Size = new System.Drawing.Size(144, 17);
+            this.radioButton62.TabIndex = 61;
+            this.radioButton62.TabStop = true;
+            this.radioButton62.Text = "Unnecessary Roughness";
+            this.radioButton62.UseVisualStyleBackColor = true;
+            this.radioButton62.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton61
+            // 
+            this.radioButton61.AutoSize = true;
+            this.radioButton61.Location = new System.Drawing.Point(531, 272);
+            this.radioButton61.Name = "radioButton61";
+            this.radioButton61.Size = new System.Drawing.Size(229, 17);
+            this.radioButton61.TabIndex = 60;
+            this.radioButton61.TabStop = true;
+            this.radioButton61.Text = "Unnecessary Physical Contact With Official";
+            this.radioButton61.UseVisualStyleBackColor = true;
+            this.radioButton61.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton60
+            // 
+            this.radioButton60.AutoSize = true;
+            this.radioButton60.Location = new System.Drawing.Point(531, 249);
+            this.radioButton60.Name = "radioButton60";
+            this.radioButton60.Size = new System.Drawing.Size(63, 17);
+            this.radioButton60.TabIndex = 59;
+            this.radioButton60.TabStop = true;
+            this.radioButton60.Text = "Tripping";
+            this.radioButton60.UseVisualStyleBackColor = true;
+            this.radioButton60.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton59
+            // 
+            this.radioButton59.AutoSize = true;
+            this.radioButton59.Location = new System.Drawing.Point(531, 226);
+            this.radioButton59.Name = "radioButton59";
+            this.radioButton59.Size = new System.Drawing.Size(139, 17);
+            this.radioButton59.TabIndex = 58;
+            this.radioButton59.TabStop = true;
+            this.radioButton59.Text = "Too Many Men On Field";
+            this.radioButton59.UseVisualStyleBackColor = true;
+            this.radioButton59.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton58
+            // 
+            this.radioButton58.AutoSize = true;
+            this.radioButton58.Location = new System.Drawing.Point(531, 203);
+            this.radioButton58.Name = "radioButton58";
+            this.radioButton58.Size = new System.Drawing.Size(67, 17);
+            this.radioButton58.TabIndex = 57;
+            this.radioButton58.TabStop = true;
+            this.radioButton58.Text = "Taunting";
+            this.radioButton58.UseVisualStyleBackColor = true;
+            this.radioButton58.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton57
+            // 
+            this.radioButton57.AutoSize = true;
+            this.radioButton57.Location = new System.Drawing.Point(531, 180);
+            this.radioButton57.Name = "radioButton57";
+            this.radioButton57.Size = new System.Drawing.Size(223, 17);
+            this.radioButton57.TabIndex = 56;
+            this.radioButton57.TabStop = true;
+            this.radioButton57.Text = "Striking, Kicking, or Kneeing an Opponent";
+            this.radioButton57.UseVisualStyleBackColor = true;
+            this.radioButton57.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton56
+            // 
+            this.radioButton56.AutoSize = true;
+            this.radioButton56.Location = new System.Drawing.Point(531, 157);
+            this.radioButton56.Name = "radioButton56";
+            this.radioButton56.Size = new System.Drawing.Size(109, 17);
+            this.radioButton56.TabIndex = 55;
+            this.radioButton56.TabStop = true;
+            this.radioButton56.Text = "Sideline Infraction";
+            this.radioButton56.UseVisualStyleBackColor = true;
+            this.radioButton56.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton55
+            // 
+            this.radioButton55.AutoSize = true;
+            this.radioButton55.Location = new System.Drawing.Point(531, 134);
+            this.radioButton55.Name = "radioButton55";
+            this.radioButton55.Size = new System.Drawing.Size(141, 17);
+            this.radioButton55.TabIndex = 54;
+            this.radioButton55.TabStop = true;
+            this.radioButton55.Text = "Running Into The Kicker";
+            this.radioButton55.UseVisualStyleBackColor = true;
+            this.radioButton55.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton54
+            // 
+            this.radioButton54.AutoSize = true;
+            this.radioButton54.Location = new System.Drawing.Point(531, 111);
+            this.radioButton54.Name = "radioButton54";
+            this.radioButton54.Size = new System.Drawing.Size(128, 17);
+            this.radioButton54.TabIndex = 53;
+            this.radioButton54.TabStop = true;
+            this.radioButton54.Text = "Roughing The Passer";
+            this.radioButton54.UseVisualStyleBackColor = true;
+            this.radioButton54.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton53
+            // 
+            this.radioButton53.AutoSize = true;
+            this.radioButton53.Location = new System.Drawing.Point(531, 88);
+            this.radioButton53.Name = "radioButton53";
+            this.radioButton53.Size = new System.Drawing.Size(126, 17);
+            this.radioButton53.TabIndex = 52;
+            this.radioButton53.TabStop = true;
+            this.radioButton53.Text = "Roughing The Kicker";
+            this.radioButton53.UseVisualStyleBackColor = true;
+            this.radioButton53.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton52
+            // 
+            this.radioButton52.AutoSize = true;
+            this.radioButton52.Location = new System.Drawing.Point(531, 65);
+            this.radioButton52.Name = "radioButton52";
+            this.radioButton52.Size = new System.Drawing.Size(123, 17);
+            this.radioButton52.TabIndex = 51;
+            this.radioButton52.TabStop = true;
+            this.radioButton52.Text = "Roughing the Holder";
+            this.radioButton52.UseVisualStyleBackColor = true;
+            this.radioButton52.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton51
+            // 
+            this.radioButton51.AutoSize = true;
+            this.radioButton51.Location = new System.Drawing.Point(531, 42);
+            this.radioButton51.Name = "radioButton51";
+            this.radioButton51.Size = new System.Drawing.Size(133, 17);
+            this.radioButton51.TabIndex = 50;
+            this.radioButton51.TabStop = true;
+            this.radioButton51.Text = "Removal of the Helmet";
+            this.radioButton51.UseVisualStyleBackColor = true;
+            this.radioButton51.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton50
+            // 
+            this.radioButton50.AutoSize = true;
+            this.radioButton50.Location = new System.Drawing.Point(531, 19);
+            this.radioButton50.Name = "radioButton50";
+            this.radioButton50.Size = new System.Drawing.Size(168, 17);
+            this.radioButton50.TabIndex = 49;
+            this.radioButton50.TabStop = true;
+            this.radioButton50.Text = "Player Out Of Bounds On Kick";
+            this.radioButton50.UseVisualStyleBackColor = true;
+            this.radioButton50.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton49
+            // 
+            this.radioButton49.AutoSize = true;
+            this.radioButton49.Location = new System.Drawing.Point(369, 364);
+            this.radioButton49.Name = "radioButton49";
+            this.radioButton49.Size = new System.Drawing.Size(108, 17);
+            this.radioButton49.TabIndex = 48;
+            this.radioButton49.TabStop = true;
+            this.radioButton49.Text = "Pass Interference";
+            this.radioButton49.UseVisualStyleBackColor = true;
+            this.radioButton49.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton48
+            // 
+            this.radioButton48.AutoSize = true;
+            this.radioButton48.Location = new System.Drawing.Point(369, 341);
+            this.radioButton48.Name = "radioButton48";
+            this.radioButton48.Size = new System.Drawing.Size(123, 17);
+            this.radioButton48.TabIndex = 47;
+            this.radioButton48.TabStop = true;
+            this.radioButton48.Text = "Offside On Free Kick";
+            this.radioButton48.UseVisualStyleBackColor = true;
+            this.radioButton48.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton46
+            // 
+            this.radioButton46.AutoSize = true;
+            this.radioButton46.Location = new System.Drawing.Point(369, 318);
+            this.radioButton46.Name = "radioButton46";
+            this.radioButton46.Size = new System.Drawing.Size(106, 17);
+            this.radioButton46.TabIndex = 45;
+            this.radioButton46.TabStop = true;
+            this.radioButton46.Text = "Offensive Offside";
+            this.radioButton46.UseVisualStyleBackColor = true;
+            this.radioButton46.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton45
+            // 
+            this.radioButton45.AutoSize = true;
+            this.radioButton45.Location = new System.Drawing.Point(369, 295);
+            this.radioButton45.Name = "radioButton45";
+            this.radioButton45.Size = new System.Drawing.Size(109, 17);
+            this.radioButton45.TabIndex = 44;
+            this.radioButton45.TabStop = true;
+            this.radioButton45.Text = "Offensive Holding";
+            this.radioButton45.UseVisualStyleBackColor = true;
+            this.radioButton45.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton44
+            // 
+            this.radioButton44.AutoSize = true;
+            this.radioButton44.Location = new System.Drawing.Point(369, 272);
+            this.radioButton44.Name = "radioButton44";
+            this.radioButton44.Size = new System.Drawing.Size(134, 17);
+            this.radioButton44.TabIndex = 43;
+            this.radioButton44.TabStop = true;
+            this.radioButton44.Text = "Neutral Zone Infraction";
+            this.radioButton44.UseVisualStyleBackColor = true;
+            this.radioButton44.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton43
+            // 
+            this.radioButton43.AutoSize = true;
+            this.radioButton43.Location = new System.Drawing.Point(369, 249);
+            this.radioButton43.Name = "radioButton43";
+            this.radioButton43.Size = new System.Drawing.Size(75, 17);
+            this.radioButton43.TabIndex = 42;
+            this.radioButton43.TabStop = true;
+            this.radioButton43.Text = "Low Block";
+            this.radioButton43.UseVisualStyleBackColor = true;
+            this.radioButton43.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton42
+            // 
+            this.radioButton42.AutoSize = true;
+            this.radioButton42.Location = new System.Drawing.Point(369, 226);
+            this.radioButton42.Name = "radioButton42";
+            this.radioButton42.Size = new System.Drawing.Size(70, 17);
+            this.radioButton42.TabIndex = 41;
+            this.radioButton42.TabStop = true;
+            this.radioButton42.Text = "Leverage";
+            this.radioButton42.UseVisualStyleBackColor = true;
+            this.radioButton42.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton41
+            // 
+            this.radioButton41.AutoSize = true;
+            this.radioButton41.Location = new System.Drawing.Point(369, 203);
+            this.radioButton41.Name = "radioButton41";
+            this.radioButton41.Size = new System.Drawing.Size(63, 17);
+            this.radioButton41.TabIndex = 40;
+            this.radioButton41.TabStop = true;
+            this.radioButton41.Text = "Leaping";
+            this.radioButton41.UseVisualStyleBackColor = true;
+            this.radioButton41.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton40
+            // 
+            this.radioButton40.AutoSize = true;
+            this.radioButton40.Location = new System.Drawing.Point(369, 180);
+            this.radioButton40.Name = "radioButton40";
+            this.radioButton40.Size = new System.Drawing.Size(131, 17);
+            this.radioButton40.TabIndex = 39;
+            this.radioButton40.TabStop = true;
+            this.radioButton40.Text = "Kickoff Out Of Bounds";
+            this.radioButton40.UseVisualStyleBackColor = true;
+            this.radioButton40.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton39
+            // 
+            this.radioButton39.AutoSize = true;
+            this.radioButton39.Location = new System.Drawing.Point(369, 157);
+            this.radioButton39.Name = "radioButton39";
+            this.radioButton39.Size = new System.Drawing.Size(137, 17);
+            this.radioButton39.TabIndex = 38;
+            this.radioButton39.TabStop = true;
+            this.radioButton39.Text = "Kick Catch Interference";
+            this.radioButton39.UseVisualStyleBackColor = true;
+            this.radioButton39.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton38
+            // 
+            this.radioButton38.AutoSize = true;
+            this.radioButton38.Location = new System.Drawing.Point(369, 134);
+            this.radioButton38.Name = "radioButton38";
+            this.radioButton38.Size = new System.Drawing.Size(139, 17);
+            this.radioButton38.TabIndex = 37;
+            this.radioButton38.TabStop = true;
+            this.radioButton38.Text = "Invalid Fair Catch Signal";
+            this.radioButton38.UseVisualStyleBackColor = true;
+            this.radioButton38.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton37
+            // 
+            this.radioButton37.AutoSize = true;
+            this.radioButton37.Location = new System.Drawing.Point(369, 111);
+            this.radioButton37.Name = "radioButton37";
+            this.radioButton37.Size = new System.Drawing.Size(126, 17);
+            this.radioButton37.TabIndex = 36;
+            this.radioButton37.TabStop = true;
+            this.radioButton37.Text = "Intentional Grounding";
+            this.radioButton37.UseVisualStyleBackColor = true;
+            this.radioButton37.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton36
+            // 
+            this.radioButton36.AutoSize = true;
+            this.radioButton36.Location = new System.Drawing.Point(369, 88);
+            this.radioButton36.Name = "radioButton36";
+            this.radioButton36.Size = new System.Drawing.Size(142, 17);
+            this.radioButton36.TabIndex = 35;
+            this.radioButton36.TabStop = true;
+            this.radioButton36.Text = "Ineligible Downfield Pass";
+            this.radioButton36.UseVisualStyleBackColor = true;
+            this.radioButton36.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton35
+            // 
+            this.radioButton35.AutoSize = true;
+            this.radioButton35.Location = new System.Drawing.Point(369, 65);
+            this.radioButton35.Name = "radioButton35";
+            this.radioButton35.Size = new System.Drawing.Size(140, 17);
+            this.radioButton35.TabIndex = 34;
+            this.radioButton35.TabStop = true;
+            this.radioButton35.Text = "Ineligible Downfield Kick";
+            this.radioButton35.UseVisualStyleBackColor = true;
+            this.radioButton35.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton34
+            // 
+            this.radioButton34.AutoSize = true;
+            this.radioButton34.Location = new System.Drawing.Point(369, 42);
+            this.radioButton34.Name = "radioButton34";
+            this.radioButton34.Size = new System.Drawing.Size(90, 17);
+            this.radioButton34.TabIndex = 33;
+            this.radioButton34.TabStop = true;
+            this.radioButton34.Text = "Illegal Wedge";
+            this.radioButton34.UseVisualStyleBackColor = true;
+            this.radioButton34.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton33
+            // 
+            this.radioButton33.AutoSize = true;
+            this.radioButton33.Location = new System.Drawing.Point(369, 19);
+            this.radioButton33.Name = "radioButton33";
+            this.radioButton33.Size = new System.Drawing.Size(122, 17);
+            this.radioButton33.TabIndex = 32;
+            this.radioButton33.TabStop = true;
+            this.radioButton33.Text = "Illegal Use Of Hands";
+            this.radioButton33.UseVisualStyleBackColor = true;
+            this.radioButton33.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton32
+            // 
+            this.radioButton32.AutoSize = true;
+            this.radioButton32.Location = new System.Drawing.Point(176, 364);
+            this.radioButton32.Name = "radioButton32";
+            this.radioButton32.Size = new System.Drawing.Size(145, 17);
+            this.radioButton32.TabIndex = 31;
+            this.radioButton32.TabStop = true;
+            this.radioButton32.Text = "Illegal Touching of a Kick";
+            this.radioButton32.UseVisualStyleBackColor = true;
+            this.radioButton32.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton31
+            // 
+            this.radioButton31.AutoSize = true;
+            this.radioButton31.Location = new System.Drawing.Point(176, 318);
+            this.radioButton31.Name = "radioButton31";
+            this.radioButton31.Size = new System.Drawing.Size(188, 17);
+            this.radioButton31.TabIndex = 30;
+            this.radioButton31.TabStop = true;
+            this.radioButton31.Text = "Illegal Touching of a Forward Pass";
+            this.radioButton31.UseVisualStyleBackColor = true;
+            this.radioButton31.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton30
+            // 
+            this.radioButton30.AutoSize = true;
+            this.radioButton30.Location = new System.Drawing.Point(176, 295);
+            this.radioButton30.Name = "radioButton30";
+            this.radioButton30.Size = new System.Drawing.Size(110, 17);
+            this.radioButton30.TabIndex = 29;
+            this.radioButton30.TabStop = true;
+            this.radioButton30.Text = "Illegal Substitution";
+            this.radioButton30.UseVisualStyleBackColor = true;
+            this.radioButton30.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton29
+            // 
+            this.radioButton29.AutoSize = true;
+            this.radioButton29.Location = new System.Drawing.Point(176, 272);
+            this.radioButton29.Name = "radioButton29";
+            this.radioButton29.Size = new System.Drawing.Size(76, 17);
+            this.radioButton29.TabIndex = 28;
+            this.radioButton29.TabStop = true;
+            this.radioButton29.Text = "Illegal Shift";
+            this.radioButton29.UseVisualStyleBackColor = true;
+            this.radioButton29.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton28
+            // 
+            this.radioButton28.AutoSize = true;
+            this.radioButton28.Location = new System.Drawing.Point(176, 249);
+            this.radioButton28.Name = "radioButton28";
+            this.radioButton28.Size = new System.Drawing.Size(104, 17);
+            this.radioButton28.TabIndex = 27;
+            this.radioButton28.TabStop = true;
+            this.radioButton28.Text = "Illegal Peel Back";
+            this.radioButton28.UseVisualStyleBackColor = true;
+            this.radioButton28.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton27
+            // 
+            this.radioButton27.AutoSize = true;
+            this.radioButton27.Location = new System.Drawing.Point(176, 226);
+            this.radioButton27.Name = "radioButton27";
+            this.radioButton27.Size = new System.Drawing.Size(188, 17);
+            this.radioButton27.TabIndex = 26;
+            this.radioButton27.TabStop = true;
+            this.radioButton27.Text = "Illegal Kick And Kicking Loose Ball";
+            this.radioButton27.UseVisualStyleBackColor = true;
+            this.radioButton27.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton26
+            // 
+            this.radioButton26.AutoSize = true;
+            this.radioButton26.Location = new System.Drawing.Point(176, 203);
+            this.radioButton26.Name = "radioButton26";
+            this.radioButton26.Size = new System.Drawing.Size(119, 17);
+            this.radioButton26.TabIndex = 25;
+            this.radioButton26.TabStop = true;
+            this.radioButton26.Text = "Illegal Forward Pass";
+            this.radioButton26.UseVisualStyleBackColor = true;
+            this.radioButton26.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton25
+            // 
+            this.radioButton25.AutoSize = true;
+            this.radioButton25.Location = new System.Drawing.Point(176, 180);
+            this.radioButton25.Name = "radioButton25";
+            this.radioButton25.Size = new System.Drawing.Size(134, 17);
+            this.radioButton25.TabIndex = 24;
+            this.radioButton25.TabStop = true;
+            this.radioButton25.Text = "Illegal Forward Handoff";
+            this.radioButton25.UseVisualStyleBackColor = true;
+            this.radioButton25.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton24
+            // 
+            this.radioButton24.AutoSize = true;
+            this.radioButton24.Location = new System.Drawing.Point(176, 157);
+            this.radioButton24.Name = "radioButton24";
+            this.radioButton24.Size = new System.Drawing.Size(101, 17);
+            this.radioButton24.TabIndex = 23;
+            this.radioButton24.TabStop = true;
+            this.radioButton24.Text = "Illegal Formation";
+            this.radioButton24.UseVisualStyleBackColor = true;
+            this.radioButton24.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton23
+            // 
+            this.radioButton23.AutoSize = true;
+            this.radioButton23.Location = new System.Drawing.Point(176, 134);
+            this.radioButton23.Name = "radioButton23";
+            this.radioButton23.Size = new System.Drawing.Size(101, 17);
+            this.radioButton23.TabIndex = 22;
+            this.radioButton23.TabStop = true;
+            this.radioButton23.Text = "Illegal Cut Block";
+            this.radioButton23.UseVisualStyleBackColor = true;
+            this.radioButton23.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton22
+            // 
+            this.radioButton22.AutoSize = true;
+            this.radioButton22.Location = new System.Drawing.Point(176, 111);
+            this.radioButton22.Name = "radioButton22";
+            this.radioButton22.Size = new System.Drawing.Size(107, 17);
+            this.radioButton22.TabIndex = 21;
+            this.radioButton22.TabStop = true;
+            this.radioButton22.Text = "Illegal Crackback";
+            this.radioButton22.UseVisualStyleBackColor = true;
+            this.radioButton22.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton21
+            // 
+            this.radioButton21.AutoSize = true;
+            this.radioButton21.Location = new System.Drawing.Point(176, 88);
+            this.radioButton21.Name = "radioButton21";
+            this.radioButton21.Size = new System.Drawing.Size(92, 17);
+            this.radioButton21.TabIndex = 20;
+            this.radioButton21.TabStop = true;
+            this.radioButton21.Text = "Illegal Contact";
+            this.radioButton21.UseVisualStyleBackColor = true;
+            this.radioButton21.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton20
+            // 
+            this.radioButton20.AutoSize = true;
+            this.radioButton20.Location = new System.Drawing.Point(176, 65);
+            this.radioButton20.Name = "radioButton20";
+            this.radioButton20.Size = new System.Drawing.Size(168, 17);
+            this.radioButton20.TabIndex = 19;
+            this.radioButton20.TabStop = true;
+            this.radioButton20.Text = "Illegal Block Above The Waist";
+            this.radioButton20.UseVisualStyleBackColor = true;
+            this.radioButton20.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton19
+            // 
+            this.radioButton19.AutoSize = true;
+            this.radioButton19.Location = new System.Drawing.Point(176, 42);
+            this.radioButton19.Name = "radioButton19";
+            this.radioButton19.Size = new System.Drawing.Size(127, 17);
+            this.radioButton19.TabIndex = 18;
+            this.radioButton19.TabStop = true;
+            this.radioButton19.Text = "Illegal Blindside Block";
+            this.radioButton19.UseVisualStyleBackColor = true;
+            this.radioButton19.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton18
+            // 
+            this.radioButton18.AutoSize = true;
+            this.radioButton18.Location = new System.Drawing.Point(176, 19);
+            this.radioButton18.Name = "radioButton18";
+            this.radioButton18.Size = new System.Drawing.Size(71, 17);
+            this.radioButton18.TabIndex = 17;
+            this.radioButton18.TabStop = true;
+            this.radioButton18.Text = "Illegal Bat";
+            this.radioButton18.UseVisualStyleBackColor = true;
+            this.radioButton18.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton17
+            // 
+            this.radioButton17.AutoSize = true;
+            this.radioButton17.Location = new System.Drawing.Point(6, 364);
+            this.radioButton17.Name = "radioButton17";
+            this.radioButton17.Size = new System.Drawing.Size(82, 17);
+            this.radioButton17.TabIndex = 16;
+            this.radioButton17.TabStop = true;
+            this.radioButton17.Text = "Horse Collar";
+            this.radioButton17.UseVisualStyleBackColor = true;
+            this.radioButton17.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton16
+            // 
+            this.radioButton16.AutoSize = true;
+            this.radioButton16.Location = new System.Drawing.Point(6, 341);
+            this.radioButton16.Name = "radioButton16";
+            this.radioButton16.Size = new System.Drawing.Size(227, 17);
+            this.radioButton16.TabIndex = 15;
+            this.radioButton16.TabStop = true;
+            this.radioButton16.Text = "Forcibly Contacting a Player Out of Bounds";
+            this.radioButton16.UseVisualStyleBackColor = true;
+            this.radioButton16.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Location = new System.Drawing.Point(6, 318);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(75, 17);
+            this.radioButton15.TabIndex = 14;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Text = "False Start";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            this.radioButton15.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(6, 295);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(133, 17);
+            this.radioButton14.TabIndex = 13;
+            this.radioButton14.TabStop = true;
+            this.radioButton14.Text = "Fair Catch Interference";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            this.radioButton14.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(6, 272);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(74, 17);
+            this.radioButton13.TabIndex = 12;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "Facemask";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            this.radioButton13.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(6, 249);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(118, 17);
+            this.radioButton12.TabIndex = 11;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Equipment Violation";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            this.radioButton12.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(6, 226);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(94, 17);
+            this.radioButton11.TabIndex = 10;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "Encroachment";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            this.radioButton11.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(6, 203);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(96, 17);
+            this.radioButton10.TabIndex = 9;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Disqualification";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(6, 180);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(163, 17);
+            this.radioButton9.TabIndex = 8;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "Disconcerting Acts or Signals";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(6, 157);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(102, 17);
+            this.radioButton8.TabIndex = 7;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Delay Of Kickoff";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(6, 134);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(97, 17);
+            this.radioButton7.TabIndex = 6;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Delay Of Game";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(6, 111);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(109, 17);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Defensive Offside";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(6, 88);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(112, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Defensive Holding";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(6, 65);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(115, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Defenseless Player";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(6, 42);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(62, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Clipping";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(80, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Chop Block";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            // 
             // tpHotKeys
             // 
             this.tpHotKeys.Controls.Add(this.txtHotKeyAwayTimeout);
@@ -1328,7 +2220,7 @@ namespace American_Football_Scoreboard
             this.tpHotKeys.Controls.Add(this.lblHotKeyFunction);
             this.tpHotKeys.Location = new System.Drawing.Point(4, 22);
             this.tpHotKeys.Name = "tpHotKeys";
-            this.tpHotKeys.Size = new System.Drawing.Size(778, 394);
+            this.tpHotKeys.Size = new System.Drawing.Size(778, 420);
             this.tpHotKeys.TabIndex = 2;
             this.tpHotKeys.Text = "HotKeys";
             this.tpHotKeys.UseVisualStyleBackColor = true;
@@ -1823,10 +2715,20 @@ namespace American_Football_Scoreboard
             this.tpSettings.Location = new System.Drawing.Point(4, 22);
             this.tpSettings.Name = "tpSettings";
             this.tpSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSettings.Size = new System.Drawing.Size(778, 394);
+            this.tpSettings.Size = new System.Drawing.Size(778, 420);
             this.tpSettings.TabIndex = 1;
             this.tpSettings.Text = "Settings";
             this.tpSettings.UseVisualStyleBackColor = true;
+            // 
+            // chkSettingFirstDown
+            // 
+            this.chkSettingFirstDown.AutoSize = true;
+            this.chkSettingFirstDown.Location = new System.Drawing.Point(20, 272);
+            this.chkSettingFirstDown.Name = "chkSettingFirstDown";
+            this.chkSettingFirstDown.Size = new System.Drawing.Size(187, 17);
+            this.chkSettingFirstDown.TabIndex = 10;
+            this.chkSettingFirstDown.Text = "First Down on Possession Change";
+            this.chkSettingFirstDown.UseVisualStyleBackColor = true;
             // 
             // lstPlayerImageFileType
             // 
@@ -2338,7 +3240,7 @@ namespace American_Football_Scoreboard
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
             this.msMain.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.msMain.Size = new System.Drawing.Size(786, 24);
+            this.msMain.Size = new System.Drawing.Size(782, 24);
             this.msMain.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -2426,21 +3328,11 @@ namespace American_Football_Scoreboard
             this.tmrPlayer.Interval = 15000;
             this.tmrPlayer.Tick += new System.EventHandler(this.TmrPlayer_Tick);
             // 
-            // chkSettingFirstDown
-            // 
-            this.chkSettingFirstDown.AutoSize = true;
-            this.chkSettingFirstDown.Location = new System.Drawing.Point(20, 272);
-            this.chkSettingFirstDown.Name = "chkSettingFirstDown";
-            this.chkSettingFirstDown.Size = new System.Drawing.Size(187, 17);
-            this.chkSettingFirstDown.TabIndex = 10;
-            this.chkSettingFirstDown.Text = "First Down on Possession Change";
-            this.chkSettingFirstDown.UseVisualStyleBackColor = true;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 446);
+            this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.msMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2465,6 +3357,9 @@ namespace American_Football_Scoreboard
             this.gbHome.PerformLayout();
             this.gbClock.ResumeLayout(false);
             this.gbClock.PerformLayout();
+            this.tpPenalties.ResumeLayout(false);
+            this.gbPenalties.ResumeLayout(false);
+            this.gbPenalties.PerformLayout();
             this.tpHotKeys.ResumeLayout(false);
             this.tpHotKeys.PerformLayout();
             this.gbHotKeysAway.ResumeLayout(false);
@@ -2709,6 +3604,70 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.TextBox txtHotKeyHomeTimeout;
         private System.Windows.Forms.Label lblHotKeyHomeTimeout;
         private System.Windows.Forms.CheckBox chkSettingFirstDown;
+        private System.Windows.Forms.TabPage tpPenalties;
+        private System.Windows.Forms.GroupBox gbPenalties;
+        private System.Windows.Forms.RadioButton radioButton30;
+        private System.Windows.Forms.RadioButton radioButton29;
+        private System.Windows.Forms.RadioButton radioButton28;
+        private System.Windows.Forms.RadioButton radioButton27;
+        private System.Windows.Forms.RadioButton radioButton26;
+        private System.Windows.Forms.RadioButton radioButton25;
+        private System.Windows.Forms.RadioButton radioButton24;
+        private System.Windows.Forms.RadioButton radioButton23;
+        private System.Windows.Forms.RadioButton radioButton22;
+        private System.Windows.Forms.RadioButton radioButton21;
+        private System.Windows.Forms.RadioButton radioButton20;
+        private System.Windows.Forms.RadioButton radioButton19;
+        private System.Windows.Forms.RadioButton radioButton18;
+        private System.Windows.Forms.RadioButton radioButton17;
+        private System.Windows.Forms.RadioButton radioButton16;
+        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton64;
+        private System.Windows.Forms.RadioButton radioButton63;
+        private System.Windows.Forms.RadioButton radioButton62;
+        private System.Windows.Forms.RadioButton radioButton61;
+        private System.Windows.Forms.RadioButton radioButton60;
+        private System.Windows.Forms.RadioButton radioButton59;
+        private System.Windows.Forms.RadioButton radioButton58;
+        private System.Windows.Forms.RadioButton radioButton57;
+        private System.Windows.Forms.RadioButton radioButton56;
+        private System.Windows.Forms.RadioButton radioButton55;
+        private System.Windows.Forms.RadioButton radioButton54;
+        private System.Windows.Forms.RadioButton radioButton53;
+        private System.Windows.Forms.RadioButton radioButton52;
+        private System.Windows.Forms.RadioButton radioButton51;
+        private System.Windows.Forms.RadioButton radioButton50;
+        private System.Windows.Forms.RadioButton radioButton49;
+        private System.Windows.Forms.RadioButton radioButton48;
+        private System.Windows.Forms.RadioButton radioButton46;
+        private System.Windows.Forms.RadioButton radioButton45;
+        private System.Windows.Forms.RadioButton radioButton44;
+        private System.Windows.Forms.RadioButton radioButton43;
+        private System.Windows.Forms.RadioButton radioButton42;
+        private System.Windows.Forms.RadioButton radioButton41;
+        private System.Windows.Forms.RadioButton radioButton40;
+        private System.Windows.Forms.RadioButton radioButton39;
+        private System.Windows.Forms.RadioButton radioButton38;
+        private System.Windows.Forms.RadioButton radioButton37;
+        private System.Windows.Forms.RadioButton radioButton36;
+        private System.Windows.Forms.RadioButton radioButton35;
+        private System.Windows.Forms.RadioButton radioButton34;
+        private System.Windows.Forms.RadioButton radioButton33;
+        private System.Windows.Forms.RadioButton radioButton32;
+        private System.Windows.Forms.RadioButton radioButton31;
     }
 }
 
