@@ -346,7 +346,7 @@ namespace American_Football_Scoreboard
             this.tabMain.Location = new System.Drawing.Point(0, 27);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(782, 427);
+            this.tabMain.Size = new System.Drawing.Size(782, 419);
             this.tabMain.TabIndex = 0;
             // 
             // tpScoreboard
@@ -362,7 +362,7 @@ namespace American_Football_Scoreboard
             this.tpScoreboard.Location = new System.Drawing.Point(4, 22);
             this.tpScoreboard.Name = "tpScoreboard";
             this.tpScoreboard.Padding = new System.Windows.Forms.Padding(3);
-            this.tpScoreboard.Size = new System.Drawing.Size(774, 401);
+            this.tpScoreboard.Size = new System.Drawing.Size(774, 393);
             this.tpScoreboard.TabIndex = 0;
             this.tpScoreboard.Text = "Scoreboard";
             this.tpScoreboard.UseVisualStyleBackColor = true;
@@ -3240,7 +3240,7 @@ namespace American_Football_Scoreboard
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
             this.msMain.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.msMain.Size = new System.Drawing.Size(782, 24);
+            this.msMain.Size = new System.Drawing.Size(779, 24);
             this.msMain.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -3332,7 +3332,7 @@ namespace American_Football_Scoreboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 453);
+            this.ClientSize = new System.Drawing.Size(779, 445);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.msMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

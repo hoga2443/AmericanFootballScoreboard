@@ -101,7 +101,6 @@ public sealed class GlobalHotKey : IDisposable
 
     private class HotKeyWithAction
     {
-
         public HotKeyWithAction(ModifierKeys modifier, Key key, Action action)
         {
             Modifier = modifier;
