@@ -33,6 +33,7 @@ namespace American_Football_Scoreboard
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tpScoreboard = new System.Windows.Forms.TabPage();
+            this.ButClearAll = new System.Windows.Forms.Button();
             this.gbScoreByPeriod = new System.Windows.Forms.GroupBox();
             this.txtPeriodHomeOT = new System.Windows.Forms.TextBox();
             this.lblPeriodOT = new System.Windows.Forms.Label();
@@ -351,6 +352,7 @@ namespace American_Football_Scoreboard
             // 
             // tpScoreboard
             // 
+            this.tpScoreboard.Controls.Add(this.ButClearAll);
             this.tpScoreboard.Controls.Add(this.gbScoreByPeriod);
             this.tpScoreboard.Controls.Add(this.chkFlag);
             this.tpScoreboard.Controls.Add(this.gbSupplemental);
@@ -366,6 +368,16 @@ namespace American_Football_Scoreboard
             this.tpScoreboard.TabIndex = 0;
             this.tpScoreboard.Text = "Scoreboard";
             this.tpScoreboard.UseVisualStyleBackColor = true;
+            // 
+            // ButClearAll
+            // 
+            this.ButClearAll.Location = new System.Drawing.Point(367, 271);
+            this.ButClearAll.Name = "ButClearAll";
+            this.ButClearAll.Size = new System.Drawing.Size(75, 23);
+            this.ButClearAll.TabIndex = 23;
+            this.ButClearAll.Text = "Clear All";
+            this.ButClearAll.UseVisualStyleBackColor = true;
+            this.ButClearAll.Click += new System.EventHandler(this.ButClearAll_Click);
             // 
             // gbScoreByPeriod
             // 
@@ -672,7 +684,7 @@ namespace American_Football_Scoreboard
             this.butDownClear.TabIndex = 8;
             this.butDownClear.Text = "Clear";
             this.butDownClear.UseVisualStyleBackColor = true;
-            this.butDownClear.Click += new System.EventHandler(this.ButDownClear_Click);
+            this.butDownClear.Click += new System.EventHandler(this.ButClearDown_Click);
             // 
             // txtDistance
             // 
@@ -789,7 +801,7 @@ namespace American_Football_Scoreboard
             this.butPeriodClear.TabIndex = 6;
             this.butPeriodClear.Text = "Clear";
             this.butPeriodClear.UseVisualStyleBackColor = true;
-            this.butPeriodClear.Click += new System.EventHandler(this.ButPeriodClear_Click);
+            this.butPeriodClear.Click += new System.EventHandler(this.ButClearPeriod_Click);
             // 
             // rbPeriodOT
             // 
@@ -1367,7 +1379,7 @@ namespace American_Football_Scoreboard
             this.tpPenalties.Controls.Add(this.gbPenalties);
             this.tpPenalties.Location = new System.Drawing.Point(4, 22);
             this.tpPenalties.Name = "tpPenalties";
-            this.tpPenalties.Size = new System.Drawing.Size(774, 401);
+            this.tpPenalties.Size = new System.Drawing.Size(774, 393);
             this.tpPenalties.TabIndex = 3;
             this.tpPenalties.Text = "Penalties";
             this.tpPenalties.UseVisualStyleBackColor = true;
@@ -2220,7 +2232,7 @@ namespace American_Football_Scoreboard
             this.tpHotKeys.Controls.Add(this.lblHotKeyFunction);
             this.tpHotKeys.Location = new System.Drawing.Point(4, 22);
             this.tpHotKeys.Name = "tpHotKeys";
-            this.tpHotKeys.Size = new System.Drawing.Size(778, 420);
+            this.tpHotKeys.Size = new System.Drawing.Size(774, 393);
             this.tpHotKeys.TabIndex = 2;
             this.tpHotKeys.Text = "HotKeys";
             this.tpHotKeys.UseVisualStyleBackColor = true;
@@ -2715,7 +2727,7 @@ namespace American_Football_Scoreboard
             this.tpSettings.Location = new System.Drawing.Point(4, 22);
             this.tpSettings.Name = "tpSettings";
             this.tpSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSettings.Size = new System.Drawing.Size(778, 420);
+            this.tpSettings.Size = new System.Drawing.Size(774, 393);
             this.tpSettings.TabIndex = 1;
             this.tpSettings.Text = "Settings";
             this.tpSettings.UseVisualStyleBackColor = true;
@@ -3668,6 +3680,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.RadioButton radioButton33;
         private System.Windows.Forms.RadioButton radioButton32;
         private System.Windows.Forms.RadioButton radioButton31;
+        private System.Windows.Forms.Button ButClearAll;
     }
 }
 

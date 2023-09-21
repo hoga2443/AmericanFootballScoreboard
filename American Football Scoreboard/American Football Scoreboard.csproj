@@ -30,7 +30,7 @@
     <ProductName>American Football Scoreboard</ProductName>
     <PublisherName>Hogaboam Law Offices, PLLC</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.0.0.0</ApplicationVersion>
+    <ApplicationVersion>2.0.2.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -59,10 +59,10 @@
     <ApplicationIcon>img\AmericanFootballScoreboardIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A3C539AC82D5659D7DA9F37607C7AC0D5EC5E6A0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A0C20AEB9D31ED302A5ED3A3ABA9DEBA8852D9D0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>American Football Scoreboard_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>American Football Scoreboard_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -149,8 +149,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="American Football Scoreboard_1_TemporaryKey.pfx" />
-    <None Include="American Football Scoreboard_TemporaryKey.pfx" />
+    <None Include="American Football Scoreboard_2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

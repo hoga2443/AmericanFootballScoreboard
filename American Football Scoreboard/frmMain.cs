@@ -190,49 +190,37 @@ namespace American_Football_Scoreboard
             WriteScore(text: "Touchdown");
             WriteScoreImage(score: Score.Touchdown);
         }
+        private void ButClearAll_Click(object sender, EventArgs e)
+        {
+            ClearAway();
+            ClearClocks();
+            ClearDown();
+            ClearHome();
+            ClearPeriod();
+        }
         private void ButClearAway_Click(object sender, EventArgs e)
         {
-            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtAwayScore.Text = "0";
-            txtAwayTeam.Text = string.Empty;
-            txtPeriodAwayFirst.Text = string.Empty;
-            txtPeriodAwaySecond.Text = string.Empty;
-            txtPeriodAwayThird.Text = string.Empty;
-            txtPeriodAwayFourth.Text = string.Empty;
-            txtPeriodAwayOT.Text = string.Empty;
-            chkAwayPossession.Checked = false;
-            _ = WriteFileAsync(file: awayTeamNameFile, content: txtAwayTeam.Text);
+            ClearAway();
         }
         private void ButClearClocks_Click(object sender, EventArgs e)
         {
             ClearClocks();
         }
+        private void ButClearDown_Click(object sender, EventArgs e)
+        {
+            ClearDown();
+        }
         private void ButClearHome_Click(object sender, EventArgs e)
         {
-            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
-            txtHomeScore.Text = "0";
-            txtHomeTeam.Text = string.Empty;
-            txtPeriodHomeFirst.Text = string.Empty;
-            txtPeriodHomeSecond.Text = string.Empty;
-            txtPeriodHomeThird.Text = string.Empty;
-            txtPeriodHomeFourth.Text = string.Empty;
-            txtPeriodHomeOT.Text = string.Empty;
-            chkHomePossession.Checked = false;
-            _ = WriteFileAsync(file: homeTeamNameFile, content: txtHomeTeam.Text);
+            ClearHome();
+        }
+        private void ButClearPeriod_Click(object sender, EventArgs e)
+        {
+            ClearPeriod();
         }
         private void ButDistanceGoal_Click(object sender, EventArgs e)
         {
             txtDistance.Text = Properties.Settings.Default["GoalText"].ToString();
-        }
-        private void ButDownClear_Click(object sender, EventArgs e)
-        {
-            rbDownBlank.Checked = true;
-            rbDownOne.Checked = false;
-            rbDownTwo.Checked = false;
-            rbDownThree.Checked = false;
-            rbDownFour.Checked = false;
-            txtDistance.Text = String.Empty;
-            txtSpot.Text = String.Empty;
         }
         private void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
@@ -270,10 +258,6 @@ namespace American_Football_Scoreboard
         {
             AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
         }
-        private void HomeTimeoutsSubtract()
-        {
-            AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
-        }
         private void ButHomeTouchdown_Click(object sender, EventArgs e)
         {
             AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
@@ -293,28 +277,6 @@ namespace American_Football_Scoreboard
             DialogResult result = fbdOutput.ShowDialog();
             if (result == DialogResult.OK)
                 txtOutputFolder.Text = fbdOutput.SelectedPath;
-        }
-        private void ButPeriodClear_Click(object sender, EventArgs e)
-        {
-            rbPeriodFinal.Checked = false;
-            rbPeriodFour.Checked = false;
-            rbPeriodHalf.Checked = false;
-            rbPeriodOne.Checked = false;
-            rbPeriodOT.Checked = false;
-            rbPeriodThree.Checked = false;
-            rbPeriodTwo.Checked = false;
-            _ = WriteFileAsync(file: periodFile, content: string.Empty);
-            txtPeriodAwayFirst.Text = string.Empty;
-            txtPeriodAwaySecond.Text = string.Empty;
-            txtPeriodAwayThird.Text = string.Empty;
-            txtPeriodAwayFourth.Text = string.Empty;
-            txtPeriodAwayOT.Text = string.Empty;
-            txtPeriodHomeFirst.Text = string.Empty;
-            txtPeriodHomeSecond.Text = string.Empty;
-            txtPeriodHomeThird.Text = string.Empty;
-            txtPeriodHomeFourth.Text = string.Empty;
-            txtPeriodHomeOT.Text = string.Empty;
-            currentPeriod = Period.Unknown;
         }
         private void ButSaveHotKey_Click(object sender, EventArgs e)
         {
@@ -364,7 +326,7 @@ namespace American_Football_Scoreboard
                 errorMessage += "Safety points must be an integer. ";
             if (!int.TryParse(s: txtSettingPatKick.Text, out int patKickPoints))
                 errorMessage += "PAT - Kick points must be an integer. ";
-            if (!int.TryParse(s: txtSettingPatConversion.Text, out int patConvertionPoints))
+            if (!int.TryParse(s: txtSettingPatConversion.Text, out int patConversionPoints))
                 errorMessage += "PAT - Conv points must be an integer. ";
             if (!int.TryParse(s: txtSettingFieldGoal.Text, out int patFieldGoalPoints))
                 errorMessage += "Field Goal points must be an integer. ";
@@ -396,7 +358,7 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default["Safety"] = safetyPoints;
                 Properties.Settings.Default["PatKick"] = patKickPoints;
-                Properties.Settings.Default["PatConversion"] = patConvertionPoints;
+                Properties.Settings.Default["PatConversion"] = patConversionPoints;
                 Properties.Settings.Default["FieldGoal"] = patFieldGoalPoints;
                 Properties.Settings.Default["Touchdown"] = patTouchdownPoints;
                 Properties.Settings.Default["PlayerImageFileType"] = lstPlayerImageFileType.Text;
@@ -538,6 +500,19 @@ namespace American_Football_Scoreboard
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
         }
+        private void ClearAway()
+        {
+            txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtAwayScore.Text = "0";
+            txtAwayTeam.Text = string.Empty;
+            txtPeriodAwayFirst.Text = string.Empty;
+            txtPeriodAwaySecond.Text = string.Empty;
+            txtPeriodAwayThird.Text = string.Empty;
+            txtPeriodAwayFourth.Text = string.Empty;
+            txtPeriodAwayOT.Text = string.Empty;
+            chkAwayPossession.Checked = false;
+            _ = WriteFileAsync(file: awayTeamNameFile, content: txtAwayTeam.Text);
+        }
         private void ClearClocks()
         {
             tmrClockRefresh.Enabled = false;
@@ -546,6 +521,51 @@ namespace American_Football_Scoreboard
             _ = WriteFileAsync(file: gameClockFile, content: txtGameClock.Text);
             txtPlayClock.Text = Properties.Settings.Default.DefaultPlayClock;
             _ = WriteFileAsync(file: playClockFile, content: txtPlayClock.Text);
+        }
+        private void ClearDown()
+        {
+            rbDownBlank.Checked = true;
+            rbDownOne.Checked = false;
+            rbDownTwo.Checked = false;
+            rbDownThree.Checked = false;
+            rbDownFour.Checked = false;
+            txtDistance.Text = String.Empty;
+            txtSpot.Text = String.Empty;
+        }
+        private void ClearHome()
+        {
+            txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+            txtHomeScore.Text = "0";
+            txtHomeTeam.Text = string.Empty;
+            txtPeriodHomeFirst.Text = string.Empty;
+            txtPeriodHomeSecond.Text = string.Empty;
+            txtPeriodHomeThird.Text = string.Empty;
+            txtPeriodHomeFourth.Text = string.Empty;
+            txtPeriodHomeOT.Text = string.Empty;
+            chkHomePossession.Checked = false;
+            _ = WriteFileAsync(file: homeTeamNameFile, content: txtHomeTeam.Text);
+        }
+        private void ClearPeriod()
+        {
+            rbPeriodFinal.Checked = false;
+            rbPeriodFour.Checked = false;
+            rbPeriodHalf.Checked = false;
+            rbPeriodOne.Checked = false;
+            rbPeriodOT.Checked = false;
+            rbPeriodThree.Checked = false;
+            rbPeriodTwo.Checked = false;
+            _ = WriteFileAsync(file: periodFile, content: string.Empty);
+            txtPeriodAwayFirst.Text = string.Empty;
+            txtPeriodAwaySecond.Text = string.Empty;
+            txtPeriodAwayThird.Text = string.Empty;
+            txtPeriodAwayFourth.Text = string.Empty;
+            txtPeriodAwayOT.Text = string.Empty;
+            txtPeriodHomeFirst.Text = string.Empty;
+            txtPeriodHomeSecond.Text = string.Empty;
+            txtPeriodHomeThird.Text = string.Empty;
+            txtPeriodHomeFourth.Text = string.Empty;
+            txtPeriodHomeOT.Text = string.Empty;
+            currentPeriod = Period.Unknown;
         }
         /*
         Copy a file in the filesystem
@@ -615,6 +635,10 @@ namespace American_Football_Scoreboard
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\blank.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
         }
+        private void HomeTimeoutsSubtract()
+        {
+            AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
+        }
         private void InitializeDown()
         {
             string currentFile = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: downFile);
@@ -656,11 +680,13 @@ namespace American_Football_Scoreboard
                 rbPeriodFour.Checked = true;
             else if (quarter == Properties.Settings.Default.PeriodFinal)
                 rbPeriodFinal.Checked = true;
+            /*
             else
             {
                 rbPeriodOT.Checked = true;
                 txtPeriodOT.Text = quarter;
             }
+            */
         }
         private static void InitializeTextBox(TextBox textBox, string fileName)
         {
@@ -707,7 +733,7 @@ namespace American_Football_Scoreboard
             InitializeTextBox(textBox: txtPeriodHomeFourth, fileName: homePeriodScoreFourth);
             InitializeTextBox(textBox: txtPeriodHomeOT, fileName: homePeriodScoreOT);
 
-            chkHomePossession.Checked = true;
+            // chkHomePossession.Checked = true;
             InitializeDown();
             InitializeQuarter();
         }
@@ -1047,8 +1073,8 @@ namespace American_Football_Scoreboard
         private bool ShowPlayer(bool home, string jersey)
         {
             bool success = false;
-            string destinationPath = string.Empty;
-            string sourcePath = string.Empty;
+            string destinationPath;
+            string sourcePath;
             if (home)
             {
                 destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]);
