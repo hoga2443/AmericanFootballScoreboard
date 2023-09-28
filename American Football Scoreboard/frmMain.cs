@@ -218,6 +218,13 @@ namespace American_Football_Scoreboard
         {
             ClearPeriod();
         }
+        private void ButClearPlay_Click(object sender, EventArgs e)
+        {
+            playClockRunning = false;
+            txtPlayClock.Text = string.Empty;
+            _ = WriteFileAsync(file: playClockFile, content: txtPlayClock.Text);
+            butStartStopPlayClock.Text = "Start Play Clock";
+        }
         private void ButDistanceGoal_Click(object sender, EventArgs e)
         {
             txtDistance.Text = Properties.Settings.Default["GoalText"].ToString();
@@ -892,6 +899,10 @@ namespace American_Football_Scoreboard
                 txtPeriodAwayOT.Text = "0";
             if (string.IsNullOrEmpty(txtPeriodHomeOT.Text))
                 txtPeriodHomeOT.Text = "0";
+            txtGameClock.Text = string.Empty;
+            tmrClockRefresh.Enabled = false;
+            playClockRunning = false;
+            gameClockRunning = false;
         }
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
         {
@@ -901,6 +912,10 @@ namespace American_Football_Scoreboard
                 txtPeriodAwayThird.Text = "0";
             if (string.IsNullOrEmpty(txtPeriodHomeThird.Text))
                 txtPeriodHomeThird.Text = "0";
+            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+            tmrClockRefresh.Enabled = false;
+            playClockRunning = false;
+            gameClockRunning = false;
         }
         private void RbPeriodHalf_CheckedChanged(object sender, EventArgs e)
         {
@@ -917,13 +932,26 @@ namespace American_Football_Scoreboard
                 txtPeriodAwaySecond.Text = "0";
             if (string.IsNullOrEmpty(txtPeriodHomeSecond.Text))
                 txtPeriodHomeSecond.Text = "0";
+            if (rbPeriodHalf.Checked)
+            {
+                txtGameClock.Text = string.Empty;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
+            }
         }
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPeriodOne.Checked)
             {
+                txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
+                txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
                 _ = WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
                 currentPeriod = Period.One;
+                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
             }
         }
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
@@ -961,6 +989,10 @@ namespace American_Football_Scoreboard
                     txtPeriodAwayFirst.Text = "0";
                 if (string.IsNullOrEmpty(txtPeriodHomeFourth.Text))
                     txtPeriodHomeFirst.Text = "0";
+                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
             }
         }
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
@@ -977,6 +1009,10 @@ namespace American_Football_Scoreboard
                     txtPeriodAwaySecond.Text = "0";
                 if (string.IsNullOrEmpty(txtPeriodHomeSecond.Text))
                     txtPeriodHomeSecond.Text = "0";
+                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
             }
         }
         private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
@@ -989,6 +1025,7 @@ namespace American_Football_Scoreboard
                     txtPeriodAwayFirst.Text = "0";
                 if (string.IsNullOrEmpty(txtPeriodHomeFirst.Text))
                     txtPeriodHomeFirst.Text = "0";
+                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
             }
         }
         private void RegisterHotKeys()

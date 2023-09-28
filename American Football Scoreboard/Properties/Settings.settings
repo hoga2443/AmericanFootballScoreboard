@@ -152,5 +152,8 @@
     <Setting Name="PossessionChangeFirstDown" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="HotKeyClearPlayClock" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + K</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
