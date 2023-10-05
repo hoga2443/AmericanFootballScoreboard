@@ -116,9 +116,22 @@ namespace American_Football_Scoreboard
         private void AddTimeout(TextBox control, int timeoutsToAdd)
         {
             if (int.TryParse(s: control.Text, out int currentTimeouts))
-                control.Text = (currentTimeouts + timeoutsToAdd).ToString();
+            {
+                if (currentTimeouts + timeoutsToAdd < 0)
+                    control.Text = "0";
+                else
+                    control.Text = (currentTimeouts + timeoutsToAdd).ToString();
+            }
             else
                 control.Text = (timeoutsToAdd).ToString();
+            if (timeoutsToAdd == -1)
+            {
+                gameClockRunning = false;
+                butStartStopGameClock.Text = "Start Game Clock";
+                if (playClockRunning == false)
+                    tmrClockRefresh.Enabled = false;
+                SetPlayClock(duration: Properties.Settings.Default.ShortPlayClock, start: false);
+            }
         }
         private void AddVersionNumber()
         {
@@ -273,11 +286,11 @@ namespace American_Football_Scoreboard
         }
         private void ButNewDefaultPlay_Click(object sender, EventArgs e)
         {
-            SetStartPlayClock(duration: Properties.Settings.Default.DefaultPlayClock);
+            SetPlayClock(duration: Properties.Settings.Default.DefaultPlayClock, start: true);
         }
         private void ButNewShortPlay_Click(object sender, EventArgs e)
         {
-            SetStartPlayClock(duration: Properties.Settings.Default.ShortPlayClock);
+            SetPlayClock(duration: Properties.Settings.Default.ShortPlayClock, start: true);
         }
         private void ButOutputFolder_Click(object sender, EventArgs e)
         {
@@ -1075,15 +1088,18 @@ namespace American_Football_Scoreboard
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyPossession, aAction: () => TogglePossession()))
                 MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
         }
-        private void SetStartPlayClock(string duration)
+        private void SetPlayClock(string duration, bool start)
         {
             txtPlayClock.Text = duration;
-            playTimeRemaining = new TimeSpan(hours: 0, minutes: 0, seconds: int.Parse(txtPlayClock.Text));
-            playTimeEnd = DateTime.UtcNow + playTimeRemaining;
-            butStartStopPlayClock.Text = "Stop Play Clock";
-            if (!tmrClockRefresh.Enabled)
-                tmrClockRefresh.Enabled = true;
-            playClockRunning = true;
+            if (start)
+            {
+                playTimeRemaining = new TimeSpan(hours: 0, minutes: 0, seconds: int.Parse(txtPlayClock.Text));
+                playTimeEnd = DateTime.UtcNow + playTimeRemaining;
+                butStartStopPlayClock.Text = "Stop Play Clock";
+                if (!tmrClockRefresh.Enabled)
+                    tmrClockRefresh.Enabled = true;
+                playClockRunning = true;
+            }
         }
         private void ShowHidePlayer(bool home, Button button, TextBox textBox)
         {
