@@ -634,5 +634,29 @@ namespace American_Football_Scoreboard.Properties {
                 this["HotKeyClearPlayClock"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + T")]
+        public string HoeKeyGameAdd10s {
+            get {
+                return ((string)(this["HoeKeyGameAdd10s"]));
+            }
+            set {
+                this["HoeKeyGameAdd10s"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + R")]
+        public string HoeKeyGameAdd1s {
+            get {
+                return ((string)(this["HoeKeyGameAdd1s"]));
+            }
+            set {
+                this["HoeKeyGameAdd1s"] = value;
+            }
+        }
     }
 }

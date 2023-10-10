@@ -113,6 +113,23 @@ namespace American_Football_Scoreboard
         Method to increase/decrease the number of timeouts in a specified control
         Called by all functions which alter a number of timeouts
         */
+        private void AddGameTime(int seconds)
+        {
+            TimeSpan additionalSeconds = new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: seconds, milliseconds: 0);
+            if (gameClockRunning)
+            {
+                periodClockEnd += additionalSeconds;
+            }
+            else
+            {
+                periodTimeRemaining = TimeRemainingFromTextBox() + additionalSeconds;
+                if (periodTimeRemaining < oneMinute && Properties.Settings.Default.SubSecond)
+                    txtGameClock.Text = "0:" + periodTimeRemaining.Seconds.ToString().PadLeft(totalWidth: 2, paddingChar: padZero) + "." + periodTimeRemaining.Milliseconds.ToString().Substring(startIndex: 0, length: 1);
+                else
+                    txtGameClock.Text = periodTimeRemaining.Minutes.ToString().PadLeft(totalWidth: 2, paddingChar: padZero) + ":" + periodTimeRemaining.Seconds.ToString().PadLeft(totalWidth: 2, paddingChar: padZero);
+                _ = WriteFileAsync(file: gameClockFile, content: txtGameClock.Text);
+            }
+        }
         private void AddTimeout(TextBox control, int timeoutsToAdd)
         {
             if (int.TryParse(s: control.Text, out int currentTimeouts))
@@ -241,6 +258,14 @@ namespace American_Football_Scoreboard
         private void ButDistanceGoal_Click(object sender, EventArgs e)
         {
             txtDistance.Text = Properties.Settings.Default["GoalText"].ToString();
+        }
+        private void ButGamePlus1_Click(object sender, EventArgs e)
+        {
+            AddGameTime(seconds: 1);
+        }
+        private void ButGamePlus10_Click(object sender, EventArgs e)
+        {
+            AddGameTime(seconds: 10);
         }
         private void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
@@ -409,14 +434,8 @@ namespace American_Football_Scoreboard
             {
                 if (txtGameClock.Text.Trim() == string.Empty)
                     txtGameClock.Text = Properties.Settings.Default.DefaultPeriod.ToString();
-                if (txtGameClock.Text.Contains("."))
-                {
-                    periodTimeRemaining = new TimeSpan(days: 0, hours: 0, minutes: int.Parse(txtGameClock.Text.Substring(startIndex: 0, length: 1)), seconds: int.Parse(txtGameClock.Text.Substring(startIndex: 2, length: 2)), milliseconds: int.Parse(txtGameClock.Text.Substring(startIndex: 5, length: 1)) * 100);
-                }
-                else
-                {
-                    periodTimeRemaining = new TimeSpan(hours: 0, minutes: int.Parse(txtGameClock.Text.Substring(startIndex: 0, length: 2)), seconds: int.Parse(txtGameClock.Text.Substring(startIndex: 3, length: 2)));
-                }
+
+                periodTimeRemaining = TimeRemainingFromTextBox();
                 periodClockEnd = DateTime.UtcNow + periodTimeRemaining;
                 butStartStopGameClock.Text = "Stop Game Clock";
             }
@@ -1148,6 +1167,18 @@ namespace American_Football_Scoreboard
                 success = true;
             }
             return success;
+        }
+        private TimeSpan TimeRemainingFromTextBox()
+        {
+            if (txtGameClock.Text.Contains("."))
+            {
+                periodTimeRemaining = new TimeSpan(days: 0, hours: 0, minutes: int.Parse(txtGameClock.Text.Substring(startIndex: 0, length: 1)), seconds: int.Parse(txtGameClock.Text.Substring(startIndex: 2, length: 2)), milliseconds: int.Parse(txtGameClock.Text.Substring(startIndex: 5, length: 1)) * 100);
+            }
+            else
+            {
+                periodTimeRemaining = new TimeSpan(hours: 0, minutes: int.Parse(txtGameClock.Text.Substring(startIndex: 0, length: 2)), seconds: int.Parse(txtGameClock.Text.Substring(startIndex: 3, length: 2)));
+            }
+            return periodTimeRemaining;
         }
         private void TmrClockRefresh_Tick(object sender, EventArgs e)
         {

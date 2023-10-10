@@ -155,5 +155,11 @@
     <Setting Name="HotKeyClearPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + K</Value>
     </Setting>
+    <Setting Name="HoeKeyGameAdd10s" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + T</Value>
+    </Setting>
+    <Setting Name="HoeKeyGameAdd1s" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + R</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
