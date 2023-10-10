@@ -325,18 +325,21 @@ namespace American_Football_Scoreboard
         }
         private void ButSaveHotKey_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["HotKeyAwaySafety"] = txtHotKeyAwaySafety.Text;
-            Properties.Settings.Default["HotKeyAwayPatKick"] = txtHotKeyAwayPatKick.Text;
-            Properties.Settings.Default["HotKeyAwayPatConversion"] = txtHotKeyAwayPatConversion.Text;
             Properties.Settings.Default["HotKeyAwayFieldGoal"] = txtHotKeyAwayFieldGoal.Text;
+            Properties.Settings.Default["HotKeyAwayPatConversion"] = txtHotKeyAwayPatConversion.Text;
+            Properties.Settings.Default["HotKeyAwayPatKick"] = txtHotKeyAwayPatKick.Text;
+            Properties.Settings.Default["HotKeyAwaySafety"] = txtHotKeyAwaySafety.Text;
             Properties.Settings.Default["HotKeyAwayTouchdown"] = txtHotKeyAwayTouchdown.Text;
             Properties.Settings.Default["HotKeyClearClocks"] = txtHotKeyClearClocks.Text;
+            Properties.Settings.Default["HotKeyClearPlayClock"] = txtHotKeyClearPlayClock.Text;
             Properties.Settings.Default["HotKeyFirstDown"] = txtHotKeyFirstDown.Text;
             Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
-            Properties.Settings.Default["HotKeyHomeSafety"] = txtHotKeyHomeSafety.Text;
-            Properties.Settings.Default["HotKeyHomePatKick"] = txtHotKeyHomePatKick.Text;
-            Properties.Settings.Default["HotKeyHomePatConversion"] = txtHotKeyHomePatConversion.Text;
+            Properties.Settings.Default["HotKeyGameAdd10s"] = txtHotKeyGameAdd10s.Text;
+            Properties.Settings.Default["HotKeyGameAdd1s"] = txtHotKeyGameAdd1s.Text;
             Properties.Settings.Default["HotKeyHomeFieldGoal"] = txtHotKeyHomeFieldGoal.Text;
+            Properties.Settings.Default["HotKeyHomePatConversion"] = txtHotKeyHomePatConversion.Text;
+            Properties.Settings.Default["HotKeyHomePatKick"] = txtHotKeyHomePatKick.Text;
+            Properties.Settings.Default["HotKeyHomeSafety"] = txtHotKeyHomeSafety.Text;
             Properties.Settings.Default["HotKeyHomeTouchdown"] = txtHotKeyHomeTouchdown.Text;
             Properties.Settings.Default["HotKeyNewDefaultPlayClock"] = txtHotKeyNewDefaultPlayClock.Text;
             Properties.Settings.Default["HotKeyNewShortPlayClock"] = txtHotKeyNewShortPlayClock.Text;
@@ -346,7 +349,6 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
             Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
             Properties.Settings.Default.Save();
-
             DialogResult result = MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect. Restart Now?", caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
@@ -812,19 +814,24 @@ namespace American_Football_Scoreboard
         }
         private void LoadHotKeySettings()
         {
-            txtHotKeyHomeSafety.Text = Properties.Settings.Default.HotKeyHomeSafety;
-            txtHotKeyHomePatKick.Text = Properties.Settings.Default.HotKeyHomePatKick;
-            txtHotKeyHomePatConversion.Text = Properties.Settings.Default.HotKeyHomePatConversion;
-            txtHotKeyHomeFieldGoal.Text = Properties.Settings.Default.HotKeyHomeFieldGoal;
-            txtHotKeyHomeTouchdown.Text = Properties.Settings.Default.HotKeyHomeTouchdown;
-            txtHotKeyAwaySafety.Text = Properties.Settings.Default.HotKeyAwaySafety;
-            txtHotKeyAwayPatKick.Text = Properties.Settings.Default.HotKeyAwayPatKick;
-            txtHotKeyAwayPatConversion.Text = Properties.Settings.Default.HotKeyAwayPatConversion;
             txtHotKeyAwayFieldGoal.Text = Properties.Settings.Default.HotKeyAwayFieldGoal;
+            txtHotKeyAwayPatConversion.Text = Properties.Settings.Default.HotKeyAwayPatConversion;
+            txtHotKeyAwayPatKick.Text = Properties.Settings.Default.HotKeyAwayPatKick;
+            txtHotKeyAwaySafety.Text = Properties.Settings.Default.HotKeyAwaySafety;
+            txtHotKeyAwayTimeout.Text = Properties.Settings.Default.HotKeyAwayTimeout;
             txtHotKeyAwayTouchdown.Text = Properties.Settings.Default.HotKeyAwayTouchdown;
             txtHotKeyClearClocks.Text = Properties.Settings.Default.HotKeyClearClocks;
-            txtHotKeyFirstDown.Text = Properties.Settings.Default.HotKeyFirstDown; 
+            txtHotKeyClearPlayClock.Text = Properties.Settings.Default.HotKeyClearPlayClock;
+            txtHotKeyFirstDown.Text = Properties.Settings.Default.HotKeyFirstDown;
             txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
+            txtHotKeyGameAdd10s.Text = Properties.Settings.Default.HotKeyGameAdd10s;
+            txtHotKeyGameAdd1s.Text = Properties.Settings.Default.HotKeyGameAdd1s;
+            txtHotKeyHomeFieldGoal.Text = Properties.Settings.Default.HotKeyHomeFieldGoal;
+            txtHotKeyHomePatConversion.Text = Properties.Settings.Default.HotKeyHomePatConversion;
+            txtHotKeyHomePatKick.Text = Properties.Settings.Default.HotKeyHomePatKick;
+            txtHotKeyHomeTouchdown.Text = Properties.Settings.Default.HotKeyHomeTouchdown;
+            txtHotKeyHomeSafety.Text = Properties.Settings.Default.HotKeyHomeSafety;
+            txtHotKeyHomeTimeout.Text = Properties.Settings.Default.HotKeyHomeTimeout;
             txtHotKeyNewDefaultPlayClock.Text = Properties.Settings.Default.HotKeyNewDefaultPlayClock;
             txtHotKeyNewShortPlayClock.Text = Properties.Settings.Default.HotKeyNewShortPlayClock;
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
@@ -832,8 +839,6 @@ namespace American_Football_Scoreboard
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
-            txtHotKeyHomeTimeout.Text = Properties.Settings.Default.HotKeyHomeTimeout;
-            txtHotKeyAwayTimeout.Text = Properties.Settings.Default.HotKeyAwayTimeout;
         }
         private void LoadSettings()
         {

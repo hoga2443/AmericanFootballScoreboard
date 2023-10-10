@@ -638,24 +638,24 @@ namespace American_Football_Scoreboard.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + T")]
-        public string HoeKeyGameAdd10s {
+        public string HotKeyGameAdd10s {
             get {
-                return ((string)(this["HoeKeyGameAdd10s"]));
+                return ((string)(this["HotKeyGameAdd10s"]));
             }
             set {
-                this["HoeKeyGameAdd10s"] = value;
+                this["HotKeyGameAdd10s"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + R")]
-        public string HoeKeyGameAdd1s {
+        public string HotKeyGameAdd1s {
             get {
-                return ((string)(this["HoeKeyGameAdd1s"]));
+                return ((string)(this["HotKeyGameAdd1s"]));
             }
             set {
-                this["HoeKeyGameAdd1s"] = value;
+                this["HotKeyGameAdd1s"] = value;
             }
         }
     }
