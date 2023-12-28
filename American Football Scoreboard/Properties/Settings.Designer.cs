@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -656,6 +656,42 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["HotKeyGameAdd1s"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + U")]
+        public string HotKeyGameSubtract10s {
+            get {
+                return ((string)(this["HotKeyGameSubtract10s"]));
+            }
+            set {
+                this["HotKeyGameSubtract10s"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + V")]
+        public string HotKeyGameSubtract1s {
+            get {
+                return ((string)(this["HotKeyGameSubtract1s"]));
+            }
+            set {
+                this["HotKeyGameSubtract1s"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + W")]
+        public string HotKeyRedZone {
+            get {
+                return ((string)(this["HotKeyRedZone"]));
+            }
+            set {
+                this["HotKeyRedZone"] = value;
             }
         }
     }

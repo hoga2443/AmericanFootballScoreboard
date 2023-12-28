@@ -1,6 +1,8 @@
 ﻿using Squirrel;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -54,6 +56,8 @@ namespace American_Football_Scoreboard
             LoadSettings();
             InitializeUI();
             RegisterHotKeys();
+            PopulateImageButtonsAway();
+            PopulateImageButtonsHome();
         }
         private void AddScore(bool home, TextBox textBox, int points, string message = "")
         {
@@ -259,13 +263,21 @@ namespace American_Football_Scoreboard
         {
             txtDistance.Text = Properties.Settings.Default["GoalText"].ToString();
         }
-        private void ButGamePlus1_Click(object sender, EventArgs e)
+        private void ButGameAdd1_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: 1);
         }
-        private void ButGamePlus10_Click(object sender, EventArgs e)
+        private void ButGameAdd10_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: 10);
+        }
+        private void ButGameSubtract1_Click(object sender, EventArgs e)
+        {
+            AddGameTime(seconds: -1);
+        }
+        private void ButGameSubtract10_Click(object sender, EventArgs e)
+        {
+            AddGameTime(seconds: -10);
         }
         private void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
@@ -336,6 +348,8 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyFlag"] = txtHotKeyFlag.Text;
             Properties.Settings.Default["HotKeyGameAdd10s"] = txtHotKeyGameAdd10s.Text;
             Properties.Settings.Default["HotKeyGameAdd1s"] = txtHotKeyGameAdd1s.Text;
+            Properties.Settings.Default["HotKeyGameSubtract10s"] = txtHotKeyGameSubtract10s.Text;
+            Properties.Settings.Default["HotKeyGameSubtract1s"] = txtHotKeyGameSubtract1s.Text;
             Properties.Settings.Default["HotKeyHomeFieldGoal"] = txtHotKeyHomeFieldGoal.Text;
             Properties.Settings.Default["HotKeyHomePatConversion"] = txtHotKeyHomePatConversion.Text;
             Properties.Settings.Default["HotKeyHomePatKick"] = txtHotKeyHomePatKick.Text;
@@ -352,7 +366,7 @@ namespace American_Football_Scoreboard
             DialogResult result = MessageBox.Show(text: "Please re-start the application for new Hot Keys to take effect. Restart Now?", caption: "AFS", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                Application.Restart();
+                System.Windows.Forms.Application.Restart();
                 Environment.Exit(exitCode: 0);
             }
         }
@@ -422,7 +436,7 @@ namespace American_Football_Scoreboard
         }
         private void ButSendSupplemental_Click(object sender, EventArgs e)
         {
-            _ = WriteFileAsync(file: supplementalFile, content: txtSupplemental.Text);
+            SendSupplemental();
         }
         private void ButStartStopGameClock_Click(object sender, EventArgs e)
         {
@@ -463,6 +477,11 @@ namespace American_Football_Scoreboard
                 butStartStopPlayClock.Text = "Stop Play Clock";
             }
             playClockRunning = !playClockRunning;
+        }
+        private void ButSeparatePlayerImageForm_Click(object sender, EventArgs e)
+        {
+            FrmPlayerImages frmPlayerImages = new FrmPlayerImages();
+            frmPlayerImages.Show();
         }
         private async Task CheckForUpdates()
         {
@@ -540,6 +559,22 @@ namespace American_Football_Scoreboard
             }
             else
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
+        }
+        private void ChkRed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRed.Checked)
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "RedZone\\RedZone.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "RedZone.png"));
+                tmrRed.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                tmrRed.Enabled = true;
+                tmrRed.Start();
+            }
+            else
+            {
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "RedZone\\NoRedZone.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "RedZone.png"));
+                tmrRed.Stop();
+                tmrRed.Enabled = false;
+            }
         }
         private void ClearAway()
         {
@@ -669,12 +704,19 @@ namespace American_Football_Scoreboard
         {
             GlobalHotKey.DeRegisterHotKeys();
         }
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            txtDistance.Click += TxtDistance_OnFocus;
+            txtDistance.GotFocus += TxtDistance_OnFocus;
+            txtSpot.Click += TxtSpot_OnFocus;
+            txtSpot.GotFocus += TxtSpot_OnFocus;
+        }
         private void HidePlayer(bool home)
         {
             if (home)
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\blank.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\Blank." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayer." + Properties.Settings.Default["PlayerImageFileType"]));
             else
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\blank.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player.png"));
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\Blank." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayer." + Properties.Settings.Default["PlayerImageFileType"]));
         }
         private void HomeTimeoutsSubtract()
         {
@@ -826,6 +868,8 @@ namespace American_Football_Scoreboard
             txtHotKeyFlag.Text = Properties.Settings.Default.HotKeyFlag;
             txtHotKeyGameAdd10s.Text = Properties.Settings.Default.HotKeyGameAdd10s;
             txtHotKeyGameAdd1s.Text = Properties.Settings.Default.HotKeyGameAdd1s;
+            txtHotKeyGameSubtract10s.Text = Properties.Settings.Default.HotKeyGameSubtract10s;
+            txtHotKeyGameSubtract1s.Text = Properties.Settings.Default.HotKeyGameSubtract1s;
             txtHotKeyHomeFieldGoal.Text = Properties.Settings.Default.HotKeyHomeFieldGoal;
             txtHotKeyHomePatConversion.Text = Properties.Settings.Default.HotKeyHomePatConversion;
             txtHotKeyHomePatKick.Text = Properties.Settings.Default.HotKeyHomePatKick;
@@ -879,6 +923,49 @@ namespace American_Football_Scoreboard
                 txtDistance.Text = "10";
             }
         }
+        private void PopulateImageButtonsAway()
+        {
+            PopulateImageButtons("AwayPlayers", gbAwayPlayers, "butAway", ShowAwayPlayer);
+        }
+        private void PopulateImageButtonsHome()
+        {
+            PopulateImageButtons("HomePlayers", gbHomePlayers, "butHome", ShowHomePlayer);
+        }
+        private void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
+        {
+            string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
+            string[] directoryContents = Directory.GetFiles(sourcePath);
+            List<int> numbers = new List<int>();
+            foreach (string file in directoryContents)
+            {
+                string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
+                if (int.TryParse(playerNumber, out int number))
+                {
+                    numbers.Add(number);
+                }
+            }
+            numbers.Sort((x, y) => x.CompareTo(y));
+            int buttonRow = 0;
+            int buttonColumn = 0;
+            foreach (var number in numbers)
+            {
+                if (buttonRow >= 17)
+                {
+                    buttonRow = 0;
+                    buttonColumn++;
+                }
+                Button button = new Button
+                {
+                    Name = buttonPrefix + number.ToString(),
+                    Text = number.ToString(),
+                    Top = 20 + buttonRow * 22,
+                    Left = 10 + buttonColumn * 80,
+                };
+                button.Click += eventName;
+                groupBox.Controls.Add(button);
+                buttonRow++;
+            }
+        }
         private void RbDownBlank_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownBlank.Checked)
@@ -912,6 +999,30 @@ namespace American_Football_Scoreboard
             if (rbDownTwo.Checked)
                 _ = WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down2);
             UpdateDownAndDistance();
+        }
+        private void RbMessageClear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMessageClear.Checked)
+            {
+                txtSupplemental.Text = string.Empty;
+                SendSupplemental();
+            }
+        }
+        private void RbMessageInjury_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMessageInjury.Checked)
+            {
+                txtSupplemental.Text = rbMessageInjury.Text;
+                SendSupplemental();
+            }
+        }
+        private void RbMessageWeather_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMessageWeather.Checked)
+            {
+                txtSupplemental.Text = rbMessageWeather.Text;
+                SendSupplemental();
+            }
         }
         private void RbPenalty_CheckedChanged(object sender, EventArgs e)
         {
@@ -1112,6 +1223,10 @@ namespace American_Football_Scoreboard
             if (!GlobalHotKey.RegisterHotKey(aKeyGestureString: Properties.Settings.Default.HotKeyPossession, aAction: () => TogglePossession()))
                 MessageBox.Show(text: "Unable to register Hot Key for Possession!", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
         }
+        private void SendSupplemental()
+        {
+            _ = WriteFileAsync(file: supplementalFile, content: txtSupplemental.Text);
+        }
         private void SetPlayClock(string duration, bool start)
         {
             txtPlayClock.Text = duration;
@@ -1125,6 +1240,10 @@ namespace American_Football_Scoreboard
                 playClockRunning = true;
             }
         }
+        private void ShowAwayPlayer(object sender, EventArgs e)
+        {
+            ShowPlayer(false, (sender as Button).Text);
+        }
         private void ShowHidePlayer(bool home, Button button, TextBox textBox)
         {
             if (button.Text == "Show")
@@ -1135,17 +1254,36 @@ namespace American_Football_Scoreboard
                     textBox.Text = string.Empty;
                     button.Text = "Show";
                 }
-                tmrPlayer.Interval = Properties.Settings.Default.FlagDisplayDuration;
-                tmrPlayer.Enabled = true;
-                tmrPlayer.Start();
+                else
+                {
+                    if (home)
+                    {
+                        tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                        tmrPlayerHome.Enabled = true;
+                        tmrPlayerHome.Start();
+                    }
+                    else
+                    {
+                        tmrPlayerAway.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                        tmrPlayerAway.Enabled = true;
+                        tmrPlayerAway.Start();
+                    }
+                }
             }
             else
             {
                 textBox.Text = string.Empty;
                 button.Text = "Show";
                 HidePlayer(home: home);
-                tmrPlayer.Enabled = false;
+                if (home)
+                    tmrPlayerHome.Enabled = false;
+                else
+                    tmrPlayerAway.Enabled = false;
             }
+        }
+        private void ShowHomePlayer(object sender, EventArgs e)
+        {
+            ShowPlayer(true, (sender as Button).Text);
         }
         private bool ShowPlayer(bool home, string jersey)
         {
@@ -1154,12 +1292,12 @@ namespace American_Football_Scoreboard
             string sourcePath;
             if (home)
             {
-                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]);
+                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayer." + Properties.Settings.Default["PlayerImageFileType"]);
                 sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
             }
             else
             {
-                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Player." + Properties.Settings.Default["PlayerImageFileType"]);
+                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayer." + Properties.Settings.Default["PlayerImageFileType"]);
                 sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
             }
             if (!File.Exists(sourcePath))
@@ -1170,6 +1308,18 @@ namespace American_Football_Scoreboard
             {
                 _ = CopyFileAsync(sourcePath: sourcePath, destinationPath: destinationPath);
                 success = true;
+                if (home)
+                {
+                    tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                    tmrPlayerHome.Enabled = true;
+                    tmrPlayerHome.Start();
+                }
+                else
+                {
+                    tmrPlayerAway.Interval = Properties.Settings.Default.FlagDisplayDuration;
+                    tmrPlayerAway.Enabled = true;
+                    tmrPlayerAway.Start();
+                }
             }
             return success;
         }
@@ -1208,12 +1358,21 @@ namespace American_Football_Scoreboard
                 }
             }
         }
-        private void TmrPlayer_Tick(object sender, EventArgs e)
+        private void TmrPlayerAway_Tick(object sender, EventArgs e)
         {
-            if (butHomePlayerShow.Text == "Hide")
-                butHomePlayerShow.PerformClick();
-            else if (butAwayPlayerShow.Text == "Hide")
-                butAwayPlayerShow.PerformClick();
+            butAwayPlayerShow.PerformClick();
+            tmrPlayerAway.Enabled = false;
+            HidePlayer(home: false);
+        }
+        private void TmrPlayerHome_Tick(object sender, EventArgs e)
+        {
+            butHomePlayerShow.PerformClick();
+            tmrPlayerHome.Enabled = false;
+            HidePlayer(home: true);
+        }
+        private void TmrRed_Tick(object sender, EventArgs e)
+        {
+            chkRed.Checked = false;
         }
         private void TmrScore_Tick(object sender, EventArgs e)
         {
@@ -1253,7 +1412,7 @@ namespace American_Football_Scoreboard
         }
         private void ToolStripMenuItemClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
             this.Close();
         }
         private void ToolStripMenuItemOpenOutputFolder_Click(object sender, EventArgs e)
@@ -1313,6 +1472,10 @@ namespace American_Football_Scoreboard
                     _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayTimeouts\\3Timeouts.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayTimeouts.png"));
                     break;
             }
+        }
+        private void TxtDistance_OnFocus(object sender, EventArgs e)
+        {
+            txtDistance.SelectAll();
         }
         private void TxtDistance_TextChanged(object sender, EventArgs e)
         {
@@ -1413,6 +1576,10 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: "Please enter an integer for play clock.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Exclamation);
             else
                 _ = WriteFileAsync(file: playClockFile, content: txtPlayClock.Text);
+        }
+        private void TxtSpot_OnFocus(object sender, EventArgs e)
+        {
+            txtSpot.SelectAll();
         }
         private void TxtSpot_TextChanged(object sender, EventArgs e)
         {

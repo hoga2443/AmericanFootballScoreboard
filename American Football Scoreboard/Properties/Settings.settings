@@ -161,5 +161,14 @@
     <Setting Name="HotKeyGameAdd1s" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + R</Value>
     </Setting>
+    <Setting Name="HotKeyGameSubtract10s" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + U</Value>
+    </Setting>
+    <Setting Name="HotKeyGameSubtract1s" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + V</Value>
+    </Setting>
+    <Setting Name="HotKeyRedZone" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alt + Shift + W</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
