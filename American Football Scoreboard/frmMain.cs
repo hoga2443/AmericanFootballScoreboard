@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -424,11 +423,12 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["Touchdown"] = patTouchdownPoints;
                 Properties.Settings.Default["PlayerImageFileType"] = lstPlayerImageFileType.Text;
                 Properties.Settings.Default["PossessionChangeFirstDown"] = chkSettingFirstDown.Checked;
-
                 Properties.Settings.Default.Save();
                 tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
                 this.TopMost = Properties.Settings.Default.AlwaysOnTop;
+                PopulateImageButtonsAway();
+                PopulateImageButtonsHome();
                 MessageBox.Show(text: "Settings Saved Successfully", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
             }
             else
@@ -933,37 +933,41 @@ namespace American_Football_Scoreboard
         }
         private void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
         {
+            groupBox.Controls.Clear();
             string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
-            string[] directoryContents = Directory.GetFiles(sourcePath);
-            List<int> numbers = new List<int>();
-            foreach (string file in directoryContents)
+            if (Directory.Exists(sourcePath))
             {
-                string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
-                if (int.TryParse(playerNumber, out int number))
+                string[] directoryContents = Directory.GetFiles(sourcePath);
+                List<int> numbers = new List<int>();
+                foreach (string file in directoryContents)
                 {
-                    numbers.Add(number);
+                    string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
+                    if (int.TryParse(playerNumber, out int number))
+                    {
+                        numbers.Add(number);
+                    }
                 }
-            }
-            numbers.Sort((x, y) => x.CompareTo(y));
-            int buttonRow = 0;
-            int buttonColumn = 0;
-            foreach (var number in numbers)
-            {
-                if (buttonRow >= 17)
+                numbers.Sort((x, y) => x.CompareTo(y));
+                int buttonRow = 0;
+                int buttonColumn = 0;
+                foreach (var number in numbers)
                 {
-                    buttonRow = 0;
-                    buttonColumn++;
+                    if (buttonRow >= 17)
+                    {
+                        buttonRow = 0;
+                        buttonColumn++;
+                    }
+                    Button button = new Button
+                    {
+                        Name = buttonPrefix + number.ToString(),
+                        Text = number.ToString(),
+                        Top = 20 + buttonRow * 22,
+                        Left = 10 + buttonColumn * 80,
+                    };
+                    button.Click += eventName;
+                    groupBox.Controls.Add(button);
+                    buttonRow++;
                 }
-                Button button = new Button
-                {
-                    Name = buttonPrefix + number.ToString(),
-                    Text = number.ToString(),
-                    Top = 20 + buttonRow * 22,
-                    Left = 10 + buttonColumn * 80,
-                };
-                button.Click += eventName;
-                groupBox.Controls.Add(button);
-                buttonRow++;
             }
         }
         private void RbDownBlank_CheckedChanged(object sender, EventArgs e)

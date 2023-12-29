@@ -42,37 +42,41 @@ namespace American_Football_Scoreboard
         }
         private void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
         {
+            groupBox.Controls.Clear();
             string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
-            string[] directoryContents = Directory.GetFiles(sourcePath);
-            List<int> numbers = new List<int>();
-            foreach (string file in directoryContents)
+            if (Directory.Exists(sourcePath))
             {
-                string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
-                if (int.TryParse(playerNumber, out int number))
+                string[] directoryContents = Directory.GetFiles(sourcePath);
+                List<int> numbers = new List<int>();
+                foreach (string file in directoryContents)
                 {
-                    numbers.Add(number);
+                    string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
+                    if (int.TryParse(playerNumber, out int number))
+                    {
+                        numbers.Add(number);
+                    }
                 }
-            }
-            numbers.Sort((x, y) => x.CompareTo(y));
-            int buttonRow = 0;
-            int buttonColumn = 0;
-            foreach (var number in numbers)
-            {
-                if (buttonRow >= 17)
+                numbers.Sort((x, y) => x.CompareTo(y));
+                int buttonRow = 0;
+                int buttonColumn = 0;
+                foreach (var number in numbers)
                 {
-                    buttonRow = 0;
-                    buttonColumn++;
+                    if (buttonRow >= 17)
+                    {
+                        buttonRow = 0;
+                        buttonColumn++;
+                    }
+                    Button button = new Button
+                    {
+                        Name = buttonPrefix + number.ToString(),
+                        Text = number.ToString(),
+                        Top = 20 + buttonRow * 22,
+                        Left = 10 + buttonColumn * 80,
+                    };
+                    button.Click += eventName;
+                    groupBox.Controls.Add(button);
+                    buttonRow++;
                 }
-                Button button = new Button
-                {
-                    Name = buttonPrefix + number.ToString(),
-                    Text = number.ToString(),
-                    Top = 20 + buttonRow * 22,
-                    Left = 10 + buttonColumn * 80,
-                };
-                button.Click += eventName;
-                groupBox.Controls.Add(button);
-                buttonRow++;
             }
         }
         private void ShowAwayPlayer(object sender, EventArgs e)

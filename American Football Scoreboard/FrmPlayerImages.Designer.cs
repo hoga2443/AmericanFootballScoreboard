@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlayerImages));
             this.gbHomePlayers = new System.Windows.Forms.GroupBox();
             this.gbAwayPlayers = new System.Windows.Forms.GroupBox();
             this.tmrPlayerAway = new System.Windows.Forms.Timer(this.components);
@@ -70,6 +71,7 @@
             this.ClientSize = new System.Drawing.Size(753, 394);
             this.Controls.Add(this.gbAwayPlayers);
             this.Controls.Add(this.gbHomePlayers);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPlayerImages";
             this.Text = "Player Images";
             this.ResumeLayout(false);
