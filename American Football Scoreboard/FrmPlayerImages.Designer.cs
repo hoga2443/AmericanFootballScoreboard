@@ -28,54 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlayerImages));
-            this.gbHomePlayers = new System.Windows.Forms.GroupBox();
-            this.gbAwayPlayers = new System.Windows.Forms.GroupBox();
-            this.tmrPlayerAway = new System.Windows.Forms.Timer(this.components);
-            this.tmrPlayerHome = new System.Windows.Forms.Timer(this.components);
-            this.SuspendLayout();
+            gbHomePlayers = new System.Windows.Forms.GroupBox();
+            gbAwayPlayers = new System.Windows.Forms.GroupBox();
+            tmrPlayerAway = new System.Windows.Forms.Timer(components);
+            tmrPlayerHome = new System.Windows.Forms.Timer(components);
+            SuspendLayout();
             // 
             // gbHomePlayers
             // 
-            this.gbHomePlayers.Location = new System.Drawing.Point(12, 12);
-            this.gbHomePlayers.Name = "gbHomePlayers";
-            this.gbHomePlayers.Size = new System.Drawing.Size(361, 373);
-            this.gbHomePlayers.TabIndex = 1;
-            this.gbHomePlayers.TabStop = false;
-            this.gbHomePlayers.Text = "Home Players";
+            gbHomePlayers.Location = new System.Drawing.Point(14, 14);
+            gbHomePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHomePlayers.Name = "gbHomePlayers";
+            gbHomePlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHomePlayers.Size = new System.Drawing.Size(421, 430);
+            gbHomePlayers.TabIndex = 1;
+            gbHomePlayers.TabStop = false;
+            gbHomePlayers.Text = "Home Players";
             // 
             // gbAwayPlayers
             // 
-            this.gbAwayPlayers.Location = new System.Drawing.Point(379, 12);
-            this.gbAwayPlayers.Name = "gbAwayPlayers";
-            this.gbAwayPlayers.Size = new System.Drawing.Size(361, 373);
-            this.gbAwayPlayers.TabIndex = 2;
-            this.gbAwayPlayers.TabStop = false;
-            this.gbAwayPlayers.Text = "Away Players";
+            gbAwayPlayers.Location = new System.Drawing.Point(442, 14);
+            gbAwayPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAwayPlayers.Name = "gbAwayPlayers";
+            gbAwayPlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAwayPlayers.Size = new System.Drawing.Size(421, 430);
+            gbAwayPlayers.TabIndex = 2;
+            gbAwayPlayers.TabStop = false;
+            gbAwayPlayers.Text = "Away Players";
             // 
             // tmrPlayerAway
             // 
-            this.tmrPlayerAway.Interval = 15000;
-            this.tmrPlayerAway.Tick += new System.EventHandler(this.TmrPlayerAway_Tick);
+            tmrPlayerAway.Interval = 15000;
+            tmrPlayerAway.Tick += TmrPlayerAway_Tick;
             // 
             // tmrPlayerHome
             // 
-            this.tmrPlayerHome.Interval = 15000;
-            this.tmrPlayerHome.Tick += new System.EventHandler(this.TmrPlayerHome_Tick);
+            tmrPlayerHome.Interval = 15000;
+            tmrPlayerHome.Tick += TmrPlayerHome_Tick;
             // 
             // FrmPlayerImages
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 394);
-            this.Controls.Add(this.gbAwayPlayers);
-            this.Controls.Add(this.gbHomePlayers);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmPlayerImages";
-            this.Text = "Player Images";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(878, 455);
+            Controls.Add(gbAwayPlayers);
+            Controls.Add(gbHomePlayers);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "FrmPlayerImages";
+            Text = "Player Images";
+            FormClosing += FrmPlayerImages_FormClosing;
+            ResumeLayout(false);
         }
 
         #endregion

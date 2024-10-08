@@ -29,3725 +29,4062 @@ namespace American_Football_Scoreboard
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.tabMain = new System.Windows.Forms.TabControl();
-            this.tpScoreboard = new System.Windows.Forms.TabPage();
-            this.chkRed = new System.Windows.Forms.CheckBox();
-            this.ButClearAll = new System.Windows.Forms.Button();
-            this.gbScoreByPeriod = new System.Windows.Forms.GroupBox();
-            this.txtPeriodHomeOT = new System.Windows.Forms.TextBox();
-            this.lblPeriodOT = new System.Windows.Forms.Label();
-            this.txtPeriodAwayOT = new System.Windows.Forms.TextBox();
-            this.txtPeriodHomeFourth = new System.Windows.Forms.TextBox();
-            this.lblPeriodFourth = new System.Windows.Forms.Label();
-            this.txtPeriodAwayFourth = new System.Windows.Forms.TextBox();
-            this.txtPeriodHomeThird = new System.Windows.Forms.TextBox();
-            this.lblPeriodThird = new System.Windows.Forms.Label();
-            this.txtPeriodAwayThird = new System.Windows.Forms.TextBox();
-            this.txtPeriodHomeSecond = new System.Windows.Forms.TextBox();
-            this.lblPeriodSecond = new System.Windows.Forms.Label();
-            this.txtPeriodAwaySecond = new System.Windows.Forms.TextBox();
-            this.txtPeriodHomeFirst = new System.Windows.Forms.TextBox();
-            this.lblPeriodFirst = new System.Windows.Forms.Label();
-            this.txtPeriodAwayFirst = new System.Windows.Forms.TextBox();
-            this.lblPeriodHome = new System.Windows.Forms.Label();
-            this.lblPeriodAway = new System.Windows.Forms.Label();
-            this.chkFlag = new System.Windows.Forms.CheckBox();
-            this.gbDown = new System.Windows.Forms.GroupBox();
-            this.txtSpot = new System.Windows.Forms.TextBox();
-            this.lblSpot = new System.Windows.Forms.Label();
-            this.lblDistance = new System.Windows.Forms.Label();
-            this.rbDownBlank = new System.Windows.Forms.RadioButton();
-            this.butDistanceGoal = new System.Windows.Forms.Button();
-            this.butDownClear = new System.Windows.Forms.Button();
-            this.txtDistance = new System.Windows.Forms.TextBox();
-            this.rbDownFour = new System.Windows.Forms.RadioButton();
-            this.rbDownThree = new System.Windows.Forms.RadioButton();
-            this.rbDownTwo = new System.Windows.Forms.RadioButton();
-            this.rbDownOne = new System.Windows.Forms.RadioButton();
-            this.gbPeriod = new System.Windows.Forms.GroupBox();
-            this.rbPeriodFinal = new System.Windows.Forms.RadioButton();
-            this.rbPeriodHalf = new System.Windows.Forms.RadioButton();
-            this.txtPeriodOT = new System.Windows.Forms.TextBox();
-            this.butPeriodClear = new System.Windows.Forms.Button();
-            this.rbPeriodOT = new System.Windows.Forms.RadioButton();
-            this.rbPeriodFour = new System.Windows.Forms.RadioButton();
-            this.rbPeriodThree = new System.Windows.Forms.RadioButton();
-            this.rbPeriodTwo = new System.Windows.Forms.RadioButton();
-            this.rbPeriodOne = new System.Windows.Forms.RadioButton();
-            this.gbAway = new System.Windows.Forms.GroupBox();
-            this.butAwayTouchdown = new System.Windows.Forms.Button();
-            this.butAwayFieldGoal = new System.Windows.Forms.Button();
-            this.butAwayPatConversion = new System.Windows.Forms.Button();
-            this.butAwayPatKick = new System.Windows.Forms.Button();
-            this.butAwaySafety = new System.Windows.Forms.Button();
-            this.butAwayPlayerShow = new System.Windows.Forms.Button();
-            this.txtAwayPlayerNumber = new System.Windows.Forms.TextBox();
-            this.lblAwayPlayerNumber = new System.Windows.Forms.Label();
-            this.lblAwayTeamScore = new System.Windows.Forms.Label();
-            this.chkAwayPossession = new System.Windows.Forms.CheckBox();
-            this.butAwayTimeoutsAdd = new System.Windows.Forms.Button();
-            this.butAwayTimeoutsSubtract = new System.Windows.Forms.Button();
-            this.txtAwayTimeouts = new System.Windows.Forms.TextBox();
-            this.lblAwayTimeouts = new System.Windows.Forms.Label();
-            this.butClearAway = new System.Windows.Forms.Button();
-            this.txtAwayScore = new System.Windows.Forms.TextBox();
-            this.lblAwayTeam = new System.Windows.Forms.Label();
-            this.txtAwayTeam = new System.Windows.Forms.TextBox();
-            this.gbHome = new System.Windows.Forms.GroupBox();
-            this.butHomeTouchdown = new System.Windows.Forms.Button();
-            this.butHomeFieldGoal = new System.Windows.Forms.Button();
-            this.butHomePatConversion = new System.Windows.Forms.Button();
-            this.butHomePatKick = new System.Windows.Forms.Button();
-            this.butHomeSafety = new System.Windows.Forms.Button();
-            this.butHomePlayerShow = new System.Windows.Forms.Button();
-            this.txtHomePlayerNumber = new System.Windows.Forms.TextBox();
-            this.lblHomePlayerNumber = new System.Windows.Forms.Label();
-            this.lblHomeTeamScore = new System.Windows.Forms.Label();
-            this.chkHomePossession = new System.Windows.Forms.CheckBox();
-            this.butHomeTimeoutsAdd = new System.Windows.Forms.Button();
-            this.butHomeTimeoutsSubtract = new System.Windows.Forms.Button();
-            this.txtHomeTimeouts = new System.Windows.Forms.TextBox();
-            this.lblHomeTimeouts = new System.Windows.Forms.Label();
-            this.butClearHome = new System.Windows.Forms.Button();
-            this.txtHomeScore = new System.Windows.Forms.TextBox();
-            this.lblHomeTeam = new System.Windows.Forms.Label();
-            this.txtHomeTeam = new System.Windows.Forms.TextBox();
-            this.gbClock = new System.Windows.Forms.GroupBox();
-            this.ButGameSubtract1 = new System.Windows.Forms.Button();
-            this.ButGameSubtract10 = new System.Windows.Forms.Button();
-            this.ButGameAdd1 = new System.Windows.Forms.Button();
-            this.ButGameAdd10 = new System.Windows.Forms.Button();
-            this.ButClearPlay = new System.Windows.Forms.Button();
-            this.butNewShortPlay = new System.Windows.Forms.Button();
-            this.lblGameClock = new System.Windows.Forms.Label();
-            this.butClearClocks = new System.Windows.Forms.Button();
-            this.butNewDefaultPlay = new System.Windows.Forms.Button();
-            this.lblPlayClock = new System.Windows.Forms.Label();
-            this.txtGameClock = new System.Windows.Forms.TextBox();
-            this.txtPlayClock = new System.Windows.Forms.TextBox();
-            this.butStartStopGameClock = new System.Windows.Forms.Button();
-            this.butStartStopPlayClock = new System.Windows.Forms.Button();
-            this.tpPenalties = new System.Windows.Forms.TabPage();
-            this.gbPenalties = new System.Windows.Forms.GroupBox();
-            this.rbPenalty62 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty61 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty60 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty59 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty58 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty57 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty56 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty55 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty54 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty53 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty52 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty51 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty50 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty49 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty48 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty47 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty46 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty45 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty44 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty43 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty42 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty41 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty40 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty39 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty38 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty37 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty36 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty35 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty34 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty33 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty32 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty31 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty30 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty29 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty28 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty27 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty26 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty25 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty24 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty23 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty22 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty21 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty20 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty19 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty18 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty17 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty16 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty15 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty14 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty13 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty12 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty11 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty10 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty9 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty8 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty7 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty6 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty5 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty4 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty3 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty2 = new System.Windows.Forms.RadioButton();
-            this.rbPenalty1 = new System.Windows.Forms.RadioButton();
-            this.tpMessages = new System.Windows.Forms.TabPage();
-            this.rbMessageWeather = new System.Windows.Forms.RadioButton();
-            this.butSendSupplemental = new System.Windows.Forms.Button();
-            this.txtSupplemental = new System.Windows.Forms.TextBox();
-            this.rbMessageInjury = new System.Windows.Forms.RadioButton();
-            this.rbMessageClear = new System.Windows.Forms.RadioButton();
-            this.tpPlayerImages = new System.Windows.Forms.TabPage();
-            this.butSeparatePlayerImageForm = new System.Windows.Forms.Button();
-            this.gbAwayPlayers = new System.Windows.Forms.GroupBox();
-            this.gbHomePlayers = new System.Windows.Forms.GroupBox();
-            this.tpHotKeys = new System.Windows.Forms.TabPage();
-            this.gbMisc = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblHotKeyFunction = new System.Windows.Forms.Label();
-            this.lblHotKeyKey = new System.Windows.Forms.Label();
-            this.txtHotKeyAwayTimeout = new System.Windows.Forms.TextBox();
-            this.lblHotKeyNextDown = new System.Windows.Forms.Label();
-            this.lblHotKeyAwayTimeout = new System.Windows.Forms.Label();
-            this.txtHotKeyNextDown = new System.Windows.Forms.TextBox();
-            this.txtHotKeyHomeTimeout = new System.Windows.Forms.TextBox();
-            this.lblHotKeyNextPeriod = new System.Windows.Forms.Label();
-            this.lblHotKeyHomeTimeout = new System.Windows.Forms.Label();
-            this.txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
-            this.txtHotKeyFirstDown = new System.Windows.Forms.TextBox();
-            this.lblHotKeyPossession = new System.Windows.Forms.Label();
-            this.lblHotKeyFirstDown = new System.Windows.Forms.Label();
-            this.txtHotKeyPossession = new System.Windows.Forms.TextBox();
-            this.txtHotKeyFlag = new System.Windows.Forms.TextBox();
-            this.lblHotKeyFlag = new System.Windows.Forms.Label();
-            this.gbClockKeys = new System.Windows.Forms.GroupBox();
-            this.lblHotKeyGameSubtract1s = new System.Windows.Forms.Label();
-            this.txtHotKeyGameSubtract1s = new System.Windows.Forms.TextBox();
-            this.lblHotKeyGameSubtract10s = new System.Windows.Forms.Label();
-            this.txtHotKeyGameSubtract10s = new System.Windows.Forms.TextBox();
-            this.lblHotKeyGameAdd1s = new System.Windows.Forms.Label();
-            this.txtHotKeyGameAdd1s = new System.Windows.Forms.TextBox();
-            this.lblHotKeyGameAdd10s = new System.Windows.Forms.Label();
-            this.txtHotKeyGameAdd10s = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblHotKeyStartStopGameClock = new System.Windows.Forms.Label();
-            this.txtHotKeyClearPlayClock = new System.Windows.Forms.TextBox();
-            this.txtHotKeyStartStopGameClock = new System.Windows.Forms.TextBox();
-            this.lblHotKeyClearPlayClock = new System.Windows.Forms.Label();
-            this.lblHotKeyStartStopPlayClock = new System.Windows.Forms.Label();
-            this.txtHotKeyStartStopPlayClock = new System.Windows.Forms.TextBox();
-            this.lblHotKeyNewDefaultPlayClock = new System.Windows.Forms.Label();
-            this.txtHotKeyNewDefaultPlayClock = new System.Windows.Forms.TextBox();
-            this.lblHotKeyClearClocks = new System.Windows.Forms.Label();
-            this.txtHotKeyClearClocks = new System.Windows.Forms.TextBox();
-            this.lblHotKeyNewShortPlayClock = new System.Windows.Forms.Label();
-            this.txtHotKeyNewShortPlayClock = new System.Windows.Forms.TextBox();
-            this.gbHotKeysAway = new System.Windows.Forms.GroupBox();
-            this.txtHotKeyAwayTouchdown = new System.Windows.Forms.TextBox();
-            this.lblAwayHotKeyTouchdown = new System.Windows.Forms.Label();
-            this.lblAwayHotKeyFunction = new System.Windows.Forms.Label();
-            this.lblAwayHotKeyKey = new System.Windows.Forms.Label();
-            this.lblAwayHotKeySafety = new System.Windows.Forms.Label();
-            this.txtHotKeyAwaySafety = new System.Windows.Forms.TextBox();
-            this.txtHotKeyAwayFieldGoal = new System.Windows.Forms.TextBox();
-            this.lblAwayHotKeyPatKick = new System.Windows.Forms.Label();
-            this.lblAwayHotKeyFieldGoal = new System.Windows.Forms.Label();
-            this.txtHotKeyAwayPatKick = new System.Windows.Forms.TextBox();
-            this.txtHotKeyAwayPatConversion = new System.Windows.Forms.TextBox();
-            this.lblAwayHotKeyPatConversion = new System.Windows.Forms.Label();
-            this.gbHotKeysHome = new System.Windows.Forms.GroupBox();
-            this.lblHomeHotKeyTouchdown = new System.Windows.Forms.Label();
-            this.txtHotKeyHomeTouchdown = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKeyPoints = new System.Windows.Forms.Label();
-            this.lblHomeHotKeyKey = new System.Windows.Forms.Label();
-            this.lblHomeHotKeySafety = new System.Windows.Forms.Label();
-            this.txtHotKeyHomeSafety = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKeyPatKick = new System.Windows.Forms.Label();
-            this.txtHotKeyHomePatKick = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKeyPatConversion = new System.Windows.Forms.Label();
-            this.txtHotKeyHomePatConversion = new System.Windows.Forms.TextBox();
-            this.lblHomeHotKeyFieldGoal = new System.Windows.Forms.Label();
-            this.txtHotKeyHomeFieldGoal = new System.Windows.Forms.TextBox();
-            this.butSaveHotKey = new System.Windows.Forms.Button();
-            this.tpSettings = new System.Windows.Forms.TabPage();
-            this.chkSettingFirstDown = new System.Windows.Forms.CheckBox();
-            this.lstPlayerImageFileType = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gbPoints = new System.Windows.Forms.GroupBox();
-            this.txtSettingTouchdown = new System.Windows.Forms.TextBox();
-            this.txtSettingFieldGoal = new System.Windows.Forms.TextBox();
-            this.txtSettingPatConversion = new System.Windows.Forms.TextBox();
-            this.txtSettingPatKick = new System.Windows.Forms.TextBox();
-            this.txtSettingSafety = new System.Windows.Forms.TextBox();
-            this.lblSettingTouchdown = new System.Windows.Forms.Label();
-            this.lblSettingFieldGoal = new System.Windows.Forms.Label();
-            this.lblSettingPatConversion = new System.Windows.Forms.Label();
-            this.lblSettingPatKick = new System.Windows.Forms.Label();
-            this.lblSettingSafety = new System.Windows.Forms.Label();
-            this.chkSubSecond = new System.Windows.Forms.CheckBox();
-            this.chkTop = new System.Windows.Forms.CheckBox();
-            this.txtShortPlayClock = new System.Windows.Forms.TextBox();
-            this.lblShortPlayClock = new System.Windows.Forms.Label();
-            this.txtFlagDisplayDuration = new System.Windows.Forms.TextBox();
-            this.lblFlagDisplayDuration = new System.Windows.Forms.Label();
-            this.gbSettingDown = new System.Windows.Forms.GroupBox();
-            this.txtSettingDown4 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown3 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown2 = new System.Windows.Forms.TextBox();
-            this.txtSettingDown1 = new System.Windows.Forms.TextBox();
-            this.lblSettingDown4 = new System.Windows.Forms.Label();
-            this.lblSettingDown3 = new System.Windows.Forms.Label();
-            this.lblSettingDown2 = new System.Windows.Forms.Label();
-            this.lblSettingDown1 = new System.Windows.Forms.Label();
-            this.gbSettingPeriod = new System.Windows.Forms.GroupBox();
-            this.txtSettingPeriodFinal = new System.Windows.Forms.TextBox();
-            this.lblSettingPeriodFinal = new System.Windows.Forms.Label();
-            this.txtSettingPeriodHalf = new System.Windows.Forms.TextBox();
-            this.lblSettingPeriodHalf = new System.Windows.Forms.Label();
-            this.txtSettingPeriod4 = new System.Windows.Forms.TextBox();
-            this.txtSettingPeriod3 = new System.Windows.Forms.TextBox();
-            this.txtSettingPeriod2 = new System.Windows.Forms.TextBox();
-            this.txtSettingPeriod1 = new System.Windows.Forms.TextBox();
-            this.lblSettingPeriod4 = new System.Windows.Forms.Label();
-            this.lblSettingPeriod3 = new System.Windows.Forms.Label();
-            this.lblSettingPeriod2 = new System.Windows.Forms.Label();
-            this.lblSettingPeriod1 = new System.Windows.Forms.Label();
-            this.chkAdvanceQuarter = new System.Windows.Forms.CheckBox();
-            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
-            this.lblRefreshInterval = new System.Windows.Forms.Label();
-            this.lblTimeoutsPerHalf = new System.Windows.Forms.Label();
-            this.txtTimeoutsPerHalf = new System.Windows.Forms.TextBox();
-            this.txtGoalText = new System.Windows.Forms.TextBox();
-            this.lblGoalDistanceLabel = new System.Windows.Forms.Label();
-            this.butOutputFolder = new System.Windows.Forms.Button();
-            this.butSaveSettings = new System.Windows.Forms.Button();
-            this.txtOutputFolder = new System.Windows.Forms.TextBox();
-            this.lblOutputFolder = new System.Windows.Forms.Label();
-            this.txtDefaultPlayClock = new System.Windows.Forms.TextBox();
-            this.lblDefaultPlayClock = new System.Windows.Forms.Label();
-            this.txtPeriodDuration = new System.Windows.Forms.TextBox();
-            this.lblPeriodDuration = new System.Windows.Forms.Label();
-            this.fbdOutput = new System.Windows.Forms.FolderBrowserDialog();
-            this.tmrClockRefresh = new System.Windows.Forms.Timer(this.components);
-            this.msMain = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveHotKeysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openOutputFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmrFlag = new System.Windows.Forms.Timer(this.components);
-            this.tmrScore = new System.Windows.Forms.Timer(this.components);
-            this.tmrPlayerHome = new System.Windows.Forms.Timer(this.components);
-            this.tmrRed = new System.Windows.Forms.Timer(this.components);
-            this.tmrPlayerAway = new System.Windows.Forms.Timer(this.components);
-            this.tabMain.SuspendLayout();
-            this.tpScoreboard.SuspendLayout();
-            this.gbScoreByPeriod.SuspendLayout();
-            this.gbDown.SuspendLayout();
-            this.gbPeriod.SuspendLayout();
-            this.gbAway.SuspendLayout();
-            this.gbHome.SuspendLayout();
-            this.gbClock.SuspendLayout();
-            this.tpPenalties.SuspendLayout();
-            this.gbPenalties.SuspendLayout();
-            this.tpMessages.SuspendLayout();
-            this.tpPlayerImages.SuspendLayout();
-            this.tpHotKeys.SuspendLayout();
-            this.gbMisc.SuspendLayout();
-            this.gbClockKeys.SuspendLayout();
-            this.gbHotKeysAway.SuspendLayout();
-            this.gbHotKeysHome.SuspendLayout();
-            this.tpSettings.SuspendLayout();
-            this.gbPoints.SuspendLayout();
-            this.gbSettingDown.SuspendLayout();
-            this.gbSettingPeriod.SuspendLayout();
-            this.msMain.SuspendLayout();
-            this.SuspendLayout();
+            tabMain = new System.Windows.Forms.TabControl();
+            tpScoreboard = new System.Windows.Forms.TabPage();
+            chkRed = new System.Windows.Forms.CheckBox();
+            ButClearAll = new System.Windows.Forms.Button();
+            gbScoreByPeriod = new System.Windows.Forms.GroupBox();
+            txtPeriodHomeOT = new System.Windows.Forms.TextBox();
+            lblPeriodOT = new System.Windows.Forms.Label();
+            txtPeriodAwayOT = new System.Windows.Forms.TextBox();
+            txtPeriodHomeFourth = new System.Windows.Forms.TextBox();
+            lblPeriodFourth = new System.Windows.Forms.Label();
+            txtPeriodAwayFourth = new System.Windows.Forms.TextBox();
+            txtPeriodHomeThird = new System.Windows.Forms.TextBox();
+            lblPeriodThird = new System.Windows.Forms.Label();
+            txtPeriodAwayThird = new System.Windows.Forms.TextBox();
+            txtPeriodHomeSecond = new System.Windows.Forms.TextBox();
+            lblPeriodSecond = new System.Windows.Forms.Label();
+            txtPeriodAwaySecond = new System.Windows.Forms.TextBox();
+            txtPeriodHomeFirst = new System.Windows.Forms.TextBox();
+            lblPeriodFirst = new System.Windows.Forms.Label();
+            txtPeriodAwayFirst = new System.Windows.Forms.TextBox();
+            lblPeriodHome = new System.Windows.Forms.Label();
+            lblPeriodAway = new System.Windows.Forms.Label();
+            chkFlag = new System.Windows.Forms.CheckBox();
+            gbDown = new System.Windows.Forms.GroupBox();
+            txtSpot = new System.Windows.Forms.TextBox();
+            lblSpot = new System.Windows.Forms.Label();
+            lblDistance = new System.Windows.Forms.Label();
+            rbDownBlank = new System.Windows.Forms.RadioButton();
+            butDistanceGoal = new System.Windows.Forms.Button();
+            butDownClear = new System.Windows.Forms.Button();
+            txtDistance = new System.Windows.Forms.TextBox();
+            rbDownFour = new System.Windows.Forms.RadioButton();
+            rbDownThree = new System.Windows.Forms.RadioButton();
+            rbDownTwo = new System.Windows.Forms.RadioButton();
+            rbDownOne = new System.Windows.Forms.RadioButton();
+            gbPeriod = new System.Windows.Forms.GroupBox();
+            rbPeriodFinal = new System.Windows.Forms.RadioButton();
+            rbPeriodHalf = new System.Windows.Forms.RadioButton();
+            txtPeriodOT = new System.Windows.Forms.TextBox();
+            butPeriodClear = new System.Windows.Forms.Button();
+            rbPeriodOT = new System.Windows.Forms.RadioButton();
+            rbPeriodFour = new System.Windows.Forms.RadioButton();
+            rbPeriodThree = new System.Windows.Forms.RadioButton();
+            rbPeriodTwo = new System.Windows.Forms.RadioButton();
+            rbPeriodOne = new System.Windows.Forms.RadioButton();
+            gbAway = new System.Windows.Forms.GroupBox();
+            butAwayTouchdown = new System.Windows.Forms.Button();
+            butAwayFieldGoal = new System.Windows.Forms.Button();
+            butAwayPatConversion = new System.Windows.Forms.Button();
+            butAwayPatKick = new System.Windows.Forms.Button();
+            butAwaySafety = new System.Windows.Forms.Button();
+            butAwayPlayerShow = new System.Windows.Forms.Button();
+            txtAwayPlayerNumber = new System.Windows.Forms.TextBox();
+            lblAwayPlayerNumber = new System.Windows.Forms.Label();
+            lblAwayTeamScore = new System.Windows.Forms.Label();
+            chkAwayPossession = new System.Windows.Forms.CheckBox();
+            butAwayTimeoutsAdd = new System.Windows.Forms.Button();
+            butAwayTimeoutsSubtract = new System.Windows.Forms.Button();
+            txtAwayTimeouts = new System.Windows.Forms.TextBox();
+            lblAwayTimeouts = new System.Windows.Forms.Label();
+            butClearAway = new System.Windows.Forms.Button();
+            txtAwayScore = new System.Windows.Forms.TextBox();
+            lblAwayTeam = new System.Windows.Forms.Label();
+            txtAwayTeam = new System.Windows.Forms.TextBox();
+            gbHome = new System.Windows.Forms.GroupBox();
+            butHomeTouchdown = new System.Windows.Forms.Button();
+            butHomeFieldGoal = new System.Windows.Forms.Button();
+            butHomePatConversion = new System.Windows.Forms.Button();
+            butHomePatKick = new System.Windows.Forms.Button();
+            butHomeSafety = new System.Windows.Forms.Button();
+            butHomePlayerShow = new System.Windows.Forms.Button();
+            txtHomePlayerNumber = new System.Windows.Forms.TextBox();
+            lblHomePlayerNumber = new System.Windows.Forms.Label();
+            lblHomeTeamScore = new System.Windows.Forms.Label();
+            chkHomePossession = new System.Windows.Forms.CheckBox();
+            butHomeTimeoutsAdd = new System.Windows.Forms.Button();
+            butHomeTimeoutsSubtract = new System.Windows.Forms.Button();
+            txtHomeTimeouts = new System.Windows.Forms.TextBox();
+            lblHomeTimeouts = new System.Windows.Forms.Label();
+            butClearHome = new System.Windows.Forms.Button();
+            txtHomeScore = new System.Windows.Forms.TextBox();
+            lblHomeTeam = new System.Windows.Forms.Label();
+            txtHomeTeam = new System.Windows.Forms.TextBox();
+            gbClock = new System.Windows.Forms.GroupBox();
+            ButGameSubtract1 = new System.Windows.Forms.Button();
+            ButGameSubtract10 = new System.Windows.Forms.Button();
+            ButGameAdd1 = new System.Windows.Forms.Button();
+            ButGameAdd10 = new System.Windows.Forms.Button();
+            ButClearPlay = new System.Windows.Forms.Button();
+            butNewShortPlay = new System.Windows.Forms.Button();
+            lblGameClock = new System.Windows.Forms.Label();
+            butClearClocks = new System.Windows.Forms.Button();
+            butNewDefaultPlay = new System.Windows.Forms.Button();
+            lblPlayClock = new System.Windows.Forms.Label();
+            txtGameClock = new System.Windows.Forms.TextBox();
+            txtPlayClock = new System.Windows.Forms.TextBox();
+            butStartStopGameClock = new System.Windows.Forms.Button();
+            butStartStopPlayClock = new System.Windows.Forms.Button();
+            tpPenalties = new System.Windows.Forms.TabPage();
+            gbPenalties = new System.Windows.Forms.GroupBox();
+            rbPenalty62 = new System.Windows.Forms.RadioButton();
+            rbPenalty61 = new System.Windows.Forms.RadioButton();
+            rbPenalty60 = new System.Windows.Forms.RadioButton();
+            rbPenalty59 = new System.Windows.Forms.RadioButton();
+            rbPenalty58 = new System.Windows.Forms.RadioButton();
+            rbPenalty57 = new System.Windows.Forms.RadioButton();
+            rbPenalty56 = new System.Windows.Forms.RadioButton();
+            rbPenalty55 = new System.Windows.Forms.RadioButton();
+            rbPenalty54 = new System.Windows.Forms.RadioButton();
+            rbPenalty53 = new System.Windows.Forms.RadioButton();
+            rbPenalty52 = new System.Windows.Forms.RadioButton();
+            rbPenalty51 = new System.Windows.Forms.RadioButton();
+            rbPenalty50 = new System.Windows.Forms.RadioButton();
+            rbPenalty49 = new System.Windows.Forms.RadioButton();
+            rbPenalty48 = new System.Windows.Forms.RadioButton();
+            rbPenalty47 = new System.Windows.Forms.RadioButton();
+            rbPenalty46 = new System.Windows.Forms.RadioButton();
+            rbPenalty45 = new System.Windows.Forms.RadioButton();
+            rbPenalty44 = new System.Windows.Forms.RadioButton();
+            rbPenalty43 = new System.Windows.Forms.RadioButton();
+            rbPenalty42 = new System.Windows.Forms.RadioButton();
+            rbPenalty41 = new System.Windows.Forms.RadioButton();
+            rbPenalty40 = new System.Windows.Forms.RadioButton();
+            rbPenalty39 = new System.Windows.Forms.RadioButton();
+            rbPenalty38 = new System.Windows.Forms.RadioButton();
+            rbPenalty37 = new System.Windows.Forms.RadioButton();
+            rbPenalty36 = new System.Windows.Forms.RadioButton();
+            rbPenalty35 = new System.Windows.Forms.RadioButton();
+            rbPenalty34 = new System.Windows.Forms.RadioButton();
+            rbPenalty33 = new System.Windows.Forms.RadioButton();
+            rbPenalty32 = new System.Windows.Forms.RadioButton();
+            rbPenalty31 = new System.Windows.Forms.RadioButton();
+            rbPenalty30 = new System.Windows.Forms.RadioButton();
+            rbPenalty29 = new System.Windows.Forms.RadioButton();
+            rbPenalty28 = new System.Windows.Forms.RadioButton();
+            rbPenalty27 = new System.Windows.Forms.RadioButton();
+            rbPenalty26 = new System.Windows.Forms.RadioButton();
+            rbPenalty25 = new System.Windows.Forms.RadioButton();
+            rbPenalty24 = new System.Windows.Forms.RadioButton();
+            rbPenalty23 = new System.Windows.Forms.RadioButton();
+            rbPenalty22 = new System.Windows.Forms.RadioButton();
+            rbPenalty21 = new System.Windows.Forms.RadioButton();
+            rbPenalty20 = new System.Windows.Forms.RadioButton();
+            rbPenalty19 = new System.Windows.Forms.RadioButton();
+            rbPenalty18 = new System.Windows.Forms.RadioButton();
+            rbPenalty17 = new System.Windows.Forms.RadioButton();
+            rbPenalty16 = new System.Windows.Forms.RadioButton();
+            rbPenalty15 = new System.Windows.Forms.RadioButton();
+            rbPenalty14 = new System.Windows.Forms.RadioButton();
+            rbPenalty13 = new System.Windows.Forms.RadioButton();
+            rbPenalty12 = new System.Windows.Forms.RadioButton();
+            rbPenalty11 = new System.Windows.Forms.RadioButton();
+            rbPenalty10 = new System.Windows.Forms.RadioButton();
+            rbPenalty9 = new System.Windows.Forms.RadioButton();
+            rbPenalty8 = new System.Windows.Forms.RadioButton();
+            rbPenalty7 = new System.Windows.Forms.RadioButton();
+            rbPenalty6 = new System.Windows.Forms.RadioButton();
+            rbPenalty5 = new System.Windows.Forms.RadioButton();
+            rbPenalty4 = new System.Windows.Forms.RadioButton();
+            rbPenalty3 = new System.Windows.Forms.RadioButton();
+            rbPenalty2 = new System.Windows.Forms.RadioButton();
+            rbPenalty1 = new System.Windows.Forms.RadioButton();
+            tpMessages = new System.Windows.Forms.TabPage();
+            rbMessageWeather = new System.Windows.Forms.RadioButton();
+            butSendSupplemental = new System.Windows.Forms.Button();
+            txtSupplemental = new System.Windows.Forms.TextBox();
+            rbMessageInjury = new System.Windows.Forms.RadioButton();
+            rbMessageClear = new System.Windows.Forms.RadioButton();
+            tpPlayerImages = new System.Windows.Forms.TabPage();
+            butSeparatePlayerImageForm = new System.Windows.Forms.Button();
+            gbAwayPlayers = new System.Windows.Forms.GroupBox();
+            gbHomePlayers = new System.Windows.Forms.GroupBox();
+            tpHotKeys = new System.Windows.Forms.TabPage();
+            gbMisc = new System.Windows.Forms.GroupBox();
+            textBox1 = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            lblHotKeyFunction = new System.Windows.Forms.Label();
+            lblHotKeyKey = new System.Windows.Forms.Label();
+            txtHotKeyAwayTimeout = new System.Windows.Forms.TextBox();
+            lblHotKeyNextDown = new System.Windows.Forms.Label();
+            lblHotKeyAwayTimeout = new System.Windows.Forms.Label();
+            txtHotKeyNextDown = new System.Windows.Forms.TextBox();
+            txtHotKeyHomeTimeout = new System.Windows.Forms.TextBox();
+            lblHotKeyNextPeriod = new System.Windows.Forms.Label();
+            lblHotKeyHomeTimeout = new System.Windows.Forms.Label();
+            txtHotKeyNextPeriod = new System.Windows.Forms.TextBox();
+            txtHotKeyFirstDown = new System.Windows.Forms.TextBox();
+            lblHotKeyPossession = new System.Windows.Forms.Label();
+            lblHotKeyFirstDown = new System.Windows.Forms.Label();
+            txtHotKeyPossession = new System.Windows.Forms.TextBox();
+            txtHotKeyFlag = new System.Windows.Forms.TextBox();
+            lblHotKeyFlag = new System.Windows.Forms.Label();
+            gbClockKeys = new System.Windows.Forms.GroupBox();
+            lblHotKeyGameSubtract1s = new System.Windows.Forms.Label();
+            txtHotKeyGameSubtract1s = new System.Windows.Forms.TextBox();
+            lblHotKeyGameSubtract10s = new System.Windows.Forms.Label();
+            txtHotKeyGameSubtract10s = new System.Windows.Forms.TextBox();
+            lblHotKeyGameAdd1s = new System.Windows.Forms.Label();
+            txtHotKeyGameAdd1s = new System.Windows.Forms.TextBox();
+            lblHotKeyGameAdd10s = new System.Windows.Forms.Label();
+            txtHotKeyGameAdd10s = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            lblHotKeyStartStopGameClock = new System.Windows.Forms.Label();
+            txtHotKeyClearPlayClock = new System.Windows.Forms.TextBox();
+            txtHotKeyStartStopGameClock = new System.Windows.Forms.TextBox();
+            lblHotKeyClearPlayClock = new System.Windows.Forms.Label();
+            lblHotKeyStartStopPlayClock = new System.Windows.Forms.Label();
+            txtHotKeyStartStopPlayClock = new System.Windows.Forms.TextBox();
+            lblHotKeyNewDefaultPlayClock = new System.Windows.Forms.Label();
+            txtHotKeyNewDefaultPlayClock = new System.Windows.Forms.TextBox();
+            lblHotKeyClearClocks = new System.Windows.Forms.Label();
+            txtHotKeyClearClocks = new System.Windows.Forms.TextBox();
+            lblHotKeyNewShortPlayClock = new System.Windows.Forms.Label();
+            txtHotKeyNewShortPlayClock = new System.Windows.Forms.TextBox();
+            gbHotKeysAway = new System.Windows.Forms.GroupBox();
+            txtHotKeyAwayTouchdown = new System.Windows.Forms.TextBox();
+            lblAwayHotKeyTouchdown = new System.Windows.Forms.Label();
+            lblAwayHotKeyFunction = new System.Windows.Forms.Label();
+            lblAwayHotKeyKey = new System.Windows.Forms.Label();
+            lblAwayHotKeySafety = new System.Windows.Forms.Label();
+            txtHotKeyAwaySafety = new System.Windows.Forms.TextBox();
+            txtHotKeyAwayFieldGoal = new System.Windows.Forms.TextBox();
+            lblAwayHotKeyPatKick = new System.Windows.Forms.Label();
+            lblAwayHotKeyFieldGoal = new System.Windows.Forms.Label();
+            txtHotKeyAwayPatKick = new System.Windows.Forms.TextBox();
+            txtHotKeyAwayPatConversion = new System.Windows.Forms.TextBox();
+            lblAwayHotKeyPatConversion = new System.Windows.Forms.Label();
+            gbHotKeysHome = new System.Windows.Forms.GroupBox();
+            lblHomeHotKeyTouchdown = new System.Windows.Forms.Label();
+            txtHotKeyHomeTouchdown = new System.Windows.Forms.TextBox();
+            lblHomeHotKeyPoints = new System.Windows.Forms.Label();
+            lblHomeHotKeyKey = new System.Windows.Forms.Label();
+            lblHomeHotKeySafety = new System.Windows.Forms.Label();
+            txtHotKeyHomeSafety = new System.Windows.Forms.TextBox();
+            lblHomeHotKeyPatKick = new System.Windows.Forms.Label();
+            txtHotKeyHomePatKick = new System.Windows.Forms.TextBox();
+            lblHomeHotKeyPatConversion = new System.Windows.Forms.Label();
+            txtHotKeyHomePatConversion = new System.Windows.Forms.TextBox();
+            lblHomeHotKeyFieldGoal = new System.Windows.Forms.Label();
+            txtHotKeyHomeFieldGoal = new System.Windows.Forms.TextBox();
+            butSaveHotKey = new System.Windows.Forms.Button();
+            tpSettings = new System.Windows.Forms.TabPage();
+            txtWebSocketServer = new System.Windows.Forms.TextBox();
+            lblWebSocketServer = new System.Windows.Forms.Label();
+            txtWebSocketPassword = new System.Windows.Forms.TextBox();
+            lblWebSocketPassword = new System.Windows.Forms.Label();
+            txtWebSocketPort = new System.Windows.Forms.TextBox();
+            lblWebSocketPort = new System.Windows.Forms.Label();
+            chkSettingFirstDown = new System.Windows.Forms.CheckBox();
+            lstPlayerImageFileType = new System.Windows.Forms.ListBox();
+            lblPlayerImageFileType = new System.Windows.Forms.Label();
+            gbPoints = new System.Windows.Forms.GroupBox();
+            txtSettingTouchdown = new System.Windows.Forms.TextBox();
+            txtSettingFieldGoal = new System.Windows.Forms.TextBox();
+            txtSettingPatConversion = new System.Windows.Forms.TextBox();
+            txtSettingPatKick = new System.Windows.Forms.TextBox();
+            txtSettingSafety = new System.Windows.Forms.TextBox();
+            lblSettingTouchdown = new System.Windows.Forms.Label();
+            lblSettingFieldGoal = new System.Windows.Forms.Label();
+            lblSettingPatConversion = new System.Windows.Forms.Label();
+            lblSettingPatKick = new System.Windows.Forms.Label();
+            lblSettingSafety = new System.Windows.Forms.Label();
+            chkSubSecond = new System.Windows.Forms.CheckBox();
+            chkTop = new System.Windows.Forms.CheckBox();
+            txtShortPlayClock = new System.Windows.Forms.TextBox();
+            lblShortPlayClock = new System.Windows.Forms.Label();
+            txtFlagDisplayDuration = new System.Windows.Forms.TextBox();
+            lblFlagDisplayDuration = new System.Windows.Forms.Label();
+            gbSettingDown = new System.Windows.Forms.GroupBox();
+            txtSettingDown4 = new System.Windows.Forms.TextBox();
+            txtSettingDown3 = new System.Windows.Forms.TextBox();
+            txtSettingDown2 = new System.Windows.Forms.TextBox();
+            txtSettingDown1 = new System.Windows.Forms.TextBox();
+            lblSettingDown4 = new System.Windows.Forms.Label();
+            lblSettingDown3 = new System.Windows.Forms.Label();
+            lblSettingDown2 = new System.Windows.Forms.Label();
+            lblSettingDown1 = new System.Windows.Forms.Label();
+            gbSettingPeriod = new System.Windows.Forms.GroupBox();
+            txtSettingPeriodFinal = new System.Windows.Forms.TextBox();
+            lblSettingPeriodFinal = new System.Windows.Forms.Label();
+            txtSettingPeriodHalf = new System.Windows.Forms.TextBox();
+            lblSettingPeriodHalf = new System.Windows.Forms.Label();
+            txtSettingPeriod4 = new System.Windows.Forms.TextBox();
+            txtSettingPeriod3 = new System.Windows.Forms.TextBox();
+            txtSettingPeriod2 = new System.Windows.Forms.TextBox();
+            txtSettingPeriod1 = new System.Windows.Forms.TextBox();
+            lblSettingPeriod4 = new System.Windows.Forms.Label();
+            lblSettingPeriod3 = new System.Windows.Forms.Label();
+            lblSettingPeriod2 = new System.Windows.Forms.Label();
+            lblSettingPeriod1 = new System.Windows.Forms.Label();
+            chkAdvanceQuarter = new System.Windows.Forms.CheckBox();
+            txtRefreshInterval = new System.Windows.Forms.TextBox();
+            lblRefreshInterval = new System.Windows.Forms.Label();
+            lblTimeoutsPerHalf = new System.Windows.Forms.Label();
+            txtTimeoutsPerHalf = new System.Windows.Forms.TextBox();
+            txtGoalText = new System.Windows.Forms.TextBox();
+            lblGoalDistanceLabel = new System.Windows.Forms.Label();
+            butOutputFolder = new System.Windows.Forms.Button();
+            butSaveSettings = new System.Windows.Forms.Button();
+            txtOutputFolder = new System.Windows.Forms.TextBox();
+            lblOutputFolder = new System.Windows.Forms.Label();
+            txtDefaultPlayClock = new System.Windows.Forms.TextBox();
+            lblDefaultPlayClock = new System.Windows.Forms.Label();
+            txtPeriodDuration = new System.Windows.Forms.TextBox();
+            lblPeriodDuration = new System.Windows.Forms.Label();
+            fbdOutput = new System.Windows.Forms.FolderBrowserDialog();
+            tmrClockRefresh = new System.Windows.Forms.Timer(components);
+            msMain = new System.Windows.Forms.MenuStrip();
+            fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            saveHotKeysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            saveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            openOutputFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            tmrFlag = new System.Windows.Forms.Timer(components);
+            tmrScore = new System.Windows.Forms.Timer(components);
+            tmrPlayerHome = new System.Windows.Forms.Timer(components);
+            tmrRed = new System.Windows.Forms.Timer(components);
+            tmrPlayerAway = new System.Windows.Forms.Timer(components);
+            tabMain.SuspendLayout();
+            tpScoreboard.SuspendLayout();
+            gbScoreByPeriod.SuspendLayout();
+            gbDown.SuspendLayout();
+            gbPeriod.SuspendLayout();
+            gbAway.SuspendLayout();
+            gbHome.SuspendLayout();
+            gbClock.SuspendLayout();
+            tpPenalties.SuspendLayout();
+            gbPenalties.SuspendLayout();
+            tpMessages.SuspendLayout();
+            tpPlayerImages.SuspendLayout();
+            tpHotKeys.SuspendLayout();
+            gbMisc.SuspendLayout();
+            gbClockKeys.SuspendLayout();
+            gbHotKeysAway.SuspendLayout();
+            gbHotKeysHome.SuspendLayout();
+            tpSettings.SuspendLayout();
+            gbPoints.SuspendLayout();
+            gbSettingDown.SuspendLayout();
+            gbSettingPeriod.SuspendLayout();
+            msMain.SuspendLayout();
+            SuspendLayout();
             // 
             // tabMain
             // 
-            this.tabMain.Controls.Add(this.tpScoreboard);
-            this.tabMain.Controls.Add(this.tpPenalties);
-            this.tabMain.Controls.Add(this.tpMessages);
-            this.tabMain.Controls.Add(this.tpPlayerImages);
-            this.tabMain.Controls.Add(this.tpHotKeys);
-            this.tabMain.Controls.Add(this.tpSettings);
-            this.tabMain.Location = new System.Drawing.Point(0, 27);
-            this.tabMain.Name = "tabMain";
-            this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(782, 419);
-            this.tabMain.TabIndex = 0;
+            tabMain.Controls.Add(tpScoreboard);
+            tabMain.Controls.Add(tpPenalties);
+            tabMain.Controls.Add(tpMessages);
+            tabMain.Controls.Add(tpPlayerImages);
+            tabMain.Controls.Add(tpHotKeys);
+            tabMain.Controls.Add(tpSettings);
+            tabMain.Location = new System.Drawing.Point(0, 31);
+            tabMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabMain.Name = "tabMain";
+            tabMain.SelectedIndex = 0;
+            tabMain.Size = new System.Drawing.Size(912, 483);
+            tabMain.TabIndex = 0;
             // 
             // tpScoreboard
             // 
-            this.tpScoreboard.Controls.Add(this.chkRed);
-            this.tpScoreboard.Controls.Add(this.ButClearAll);
-            this.tpScoreboard.Controls.Add(this.gbScoreByPeriod);
-            this.tpScoreboard.Controls.Add(this.chkFlag);
-            this.tpScoreboard.Controls.Add(this.gbDown);
-            this.tpScoreboard.Controls.Add(this.gbPeriod);
-            this.tpScoreboard.Controls.Add(this.gbAway);
-            this.tpScoreboard.Controls.Add(this.gbHome);
-            this.tpScoreboard.Controls.Add(this.gbClock);
-            this.tpScoreboard.Location = new System.Drawing.Point(4, 22);
-            this.tpScoreboard.Name = "tpScoreboard";
-            this.tpScoreboard.Padding = new System.Windows.Forms.Padding(3);
-            this.tpScoreboard.Size = new System.Drawing.Size(774, 393);
-            this.tpScoreboard.TabIndex = 0;
-            this.tpScoreboard.Text = "Scoreboard";
-            this.tpScoreboard.UseVisualStyleBackColor = true;
+            tpScoreboard.Controls.Add(chkRed);
+            tpScoreboard.Controls.Add(ButClearAll);
+            tpScoreboard.Controls.Add(gbScoreByPeriod);
+            tpScoreboard.Controls.Add(chkFlag);
+            tpScoreboard.Controls.Add(gbDown);
+            tpScoreboard.Controls.Add(gbPeriod);
+            tpScoreboard.Controls.Add(gbAway);
+            tpScoreboard.Controls.Add(gbHome);
+            tpScoreboard.Controls.Add(gbClock);
+            tpScoreboard.Location = new System.Drawing.Point(4, 24);
+            tpScoreboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpScoreboard.Name = "tpScoreboard";
+            tpScoreboard.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpScoreboard.Size = new System.Drawing.Size(904, 455);
+            tpScoreboard.TabIndex = 0;
+            tpScoreboard.Text = "Scoreboard";
+            tpScoreboard.UseVisualStyleBackColor = true;
             // 
             // chkRed
             // 
-            this.chkRed.AutoSize = true;
-            this.chkRed.Location = new System.Drawing.Point(380, 190);
-            this.chkRed.Margin = new System.Windows.Forms.Padding(2);
-            this.chkRed.Name = "chkRed";
-            this.chkRed.Size = new System.Drawing.Size(46, 17);
-            this.chkRed.TabIndex = 7;
-            this.chkRed.Text = "Red";
-            this.chkRed.UseVisualStyleBackColor = true;
-            this.chkRed.CheckedChanged += new System.EventHandler(this.ChkRed_CheckedChanged);
+            chkRed.AutoSize = true;
+            chkRed.Location = new System.Drawing.Point(443, 219);
+            chkRed.Margin = new System.Windows.Forms.Padding(2);
+            chkRed.Name = "chkRed";
+            chkRed.Size = new System.Drawing.Size(46, 19);
+            chkRed.TabIndex = 7;
+            chkRed.Text = "Red";
+            chkRed.UseVisualStyleBackColor = true;
+            chkRed.CheckedChanged += ChkRed_CheckedChanged;
             // 
             // ButClearAll
             // 
-            this.ButClearAll.Location = new System.Drawing.Point(367, 271);
-            this.ButClearAll.Name = "ButClearAll";
-            this.ButClearAll.Size = new System.Drawing.Size(75, 23);
-            this.ButClearAll.TabIndex = 8;
-            this.ButClearAll.Text = "Clear All";
-            this.ButClearAll.UseVisualStyleBackColor = true;
-            this.ButClearAll.Click += new System.EventHandler(this.ButClearAll_Click);
+            ButClearAll.Location = new System.Drawing.Point(428, 313);
+            ButClearAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ButClearAll.Name = "ButClearAll";
+            ButClearAll.Size = new System.Drawing.Size(88, 27);
+            ButClearAll.TabIndex = 8;
+            ButClearAll.Text = "Clear All";
+            ButClearAll.UseVisualStyleBackColor = true;
+            ButClearAll.Click += ButClearAll_Click;
             // 
             // gbScoreByPeriod
             // 
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodHomeOT);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodOT);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodAwayOT);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodHomeFourth);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodFourth);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodAwayFourth);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodHomeThird);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodThird);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodAwayThird);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodHomeSecond);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodSecond);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodAwaySecond);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodHomeFirst);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodFirst);
-            this.gbScoreByPeriod.Controls.Add(this.txtPeriodAwayFirst);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodHome);
-            this.gbScoreByPeriod.Controls.Add(this.lblPeriodAway);
-            this.gbScoreByPeriod.Location = new System.Drawing.Point(9, 304);
-            this.gbScoreByPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.gbScoreByPeriod.Name = "gbScoreByPeriod";
-            this.gbScoreByPeriod.Padding = new System.Windows.Forms.Padding(2);
-            this.gbScoreByPeriod.Size = new System.Drawing.Size(274, 86);
-            this.gbScoreByPeriod.TabIndex = 9;
-            this.gbScoreByPeriod.TabStop = false;
-            this.gbScoreByPeriod.Text = "Score By Period";
+            gbScoreByPeriod.Controls.Add(txtPeriodHomeOT);
+            gbScoreByPeriod.Controls.Add(lblPeriodOT);
+            gbScoreByPeriod.Controls.Add(txtPeriodAwayOT);
+            gbScoreByPeriod.Controls.Add(txtPeriodHomeFourth);
+            gbScoreByPeriod.Controls.Add(lblPeriodFourth);
+            gbScoreByPeriod.Controls.Add(txtPeriodAwayFourth);
+            gbScoreByPeriod.Controls.Add(txtPeriodHomeThird);
+            gbScoreByPeriod.Controls.Add(lblPeriodThird);
+            gbScoreByPeriod.Controls.Add(txtPeriodAwayThird);
+            gbScoreByPeriod.Controls.Add(txtPeriodHomeSecond);
+            gbScoreByPeriod.Controls.Add(lblPeriodSecond);
+            gbScoreByPeriod.Controls.Add(txtPeriodAwaySecond);
+            gbScoreByPeriod.Controls.Add(txtPeriodHomeFirst);
+            gbScoreByPeriod.Controls.Add(lblPeriodFirst);
+            gbScoreByPeriod.Controls.Add(txtPeriodAwayFirst);
+            gbScoreByPeriod.Controls.Add(lblPeriodHome);
+            gbScoreByPeriod.Controls.Add(lblPeriodAway);
+            gbScoreByPeriod.Location = new System.Drawing.Point(10, 351);
+            gbScoreByPeriod.Margin = new System.Windows.Forms.Padding(2);
+            gbScoreByPeriod.Name = "gbScoreByPeriod";
+            gbScoreByPeriod.Padding = new System.Windows.Forms.Padding(2);
+            gbScoreByPeriod.Size = new System.Drawing.Size(320, 99);
+            gbScoreByPeriod.TabIndex = 9;
+            gbScoreByPeriod.TabStop = false;
+            gbScoreByPeriod.Text = "Score By Period";
             // 
             // txtPeriodHomeOT
             // 
-            this.txtPeriodHomeOT.Location = new System.Drawing.Point(224, 61);
-            this.txtPeriodHomeOT.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodHomeOT.Name = "txtPeriodHomeOT";
-            this.txtPeriodHomeOT.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodHomeOT.TabIndex = 16;
-            this.txtPeriodHomeOT.TextChanged += new System.EventHandler(this.TxtPeriodHomeOT_TextChanged);
+            txtPeriodHomeOT.Location = new System.Drawing.Point(261, 70);
+            txtPeriodHomeOT.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodHomeOT.Name = "txtPeriodHomeOT";
+            txtPeriodHomeOT.Size = new System.Drawing.Size(47, 23);
+            txtPeriodHomeOT.TabIndex = 16;
+            txtPeriodHomeOT.TextChanged += TxtPeriodHomeOT_TextChanged;
             // 
             // lblPeriodOT
             // 
-            this.lblPeriodOT.AutoSize = true;
-            this.lblPeriodOT.Location = new System.Drawing.Point(233, 16);
-            this.lblPeriodOT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodOT.Name = "lblPeriodOT";
-            this.lblPeriodOT.Size = new System.Drawing.Size(22, 13);
-            this.lblPeriodOT.TabIndex = 15;
-            this.lblPeriodOT.Text = "OT";
+            lblPeriodOT.AutoSize = true;
+            lblPeriodOT.Location = new System.Drawing.Point(272, 18);
+            lblPeriodOT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodOT.Name = "lblPeriodOT";
+            lblPeriodOT.Size = new System.Drawing.Size(21, 15);
+            lblPeriodOT.TabIndex = 15;
+            lblPeriodOT.Text = "OT";
             // 
             // txtPeriodAwayOT
             // 
-            this.txtPeriodAwayOT.Location = new System.Drawing.Point(224, 38);
-            this.txtPeriodAwayOT.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodAwayOT.Name = "txtPeriodAwayOT";
-            this.txtPeriodAwayOT.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodAwayOT.TabIndex = 14;
-            this.txtPeriodAwayOT.TextChanged += new System.EventHandler(this.TxtPeriodAwayOT_TextChanged);
+            txtPeriodAwayOT.Location = new System.Drawing.Point(261, 44);
+            txtPeriodAwayOT.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodAwayOT.Name = "txtPeriodAwayOT";
+            txtPeriodAwayOT.Size = new System.Drawing.Size(47, 23);
+            txtPeriodAwayOT.TabIndex = 14;
+            txtPeriodAwayOT.TextChanged += TxtPeriodAwayOT_TextChanged;
             // 
             // txtPeriodHomeFourth
             // 
-            this.txtPeriodHomeFourth.Location = new System.Drawing.Point(178, 61);
-            this.txtPeriodHomeFourth.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodHomeFourth.Name = "txtPeriodHomeFourth";
-            this.txtPeriodHomeFourth.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodHomeFourth.TabIndex = 13;
-            this.txtPeriodHomeFourth.TextChanged += new System.EventHandler(this.TxtPeriodHomeFourth_TextChanged);
+            txtPeriodHomeFourth.Location = new System.Drawing.Point(208, 70);
+            txtPeriodHomeFourth.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodHomeFourth.Name = "txtPeriodHomeFourth";
+            txtPeriodHomeFourth.Size = new System.Drawing.Size(47, 23);
+            txtPeriodHomeFourth.TabIndex = 13;
+            txtPeriodHomeFourth.TextChanged += TxtPeriodHomeFourth_TextChanged;
             // 
             // lblPeriodFourth
             // 
-            this.lblPeriodFourth.AutoSize = true;
-            this.lblPeriodFourth.Location = new System.Drawing.Point(188, 16);
-            this.lblPeriodFourth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodFourth.Name = "lblPeriodFourth";
-            this.lblPeriodFourth.Size = new System.Drawing.Size(22, 13);
-            this.lblPeriodFourth.TabIndex = 12;
-            this.lblPeriodFourth.Text = "4th";
+            lblPeriodFourth.AutoSize = true;
+            lblPeriodFourth.Location = new System.Drawing.Point(219, 18);
+            lblPeriodFourth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodFourth.Name = "lblPeriodFourth";
+            lblPeriodFourth.Size = new System.Drawing.Size(24, 15);
+            lblPeriodFourth.TabIndex = 12;
+            lblPeriodFourth.Text = "4th";
             // 
             // txtPeriodAwayFourth
             // 
-            this.txtPeriodAwayFourth.Location = new System.Drawing.Point(178, 38);
-            this.txtPeriodAwayFourth.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodAwayFourth.Name = "txtPeriodAwayFourth";
-            this.txtPeriodAwayFourth.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodAwayFourth.TabIndex = 11;
-            this.txtPeriodAwayFourth.TextChanged += new System.EventHandler(this.TxtPeriodAwayFourth_TextChanged);
+            txtPeriodAwayFourth.Location = new System.Drawing.Point(208, 44);
+            txtPeriodAwayFourth.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodAwayFourth.Name = "txtPeriodAwayFourth";
+            txtPeriodAwayFourth.Size = new System.Drawing.Size(47, 23);
+            txtPeriodAwayFourth.TabIndex = 11;
+            txtPeriodAwayFourth.TextChanged += TxtPeriodAwayFourth_TextChanged;
             // 
             // txtPeriodHomeThird
             // 
-            this.txtPeriodHomeThird.Location = new System.Drawing.Point(134, 61);
-            this.txtPeriodHomeThird.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodHomeThird.Name = "txtPeriodHomeThird";
-            this.txtPeriodHomeThird.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodHomeThird.TabIndex = 10;
-            this.txtPeriodHomeThird.TextChanged += new System.EventHandler(this.TxtPeriodHomeThird_TextChanged);
+            txtPeriodHomeThird.Location = new System.Drawing.Point(156, 70);
+            txtPeriodHomeThird.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodHomeThird.Name = "txtPeriodHomeThird";
+            txtPeriodHomeThird.Size = new System.Drawing.Size(47, 23);
+            txtPeriodHomeThird.TabIndex = 10;
+            txtPeriodHomeThird.TextChanged += TxtPeriodHomeThird_TextChanged;
             // 
             // lblPeriodThird
             // 
-            this.lblPeriodThird.AutoSize = true;
-            this.lblPeriodThird.Location = new System.Drawing.Point(143, 16);
-            this.lblPeriodThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodThird.Name = "lblPeriodThird";
-            this.lblPeriodThird.Size = new System.Drawing.Size(22, 13);
-            this.lblPeriodThird.TabIndex = 9;
-            this.lblPeriodThird.Text = "3rd";
+            lblPeriodThird.AutoSize = true;
+            lblPeriodThird.Location = new System.Drawing.Point(167, 18);
+            lblPeriodThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodThird.Name = "lblPeriodThird";
+            lblPeriodThird.Size = new System.Drawing.Size(24, 15);
+            lblPeriodThird.TabIndex = 9;
+            lblPeriodThird.Text = "3rd";
             // 
             // txtPeriodAwayThird
             // 
-            this.txtPeriodAwayThird.Location = new System.Drawing.Point(134, 38);
-            this.txtPeriodAwayThird.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodAwayThird.Name = "txtPeriodAwayThird";
-            this.txtPeriodAwayThird.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodAwayThird.TabIndex = 8;
-            this.txtPeriodAwayThird.TextChanged += new System.EventHandler(this.TxtPeriodAwayThird_TextChanged);
+            txtPeriodAwayThird.Location = new System.Drawing.Point(156, 44);
+            txtPeriodAwayThird.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodAwayThird.Name = "txtPeriodAwayThird";
+            txtPeriodAwayThird.Size = new System.Drawing.Size(47, 23);
+            txtPeriodAwayThird.TabIndex = 8;
+            txtPeriodAwayThird.TextChanged += TxtPeriodAwayThird_TextChanged;
             // 
             // txtPeriodHomeSecond
             // 
-            this.txtPeriodHomeSecond.Location = new System.Drawing.Point(89, 61);
-            this.txtPeriodHomeSecond.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodHomeSecond.Name = "txtPeriodHomeSecond";
-            this.txtPeriodHomeSecond.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodHomeSecond.TabIndex = 7;
-            this.txtPeriodHomeSecond.TextChanged += new System.EventHandler(this.TxtPeriodHomeSecond_TextChanged);
+            txtPeriodHomeSecond.Location = new System.Drawing.Point(104, 70);
+            txtPeriodHomeSecond.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodHomeSecond.Name = "txtPeriodHomeSecond";
+            txtPeriodHomeSecond.Size = new System.Drawing.Size(47, 23);
+            txtPeriodHomeSecond.TabIndex = 7;
+            txtPeriodHomeSecond.TextChanged += TxtPeriodHomeSecond_TextChanged;
             // 
             // lblPeriodSecond
             // 
-            this.lblPeriodSecond.AutoSize = true;
-            this.lblPeriodSecond.Location = new System.Drawing.Point(99, 16);
-            this.lblPeriodSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodSecond.Name = "lblPeriodSecond";
-            this.lblPeriodSecond.Size = new System.Drawing.Size(25, 13);
-            this.lblPeriodSecond.TabIndex = 6;
-            this.lblPeriodSecond.Text = "2nd";
+            lblPeriodSecond.AutoSize = true;
+            lblPeriodSecond.Location = new System.Drawing.Point(115, 18);
+            lblPeriodSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodSecond.Name = "lblPeriodSecond";
+            lblPeriodSecond.Size = new System.Drawing.Size(27, 15);
+            lblPeriodSecond.TabIndex = 6;
+            lblPeriodSecond.Text = "2nd";
             // 
             // txtPeriodAwaySecond
             // 
-            this.txtPeriodAwaySecond.Location = new System.Drawing.Point(89, 38);
-            this.txtPeriodAwaySecond.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodAwaySecond.Name = "txtPeriodAwaySecond";
-            this.txtPeriodAwaySecond.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodAwaySecond.TabIndex = 5;
-            this.txtPeriodAwaySecond.TextChanged += new System.EventHandler(this.TxtPeriodAwaySecond_TextChanged);
+            txtPeriodAwaySecond.Location = new System.Drawing.Point(104, 44);
+            txtPeriodAwaySecond.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodAwaySecond.Name = "txtPeriodAwaySecond";
+            txtPeriodAwaySecond.Size = new System.Drawing.Size(47, 23);
+            txtPeriodAwaySecond.TabIndex = 5;
+            txtPeriodAwaySecond.TextChanged += TxtPeriodAwaySecond_TextChanged;
             // 
             // txtPeriodHomeFirst
             // 
-            this.txtPeriodHomeFirst.Location = new System.Drawing.Point(45, 61);
-            this.txtPeriodHomeFirst.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodHomeFirst.Name = "txtPeriodHomeFirst";
-            this.txtPeriodHomeFirst.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodHomeFirst.TabIndex = 4;
-            this.txtPeriodHomeFirst.TextChanged += new System.EventHandler(this.TxtPeriodHomeFirst_TextChanged);
+            txtPeriodHomeFirst.Location = new System.Drawing.Point(52, 70);
+            txtPeriodHomeFirst.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodHomeFirst.Name = "txtPeriodHomeFirst";
+            txtPeriodHomeFirst.Size = new System.Drawing.Size(47, 23);
+            txtPeriodHomeFirst.TabIndex = 4;
+            txtPeriodHomeFirst.TextChanged += TxtPeriodHomeFirst_TextChanged;
             // 
             // lblPeriodFirst
             // 
-            this.lblPeriodFirst.AutoSize = true;
-            this.lblPeriodFirst.Location = new System.Drawing.Point(55, 16);
-            this.lblPeriodFirst.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodFirst.Name = "lblPeriodFirst";
-            this.lblPeriodFirst.Size = new System.Drawing.Size(21, 13);
-            this.lblPeriodFirst.TabIndex = 3;
-            this.lblPeriodFirst.Text = "1st";
+            lblPeriodFirst.AutoSize = true;
+            lblPeriodFirst.Location = new System.Drawing.Point(64, 18);
+            lblPeriodFirst.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodFirst.Name = "lblPeriodFirst";
+            lblPeriodFirst.Size = new System.Drawing.Size(22, 15);
+            lblPeriodFirst.TabIndex = 3;
+            lblPeriodFirst.Text = "1st";
             // 
             // txtPeriodAwayFirst
             // 
-            this.txtPeriodAwayFirst.Location = new System.Drawing.Point(45, 38);
-            this.txtPeriodAwayFirst.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPeriodAwayFirst.Name = "txtPeriodAwayFirst";
-            this.txtPeriodAwayFirst.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodAwayFirst.TabIndex = 2;
-            this.txtPeriodAwayFirst.TextChanged += new System.EventHandler(this.TxtPeriodAwayFirst_TextChanged);
+            txtPeriodAwayFirst.Location = new System.Drawing.Point(52, 44);
+            txtPeriodAwayFirst.Margin = new System.Windows.Forms.Padding(2);
+            txtPeriodAwayFirst.Name = "txtPeriodAwayFirst";
+            txtPeriodAwayFirst.Size = new System.Drawing.Size(47, 23);
+            txtPeriodAwayFirst.TabIndex = 2;
+            txtPeriodAwayFirst.TextChanged += TxtPeriodAwayFirst_TextChanged;
             // 
             // lblPeriodHome
             // 
-            this.lblPeriodHome.AutoSize = true;
-            this.lblPeriodHome.Location = new System.Drawing.Point(6, 63);
-            this.lblPeriodHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodHome.Name = "lblPeriodHome";
-            this.lblPeriodHome.Size = new System.Drawing.Size(35, 13);
-            this.lblPeriodHome.TabIndex = 1;
-            this.lblPeriodHome.Text = "Home";
+            lblPeriodHome.AutoSize = true;
+            lblPeriodHome.Location = new System.Drawing.Point(7, 73);
+            lblPeriodHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodHome.Name = "lblPeriodHome";
+            lblPeriodHome.Size = new System.Drawing.Size(40, 15);
+            lblPeriodHome.TabIndex = 1;
+            lblPeriodHome.Text = "Home";
             // 
             // lblPeriodAway
             // 
-            this.lblPeriodAway.AutoSize = true;
-            this.lblPeriodAway.Location = new System.Drawing.Point(6, 38);
-            this.lblPeriodAway.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPeriodAway.Name = "lblPeriodAway";
-            this.lblPeriodAway.Size = new System.Drawing.Size(33, 13);
-            this.lblPeriodAway.TabIndex = 0;
-            this.lblPeriodAway.Text = "Away";
+            lblPeriodAway.AutoSize = true;
+            lblPeriodAway.Location = new System.Drawing.Point(7, 44);
+            lblPeriodAway.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPeriodAway.Name = "lblPeriodAway";
+            lblPeriodAway.Size = new System.Drawing.Size(36, 15);
+            lblPeriodAway.TabIndex = 0;
+            lblPeriodAway.Text = "Away";
             // 
             // chkFlag
             // 
-            this.chkFlag.AutoSize = true;
-            this.chkFlag.Location = new System.Drawing.Point(380, 171);
-            this.chkFlag.Margin = new System.Windows.Forms.Padding(2);
-            this.chkFlag.Name = "chkFlag";
-            this.chkFlag.Size = new System.Drawing.Size(46, 17);
-            this.chkFlag.TabIndex = 6;
-            this.chkFlag.Text = "Flag";
-            this.chkFlag.UseVisualStyleBackColor = true;
-            this.chkFlag.CheckedChanged += new System.EventHandler(this.ChkFlag_CheckedChanged);
+            chkFlag.AutoSize = true;
+            chkFlag.Location = new System.Drawing.Point(443, 197);
+            chkFlag.Margin = new System.Windows.Forms.Padding(2);
+            chkFlag.Name = "chkFlag";
+            chkFlag.Size = new System.Drawing.Size(48, 19);
+            chkFlag.TabIndex = 6;
+            chkFlag.Text = "Flag";
+            chkFlag.UseVisualStyleBackColor = true;
+            chkFlag.CheckedChanged += ChkFlag_CheckedChanged;
             // 
             // gbDown
             // 
-            this.gbDown.Controls.Add(this.txtSpot);
-            this.gbDown.Controls.Add(this.lblSpot);
-            this.gbDown.Controls.Add(this.lblDistance);
-            this.gbDown.Controls.Add(this.rbDownBlank);
-            this.gbDown.Controls.Add(this.butDistanceGoal);
-            this.gbDown.Controls.Add(this.butDownClear);
-            this.gbDown.Controls.Add(this.txtDistance);
-            this.gbDown.Controls.Add(this.rbDownFour);
-            this.gbDown.Controls.Add(this.rbDownThree);
-            this.gbDown.Controls.Add(this.rbDownTwo);
-            this.gbDown.Controls.Add(this.rbDownOne);
-            this.gbDown.Location = new System.Drawing.Point(212, 157);
-            this.gbDown.Name = "gbDown";
-            this.gbDown.Size = new System.Drawing.Size(149, 137);
-            this.gbDown.TabIndex = 4;
-            this.gbDown.TabStop = false;
-            this.gbDown.Text = "Down - Distance";
+            gbDown.Controls.Add(txtSpot);
+            gbDown.Controls.Add(lblSpot);
+            gbDown.Controls.Add(lblDistance);
+            gbDown.Controls.Add(rbDownBlank);
+            gbDown.Controls.Add(butDistanceGoal);
+            gbDown.Controls.Add(butDownClear);
+            gbDown.Controls.Add(txtDistance);
+            gbDown.Controls.Add(rbDownFour);
+            gbDown.Controls.Add(rbDownThree);
+            gbDown.Controls.Add(rbDownTwo);
+            gbDown.Controls.Add(rbDownOne);
+            gbDown.Location = new System.Drawing.Point(247, 181);
+            gbDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbDown.Name = "gbDown";
+            gbDown.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbDown.Size = new System.Drawing.Size(174, 158);
+            gbDown.TabIndex = 4;
+            gbDown.TabStop = false;
+            gbDown.Text = "Down - Distance";
             // 
             // txtSpot
             // 
-            this.txtSpot.Location = new System.Drawing.Point(61, 112);
-            this.txtSpot.Name = "txtSpot";
-            this.txtSpot.Size = new System.Drawing.Size(37, 20);
-            this.txtSpot.TabIndex = 7;
-            this.txtSpot.TextChanged += new System.EventHandler(this.TxtSpot_TextChanged);
+            txtSpot.Location = new System.Drawing.Point(71, 129);
+            txtSpot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSpot.Name = "txtSpot";
+            txtSpot.Size = new System.Drawing.Size(42, 23);
+            txtSpot.TabIndex = 7;
+            txtSpot.TextChanged += TxtSpot_TextChanged;
             // 
             // lblSpot
             // 
-            this.lblSpot.AutoSize = true;
-            this.lblSpot.Location = new System.Drawing.Point(6, 115);
-            this.lblSpot.Name = "lblSpot";
-            this.lblSpot.Size = new System.Drawing.Size(29, 13);
-            this.lblSpot.TabIndex = 9;
-            this.lblSpot.Text = "Spot";
+            lblSpot.AutoSize = true;
+            lblSpot.Location = new System.Drawing.Point(7, 133);
+            lblSpot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSpot.Name = "lblSpot";
+            lblSpot.Size = new System.Drawing.Size(31, 15);
+            lblSpot.TabIndex = 9;
+            lblSpot.Text = "Spot";
             // 
             // lblDistance
             // 
-            this.lblDistance.AutoSize = true;
-            this.lblDistance.Location = new System.Drawing.Point(6, 88);
-            this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(49, 13);
-            this.lblDistance.TabIndex = 8;
-            this.lblDistance.Text = "Distance";
+            lblDistance.AutoSize = true;
+            lblDistance.Location = new System.Drawing.Point(7, 102);
+            lblDistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDistance.Name = "lblDistance";
+            lblDistance.Size = new System.Drawing.Size(52, 15);
+            lblDistance.TabIndex = 8;
+            lblDistance.Text = "Distance";
             // 
             // rbDownBlank
             // 
-            this.rbDownBlank.AutoSize = true;
-            this.rbDownBlank.Location = new System.Drawing.Point(6, 14);
-            this.rbDownBlank.Name = "rbDownBlank";
-            this.rbDownBlank.Size = new System.Drawing.Size(52, 17);
-            this.rbDownBlank.TabIndex = 0;
-            this.rbDownBlank.TabStop = true;
-            this.rbDownBlank.Text = "Blank";
-            this.rbDownBlank.UseVisualStyleBackColor = true;
-            this.rbDownBlank.CheckedChanged += new System.EventHandler(this.RbDownBlank_CheckedChanged);
+            rbDownBlank.AutoSize = true;
+            rbDownBlank.Location = new System.Drawing.Point(7, 16);
+            rbDownBlank.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbDownBlank.Name = "rbDownBlank";
+            rbDownBlank.Size = new System.Drawing.Size(54, 19);
+            rbDownBlank.TabIndex = 0;
+            rbDownBlank.TabStop = true;
+            rbDownBlank.Text = "Blank";
+            rbDownBlank.UseVisualStyleBackColor = true;
+            rbDownBlank.CheckedChanged += RbDownBlank_CheckedChanged;
             // 
             // butDistanceGoal
             // 
-            this.butDistanceGoal.Location = new System.Drawing.Point(104, 86);
-            this.butDistanceGoal.Name = "butDistanceGoal";
-            this.butDistanceGoal.Size = new System.Drawing.Size(37, 20);
-            this.butDistanceGoal.TabIndex = 6;
-            this.butDistanceGoal.Text = "Goal";
-            this.butDistanceGoal.UseVisualStyleBackColor = true;
-            this.butDistanceGoal.Click += new System.EventHandler(this.ButDistanceGoal_Click);
+            butDistanceGoal.Location = new System.Drawing.Point(121, 99);
+            butDistanceGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butDistanceGoal.Name = "butDistanceGoal";
+            butDistanceGoal.Size = new System.Drawing.Size(43, 23);
+            butDistanceGoal.TabIndex = 6;
+            butDistanceGoal.Text = "Goal";
+            butDistanceGoal.UseVisualStyleBackColor = true;
+            butDistanceGoal.Click += ButDistanceGoal_Click;
             // 
             // butDownClear
             // 
-            this.butDownClear.Location = new System.Drawing.Point(68, 57);
-            this.butDownClear.Name = "butDownClear";
-            this.butDownClear.Size = new System.Drawing.Size(75, 23);
-            this.butDownClear.TabIndex = 8;
-            this.butDownClear.Text = "Clear";
-            this.butDownClear.UseVisualStyleBackColor = true;
-            this.butDownClear.Click += new System.EventHandler(this.ButClearDown_Click);
+            butDownClear.Location = new System.Drawing.Point(79, 66);
+            butDownClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butDownClear.Name = "butDownClear";
+            butDownClear.Size = new System.Drawing.Size(88, 27);
+            butDownClear.TabIndex = 8;
+            butDownClear.Text = "Clear";
+            butDownClear.UseVisualStyleBackColor = true;
+            butDownClear.Click += ButClearDown_Click;
             // 
             // txtDistance
             // 
-            this.txtDistance.Location = new System.Drawing.Point(61, 86);
-            this.txtDistance.Name = "txtDistance";
-            this.txtDistance.Size = new System.Drawing.Size(37, 20);
-            this.txtDistance.TabIndex = 5;
-            this.txtDistance.TextChanged += new System.EventHandler(this.TxtDistance_TextChanged);
+            txtDistance.Location = new System.Drawing.Point(71, 99);
+            txtDistance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtDistance.Name = "txtDistance";
+            txtDistance.Size = new System.Drawing.Size(42, 23);
+            txtDistance.TabIndex = 5;
+            txtDistance.TextChanged += TxtDistance_TextChanged;
             // 
             // rbDownFour
             // 
-            this.rbDownFour.AutoSize = true;
-            this.rbDownFour.Location = new System.Drawing.Point(78, 38);
-            this.rbDownFour.Name = "rbDownFour";
-            this.rbDownFour.Size = new System.Drawing.Size(40, 17);
-            this.rbDownFour.TabIndex = 4;
-            this.rbDownFour.TabStop = true;
-            this.rbDownFour.Text = "4th";
-            this.rbDownFour.UseVisualStyleBackColor = true;
-            this.rbDownFour.CheckedChanged += new System.EventHandler(this.RbDownFour_CheckedChanged);
+            rbDownFour.AutoSize = true;
+            rbDownFour.Location = new System.Drawing.Point(91, 44);
+            rbDownFour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbDownFour.Name = "rbDownFour";
+            rbDownFour.Size = new System.Drawing.Size(42, 19);
+            rbDownFour.TabIndex = 4;
+            rbDownFour.TabStop = true;
+            rbDownFour.Text = "4th";
+            rbDownFour.UseVisualStyleBackColor = true;
+            rbDownFour.CheckedChanged += RbDownFour_CheckedChanged;
             // 
             // rbDownThree
             // 
-            this.rbDownThree.AutoSize = true;
-            this.rbDownThree.Location = new System.Drawing.Point(78, 15);
-            this.rbDownThree.Name = "rbDownThree";
-            this.rbDownThree.Size = new System.Drawing.Size(40, 17);
-            this.rbDownThree.TabIndex = 3;
-            this.rbDownThree.TabStop = true;
-            this.rbDownThree.Text = "3rd";
-            this.rbDownThree.UseVisualStyleBackColor = true;
-            this.rbDownThree.CheckedChanged += new System.EventHandler(this.RbDownThree_CheckedChanged);
+            rbDownThree.AutoSize = true;
+            rbDownThree.Location = new System.Drawing.Point(91, 17);
+            rbDownThree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbDownThree.Name = "rbDownThree";
+            rbDownThree.Size = new System.Drawing.Size(42, 19);
+            rbDownThree.TabIndex = 3;
+            rbDownThree.TabStop = true;
+            rbDownThree.Text = "3rd";
+            rbDownThree.UseVisualStyleBackColor = true;
+            rbDownThree.CheckedChanged += RbDownThree_CheckedChanged;
             // 
             // rbDownTwo
             // 
-            this.rbDownTwo.AutoSize = true;
-            this.rbDownTwo.Location = new System.Drawing.Point(6, 60);
-            this.rbDownTwo.Name = "rbDownTwo";
-            this.rbDownTwo.Size = new System.Drawing.Size(43, 17);
-            this.rbDownTwo.TabIndex = 2;
-            this.rbDownTwo.TabStop = true;
-            this.rbDownTwo.Text = "2nd";
-            this.rbDownTwo.UseVisualStyleBackColor = true;
-            this.rbDownTwo.CheckedChanged += new System.EventHandler(this.RbDownTwo_CheckedChanged);
+            rbDownTwo.AutoSize = true;
+            rbDownTwo.Location = new System.Drawing.Point(7, 69);
+            rbDownTwo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbDownTwo.Name = "rbDownTwo";
+            rbDownTwo.Size = new System.Drawing.Size(45, 19);
+            rbDownTwo.TabIndex = 2;
+            rbDownTwo.TabStop = true;
+            rbDownTwo.Text = "2nd";
+            rbDownTwo.UseVisualStyleBackColor = true;
+            rbDownTwo.CheckedChanged += RbDownTwo_CheckedChanged;
             // 
             // rbDownOne
             // 
-            this.rbDownOne.AutoSize = true;
-            this.rbDownOne.Location = new System.Drawing.Point(6, 37);
-            this.rbDownOne.Name = "rbDownOne";
-            this.rbDownOne.Size = new System.Drawing.Size(39, 17);
-            this.rbDownOne.TabIndex = 1;
-            this.rbDownOne.TabStop = true;
-            this.rbDownOne.Text = "1st";
-            this.rbDownOne.UseVisualStyleBackColor = true;
-            this.rbDownOne.CheckedChanged += new System.EventHandler(this.RbDownOne_CheckedChanged);
+            rbDownOne.AutoSize = true;
+            rbDownOne.Location = new System.Drawing.Point(7, 43);
+            rbDownOne.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbDownOne.Name = "rbDownOne";
+            rbDownOne.Size = new System.Drawing.Size(40, 19);
+            rbDownOne.TabIndex = 1;
+            rbDownOne.TabStop = true;
+            rbDownOne.Text = "1st";
+            rbDownOne.UseVisualStyleBackColor = true;
+            rbDownOne.CheckedChanged += RbDownOne_CheckedChanged;
             // 
             // gbPeriod
             // 
-            this.gbPeriod.Controls.Add(this.rbPeriodFinal);
-            this.gbPeriod.Controls.Add(this.rbPeriodHalf);
-            this.gbPeriod.Controls.Add(this.txtPeriodOT);
-            this.gbPeriod.Controls.Add(this.butPeriodClear);
-            this.gbPeriod.Controls.Add(this.rbPeriodOT);
-            this.gbPeriod.Controls.Add(this.rbPeriodFour);
-            this.gbPeriod.Controls.Add(this.rbPeriodThree);
-            this.gbPeriod.Controls.Add(this.rbPeriodTwo);
-            this.gbPeriod.Controls.Add(this.rbPeriodOne);
-            this.gbPeriod.Location = new System.Drawing.Point(431, 157);
-            this.gbPeriod.Name = "gbPeriod";
-            this.gbPeriod.Size = new System.Drawing.Size(131, 109);
-            this.gbPeriod.TabIndex = 5;
-            this.gbPeriod.TabStop = false;
-            this.gbPeriod.Text = "Period";
+            gbPeriod.Controls.Add(rbPeriodFinal);
+            gbPeriod.Controls.Add(rbPeriodHalf);
+            gbPeriod.Controls.Add(txtPeriodOT);
+            gbPeriod.Controls.Add(butPeriodClear);
+            gbPeriod.Controls.Add(rbPeriodOT);
+            gbPeriod.Controls.Add(rbPeriodFour);
+            gbPeriod.Controls.Add(rbPeriodThree);
+            gbPeriod.Controls.Add(rbPeriodTwo);
+            gbPeriod.Controls.Add(rbPeriodOne);
+            gbPeriod.Location = new System.Drawing.Point(503, 181);
+            gbPeriod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPeriod.Name = "gbPeriod";
+            gbPeriod.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPeriod.Size = new System.Drawing.Size(153, 126);
+            gbPeriod.TabIndex = 5;
+            gbPeriod.TabStop = false;
+            gbPeriod.Text = "Period";
             // 
             // rbPeriodFinal
             // 
-            this.rbPeriodFinal.AutoSize = true;
-            this.rbPeriodFinal.Location = new System.Drawing.Point(62, 56);
-            this.rbPeriodFinal.Name = "rbPeriodFinal";
-            this.rbPeriodFinal.Size = new System.Drawing.Size(47, 17);
-            this.rbPeriodFinal.TabIndex = 8;
-            this.rbPeriodFinal.TabStop = true;
-            this.rbPeriodFinal.Text = "Final";
-            this.rbPeriodFinal.UseVisualStyleBackColor = true;
-            this.rbPeriodFinal.CheckedChanged += new System.EventHandler(this.RbPeriodFinal_CheckedChanged);
+            rbPeriodFinal.AutoSize = true;
+            rbPeriodFinal.Location = new System.Drawing.Point(72, 65);
+            rbPeriodFinal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodFinal.Name = "rbPeriodFinal";
+            rbPeriodFinal.Size = new System.Drawing.Size(50, 19);
+            rbPeriodFinal.TabIndex = 8;
+            rbPeriodFinal.TabStop = true;
+            rbPeriodFinal.Text = "Final";
+            rbPeriodFinal.UseVisualStyleBackColor = true;
+            rbPeriodFinal.CheckedChanged += RbPeriodFinal_CheckedChanged;
             // 
             // rbPeriodHalf
             // 
-            this.rbPeriodHalf.AutoSize = true;
-            this.rbPeriodHalf.Location = new System.Drawing.Point(6, 60);
-            this.rbPeriodHalf.Name = "rbPeriodHalf";
-            this.rbPeriodHalf.Size = new System.Drawing.Size(44, 17);
-            this.rbPeriodHalf.TabIndex = 7;
-            this.rbPeriodHalf.TabStop = true;
-            this.rbPeriodHalf.Text = "Half";
-            this.rbPeriodHalf.UseVisualStyleBackColor = true;
-            this.rbPeriodHalf.CheckedChanged += new System.EventHandler(this.RbPeriodHalf_CheckedChanged);
+            rbPeriodHalf.AutoSize = true;
+            rbPeriodHalf.Location = new System.Drawing.Point(7, 69);
+            rbPeriodHalf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodHalf.Name = "rbPeriodHalf";
+            rbPeriodHalf.Size = new System.Drawing.Size(47, 19);
+            rbPeriodHalf.TabIndex = 7;
+            rbPeriodHalf.TabStop = true;
+            rbPeriodHalf.Text = "Half";
+            rbPeriodHalf.UseVisualStyleBackColor = true;
+            rbPeriodHalf.CheckedChanged += RbPeriodHalf_CheckedChanged;
             // 
             // txtPeriodOT
             // 
-            this.txtPeriodOT.Location = new System.Drawing.Point(82, 34);
-            this.txtPeriodOT.Name = "txtPeriodOT";
-            this.txtPeriodOT.Size = new System.Drawing.Size(41, 20);
-            this.txtPeriodOT.TabIndex = 5;
-            this.txtPeriodOT.Text = "OT";
-            this.txtPeriodOT.TextChanged += new System.EventHandler(this.TxtPeriodOT_TextChanged);
+            txtPeriodOT.Location = new System.Drawing.Point(96, 39);
+            txtPeriodOT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtPeriodOT.Name = "txtPeriodOT";
+            txtPeriodOT.Size = new System.Drawing.Size(47, 23);
+            txtPeriodOT.TabIndex = 5;
+            txtPeriodOT.Text = "OT";
+            txtPeriodOT.TextChanged += TxtPeriodOT_TextChanged;
             // 
             // butPeriodClear
             // 
-            this.butPeriodClear.Location = new System.Drawing.Point(72, 75);
-            this.butPeriodClear.Name = "butPeriodClear";
-            this.butPeriodClear.Size = new System.Drawing.Size(52, 23);
-            this.butPeriodClear.TabIndex = 6;
-            this.butPeriodClear.Text = "Clear";
-            this.butPeriodClear.UseVisualStyleBackColor = true;
-            this.butPeriodClear.Click += new System.EventHandler(this.ButClearPeriod_Click);
+            butPeriodClear.Location = new System.Drawing.Point(84, 87);
+            butPeriodClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butPeriodClear.Name = "butPeriodClear";
+            butPeriodClear.Size = new System.Drawing.Size(61, 27);
+            butPeriodClear.TabIndex = 6;
+            butPeriodClear.Text = "Clear";
+            butPeriodClear.UseVisualStyleBackColor = true;
+            butPeriodClear.Click += ButClearPeriod_Click;
             // 
             // rbPeriodOT
             // 
-            this.rbPeriodOT.AutoSize = true;
-            this.rbPeriodOT.Location = new System.Drawing.Point(62, 37);
-            this.rbPeriodOT.Name = "rbPeriodOT";
-            this.rbPeriodOT.Size = new System.Drawing.Size(14, 13);
-            this.rbPeriodOT.TabIndex = 4;
-            this.rbPeriodOT.TabStop = true;
-            this.rbPeriodOT.UseVisualStyleBackColor = true;
-            this.rbPeriodOT.CheckedChanged += new System.EventHandler(this.RbPeriodOT_CheckedChanged);
+            rbPeriodOT.AutoSize = true;
+            rbPeriodOT.Location = new System.Drawing.Point(72, 43);
+            rbPeriodOT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodOT.Name = "rbPeriodOT";
+            rbPeriodOT.Size = new System.Drawing.Size(14, 13);
+            rbPeriodOT.TabIndex = 4;
+            rbPeriodOT.TabStop = true;
+            rbPeriodOT.UseVisualStyleBackColor = true;
+            rbPeriodOT.CheckedChanged += RbPeriodOT_CheckedChanged;
             // 
             // rbPeriodFour
             // 
-            this.rbPeriodFour.AutoSize = true;
-            this.rbPeriodFour.Location = new System.Drawing.Point(62, 14);
-            this.rbPeriodFour.Name = "rbPeriodFour";
-            this.rbPeriodFour.Size = new System.Drawing.Size(40, 17);
-            this.rbPeriodFour.TabIndex = 3;
-            this.rbPeriodFour.TabStop = true;
-            this.rbPeriodFour.Text = "4th";
-            this.rbPeriodFour.UseVisualStyleBackColor = true;
-            this.rbPeriodFour.CheckedChanged += new System.EventHandler(this.RbPeriodFour_CheckedChanged);
+            rbPeriodFour.AutoSize = true;
+            rbPeriodFour.Location = new System.Drawing.Point(72, 16);
+            rbPeriodFour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodFour.Name = "rbPeriodFour";
+            rbPeriodFour.Size = new System.Drawing.Size(42, 19);
+            rbPeriodFour.TabIndex = 3;
+            rbPeriodFour.TabStop = true;
+            rbPeriodFour.Text = "4th";
+            rbPeriodFour.UseVisualStyleBackColor = true;
+            rbPeriodFour.CheckedChanged += RbPeriodFour_CheckedChanged;
             // 
             // rbPeriodThree
             // 
-            this.rbPeriodThree.AutoSize = true;
-            this.rbPeriodThree.Location = new System.Drawing.Point(6, 83);
-            this.rbPeriodThree.Name = "rbPeriodThree";
-            this.rbPeriodThree.Size = new System.Drawing.Size(40, 17);
-            this.rbPeriodThree.TabIndex = 2;
-            this.rbPeriodThree.TabStop = true;
-            this.rbPeriodThree.Text = "3rd";
-            this.rbPeriodThree.UseVisualStyleBackColor = true;
-            this.rbPeriodThree.CheckedChanged += new System.EventHandler(this.RbPeriodThree_CheckedChanged);
+            rbPeriodThree.AutoSize = true;
+            rbPeriodThree.Location = new System.Drawing.Point(7, 96);
+            rbPeriodThree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodThree.Name = "rbPeriodThree";
+            rbPeriodThree.Size = new System.Drawing.Size(42, 19);
+            rbPeriodThree.TabIndex = 2;
+            rbPeriodThree.TabStop = true;
+            rbPeriodThree.Text = "3rd";
+            rbPeriodThree.UseVisualStyleBackColor = true;
+            rbPeriodThree.CheckedChanged += RbPeriodThree_CheckedChanged;
             // 
             // rbPeriodTwo
             // 
-            this.rbPeriodTwo.AutoSize = true;
-            this.rbPeriodTwo.Location = new System.Drawing.Point(6, 37);
-            this.rbPeriodTwo.Name = "rbPeriodTwo";
-            this.rbPeriodTwo.Size = new System.Drawing.Size(43, 17);
-            this.rbPeriodTwo.TabIndex = 1;
-            this.rbPeriodTwo.TabStop = true;
-            this.rbPeriodTwo.Text = "2nd";
-            this.rbPeriodTwo.UseVisualStyleBackColor = true;
-            this.rbPeriodTwo.CheckedChanged += new System.EventHandler(this.RbPeriodTwo_CheckedChanged);
+            rbPeriodTwo.AutoSize = true;
+            rbPeriodTwo.Location = new System.Drawing.Point(7, 43);
+            rbPeriodTwo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodTwo.Name = "rbPeriodTwo";
+            rbPeriodTwo.Size = new System.Drawing.Size(45, 19);
+            rbPeriodTwo.TabIndex = 1;
+            rbPeriodTwo.TabStop = true;
+            rbPeriodTwo.Text = "2nd";
+            rbPeriodTwo.UseVisualStyleBackColor = true;
+            rbPeriodTwo.CheckedChanged += RbPeriodTwo_CheckedChanged;
             // 
             // rbPeriodOne
             // 
-            this.rbPeriodOne.AutoSize = true;
-            this.rbPeriodOne.Location = new System.Drawing.Point(6, 14);
-            this.rbPeriodOne.Name = "rbPeriodOne";
-            this.rbPeriodOne.Size = new System.Drawing.Size(39, 17);
-            this.rbPeriodOne.TabIndex = 0;
-            this.rbPeriodOne.TabStop = true;
-            this.rbPeriodOne.Text = "1st";
-            this.rbPeriodOne.UseVisualStyleBackColor = true;
-            this.rbPeriodOne.CheckedChanged += new System.EventHandler(this.RbPeriodOne_CheckedChanged);
+            rbPeriodOne.AutoSize = true;
+            rbPeriodOne.Location = new System.Drawing.Point(7, 16);
+            rbPeriodOne.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPeriodOne.Name = "rbPeriodOne";
+            rbPeriodOne.Size = new System.Drawing.Size(40, 19);
+            rbPeriodOne.TabIndex = 0;
+            rbPeriodOne.TabStop = true;
+            rbPeriodOne.Text = "1st";
+            rbPeriodOne.UseVisualStyleBackColor = true;
+            rbPeriodOne.CheckedChanged += RbPeriodOne_CheckedChanged;
             // 
             // gbAway
             // 
-            this.gbAway.Controls.Add(this.butAwayTouchdown);
-            this.gbAway.Controls.Add(this.butAwayFieldGoal);
-            this.gbAway.Controls.Add(this.butAwayPatConversion);
-            this.gbAway.Controls.Add(this.butAwayPatKick);
-            this.gbAway.Controls.Add(this.butAwaySafety);
-            this.gbAway.Controls.Add(this.butAwayPlayerShow);
-            this.gbAway.Controls.Add(this.txtAwayPlayerNumber);
-            this.gbAway.Controls.Add(this.lblAwayPlayerNumber);
-            this.gbAway.Controls.Add(this.lblAwayTeamScore);
-            this.gbAway.Controls.Add(this.chkAwayPossession);
-            this.gbAway.Controls.Add(this.butAwayTimeoutsAdd);
-            this.gbAway.Controls.Add(this.butAwayTimeoutsSubtract);
-            this.gbAway.Controls.Add(this.txtAwayTimeouts);
-            this.gbAway.Controls.Add(this.lblAwayTimeouts);
-            this.gbAway.Controls.Add(this.butClearAway);
-            this.gbAway.Controls.Add(this.txtAwayScore);
-            this.gbAway.Controls.Add(this.lblAwayTeam);
-            this.gbAway.Controls.Add(this.txtAwayTeam);
-            this.gbAway.Location = new System.Drawing.Point(568, 6);
-            this.gbAway.Name = "gbAway";
-            this.gbAway.Size = new System.Drawing.Size(200, 288);
-            this.gbAway.TabIndex = 3;
-            this.gbAway.TabStop = false;
-            this.gbAway.Text = "Away";
+            gbAway.Controls.Add(butAwayTouchdown);
+            gbAway.Controls.Add(butAwayFieldGoal);
+            gbAway.Controls.Add(butAwayPatConversion);
+            gbAway.Controls.Add(butAwayPatKick);
+            gbAway.Controls.Add(butAwaySafety);
+            gbAway.Controls.Add(butAwayPlayerShow);
+            gbAway.Controls.Add(txtAwayPlayerNumber);
+            gbAway.Controls.Add(lblAwayPlayerNumber);
+            gbAway.Controls.Add(lblAwayTeamScore);
+            gbAway.Controls.Add(chkAwayPossession);
+            gbAway.Controls.Add(butAwayTimeoutsAdd);
+            gbAway.Controls.Add(butAwayTimeoutsSubtract);
+            gbAway.Controls.Add(txtAwayTimeouts);
+            gbAway.Controls.Add(lblAwayTimeouts);
+            gbAway.Controls.Add(butClearAway);
+            gbAway.Controls.Add(txtAwayScore);
+            gbAway.Controls.Add(lblAwayTeam);
+            gbAway.Controls.Add(txtAwayTeam);
+            gbAway.Location = new System.Drawing.Point(663, 7);
+            gbAway.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAway.Name = "gbAway";
+            gbAway.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAway.Size = new System.Drawing.Size(233, 332);
+            gbAway.TabIndex = 3;
+            gbAway.TabStop = false;
+            gbAway.Text = "Away";
             // 
             // butAwayTouchdown
             // 
-            this.butAwayTouchdown.Location = new System.Drawing.Point(6, 190);
-            this.butAwayTouchdown.Name = "butAwayTouchdown";
-            this.butAwayTouchdown.Size = new System.Drawing.Size(75, 23);
-            this.butAwayTouchdown.TabIndex = 9;
-            this.butAwayTouchdown.Text = "Touchdown";
-            this.butAwayTouchdown.UseVisualStyleBackColor = true;
-            this.butAwayTouchdown.Click += new System.EventHandler(this.ButAwayTouchdown_Click);
+            butAwayTouchdown.Location = new System.Drawing.Point(7, 219);
+            butAwayTouchdown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayTouchdown.Name = "butAwayTouchdown";
+            butAwayTouchdown.Size = new System.Drawing.Size(88, 27);
+            butAwayTouchdown.TabIndex = 9;
+            butAwayTouchdown.Text = "Touchdown";
+            butAwayTouchdown.UseVisualStyleBackColor = true;
+            butAwayTouchdown.Click += ButAwayTouchdown_Click;
             // 
             // butAwayFieldGoal
             // 
-            this.butAwayFieldGoal.Location = new System.Drawing.Point(6, 162);
-            this.butAwayFieldGoal.Name = "butAwayFieldGoal";
-            this.butAwayFieldGoal.Size = new System.Drawing.Size(75, 23);
-            this.butAwayFieldGoal.TabIndex = 8;
-            this.butAwayFieldGoal.Text = "Field Goal";
-            this.butAwayFieldGoal.UseVisualStyleBackColor = true;
-            this.butAwayFieldGoal.Click += new System.EventHandler(this.ButAwayFieldGoal_Click);
+            butAwayFieldGoal.Location = new System.Drawing.Point(7, 187);
+            butAwayFieldGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayFieldGoal.Name = "butAwayFieldGoal";
+            butAwayFieldGoal.Size = new System.Drawing.Size(88, 27);
+            butAwayFieldGoal.TabIndex = 8;
+            butAwayFieldGoal.Text = "Field Goal";
+            butAwayFieldGoal.UseVisualStyleBackColor = true;
+            butAwayFieldGoal.Click += ButAwayFieldGoal_Click;
             // 
             // butAwayPatConversion
             // 
-            this.butAwayPatConversion.Location = new System.Drawing.Point(6, 133);
-            this.butAwayPatConversion.Name = "butAwayPatConversion";
-            this.butAwayPatConversion.Size = new System.Drawing.Size(75, 23);
-            this.butAwayPatConversion.TabIndex = 7;
-            this.butAwayPatConversion.Text = "PAT - Conv";
-            this.butAwayPatConversion.UseVisualStyleBackColor = true;
-            this.butAwayPatConversion.Click += new System.EventHandler(this.ButAwayPatConversion_Click);
+            butAwayPatConversion.Location = new System.Drawing.Point(7, 153);
+            butAwayPatConversion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayPatConversion.Name = "butAwayPatConversion";
+            butAwayPatConversion.Size = new System.Drawing.Size(88, 27);
+            butAwayPatConversion.TabIndex = 7;
+            butAwayPatConversion.Text = "PAT - Conv";
+            butAwayPatConversion.UseVisualStyleBackColor = true;
+            butAwayPatConversion.Click += ButAwayPatConversion_Click;
             // 
             // butAwayPatKick
             // 
-            this.butAwayPatKick.Location = new System.Drawing.Point(6, 104);
-            this.butAwayPatKick.Name = "butAwayPatKick";
-            this.butAwayPatKick.Size = new System.Drawing.Size(75, 23);
-            this.butAwayPatKick.TabIndex = 6;
-            this.butAwayPatKick.Text = "PAT - Kick";
-            this.butAwayPatKick.UseVisualStyleBackColor = true;
-            this.butAwayPatKick.Click += new System.EventHandler(this.ButAwayPatKick_Click);
+            butAwayPatKick.Location = new System.Drawing.Point(7, 120);
+            butAwayPatKick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayPatKick.Name = "butAwayPatKick";
+            butAwayPatKick.Size = new System.Drawing.Size(88, 27);
+            butAwayPatKick.TabIndex = 6;
+            butAwayPatKick.Text = "PAT - Kick";
+            butAwayPatKick.UseVisualStyleBackColor = true;
+            butAwayPatKick.Click += ButAwayPatKick_Click;
             // 
             // butAwaySafety
             // 
-            this.butAwaySafety.Location = new System.Drawing.Point(6, 76);
-            this.butAwaySafety.Name = "butAwaySafety";
-            this.butAwaySafety.Size = new System.Drawing.Size(75, 23);
-            this.butAwaySafety.TabIndex = 5;
-            this.butAwaySafety.Text = "Safety";
-            this.butAwaySafety.UseVisualStyleBackColor = true;
-            this.butAwaySafety.Click += new System.EventHandler(this.ButAwaySafety_Click);
+            butAwaySafety.Location = new System.Drawing.Point(7, 88);
+            butAwaySafety.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwaySafety.Name = "butAwaySafety";
+            butAwaySafety.Size = new System.Drawing.Size(88, 27);
+            butAwaySafety.TabIndex = 5;
+            butAwaySafety.Text = "Safety";
+            butAwaySafety.UseVisualStyleBackColor = true;
+            butAwaySafety.Click += ButAwaySafety_Click;
             // 
             // butAwayPlayerShow
             // 
-            this.butAwayPlayerShow.Location = new System.Drawing.Point(141, 260);
-            this.butAwayPlayerShow.Name = "butAwayPlayerShow";
-            this.butAwayPlayerShow.Size = new System.Drawing.Size(52, 23);
-            this.butAwayPlayerShow.TabIndex = 12;
-            this.butAwayPlayerShow.Text = "Show";
-            this.butAwayPlayerShow.UseVisualStyleBackColor = true;
-            this.butAwayPlayerShow.Click += new System.EventHandler(this.ButAwayPlayerShow_Click);
+            butAwayPlayerShow.Location = new System.Drawing.Point(164, 300);
+            butAwayPlayerShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayPlayerShow.Name = "butAwayPlayerShow";
+            butAwayPlayerShow.Size = new System.Drawing.Size(61, 27);
+            butAwayPlayerShow.TabIndex = 12;
+            butAwayPlayerShow.Text = "Show";
+            butAwayPlayerShow.UseVisualStyleBackColor = true;
+            butAwayPlayerShow.Click += ButAwayPlayerShow_Click;
             // 
             // txtAwayPlayerNumber
             // 
-            this.txtAwayPlayerNumber.Location = new System.Drawing.Point(35, 262);
-            this.txtAwayPlayerNumber.Name = "txtAwayPlayerNumber";
-            this.txtAwayPlayerNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtAwayPlayerNumber.TabIndex = 4;
-            this.txtAwayPlayerNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtAwayPlayerNumber_KeyDown);
+            txtAwayPlayerNumber.Location = new System.Drawing.Point(41, 302);
+            txtAwayPlayerNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAwayPlayerNumber.Name = "txtAwayPlayerNumber";
+            txtAwayPlayerNumber.Size = new System.Drawing.Size(116, 23);
+            txtAwayPlayerNumber.TabIndex = 4;
+            txtAwayPlayerNumber.KeyDown += TxtAwayPlayerNumber_KeyDown;
             // 
             // lblAwayPlayerNumber
             // 
-            this.lblAwayPlayerNumber.AutoSize = true;
-            this.lblAwayPlayerNumber.Location = new System.Drawing.Point(15, 265);
-            this.lblAwayPlayerNumber.Name = "lblAwayPlayerNumber";
-            this.lblAwayPlayerNumber.Size = new System.Drawing.Size(14, 13);
-            this.lblAwayPlayerNumber.TabIndex = 25;
-            this.lblAwayPlayerNumber.Text = "#";
+            lblAwayPlayerNumber.AutoSize = true;
+            lblAwayPlayerNumber.Location = new System.Drawing.Point(18, 306);
+            lblAwayPlayerNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayPlayerNumber.Name = "lblAwayPlayerNumber";
+            lblAwayPlayerNumber.Size = new System.Drawing.Size(14, 15);
+            lblAwayPlayerNumber.TabIndex = 25;
+            lblAwayPlayerNumber.Text = "#";
             // 
             // lblAwayTeamScore
             // 
-            this.lblAwayTeamScore.AutoSize = true;
-            this.lblAwayTeamScore.Location = new System.Drawing.Point(93, 91);
-            this.lblAwayTeamScore.Name = "lblAwayTeamScore";
-            this.lblAwayTeamScore.Size = new System.Drawing.Size(94, 13);
-            this.lblAwayTeamScore.TabIndex = 24;
-            this.lblAwayTeamScore.Text = "Away Team Score";
+            lblAwayTeamScore.AutoSize = true;
+            lblAwayTeamScore.Location = new System.Drawing.Point(108, 105);
+            lblAwayTeamScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayTeamScore.Name = "lblAwayTeamScore";
+            lblAwayTeamScore.Size = new System.Drawing.Size(99, 15);
+            lblAwayTeamScore.TabIndex = 24;
+            lblAwayTeamScore.Text = "Away Team Score";
             // 
             // chkAwayPossession
             // 
-            this.chkAwayPossession.AutoSize = true;
-            this.chkAwayPossession.Location = new System.Drawing.Point(114, 168);
-            this.chkAwayPossession.Name = "chkAwayPossession";
-            this.chkAwayPossession.Size = new System.Drawing.Size(79, 17);
-            this.chkAwayPossession.TabIndex = 2;
-            this.chkAwayPossession.Text = "Possession";
-            this.chkAwayPossession.UseVisualStyleBackColor = true;
-            this.chkAwayPossession.CheckedChanged += new System.EventHandler(this.ChkAwayPossession_CheckedChanged);
+            chkAwayPossession.AutoSize = true;
+            chkAwayPossession.Location = new System.Drawing.Point(133, 194);
+            chkAwayPossession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkAwayPossession.Name = "chkAwayPossession";
+            chkAwayPossession.Size = new System.Drawing.Size(83, 19);
+            chkAwayPossession.TabIndex = 2;
+            chkAwayPossession.Text = "Possession";
+            chkAwayPossession.UseVisualStyleBackColor = true;
+            chkAwayPossession.CheckedChanged += ChkAwayPossession_CheckedChanged;
             // 
             // butAwayTimeoutsAdd
             // 
-            this.butAwayTimeoutsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butAwayTimeoutsAdd.Location = new System.Drawing.Point(93, 217);
-            this.butAwayTimeoutsAdd.Name = "butAwayTimeoutsAdd";
-            this.butAwayTimeoutsAdd.Size = new System.Drawing.Size(34, 34);
-            this.butAwayTimeoutsAdd.TabIndex = 10;
-            this.butAwayTimeoutsAdd.Text = "+";
-            this.butAwayTimeoutsAdd.UseVisualStyleBackColor = true;
-            this.butAwayTimeoutsAdd.Click += new System.EventHandler(this.ButAwayTimeoutsAdd_Click);
+            butAwayTimeoutsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            butAwayTimeoutsAdd.Location = new System.Drawing.Point(108, 250);
+            butAwayTimeoutsAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayTimeoutsAdd.Name = "butAwayTimeoutsAdd";
+            butAwayTimeoutsAdd.Size = new System.Drawing.Size(40, 39);
+            butAwayTimeoutsAdd.TabIndex = 10;
+            butAwayTimeoutsAdd.Text = "+";
+            butAwayTimeoutsAdd.UseVisualStyleBackColor = true;
+            butAwayTimeoutsAdd.Click += ButAwayTimeoutsAdd_Click;
             // 
             // butAwayTimeoutsSubtract
             // 
-            this.butAwayTimeoutsSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butAwayTimeoutsSubtract.Location = new System.Drawing.Point(3, 218);
-            this.butAwayTimeoutsSubtract.Name = "butAwayTimeoutsSubtract";
-            this.butAwayTimeoutsSubtract.Size = new System.Drawing.Size(34, 34);
-            this.butAwayTimeoutsSubtract.TabIndex = 10;
-            this.butAwayTimeoutsSubtract.Text = "-";
-            this.butAwayTimeoutsSubtract.UseVisualStyleBackColor = true;
-            this.butAwayTimeoutsSubtract.Click += new System.EventHandler(this.ButAwayTimeoutsSubtract_Click);
+            butAwayTimeoutsSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            butAwayTimeoutsSubtract.Location = new System.Drawing.Point(4, 252);
+            butAwayTimeoutsSubtract.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butAwayTimeoutsSubtract.Name = "butAwayTimeoutsSubtract";
+            butAwayTimeoutsSubtract.Size = new System.Drawing.Size(40, 39);
+            butAwayTimeoutsSubtract.TabIndex = 10;
+            butAwayTimeoutsSubtract.Text = "-";
+            butAwayTimeoutsSubtract.UseVisualStyleBackColor = true;
+            butAwayTimeoutsSubtract.Click += ButAwayTimeoutsSubtract_Click;
             // 
             // txtAwayTimeouts
             // 
-            this.txtAwayTimeouts.Location = new System.Drawing.Point(46, 231);
-            this.txtAwayTimeouts.Name = "txtAwayTimeouts";
-            this.txtAwayTimeouts.Size = new System.Drawing.Size(41, 20);
-            this.txtAwayTimeouts.TabIndex = 3;
-            this.txtAwayTimeouts.TextChanged += new System.EventHandler(this.TxtAwayTimeouts_TextChanged);
+            txtAwayTimeouts.Location = new System.Drawing.Point(54, 267);
+            txtAwayTimeouts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAwayTimeouts.Name = "txtAwayTimeouts";
+            txtAwayTimeouts.Size = new System.Drawing.Size(47, 23);
+            txtAwayTimeouts.TabIndex = 3;
+            txtAwayTimeouts.TextChanged += TxtAwayTimeouts_TextChanged;
             // 
             // lblAwayTimeouts
             // 
-            this.lblAwayTimeouts.AutoSize = true;
-            this.lblAwayTimeouts.Location = new System.Drawing.Point(36, 216);
-            this.lblAwayTimeouts.Name = "lblAwayTimeouts";
-            this.lblAwayTimeouts.Size = new System.Drawing.Size(50, 13);
-            this.lblAwayTimeouts.TabIndex = 19;
-            this.lblAwayTimeouts.Text = "Timeouts";
+            lblAwayTimeouts.AutoSize = true;
+            lblAwayTimeouts.Location = new System.Drawing.Point(42, 249);
+            lblAwayTimeouts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayTimeouts.Name = "lblAwayTimeouts";
+            lblAwayTimeouts.Size = new System.Drawing.Size(56, 15);
+            lblAwayTimeouts.TabIndex = 19;
+            lblAwayTimeouts.Text = "Timeouts";
             // 
             // butClearAway
             // 
-            this.butClearAway.Location = new System.Drawing.Point(133, 229);
-            this.butClearAway.Name = "butClearAway";
-            this.butClearAway.Size = new System.Drawing.Size(58, 23);
-            this.butClearAway.TabIndex = 11;
-            this.butClearAway.Text = "Clear";
-            this.butClearAway.UseVisualStyleBackColor = true;
-            this.butClearAway.Click += new System.EventHandler(this.ButClearAway_Click);
+            butClearAway.Location = new System.Drawing.Point(155, 264);
+            butClearAway.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butClearAway.Name = "butClearAway";
+            butClearAway.Size = new System.Drawing.Size(68, 27);
+            butClearAway.TabIndex = 11;
+            butClearAway.Text = "Clear";
+            butClearAway.UseVisualStyleBackColor = true;
+            butClearAway.Click += ButClearAway_Click;
             // 
             // txtAwayScore
             // 
-            this.txtAwayScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAwayScore.Location = new System.Drawing.Point(93, 109);
-            this.txtAwayScore.Name = "txtAwayScore";
-            this.txtAwayScore.Size = new System.Drawing.Size(100, 53);
-            this.txtAwayScore.TabIndex = 1;
-            this.txtAwayScore.Text = "0";
-            this.txtAwayScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtAwayScore.TextChanged += new System.EventHandler(this.TxtAwayScore_TextChanged);
+            txtAwayScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtAwayScore.Location = new System.Drawing.Point(108, 126);
+            txtAwayScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAwayScore.Name = "txtAwayScore";
+            txtAwayScore.Size = new System.Drawing.Size(116, 53);
+            txtAwayScore.TabIndex = 1;
+            txtAwayScore.Text = "0";
+            txtAwayScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtAwayScore.TextChanged += TxtAwayScore_TextChanged;
             // 
             // lblAwayTeam
             // 
-            this.lblAwayTeam.AutoSize = true;
-            this.lblAwayTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAwayTeam.Location = new System.Drawing.Point(5, 16);
-            this.lblAwayTeam.Name = "lblAwayTeam";
-            this.lblAwayTeam.Size = new System.Drawing.Size(192, 26);
-            this.lblAwayTeam.TabIndex = 1;
-            this.lblAwayTeam.Text = "Away Team Name";
+            lblAwayTeam.AutoSize = true;
+            lblAwayTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblAwayTeam.Location = new System.Drawing.Point(6, 18);
+            lblAwayTeam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayTeam.Name = "lblAwayTeam";
+            lblAwayTeam.Size = new System.Drawing.Size(192, 26);
+            lblAwayTeam.TabIndex = 1;
+            lblAwayTeam.Text = "Away Team Name";
             // 
             // txtAwayTeam
             // 
-            this.txtAwayTeam.Location = new System.Drawing.Point(6, 50);
-            this.txtAwayTeam.Name = "txtAwayTeam";
-            this.txtAwayTeam.Size = new System.Drawing.Size(188, 20);
-            this.txtAwayTeam.TabIndex = 0;
-            this.txtAwayTeam.Leave += new System.EventHandler(this.TxtAwayTeam_Leave);
+            txtAwayTeam.Location = new System.Drawing.Point(7, 58);
+            txtAwayTeam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAwayTeam.Name = "txtAwayTeam";
+            txtAwayTeam.Size = new System.Drawing.Size(219, 23);
+            txtAwayTeam.TabIndex = 0;
+            txtAwayTeam.Leave += TxtAwayTeam_Leave;
             // 
             // gbHome
             // 
-            this.gbHome.Controls.Add(this.butHomeTouchdown);
-            this.gbHome.Controls.Add(this.butHomeFieldGoal);
-            this.gbHome.Controls.Add(this.butHomePatConversion);
-            this.gbHome.Controls.Add(this.butHomePatKick);
-            this.gbHome.Controls.Add(this.butHomeSafety);
-            this.gbHome.Controls.Add(this.butHomePlayerShow);
-            this.gbHome.Controls.Add(this.txtHomePlayerNumber);
-            this.gbHome.Controls.Add(this.lblHomePlayerNumber);
-            this.gbHome.Controls.Add(this.lblHomeTeamScore);
-            this.gbHome.Controls.Add(this.chkHomePossession);
-            this.gbHome.Controls.Add(this.butHomeTimeoutsAdd);
-            this.gbHome.Controls.Add(this.butHomeTimeoutsSubtract);
-            this.gbHome.Controls.Add(this.txtHomeTimeouts);
-            this.gbHome.Controls.Add(this.lblHomeTimeouts);
-            this.gbHome.Controls.Add(this.butClearHome);
-            this.gbHome.Controls.Add(this.txtHomeScore);
-            this.gbHome.Controls.Add(this.lblHomeTeam);
-            this.gbHome.Controls.Add(this.txtHomeTeam);
-            this.gbHome.Location = new System.Drawing.Point(6, 6);
-            this.gbHome.Name = "gbHome";
-            this.gbHome.Size = new System.Drawing.Size(200, 288);
-            this.gbHome.TabIndex = 1;
-            this.gbHome.TabStop = false;
-            this.gbHome.Text = "Home";
+            gbHome.Controls.Add(butHomeTouchdown);
+            gbHome.Controls.Add(butHomeFieldGoal);
+            gbHome.Controls.Add(butHomePatConversion);
+            gbHome.Controls.Add(butHomePatKick);
+            gbHome.Controls.Add(butHomeSafety);
+            gbHome.Controls.Add(butHomePlayerShow);
+            gbHome.Controls.Add(txtHomePlayerNumber);
+            gbHome.Controls.Add(lblHomePlayerNumber);
+            gbHome.Controls.Add(lblHomeTeamScore);
+            gbHome.Controls.Add(chkHomePossession);
+            gbHome.Controls.Add(butHomeTimeoutsAdd);
+            gbHome.Controls.Add(butHomeTimeoutsSubtract);
+            gbHome.Controls.Add(txtHomeTimeouts);
+            gbHome.Controls.Add(lblHomeTimeouts);
+            gbHome.Controls.Add(butClearHome);
+            gbHome.Controls.Add(txtHomeScore);
+            gbHome.Controls.Add(lblHomeTeam);
+            gbHome.Controls.Add(txtHomeTeam);
+            gbHome.Location = new System.Drawing.Point(7, 7);
+            gbHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHome.Name = "gbHome";
+            gbHome.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHome.Size = new System.Drawing.Size(233, 332);
+            gbHome.TabIndex = 1;
+            gbHome.TabStop = false;
+            gbHome.Text = "Home";
             // 
             // butHomeTouchdown
             // 
-            this.butHomeTouchdown.Location = new System.Drawing.Point(8, 190);
-            this.butHomeTouchdown.Name = "butHomeTouchdown";
-            this.butHomeTouchdown.Size = new System.Drawing.Size(75, 23);
-            this.butHomeTouchdown.TabIndex = 9;
-            this.butHomeTouchdown.Text = "Touchdown";
-            this.butHomeTouchdown.UseVisualStyleBackColor = true;
-            this.butHomeTouchdown.Click += new System.EventHandler(this.ButHomeTouchdown_Click);
+            butHomeTouchdown.Location = new System.Drawing.Point(9, 219);
+            butHomeTouchdown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomeTouchdown.Name = "butHomeTouchdown";
+            butHomeTouchdown.Size = new System.Drawing.Size(88, 27);
+            butHomeTouchdown.TabIndex = 9;
+            butHomeTouchdown.Text = "Touchdown";
+            butHomeTouchdown.UseVisualStyleBackColor = true;
+            butHomeTouchdown.Click += ButHomeTouchdown_Click;
             // 
             // butHomeFieldGoal
             // 
-            this.butHomeFieldGoal.Location = new System.Drawing.Point(8, 162);
-            this.butHomeFieldGoal.Name = "butHomeFieldGoal";
-            this.butHomeFieldGoal.Size = new System.Drawing.Size(75, 23);
-            this.butHomeFieldGoal.TabIndex = 8;
-            this.butHomeFieldGoal.Text = "Field Goal";
-            this.butHomeFieldGoal.UseVisualStyleBackColor = true;
-            this.butHomeFieldGoal.Click += new System.EventHandler(this.ButHomeFieldGoal_Click);
+            butHomeFieldGoal.Location = new System.Drawing.Point(9, 187);
+            butHomeFieldGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomeFieldGoal.Name = "butHomeFieldGoal";
+            butHomeFieldGoal.Size = new System.Drawing.Size(88, 27);
+            butHomeFieldGoal.TabIndex = 8;
+            butHomeFieldGoal.Text = "Field Goal";
+            butHomeFieldGoal.UseVisualStyleBackColor = true;
+            butHomeFieldGoal.Click += ButHomeFieldGoal_Click;
             // 
             // butHomePatConversion
             // 
-            this.butHomePatConversion.Location = new System.Drawing.Point(8, 133);
-            this.butHomePatConversion.Name = "butHomePatConversion";
-            this.butHomePatConversion.Size = new System.Drawing.Size(75, 23);
-            this.butHomePatConversion.TabIndex = 7;
-            this.butHomePatConversion.Text = "PAT - Conv";
-            this.butHomePatConversion.UseVisualStyleBackColor = true;
-            this.butHomePatConversion.Click += new System.EventHandler(this.ButHomePatConversion_Click);
+            butHomePatConversion.Location = new System.Drawing.Point(9, 153);
+            butHomePatConversion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomePatConversion.Name = "butHomePatConversion";
+            butHomePatConversion.Size = new System.Drawing.Size(88, 27);
+            butHomePatConversion.TabIndex = 7;
+            butHomePatConversion.Text = "PAT - Conv";
+            butHomePatConversion.UseVisualStyleBackColor = true;
+            butHomePatConversion.Click += ButHomePatConversion_Click;
             // 
             // butHomePatKick
             // 
-            this.butHomePatKick.Location = new System.Drawing.Point(8, 104);
-            this.butHomePatKick.Name = "butHomePatKick";
-            this.butHomePatKick.Size = new System.Drawing.Size(75, 23);
-            this.butHomePatKick.TabIndex = 6;
-            this.butHomePatKick.Text = "PAT - Kick";
-            this.butHomePatKick.UseVisualStyleBackColor = true;
-            this.butHomePatKick.Click += new System.EventHandler(this.ButHomePatKick_Click);
+            butHomePatKick.Location = new System.Drawing.Point(9, 120);
+            butHomePatKick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomePatKick.Name = "butHomePatKick";
+            butHomePatKick.Size = new System.Drawing.Size(88, 27);
+            butHomePatKick.TabIndex = 6;
+            butHomePatKick.Text = "PAT - Kick";
+            butHomePatKick.UseVisualStyleBackColor = true;
+            butHomePatKick.Click += ButHomePatKick_Click;
             // 
             // butHomeSafety
             // 
-            this.butHomeSafety.Location = new System.Drawing.Point(8, 76);
-            this.butHomeSafety.Name = "butHomeSafety";
-            this.butHomeSafety.Size = new System.Drawing.Size(75, 23);
-            this.butHomeSafety.TabIndex = 5;
-            this.butHomeSafety.Text = "Safety";
-            this.butHomeSafety.UseVisualStyleBackColor = true;
-            this.butHomeSafety.Click += new System.EventHandler(this.ButHomeSafety_Click);
+            butHomeSafety.Location = new System.Drawing.Point(9, 88);
+            butHomeSafety.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomeSafety.Name = "butHomeSafety";
+            butHomeSafety.Size = new System.Drawing.Size(88, 27);
+            butHomeSafety.TabIndex = 5;
+            butHomeSafety.Text = "Safety";
+            butHomeSafety.UseVisualStyleBackColor = true;
+            butHomeSafety.Click += ButHomeSafety_Click;
             // 
             // butHomePlayerShow
             // 
-            this.butHomePlayerShow.Location = new System.Drawing.Point(141, 259);
-            this.butHomePlayerShow.Name = "butHomePlayerShow";
-            this.butHomePlayerShow.Size = new System.Drawing.Size(52, 23);
-            this.butHomePlayerShow.TabIndex = 12;
-            this.butHomePlayerShow.Text = "Show";
-            this.butHomePlayerShow.UseVisualStyleBackColor = true;
-            this.butHomePlayerShow.Click += new System.EventHandler(this.ButHomePlayerShow_Click);
+            butHomePlayerShow.Location = new System.Drawing.Point(164, 299);
+            butHomePlayerShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomePlayerShow.Name = "butHomePlayerShow";
+            butHomePlayerShow.Size = new System.Drawing.Size(61, 27);
+            butHomePlayerShow.TabIndex = 12;
+            butHomePlayerShow.Text = "Show";
+            butHomePlayerShow.UseVisualStyleBackColor = true;
+            butHomePlayerShow.Click += ButHomePlayerShow_Click;
             // 
             // txtHomePlayerNumber
             // 
-            this.txtHomePlayerNumber.Location = new System.Drawing.Point(35, 262);
-            this.txtHomePlayerNumber.Name = "txtHomePlayerNumber";
-            this.txtHomePlayerNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtHomePlayerNumber.TabIndex = 4;
-            this.txtHomePlayerNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtHomePlayerNumber_KeyDown);
+            txtHomePlayerNumber.Location = new System.Drawing.Point(41, 302);
+            txtHomePlayerNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHomePlayerNumber.Name = "txtHomePlayerNumber";
+            txtHomePlayerNumber.Size = new System.Drawing.Size(116, 23);
+            txtHomePlayerNumber.TabIndex = 4;
+            txtHomePlayerNumber.KeyDown += TxtHomePlayerNumber_KeyDown;
             // 
             // lblHomePlayerNumber
             // 
-            this.lblHomePlayerNumber.AutoSize = true;
-            this.lblHomePlayerNumber.Location = new System.Drawing.Point(15, 265);
-            this.lblHomePlayerNumber.Name = "lblHomePlayerNumber";
-            this.lblHomePlayerNumber.Size = new System.Drawing.Size(14, 13);
-            this.lblHomePlayerNumber.TabIndex = 21;
-            this.lblHomePlayerNumber.Text = "#";
+            lblHomePlayerNumber.AutoSize = true;
+            lblHomePlayerNumber.Location = new System.Drawing.Point(18, 306);
+            lblHomePlayerNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomePlayerNumber.Name = "lblHomePlayerNumber";
+            lblHomePlayerNumber.Size = new System.Drawing.Size(14, 15);
+            lblHomePlayerNumber.TabIndex = 21;
+            lblHomePlayerNumber.Text = "#";
             // 
             // lblHomeTeamScore
             // 
-            this.lblHomeTeamScore.AutoSize = true;
-            this.lblHomeTeamScore.Location = new System.Drawing.Point(92, 90);
-            this.lblHomeTeamScore.Name = "lblHomeTeamScore";
-            this.lblHomeTeamScore.Size = new System.Drawing.Size(96, 13);
-            this.lblHomeTeamScore.TabIndex = 20;
-            this.lblHomeTeamScore.Text = "Home Team Score";
+            lblHomeTeamScore.AutoSize = true;
+            lblHomeTeamScore.Location = new System.Drawing.Point(107, 104);
+            lblHomeTeamScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeTeamScore.Name = "lblHomeTeamScore";
+            lblHomeTeamScore.Size = new System.Drawing.Size(103, 15);
+            lblHomeTeamScore.TabIndex = 20;
+            lblHomeTeamScore.Text = "Home Team Score";
             // 
             // chkHomePossession
             // 
-            this.chkHomePossession.AutoSize = true;
-            this.chkHomePossession.Location = new System.Drawing.Point(113, 168);
-            this.chkHomePossession.Name = "chkHomePossession";
-            this.chkHomePossession.Size = new System.Drawing.Size(79, 17);
-            this.chkHomePossession.TabIndex = 2;
-            this.chkHomePossession.Text = "Possession";
-            this.chkHomePossession.UseVisualStyleBackColor = true;
-            this.chkHomePossession.CheckedChanged += new System.EventHandler(this.ChkHomePossession_CheckedChanged);
+            chkHomePossession.AutoSize = true;
+            chkHomePossession.Location = new System.Drawing.Point(132, 194);
+            chkHomePossession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkHomePossession.Name = "chkHomePossession";
+            chkHomePossession.Size = new System.Drawing.Size(83, 19);
+            chkHomePossession.TabIndex = 2;
+            chkHomePossession.Text = "Possession";
+            chkHomePossession.UseVisualStyleBackColor = true;
+            chkHomePossession.CheckedChanged += ChkHomePossession_CheckedChanged;
             // 
             // butHomeTimeoutsAdd
             // 
-            this.butHomeTimeoutsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butHomeTimeoutsAdd.Location = new System.Drawing.Point(95, 218);
-            this.butHomeTimeoutsAdd.Name = "butHomeTimeoutsAdd";
-            this.butHomeTimeoutsAdd.Size = new System.Drawing.Size(34, 34);
-            this.butHomeTimeoutsAdd.TabIndex = 11;
-            this.butHomeTimeoutsAdd.Text = "+";
-            this.butHomeTimeoutsAdd.UseVisualStyleBackColor = true;
-            this.butHomeTimeoutsAdd.Click += new System.EventHandler(this.ButHomeTimeoutsAdd_Click);
+            butHomeTimeoutsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            butHomeTimeoutsAdd.Location = new System.Drawing.Point(111, 252);
+            butHomeTimeoutsAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomeTimeoutsAdd.Name = "butHomeTimeoutsAdd";
+            butHomeTimeoutsAdd.Size = new System.Drawing.Size(40, 39);
+            butHomeTimeoutsAdd.TabIndex = 11;
+            butHomeTimeoutsAdd.Text = "+";
+            butHomeTimeoutsAdd.UseVisualStyleBackColor = true;
+            butHomeTimeoutsAdd.Click += ButHomeTimeoutsAdd_Click;
             // 
             // butHomeTimeoutsSubtract
             // 
-            this.butHomeTimeoutsSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butHomeTimeoutsSubtract.Location = new System.Drawing.Point(8, 218);
-            this.butHomeTimeoutsSubtract.Name = "butHomeTimeoutsSubtract";
-            this.butHomeTimeoutsSubtract.Size = new System.Drawing.Size(34, 34);
-            this.butHomeTimeoutsSubtract.TabIndex = 10;
-            this.butHomeTimeoutsSubtract.Text = "-";
-            this.butHomeTimeoutsSubtract.UseVisualStyleBackColor = true;
-            this.butHomeTimeoutsSubtract.Click += new System.EventHandler(this.ButHomeTimeoutsSubtract_Click);
+            butHomeTimeoutsSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            butHomeTimeoutsSubtract.Location = new System.Drawing.Point(9, 252);
+            butHomeTimeoutsSubtract.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butHomeTimeoutsSubtract.Name = "butHomeTimeoutsSubtract";
+            butHomeTimeoutsSubtract.Size = new System.Drawing.Size(40, 39);
+            butHomeTimeoutsSubtract.TabIndex = 10;
+            butHomeTimeoutsSubtract.Text = "-";
+            butHomeTimeoutsSubtract.UseVisualStyleBackColor = true;
+            butHomeTimeoutsSubtract.Click += ButHomeTimeoutsSubtract_Click;
             // 
             // txtHomeTimeouts
             // 
-            this.txtHomeTimeouts.Location = new System.Drawing.Point(48, 232);
-            this.txtHomeTimeouts.Name = "txtHomeTimeouts";
-            this.txtHomeTimeouts.Size = new System.Drawing.Size(41, 20);
-            this.txtHomeTimeouts.TabIndex = 3;
-            this.txtHomeTimeouts.TextChanged += new System.EventHandler(this.TxtHomeTimeouts_TextChanged);
+            txtHomeTimeouts.Location = new System.Drawing.Point(56, 268);
+            txtHomeTimeouts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHomeTimeouts.Name = "txtHomeTimeouts";
+            txtHomeTimeouts.Size = new System.Drawing.Size(47, 23);
+            txtHomeTimeouts.TabIndex = 3;
+            txtHomeTimeouts.TextChanged += TxtHomeTimeouts_TextChanged;
             // 
             // lblHomeTimeouts
             // 
-            this.lblHomeTimeouts.AutoSize = true;
-            this.lblHomeTimeouts.Location = new System.Drawing.Point(40, 217);
-            this.lblHomeTimeouts.Name = "lblHomeTimeouts";
-            this.lblHomeTimeouts.Size = new System.Drawing.Size(50, 13);
-            this.lblHomeTimeouts.TabIndex = 15;
-            this.lblHomeTimeouts.Text = "Timeouts";
+            lblHomeTimeouts.AutoSize = true;
+            lblHomeTimeouts.Location = new System.Drawing.Point(47, 250);
+            lblHomeTimeouts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeTimeouts.Name = "lblHomeTimeouts";
+            lblHomeTimeouts.Size = new System.Drawing.Size(56, 15);
+            lblHomeTimeouts.TabIndex = 15;
+            lblHomeTimeouts.Text = "Timeouts";
             // 
             // butClearHome
             // 
-            this.butClearHome.Location = new System.Drawing.Point(135, 229);
-            this.butClearHome.Name = "butClearHome";
-            this.butClearHome.Size = new System.Drawing.Size(58, 23);
-            this.butClearHome.TabIndex = 11;
-            this.butClearHome.Text = "Clear";
-            this.butClearHome.UseVisualStyleBackColor = true;
-            this.butClearHome.Click += new System.EventHandler(this.ButClearHome_Click);
+            butClearHome.Location = new System.Drawing.Point(158, 264);
+            butClearHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butClearHome.Name = "butClearHome";
+            butClearHome.Size = new System.Drawing.Size(68, 27);
+            butClearHome.TabIndex = 11;
+            butClearHome.Text = "Clear";
+            butClearHome.UseVisualStyleBackColor = true;
+            butClearHome.Click += ButClearHome_Click;
             // 
             // txtHomeScore
             // 
-            this.txtHomeScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHomeScore.Location = new System.Drawing.Point(92, 109);
-            this.txtHomeScore.Name = "txtHomeScore";
-            this.txtHomeScore.Size = new System.Drawing.Size(100, 53);
-            this.txtHomeScore.TabIndex = 1;
-            this.txtHomeScore.Text = "0";
-            this.txtHomeScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtHomeScore.TextChanged += new System.EventHandler(this.TxtHomeScore_TextChanged);
+            txtHomeScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtHomeScore.Location = new System.Drawing.Point(107, 126);
+            txtHomeScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHomeScore.Name = "txtHomeScore";
+            txtHomeScore.Size = new System.Drawing.Size(116, 53);
+            txtHomeScore.TabIndex = 1;
+            txtHomeScore.Text = "0";
+            txtHomeScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtHomeScore.TextChanged += TxtHomeScore_TextChanged;
             // 
             // lblHomeTeam
             // 
-            this.lblHomeTeam.AutoSize = true;
-            this.lblHomeTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHomeTeam.Location = new System.Drawing.Point(2, 16);
-            this.lblHomeTeam.Name = "lblHomeTeam";
-            this.lblHomeTeam.Size = new System.Drawing.Size(197, 26);
-            this.lblHomeTeam.TabIndex = 0;
-            this.lblHomeTeam.Text = "Home Team Name";
+            lblHomeTeam.AutoSize = true;
+            lblHomeTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblHomeTeam.Location = new System.Drawing.Point(2, 18);
+            lblHomeTeam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeTeam.Name = "lblHomeTeam";
+            lblHomeTeam.Size = new System.Drawing.Size(197, 26);
+            lblHomeTeam.TabIndex = 0;
+            lblHomeTeam.Text = "Home Team Name";
             // 
             // txtHomeTeam
             // 
-            this.txtHomeTeam.Location = new System.Drawing.Point(8, 50);
-            this.txtHomeTeam.Name = "txtHomeTeam";
-            this.txtHomeTeam.Size = new System.Drawing.Size(186, 20);
-            this.txtHomeTeam.TabIndex = 0;
-            this.txtHomeTeam.Leave += new System.EventHandler(this.TxtHomeTeam_Leave);
+            txtHomeTeam.Location = new System.Drawing.Point(9, 58);
+            txtHomeTeam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHomeTeam.Name = "txtHomeTeam";
+            txtHomeTeam.Size = new System.Drawing.Size(216, 23);
+            txtHomeTeam.TabIndex = 0;
+            txtHomeTeam.Leave += TxtHomeTeam_Leave;
             // 
             // gbClock
             // 
-            this.gbClock.Controls.Add(this.ButGameSubtract1);
-            this.gbClock.Controls.Add(this.ButGameSubtract10);
-            this.gbClock.Controls.Add(this.ButGameAdd1);
-            this.gbClock.Controls.Add(this.ButGameAdd10);
-            this.gbClock.Controls.Add(this.ButClearPlay);
-            this.gbClock.Controls.Add(this.butNewShortPlay);
-            this.gbClock.Controls.Add(this.lblGameClock);
-            this.gbClock.Controls.Add(this.butClearClocks);
-            this.gbClock.Controls.Add(this.butNewDefaultPlay);
-            this.gbClock.Controls.Add(this.lblPlayClock);
-            this.gbClock.Controls.Add(this.txtGameClock);
-            this.gbClock.Controls.Add(this.txtPlayClock);
-            this.gbClock.Controls.Add(this.butStartStopGameClock);
-            this.gbClock.Controls.Add(this.butStartStopPlayClock);
-            this.gbClock.Location = new System.Drawing.Point(212, 6);
-            this.gbClock.Name = "gbClock";
-            this.gbClock.Size = new System.Drawing.Size(350, 145);
-            this.gbClock.TabIndex = 2;
-            this.gbClock.TabStop = false;
-            this.gbClock.Text = "Clock";
+            gbClock.Controls.Add(ButGameSubtract1);
+            gbClock.Controls.Add(ButGameSubtract10);
+            gbClock.Controls.Add(ButGameAdd1);
+            gbClock.Controls.Add(ButGameAdd10);
+            gbClock.Controls.Add(ButClearPlay);
+            gbClock.Controls.Add(butNewShortPlay);
+            gbClock.Controls.Add(lblGameClock);
+            gbClock.Controls.Add(butClearClocks);
+            gbClock.Controls.Add(butNewDefaultPlay);
+            gbClock.Controls.Add(lblPlayClock);
+            gbClock.Controls.Add(txtGameClock);
+            gbClock.Controls.Add(txtPlayClock);
+            gbClock.Controls.Add(butStartStopGameClock);
+            gbClock.Controls.Add(butStartStopPlayClock);
+            gbClock.Location = new System.Drawing.Point(247, 7);
+            gbClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbClock.Name = "gbClock";
+            gbClock.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbClock.Size = new System.Drawing.Size(408, 167);
+            gbClock.TabIndex = 2;
+            gbClock.TabStop = false;
+            gbClock.Text = "Clock";
             // 
             // ButGameSubtract1
             // 
-            this.ButGameSubtract1.Location = new System.Drawing.Point(81, 42);
-            this.ButGameSubtract1.Margin = new System.Windows.Forms.Padding(2);
-            this.ButGameSubtract1.Name = "ButGameSubtract1";
-            this.ButGameSubtract1.Size = new System.Drawing.Size(33, 20);
-            this.ButGameSubtract1.TabIndex = 20;
-            this.ButGameSubtract1.Text = "-1";
-            this.ButGameSubtract1.UseVisualStyleBackColor = true;
-            this.ButGameSubtract1.Click += new System.EventHandler(this.ButGameSubtract1_Click);
+            ButGameSubtract1.Location = new System.Drawing.Point(94, 48);
+            ButGameSubtract1.Margin = new System.Windows.Forms.Padding(2);
+            ButGameSubtract1.Name = "ButGameSubtract1";
+            ButGameSubtract1.Size = new System.Drawing.Size(38, 23);
+            ButGameSubtract1.TabIndex = 20;
+            ButGameSubtract1.Text = "-1";
+            ButGameSubtract1.UseVisualStyleBackColor = true;
+            ButGameSubtract1.Click += ButGameSubtract1_Click;
             // 
             // ButGameSubtract10
             // 
-            this.ButGameSubtract10.Location = new System.Drawing.Point(81, 18);
-            this.ButGameSubtract10.Margin = new System.Windows.Forms.Padding(2);
-            this.ButGameSubtract10.Name = "ButGameSubtract10";
-            this.ButGameSubtract10.Size = new System.Drawing.Size(33, 20);
-            this.ButGameSubtract10.TabIndex = 21;
-            this.ButGameSubtract10.Text = "-10";
-            this.ButGameSubtract10.UseVisualStyleBackColor = true;
-            this.ButGameSubtract10.Click += new System.EventHandler(this.ButGameSubtract10_Click);
+            ButGameSubtract10.Location = new System.Drawing.Point(94, 21);
+            ButGameSubtract10.Margin = new System.Windows.Forms.Padding(2);
+            ButGameSubtract10.Name = "ButGameSubtract10";
+            ButGameSubtract10.Size = new System.Drawing.Size(38, 23);
+            ButGameSubtract10.TabIndex = 21;
+            ButGameSubtract10.Text = "-10";
+            ButGameSubtract10.UseVisualStyleBackColor = true;
+            ButGameSubtract10.Click += ButGameSubtract10_Click;
             // 
             // ButGameAdd1
             // 
-            this.ButGameAdd1.Location = new System.Drawing.Point(118, 42);
-            this.ButGameAdd1.Margin = new System.Windows.Forms.Padding(2);
-            this.ButGameAdd1.Name = "ButGameAdd1";
-            this.ButGameAdd1.Size = new System.Drawing.Size(33, 20);
-            this.ButGameAdd1.TabIndex = 2;
-            this.ButGameAdd1.Text = "+1";
-            this.ButGameAdd1.UseVisualStyleBackColor = true;
-            this.ButGameAdd1.Click += new System.EventHandler(this.ButGameAdd1_Click);
+            ButGameAdd1.Location = new System.Drawing.Point(138, 48);
+            ButGameAdd1.Margin = new System.Windows.Forms.Padding(2);
+            ButGameAdd1.Name = "ButGameAdd1";
+            ButGameAdd1.Size = new System.Drawing.Size(38, 23);
+            ButGameAdd1.TabIndex = 2;
+            ButGameAdd1.Text = "+1";
+            ButGameAdd1.UseVisualStyleBackColor = true;
+            ButGameAdd1.Click += ButGameAdd1_Click;
             // 
             // ButGameAdd10
             // 
-            this.ButGameAdd10.Location = new System.Drawing.Point(118, 18);
-            this.ButGameAdd10.Margin = new System.Windows.Forms.Padding(2);
-            this.ButGameAdd10.Name = "ButGameAdd10";
-            this.ButGameAdd10.Size = new System.Drawing.Size(33, 20);
-            this.ButGameAdd10.TabIndex = 3;
-            this.ButGameAdd10.Text = "+10";
-            this.ButGameAdd10.UseVisualStyleBackColor = true;
-            this.ButGameAdd10.Click += new System.EventHandler(this.ButGameAdd10_Click);
+            ButGameAdd10.Location = new System.Drawing.Point(138, 21);
+            ButGameAdd10.Margin = new System.Windows.Forms.Padding(2);
+            ButGameAdd10.Name = "ButGameAdd10";
+            ButGameAdd10.Size = new System.Drawing.Size(38, 23);
+            ButGameAdd10.TabIndex = 3;
+            ButGameAdd10.Text = "+10";
+            ButGameAdd10.UseVisualStyleBackColor = true;
+            ButGameAdd10.Click += ButGameAdd10_Click;
             // 
             // ButClearPlay
             // 
-            this.ButClearPlay.Location = new System.Drawing.Point(89, 116);
-            this.ButClearPlay.Name = "ButClearPlay";
-            this.ButClearPlay.Size = new System.Drawing.Size(75, 23);
-            this.ButClearPlay.TabIndex = 7;
-            this.ButClearPlay.Text = "Clear Play";
-            this.ButClearPlay.UseVisualStyleBackColor = true;
-            this.ButClearPlay.Click += new System.EventHandler(this.ButClearPlay_Click);
+            ButClearPlay.Location = new System.Drawing.Point(104, 134);
+            ButClearPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ButClearPlay.Name = "ButClearPlay";
+            ButClearPlay.Size = new System.Drawing.Size(88, 27);
+            ButClearPlay.TabIndex = 7;
+            ButClearPlay.Text = "Clear Play";
+            ButClearPlay.UseVisualStyleBackColor = true;
+            ButClearPlay.Click += ButClearPlay_Click;
             // 
             // butNewShortPlay
             // 
-            this.butNewShortPlay.Location = new System.Drawing.Point(273, 116);
-            this.butNewShortPlay.Name = "butNewShortPlay";
-            this.butNewShortPlay.Size = new System.Drawing.Size(71, 23);
-            this.butNewShortPlay.TabIndex = 9;
-            this.butNewShortPlay.Text = "Short Play";
-            this.butNewShortPlay.UseVisualStyleBackColor = true;
-            this.butNewShortPlay.Click += new System.EventHandler(this.ButNewShortPlay_Click);
+            butNewShortPlay.Location = new System.Drawing.Point(318, 134);
+            butNewShortPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butNewShortPlay.Name = "butNewShortPlay";
+            butNewShortPlay.Size = new System.Drawing.Size(83, 27);
+            butNewShortPlay.TabIndex = 9;
+            butNewShortPlay.Text = "Short Play";
+            butNewShortPlay.UseVisualStyleBackColor = true;
+            butNewShortPlay.Click += ButNewShortPlay_Click;
             // 
             // lblGameClock
             // 
-            this.lblGameClock.AutoSize = true;
-            this.lblGameClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameClock.Location = new System.Drawing.Point(10, 28);
-            this.lblGameClock.Name = "lblGameClock";
-            this.lblGameClock.Size = new System.Drawing.Size(69, 25);
-            this.lblGameClock.TabIndex = 18;
-            this.lblGameClock.Text = "Game";
+            lblGameClock.AutoSize = true;
+            lblGameClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblGameClock.Location = new System.Drawing.Point(12, 32);
+            lblGameClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblGameClock.Name = "lblGameClock";
+            lblGameClock.Size = new System.Drawing.Size(69, 25);
+            lblGameClock.TabIndex = 18;
+            lblGameClock.Text = "Game";
             // 
             // butClearClocks
             // 
-            this.butClearClocks.Location = new System.Drawing.Point(6, 116);
-            this.butClearClocks.Name = "butClearClocks";
-            this.butClearClocks.Size = new System.Drawing.Size(77, 23);
-            this.butClearClocks.TabIndex = 6;
-            this.butClearClocks.Text = "Clear Clocks";
-            this.butClearClocks.UseVisualStyleBackColor = true;
-            this.butClearClocks.Click += new System.EventHandler(this.ButClearClocks_Click);
+            butClearClocks.Location = new System.Drawing.Point(7, 134);
+            butClearClocks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butClearClocks.Name = "butClearClocks";
+            butClearClocks.Size = new System.Drawing.Size(90, 27);
+            butClearClocks.TabIndex = 6;
+            butClearClocks.Text = "Clear Clocks";
+            butClearClocks.UseVisualStyleBackColor = true;
+            butClearClocks.Click += ButClearClocks_Click;
             // 
             // butNewDefaultPlay
             // 
-            this.butNewDefaultPlay.Location = new System.Drawing.Point(192, 116);
-            this.butNewDefaultPlay.Name = "butNewDefaultPlay";
-            this.butNewDefaultPlay.Size = new System.Drawing.Size(74, 23);
-            this.butNewDefaultPlay.TabIndex = 8;
-            this.butNewDefaultPlay.Text = "Default Play";
-            this.butNewDefaultPlay.UseVisualStyleBackColor = true;
-            this.butNewDefaultPlay.Click += new System.EventHandler(this.ButNewDefaultPlay_Click);
+            butNewDefaultPlay.Location = new System.Drawing.Point(224, 134);
+            butNewDefaultPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butNewDefaultPlay.Name = "butNewDefaultPlay";
+            butNewDefaultPlay.Size = new System.Drawing.Size(86, 27);
+            butNewDefaultPlay.TabIndex = 8;
+            butNewDefaultPlay.Text = "Default Play";
+            butNewDefaultPlay.UseVisualStyleBackColor = true;
+            butNewDefaultPlay.Click += ButNewDefaultPlay_Click;
             // 
             // lblPlayClock
             // 
-            this.lblPlayClock.AutoSize = true;
-            this.lblPlayClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayClock.Location = new System.Drawing.Point(10, 78);
-            this.lblPlayClock.Name = "lblPlayClock";
-            this.lblPlayClock.Size = new System.Drawing.Size(54, 25);
-            this.lblPlayClock.TabIndex = 19;
-            this.lblPlayClock.Text = "Play";
+            lblPlayClock.AutoSize = true;
+            lblPlayClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblPlayClock.Location = new System.Drawing.Point(12, 90);
+            lblPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayClock.Name = "lblPlayClock";
+            lblPlayClock.Size = new System.Drawing.Size(54, 25);
+            lblPlayClock.TabIndex = 19;
+            lblPlayClock.Text = "Play";
             // 
             // txtGameClock
             // 
-            this.txtGameClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGameClock.Location = new System.Drawing.Point(156, 16);
-            this.txtGameClock.Name = "txtGameClock";
-            this.txtGameClock.Size = new System.Drawing.Size(108, 44);
-            this.txtGameClock.TabIndex = 0;
-            this.txtGameClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtGameClock.Leave += new System.EventHandler(this.TxtGameClock_Leave);
+            txtGameClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtGameClock.Location = new System.Drawing.Point(182, 18);
+            txtGameClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtGameClock.Name = "txtGameClock";
+            txtGameClock.Size = new System.Drawing.Size(125, 44);
+            txtGameClock.TabIndex = 0;
+            txtGameClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtGameClock.Leave += TxtGameClock_Leave;
             // 
             // txtPlayClock
             // 
-            this.txtPlayClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlayClock.Location = new System.Drawing.Point(155, 66);
-            this.txtPlayClock.Name = "txtPlayClock";
-            this.txtPlayClock.Size = new System.Drawing.Size(109, 44);
-            this.txtPlayClock.TabIndex = 4;
-            this.txtPlayClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPlayClock.Leave += new System.EventHandler(this.TxtPlayClock_Leave);
+            txtPlayClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtPlayClock.Location = new System.Drawing.Point(181, 76);
+            txtPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtPlayClock.Name = "txtPlayClock";
+            txtPlayClock.Size = new System.Drawing.Size(126, 44);
+            txtPlayClock.TabIndex = 4;
+            txtPlayClock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtPlayClock.Leave += TxtPlayClock_Leave;
             // 
             // butStartStopGameClock
             // 
-            this.butStartStopGameClock.Location = new System.Drawing.Point(273, 19);
-            this.butStartStopGameClock.Name = "butStartStopGameClock";
-            this.butStartStopGameClock.Size = new System.Drawing.Size(71, 36);
-            this.butStartStopGameClock.TabIndex = 1;
-            this.butStartStopGameClock.Text = "Start Game Clock";
-            this.butStartStopGameClock.UseVisualStyleBackColor = true;
-            this.butStartStopGameClock.Click += new System.EventHandler(this.ButStartStopGameClock_Click);
+            butStartStopGameClock.Location = new System.Drawing.Point(318, 22);
+            butStartStopGameClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butStartStopGameClock.Name = "butStartStopGameClock";
+            butStartStopGameClock.Size = new System.Drawing.Size(83, 42);
+            butStartStopGameClock.TabIndex = 1;
+            butStartStopGameClock.Text = "Start Game Clock";
+            butStartStopGameClock.UseVisualStyleBackColor = true;
+            butStartStopGameClock.Click += ButStartStopGameClock_Click;
             // 
             // butStartStopPlayClock
             // 
-            this.butStartStopPlayClock.Location = new System.Drawing.Point(273, 69);
-            this.butStartStopPlayClock.Name = "butStartStopPlayClock";
-            this.butStartStopPlayClock.Size = new System.Drawing.Size(71, 36);
-            this.butStartStopPlayClock.TabIndex = 5;
-            this.butStartStopPlayClock.Text = "Start Play Clock";
-            this.butStartStopPlayClock.UseVisualStyleBackColor = true;
-            this.butStartStopPlayClock.Click += new System.EventHandler(this.ButStartStopPlayClock_Click);
+            butStartStopPlayClock.Location = new System.Drawing.Point(318, 80);
+            butStartStopPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butStartStopPlayClock.Name = "butStartStopPlayClock";
+            butStartStopPlayClock.Size = new System.Drawing.Size(83, 42);
+            butStartStopPlayClock.TabIndex = 5;
+            butStartStopPlayClock.Text = "Start Play Clock";
+            butStartStopPlayClock.UseVisualStyleBackColor = true;
+            butStartStopPlayClock.Click += ButStartStopPlayClock_Click;
             // 
             // tpPenalties
             // 
-            this.tpPenalties.Controls.Add(this.gbPenalties);
-            this.tpPenalties.Location = new System.Drawing.Point(4, 22);
-            this.tpPenalties.Name = "tpPenalties";
-            this.tpPenalties.Size = new System.Drawing.Size(774, 393);
-            this.tpPenalties.TabIndex = 3;
-            this.tpPenalties.Text = "Penalties";
-            this.tpPenalties.UseVisualStyleBackColor = true;
+            tpPenalties.Controls.Add(gbPenalties);
+            tpPenalties.Location = new System.Drawing.Point(4, 24);
+            tpPenalties.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpPenalties.Name = "tpPenalties";
+            tpPenalties.Size = new System.Drawing.Size(904, 455);
+            tpPenalties.TabIndex = 3;
+            tpPenalties.Text = "Penalties";
+            tpPenalties.UseVisualStyleBackColor = true;
             // 
             // gbPenalties
             // 
-            this.gbPenalties.Controls.Add(this.rbPenalty62);
-            this.gbPenalties.Controls.Add(this.rbPenalty61);
-            this.gbPenalties.Controls.Add(this.rbPenalty60);
-            this.gbPenalties.Controls.Add(this.rbPenalty59);
-            this.gbPenalties.Controls.Add(this.rbPenalty58);
-            this.gbPenalties.Controls.Add(this.rbPenalty57);
-            this.gbPenalties.Controls.Add(this.rbPenalty56);
-            this.gbPenalties.Controls.Add(this.rbPenalty55);
-            this.gbPenalties.Controls.Add(this.rbPenalty54);
-            this.gbPenalties.Controls.Add(this.rbPenalty53);
-            this.gbPenalties.Controls.Add(this.rbPenalty52);
-            this.gbPenalties.Controls.Add(this.rbPenalty51);
-            this.gbPenalties.Controls.Add(this.rbPenalty50);
-            this.gbPenalties.Controls.Add(this.rbPenalty49);
-            this.gbPenalties.Controls.Add(this.rbPenalty48);
-            this.gbPenalties.Controls.Add(this.rbPenalty47);
-            this.gbPenalties.Controls.Add(this.rbPenalty46);
-            this.gbPenalties.Controls.Add(this.rbPenalty45);
-            this.gbPenalties.Controls.Add(this.rbPenalty44);
-            this.gbPenalties.Controls.Add(this.rbPenalty43);
-            this.gbPenalties.Controls.Add(this.rbPenalty42);
-            this.gbPenalties.Controls.Add(this.rbPenalty41);
-            this.gbPenalties.Controls.Add(this.rbPenalty40);
-            this.gbPenalties.Controls.Add(this.rbPenalty39);
-            this.gbPenalties.Controls.Add(this.rbPenalty38);
-            this.gbPenalties.Controls.Add(this.rbPenalty37);
-            this.gbPenalties.Controls.Add(this.rbPenalty36);
-            this.gbPenalties.Controls.Add(this.rbPenalty35);
-            this.gbPenalties.Controls.Add(this.rbPenalty34);
-            this.gbPenalties.Controls.Add(this.rbPenalty33);
-            this.gbPenalties.Controls.Add(this.rbPenalty32);
-            this.gbPenalties.Controls.Add(this.rbPenalty31);
-            this.gbPenalties.Controls.Add(this.rbPenalty30);
-            this.gbPenalties.Controls.Add(this.rbPenalty29);
-            this.gbPenalties.Controls.Add(this.rbPenalty28);
-            this.gbPenalties.Controls.Add(this.rbPenalty27);
-            this.gbPenalties.Controls.Add(this.rbPenalty26);
-            this.gbPenalties.Controls.Add(this.rbPenalty25);
-            this.gbPenalties.Controls.Add(this.rbPenalty24);
-            this.gbPenalties.Controls.Add(this.rbPenalty23);
-            this.gbPenalties.Controls.Add(this.rbPenalty22);
-            this.gbPenalties.Controls.Add(this.rbPenalty21);
-            this.gbPenalties.Controls.Add(this.rbPenalty20);
-            this.gbPenalties.Controls.Add(this.rbPenalty19);
-            this.gbPenalties.Controls.Add(this.rbPenalty18);
-            this.gbPenalties.Controls.Add(this.rbPenalty17);
-            this.gbPenalties.Controls.Add(this.rbPenalty16);
-            this.gbPenalties.Controls.Add(this.rbPenalty15);
-            this.gbPenalties.Controls.Add(this.rbPenalty14);
-            this.gbPenalties.Controls.Add(this.rbPenalty13);
-            this.gbPenalties.Controls.Add(this.rbPenalty12);
-            this.gbPenalties.Controls.Add(this.rbPenalty11);
-            this.gbPenalties.Controls.Add(this.rbPenalty10);
-            this.gbPenalties.Controls.Add(this.rbPenalty9);
-            this.gbPenalties.Controls.Add(this.rbPenalty8);
-            this.gbPenalties.Controls.Add(this.rbPenalty7);
-            this.gbPenalties.Controls.Add(this.rbPenalty6);
-            this.gbPenalties.Controls.Add(this.rbPenalty5);
-            this.gbPenalties.Controls.Add(this.rbPenalty4);
-            this.gbPenalties.Controls.Add(this.rbPenalty3);
-            this.gbPenalties.Controls.Add(this.rbPenalty2);
-            this.gbPenalties.Controls.Add(this.rbPenalty1);
-            this.gbPenalties.Location = new System.Drawing.Point(3, 3);
-            this.gbPenalties.Name = "gbPenalties";
-            this.gbPenalties.Size = new System.Drawing.Size(762, 390);
-            this.gbPenalties.TabIndex = 0;
-            this.gbPenalties.TabStop = false;
-            this.gbPenalties.Text = "Penalties";
+            gbPenalties.Controls.Add(rbPenalty62);
+            gbPenalties.Controls.Add(rbPenalty61);
+            gbPenalties.Controls.Add(rbPenalty60);
+            gbPenalties.Controls.Add(rbPenalty59);
+            gbPenalties.Controls.Add(rbPenalty58);
+            gbPenalties.Controls.Add(rbPenalty57);
+            gbPenalties.Controls.Add(rbPenalty56);
+            gbPenalties.Controls.Add(rbPenalty55);
+            gbPenalties.Controls.Add(rbPenalty54);
+            gbPenalties.Controls.Add(rbPenalty53);
+            gbPenalties.Controls.Add(rbPenalty52);
+            gbPenalties.Controls.Add(rbPenalty51);
+            gbPenalties.Controls.Add(rbPenalty50);
+            gbPenalties.Controls.Add(rbPenalty49);
+            gbPenalties.Controls.Add(rbPenalty48);
+            gbPenalties.Controls.Add(rbPenalty47);
+            gbPenalties.Controls.Add(rbPenalty46);
+            gbPenalties.Controls.Add(rbPenalty45);
+            gbPenalties.Controls.Add(rbPenalty44);
+            gbPenalties.Controls.Add(rbPenalty43);
+            gbPenalties.Controls.Add(rbPenalty42);
+            gbPenalties.Controls.Add(rbPenalty41);
+            gbPenalties.Controls.Add(rbPenalty40);
+            gbPenalties.Controls.Add(rbPenalty39);
+            gbPenalties.Controls.Add(rbPenalty38);
+            gbPenalties.Controls.Add(rbPenalty37);
+            gbPenalties.Controls.Add(rbPenalty36);
+            gbPenalties.Controls.Add(rbPenalty35);
+            gbPenalties.Controls.Add(rbPenalty34);
+            gbPenalties.Controls.Add(rbPenalty33);
+            gbPenalties.Controls.Add(rbPenalty32);
+            gbPenalties.Controls.Add(rbPenalty31);
+            gbPenalties.Controls.Add(rbPenalty30);
+            gbPenalties.Controls.Add(rbPenalty29);
+            gbPenalties.Controls.Add(rbPenalty28);
+            gbPenalties.Controls.Add(rbPenalty27);
+            gbPenalties.Controls.Add(rbPenalty26);
+            gbPenalties.Controls.Add(rbPenalty25);
+            gbPenalties.Controls.Add(rbPenalty24);
+            gbPenalties.Controls.Add(rbPenalty23);
+            gbPenalties.Controls.Add(rbPenalty22);
+            gbPenalties.Controls.Add(rbPenalty21);
+            gbPenalties.Controls.Add(rbPenalty20);
+            gbPenalties.Controls.Add(rbPenalty19);
+            gbPenalties.Controls.Add(rbPenalty18);
+            gbPenalties.Controls.Add(rbPenalty17);
+            gbPenalties.Controls.Add(rbPenalty16);
+            gbPenalties.Controls.Add(rbPenalty15);
+            gbPenalties.Controls.Add(rbPenalty14);
+            gbPenalties.Controls.Add(rbPenalty13);
+            gbPenalties.Controls.Add(rbPenalty12);
+            gbPenalties.Controls.Add(rbPenalty11);
+            gbPenalties.Controls.Add(rbPenalty10);
+            gbPenalties.Controls.Add(rbPenalty9);
+            gbPenalties.Controls.Add(rbPenalty8);
+            gbPenalties.Controls.Add(rbPenalty7);
+            gbPenalties.Controls.Add(rbPenalty6);
+            gbPenalties.Controls.Add(rbPenalty5);
+            gbPenalties.Controls.Add(rbPenalty4);
+            gbPenalties.Controls.Add(rbPenalty3);
+            gbPenalties.Controls.Add(rbPenalty2);
+            gbPenalties.Controls.Add(rbPenalty1);
+            gbPenalties.Location = new System.Drawing.Point(4, 3);
+            gbPenalties.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPenalties.Name = "gbPenalties";
+            gbPenalties.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPenalties.Size = new System.Drawing.Size(889, 450);
+            gbPenalties.TabIndex = 0;
+            gbPenalties.TabStop = false;
+            gbPenalties.Text = "Penalties";
             // 
             // rbPenalty62
             // 
-            this.rbPenalty62.AutoSize = true;
-            this.rbPenalty62.Location = new System.Drawing.Point(531, 341);
-            this.rbPenalty62.Name = "rbPenalty62";
-            this.rbPenalty62.Size = new System.Drawing.Size(94, 17);
-            this.rbPenalty62.TabIndex = 63;
-            this.rbPenalty62.TabStop = true;
-            this.rbPenalty62.Text = "Use Of Helmet";
-            this.rbPenalty62.UseVisualStyleBackColor = true;
-            this.rbPenalty62.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty62.AutoSize = true;
+            rbPenalty62.Location = new System.Drawing.Point(620, 393);
+            rbPenalty62.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty62.Name = "rbPenalty62";
+            rbPenalty62.Size = new System.Drawing.Size(102, 19);
+            rbPenalty62.TabIndex = 63;
+            rbPenalty62.TabStop = true;
+            rbPenalty62.Text = "Use Of Helmet";
+            rbPenalty62.UseVisualStyleBackColor = true;
+            rbPenalty62.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty61
             // 
-            this.rbPenalty61.AutoSize = true;
-            this.rbPenalty61.Location = new System.Drawing.Point(531, 318);
-            this.rbPenalty61.Name = "rbPenalty61";
-            this.rbPenalty61.Size = new System.Drawing.Size(146, 17);
-            this.rbPenalty61.TabIndex = 62;
-            this.rbPenalty61.TabStop = true;
-            this.rbPenalty61.Text = "Unsportsmanlike Conduct";
-            this.rbPenalty61.UseVisualStyleBackColor = true;
-            this.rbPenalty61.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty61.AutoSize = true;
+            rbPenalty61.Location = new System.Drawing.Point(620, 367);
+            rbPenalty61.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty61.Name = "rbPenalty61";
+            rbPenalty61.Size = new System.Drawing.Size(163, 19);
+            rbPenalty61.TabIndex = 62;
+            rbPenalty61.TabStop = true;
+            rbPenalty61.Text = "Unsportsmanlike Conduct";
+            rbPenalty61.UseVisualStyleBackColor = true;
+            rbPenalty61.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty60
             // 
-            this.rbPenalty60.AutoSize = true;
-            this.rbPenalty60.Location = new System.Drawing.Point(531, 295);
-            this.rbPenalty60.Name = "rbPenalty60";
-            this.rbPenalty60.Size = new System.Drawing.Size(144, 17);
-            this.rbPenalty60.TabIndex = 61;
-            this.rbPenalty60.TabStop = true;
-            this.rbPenalty60.Text = "Unnecessary Roughness";
-            this.rbPenalty60.UseVisualStyleBackColor = true;
-            this.rbPenalty60.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty60.AutoSize = true;
+            rbPenalty60.Location = new System.Drawing.Point(620, 340);
+            rbPenalty60.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty60.Name = "rbPenalty60";
+            rbPenalty60.Size = new System.Drawing.Size(152, 19);
+            rbPenalty60.TabIndex = 61;
+            rbPenalty60.TabStop = true;
+            rbPenalty60.Text = "Unnecessary Roughness";
+            rbPenalty60.UseVisualStyleBackColor = true;
+            rbPenalty60.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty59
             // 
-            this.rbPenalty59.AutoSize = true;
-            this.rbPenalty59.Location = new System.Drawing.Point(531, 272);
-            this.rbPenalty59.Name = "rbPenalty59";
-            this.rbPenalty59.Size = new System.Drawing.Size(229, 17);
-            this.rbPenalty59.TabIndex = 60;
-            this.rbPenalty59.TabStop = true;
-            this.rbPenalty59.Text = "Unnecessary Physical Contact With Official";
-            this.rbPenalty59.UseVisualStyleBackColor = true;
-            this.rbPenalty59.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty59.AutoSize = true;
+            rbPenalty59.Location = new System.Drawing.Point(620, 314);
+            rbPenalty59.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty59.Name = "rbPenalty59";
+            rbPenalty59.Size = new System.Drawing.Size(251, 19);
+            rbPenalty59.TabIndex = 60;
+            rbPenalty59.TabStop = true;
+            rbPenalty59.Text = "Unnecessary Physical Contact With Official";
+            rbPenalty59.UseVisualStyleBackColor = true;
+            rbPenalty59.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty58
             // 
-            this.rbPenalty58.AutoSize = true;
-            this.rbPenalty58.Location = new System.Drawing.Point(531, 249);
-            this.rbPenalty58.Name = "rbPenalty58";
-            this.rbPenalty58.Size = new System.Drawing.Size(63, 17);
-            this.rbPenalty58.TabIndex = 59;
-            this.rbPenalty58.TabStop = true;
-            this.rbPenalty58.Text = "Tripping";
-            this.rbPenalty58.UseVisualStyleBackColor = true;
-            this.rbPenalty58.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty58.AutoSize = true;
+            rbPenalty58.Location = new System.Drawing.Point(620, 287);
+            rbPenalty58.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty58.Name = "rbPenalty58";
+            rbPenalty58.Size = new System.Drawing.Size(68, 19);
+            rbPenalty58.TabIndex = 59;
+            rbPenalty58.TabStop = true;
+            rbPenalty58.Text = "Tripping";
+            rbPenalty58.UseVisualStyleBackColor = true;
+            rbPenalty58.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty57
             // 
-            this.rbPenalty57.AutoSize = true;
-            this.rbPenalty57.Location = new System.Drawing.Point(531, 226);
-            this.rbPenalty57.Name = "rbPenalty57";
-            this.rbPenalty57.Size = new System.Drawing.Size(139, 17);
-            this.rbPenalty57.TabIndex = 58;
-            this.rbPenalty57.TabStop = true;
-            this.rbPenalty57.Text = "Too Many Men On Field";
-            this.rbPenalty57.UseVisualStyleBackColor = true;
-            this.rbPenalty57.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty57.AutoSize = true;
+            rbPenalty57.Location = new System.Drawing.Point(620, 261);
+            rbPenalty57.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty57.Name = "rbPenalty57";
+            rbPenalty57.Size = new System.Drawing.Size(151, 19);
+            rbPenalty57.TabIndex = 58;
+            rbPenalty57.TabStop = true;
+            rbPenalty57.Text = "Too Many Men On Field";
+            rbPenalty57.UseVisualStyleBackColor = true;
+            rbPenalty57.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty56
             // 
-            this.rbPenalty56.AutoSize = true;
-            this.rbPenalty56.Location = new System.Drawing.Point(531, 203);
-            this.rbPenalty56.Name = "rbPenalty56";
-            this.rbPenalty56.Size = new System.Drawing.Size(67, 17);
-            this.rbPenalty56.TabIndex = 57;
-            this.rbPenalty56.TabStop = true;
-            this.rbPenalty56.Text = "Taunting";
-            this.rbPenalty56.UseVisualStyleBackColor = true;
-            this.rbPenalty56.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty56.AutoSize = true;
+            rbPenalty56.Location = new System.Drawing.Point(620, 234);
+            rbPenalty56.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty56.Name = "rbPenalty56";
+            rbPenalty56.Size = new System.Drawing.Size(71, 19);
+            rbPenalty56.TabIndex = 57;
+            rbPenalty56.TabStop = true;
+            rbPenalty56.Text = "Taunting";
+            rbPenalty56.UseVisualStyleBackColor = true;
+            rbPenalty56.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty55
             // 
-            this.rbPenalty55.AutoSize = true;
-            this.rbPenalty55.Location = new System.Drawing.Point(531, 180);
-            this.rbPenalty55.Name = "rbPenalty55";
-            this.rbPenalty55.Size = new System.Drawing.Size(223, 17);
-            this.rbPenalty55.TabIndex = 56;
-            this.rbPenalty55.TabStop = true;
-            this.rbPenalty55.Text = "Striking, Kicking, or Kneeing an Opponent";
-            this.rbPenalty55.UseVisualStyleBackColor = true;
-            this.rbPenalty55.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty55.AutoSize = true;
+            rbPenalty55.Location = new System.Drawing.Point(620, 208);
+            rbPenalty55.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty55.Name = "rbPenalty55";
+            rbPenalty55.Size = new System.Drawing.Size(246, 19);
+            rbPenalty55.TabIndex = 56;
+            rbPenalty55.TabStop = true;
+            rbPenalty55.Text = "Striking, Kicking, or Kneeing an Opponent";
+            rbPenalty55.UseVisualStyleBackColor = true;
+            rbPenalty55.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty54
             // 
-            this.rbPenalty54.AutoSize = true;
-            this.rbPenalty54.Location = new System.Drawing.Point(531, 157);
-            this.rbPenalty54.Name = "rbPenalty54";
-            this.rbPenalty54.Size = new System.Drawing.Size(109, 17);
-            this.rbPenalty54.TabIndex = 55;
-            this.rbPenalty54.TabStop = true;
-            this.rbPenalty54.Text = "Sideline Infraction";
-            this.rbPenalty54.UseVisualStyleBackColor = true;
-            this.rbPenalty54.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty54.AutoSize = true;
+            rbPenalty54.Location = new System.Drawing.Point(620, 181);
+            rbPenalty54.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty54.Name = "rbPenalty54";
+            rbPenalty54.Size = new System.Drawing.Size(120, 19);
+            rbPenalty54.TabIndex = 55;
+            rbPenalty54.TabStop = true;
+            rbPenalty54.Text = "Sideline Infraction";
+            rbPenalty54.UseVisualStyleBackColor = true;
+            rbPenalty54.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty53
             // 
-            this.rbPenalty53.AutoSize = true;
-            this.rbPenalty53.Location = new System.Drawing.Point(531, 134);
-            this.rbPenalty53.Name = "rbPenalty53";
-            this.rbPenalty53.Size = new System.Drawing.Size(141, 17);
-            this.rbPenalty53.TabIndex = 54;
-            this.rbPenalty53.TabStop = true;
-            this.rbPenalty53.Text = "Running Into The Kicker";
-            this.rbPenalty53.UseVisualStyleBackColor = true;
-            this.rbPenalty53.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty53.AutoSize = true;
+            rbPenalty53.Location = new System.Drawing.Point(620, 155);
+            rbPenalty53.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty53.Name = "rbPenalty53";
+            rbPenalty53.Size = new System.Drawing.Size(151, 19);
+            rbPenalty53.TabIndex = 54;
+            rbPenalty53.TabStop = true;
+            rbPenalty53.Text = "Running Into The Kicker";
+            rbPenalty53.UseVisualStyleBackColor = true;
+            rbPenalty53.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty52
             // 
-            this.rbPenalty52.AutoSize = true;
-            this.rbPenalty52.Location = new System.Drawing.Point(531, 111);
-            this.rbPenalty52.Name = "rbPenalty52";
-            this.rbPenalty52.Size = new System.Drawing.Size(128, 17);
-            this.rbPenalty52.TabIndex = 53;
-            this.rbPenalty52.TabStop = true;
-            this.rbPenalty52.Text = "Roughing The Passer";
-            this.rbPenalty52.UseVisualStyleBackColor = true;
-            this.rbPenalty52.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty52.AutoSize = true;
+            rbPenalty52.Location = new System.Drawing.Point(620, 128);
+            rbPenalty52.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty52.Name = "rbPenalty52";
+            rbPenalty52.Size = new System.Drawing.Size(135, 19);
+            rbPenalty52.TabIndex = 53;
+            rbPenalty52.TabStop = true;
+            rbPenalty52.Text = "Roughing The Passer";
+            rbPenalty52.UseVisualStyleBackColor = true;
+            rbPenalty52.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty51
             // 
-            this.rbPenalty51.AutoSize = true;
-            this.rbPenalty51.Location = new System.Drawing.Point(531, 88);
-            this.rbPenalty51.Name = "rbPenalty51";
-            this.rbPenalty51.Size = new System.Drawing.Size(126, 17);
-            this.rbPenalty51.TabIndex = 52;
-            this.rbPenalty51.TabStop = true;
-            this.rbPenalty51.Text = "Roughing The Kicker";
-            this.rbPenalty51.UseVisualStyleBackColor = true;
-            this.rbPenalty51.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty51.AutoSize = true;
+            rbPenalty51.Location = new System.Drawing.Point(620, 102);
+            rbPenalty51.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty51.Name = "rbPenalty51";
+            rbPenalty51.Size = new System.Drawing.Size(134, 19);
+            rbPenalty51.TabIndex = 52;
+            rbPenalty51.TabStop = true;
+            rbPenalty51.Text = "Roughing The Kicker";
+            rbPenalty51.UseVisualStyleBackColor = true;
+            rbPenalty51.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty50
             // 
-            this.rbPenalty50.AutoSize = true;
-            this.rbPenalty50.Location = new System.Drawing.Point(531, 65);
-            this.rbPenalty50.Name = "rbPenalty50";
-            this.rbPenalty50.Size = new System.Drawing.Size(123, 17);
-            this.rbPenalty50.TabIndex = 51;
-            this.rbPenalty50.TabStop = true;
-            this.rbPenalty50.Text = "Roughing the Holder";
-            this.rbPenalty50.UseVisualStyleBackColor = true;
-            this.rbPenalty50.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty50.AutoSize = true;
+            rbPenalty50.Location = new System.Drawing.Point(620, 75);
+            rbPenalty50.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty50.Name = "rbPenalty50";
+            rbPenalty50.Size = new System.Drawing.Size(136, 19);
+            rbPenalty50.TabIndex = 51;
+            rbPenalty50.TabStop = true;
+            rbPenalty50.Text = "Roughing the Holder";
+            rbPenalty50.UseVisualStyleBackColor = true;
+            rbPenalty50.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty49
             // 
-            this.rbPenalty49.AutoSize = true;
-            this.rbPenalty49.Location = new System.Drawing.Point(531, 42);
-            this.rbPenalty49.Name = "rbPenalty49";
-            this.rbPenalty49.Size = new System.Drawing.Size(133, 17);
-            this.rbPenalty49.TabIndex = 50;
-            this.rbPenalty49.TabStop = true;
-            this.rbPenalty49.Text = "Removal of the Helmet";
-            this.rbPenalty49.UseVisualStyleBackColor = true;
-            this.rbPenalty49.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty49.AutoSize = true;
+            rbPenalty49.Location = new System.Drawing.Point(620, 48);
+            rbPenalty49.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty49.Name = "rbPenalty49";
+            rbPenalty49.Size = new System.Drawing.Size(147, 19);
+            rbPenalty49.TabIndex = 50;
+            rbPenalty49.TabStop = true;
+            rbPenalty49.Text = "Removal of the Helmet";
+            rbPenalty49.UseVisualStyleBackColor = true;
+            rbPenalty49.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty48
             // 
-            this.rbPenalty48.AutoSize = true;
-            this.rbPenalty48.Location = new System.Drawing.Point(531, 19);
-            this.rbPenalty48.Name = "rbPenalty48";
-            this.rbPenalty48.Size = new System.Drawing.Size(168, 17);
-            this.rbPenalty48.TabIndex = 49;
-            this.rbPenalty48.TabStop = true;
-            this.rbPenalty48.Text = "Player Out Of Bounds On Kick";
-            this.rbPenalty48.UseVisualStyleBackColor = true;
-            this.rbPenalty48.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty48.AutoSize = true;
+            rbPenalty48.Location = new System.Drawing.Point(620, 22);
+            rbPenalty48.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty48.Name = "rbPenalty48";
+            rbPenalty48.Size = new System.Drawing.Size(183, 19);
+            rbPenalty48.TabIndex = 49;
+            rbPenalty48.TabStop = true;
+            rbPenalty48.Text = "Player Out Of Bounds On Kick";
+            rbPenalty48.UseVisualStyleBackColor = true;
+            rbPenalty48.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty47
             // 
-            this.rbPenalty47.AutoSize = true;
-            this.rbPenalty47.Location = new System.Drawing.Point(369, 364);
-            this.rbPenalty47.Name = "rbPenalty47";
-            this.rbPenalty47.Size = new System.Drawing.Size(108, 17);
-            this.rbPenalty47.TabIndex = 48;
-            this.rbPenalty47.TabStop = true;
-            this.rbPenalty47.Text = "Pass Interference";
-            this.rbPenalty47.UseVisualStyleBackColor = true;
-            this.rbPenalty47.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty47.AutoSize = true;
+            rbPenalty47.Location = new System.Drawing.Point(430, 420);
+            rbPenalty47.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty47.Name = "rbPenalty47";
+            rbPenalty47.Size = new System.Drawing.Size(114, 19);
+            rbPenalty47.TabIndex = 48;
+            rbPenalty47.TabStop = true;
+            rbPenalty47.Text = "Pass Interference";
+            rbPenalty47.UseVisualStyleBackColor = true;
+            rbPenalty47.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty46
             // 
-            this.rbPenalty46.AutoSize = true;
-            this.rbPenalty46.Location = new System.Drawing.Point(369, 341);
-            this.rbPenalty46.Name = "rbPenalty46";
-            this.rbPenalty46.Size = new System.Drawing.Size(123, 17);
-            this.rbPenalty46.TabIndex = 47;
-            this.rbPenalty46.TabStop = true;
-            this.rbPenalty46.Text = "Offside On Free Kick";
-            this.rbPenalty46.UseVisualStyleBackColor = true;
-            this.rbPenalty46.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty46.AutoSize = true;
+            rbPenalty46.Location = new System.Drawing.Point(430, 393);
+            rbPenalty46.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty46.Name = "rbPenalty46";
+            rbPenalty46.Size = new System.Drawing.Size(132, 19);
+            rbPenalty46.TabIndex = 47;
+            rbPenalty46.TabStop = true;
+            rbPenalty46.Text = "Offside On Free Kick";
+            rbPenalty46.UseVisualStyleBackColor = true;
+            rbPenalty46.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty45
             // 
-            this.rbPenalty45.AutoSize = true;
-            this.rbPenalty45.Location = new System.Drawing.Point(369, 318);
-            this.rbPenalty45.Name = "rbPenalty45";
-            this.rbPenalty45.Size = new System.Drawing.Size(106, 17);
-            this.rbPenalty45.TabIndex = 45;
-            this.rbPenalty45.TabStop = true;
-            this.rbPenalty45.Text = "Offensive Offside";
-            this.rbPenalty45.UseVisualStyleBackColor = true;
-            this.rbPenalty45.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty45.AutoSize = true;
+            rbPenalty45.Location = new System.Drawing.Point(430, 367);
+            rbPenalty45.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty45.Name = "rbPenalty45";
+            rbPenalty45.Size = new System.Drawing.Size(116, 19);
+            rbPenalty45.TabIndex = 45;
+            rbPenalty45.TabStop = true;
+            rbPenalty45.Text = "Offensive Offside";
+            rbPenalty45.UseVisualStyleBackColor = true;
+            rbPenalty45.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty44
             // 
-            this.rbPenalty44.AutoSize = true;
-            this.rbPenalty44.Location = new System.Drawing.Point(369, 295);
-            this.rbPenalty44.Name = "rbPenalty44";
-            this.rbPenalty44.Size = new System.Drawing.Size(109, 17);
-            this.rbPenalty44.TabIndex = 44;
-            this.rbPenalty44.TabStop = true;
-            this.rbPenalty44.Text = "Offensive Holding";
-            this.rbPenalty44.UseVisualStyleBackColor = true;
-            this.rbPenalty44.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty44.AutoSize = true;
+            rbPenalty44.Location = new System.Drawing.Point(430, 340);
+            rbPenalty44.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty44.Name = "rbPenalty44";
+            rbPenalty44.Size = new System.Drawing.Size(121, 19);
+            rbPenalty44.TabIndex = 44;
+            rbPenalty44.TabStop = true;
+            rbPenalty44.Text = "Offensive Holding";
+            rbPenalty44.UseVisualStyleBackColor = true;
+            rbPenalty44.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty43
             // 
-            this.rbPenalty43.AutoSize = true;
-            this.rbPenalty43.Location = new System.Drawing.Point(369, 272);
-            this.rbPenalty43.Name = "rbPenalty43";
-            this.rbPenalty43.Size = new System.Drawing.Size(134, 17);
-            this.rbPenalty43.TabIndex = 43;
-            this.rbPenalty43.TabStop = true;
-            this.rbPenalty43.Text = "Neutral Zone Infraction";
-            this.rbPenalty43.UseVisualStyleBackColor = true;
-            this.rbPenalty43.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty43.AutoSize = true;
+            rbPenalty43.Location = new System.Drawing.Point(430, 314);
+            rbPenalty43.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty43.Name = "rbPenalty43";
+            rbPenalty43.Size = new System.Drawing.Size(148, 19);
+            rbPenalty43.TabIndex = 43;
+            rbPenalty43.TabStop = true;
+            rbPenalty43.Text = "Neutral Zone Infraction";
+            rbPenalty43.UseVisualStyleBackColor = true;
+            rbPenalty43.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty42
             // 
-            this.rbPenalty42.AutoSize = true;
-            this.rbPenalty42.Location = new System.Drawing.Point(369, 249);
-            this.rbPenalty42.Name = "rbPenalty42";
-            this.rbPenalty42.Size = new System.Drawing.Size(75, 17);
-            this.rbPenalty42.TabIndex = 42;
-            this.rbPenalty42.TabStop = true;
-            this.rbPenalty42.Text = "Low Block";
-            this.rbPenalty42.UseVisualStyleBackColor = true;
-            this.rbPenalty42.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty42.AutoSize = true;
+            rbPenalty42.Location = new System.Drawing.Point(430, 287);
+            rbPenalty42.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty42.Name = "rbPenalty42";
+            rbPenalty42.Size = new System.Drawing.Size(79, 19);
+            rbPenalty42.TabIndex = 42;
+            rbPenalty42.TabStop = true;
+            rbPenalty42.Text = "Low Block";
+            rbPenalty42.UseVisualStyleBackColor = true;
+            rbPenalty42.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty41
             // 
-            this.rbPenalty41.AutoSize = true;
-            this.rbPenalty41.Location = new System.Drawing.Point(369, 226);
-            this.rbPenalty41.Name = "rbPenalty41";
-            this.rbPenalty41.Size = new System.Drawing.Size(70, 17);
-            this.rbPenalty41.TabIndex = 41;
-            this.rbPenalty41.TabStop = true;
-            this.rbPenalty41.Text = "Leverage";
-            this.rbPenalty41.UseVisualStyleBackColor = true;
-            this.rbPenalty41.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty41.AutoSize = true;
+            rbPenalty41.Location = new System.Drawing.Point(430, 261);
+            rbPenalty41.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty41.Name = "rbPenalty41";
+            rbPenalty41.Size = new System.Drawing.Size(72, 19);
+            rbPenalty41.TabIndex = 41;
+            rbPenalty41.TabStop = true;
+            rbPenalty41.Text = "Leverage";
+            rbPenalty41.UseVisualStyleBackColor = true;
+            rbPenalty41.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty40
             // 
-            this.rbPenalty40.AutoSize = true;
-            this.rbPenalty40.Location = new System.Drawing.Point(369, 203);
-            this.rbPenalty40.Name = "rbPenalty40";
-            this.rbPenalty40.Size = new System.Drawing.Size(63, 17);
-            this.rbPenalty40.TabIndex = 40;
-            this.rbPenalty40.TabStop = true;
-            this.rbPenalty40.Text = "Leaping";
-            this.rbPenalty40.UseVisualStyleBackColor = true;
-            this.rbPenalty40.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty40.AutoSize = true;
+            rbPenalty40.Location = new System.Drawing.Point(430, 234);
+            rbPenalty40.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty40.Name = "rbPenalty40";
+            rbPenalty40.Size = new System.Drawing.Size(67, 19);
+            rbPenalty40.TabIndex = 40;
+            rbPenalty40.TabStop = true;
+            rbPenalty40.Text = "Leaping";
+            rbPenalty40.UseVisualStyleBackColor = true;
+            rbPenalty40.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty39
             // 
-            this.rbPenalty39.AutoSize = true;
-            this.rbPenalty39.Location = new System.Drawing.Point(369, 180);
-            this.rbPenalty39.Name = "rbPenalty39";
-            this.rbPenalty39.Size = new System.Drawing.Size(131, 17);
-            this.rbPenalty39.TabIndex = 39;
-            this.rbPenalty39.TabStop = true;
-            this.rbPenalty39.Text = "Kickoff Out Of Bounds";
-            this.rbPenalty39.UseVisualStyleBackColor = true;
-            this.rbPenalty39.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty39.AutoSize = true;
+            rbPenalty39.Location = new System.Drawing.Point(430, 208);
+            rbPenalty39.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty39.Name = "rbPenalty39";
+            rbPenalty39.Size = new System.Drawing.Size(144, 19);
+            rbPenalty39.TabIndex = 39;
+            rbPenalty39.TabStop = true;
+            rbPenalty39.Text = "Kickoff Out Of Bounds";
+            rbPenalty39.UseVisualStyleBackColor = true;
+            rbPenalty39.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty38
             // 
-            this.rbPenalty38.AutoSize = true;
-            this.rbPenalty38.Location = new System.Drawing.Point(369, 157);
-            this.rbPenalty38.Name = "rbPenalty38";
-            this.rbPenalty38.Size = new System.Drawing.Size(137, 17);
-            this.rbPenalty38.TabIndex = 38;
-            this.rbPenalty38.TabStop = true;
-            this.rbPenalty38.Text = "Kick Catch Interference";
-            this.rbPenalty38.UseVisualStyleBackColor = true;
-            this.rbPenalty38.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty38.AutoSize = true;
+            rbPenalty38.Location = new System.Drawing.Point(430, 181);
+            rbPenalty38.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty38.Name = "rbPenalty38";
+            rbPenalty38.Size = new System.Drawing.Size(147, 19);
+            rbPenalty38.TabIndex = 38;
+            rbPenalty38.TabStop = true;
+            rbPenalty38.Text = "Kick Catch Interference";
+            rbPenalty38.UseVisualStyleBackColor = true;
+            rbPenalty38.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty37
             // 
-            this.rbPenalty37.AutoSize = true;
-            this.rbPenalty37.Location = new System.Drawing.Point(369, 134);
-            this.rbPenalty37.Name = "rbPenalty37";
-            this.rbPenalty37.Size = new System.Drawing.Size(139, 17);
-            this.rbPenalty37.TabIndex = 37;
-            this.rbPenalty37.TabStop = true;
-            this.rbPenalty37.Text = "Invalid Fair Catch Signal";
-            this.rbPenalty37.UseVisualStyleBackColor = true;
-            this.rbPenalty37.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty37.AutoSize = true;
+            rbPenalty37.Location = new System.Drawing.Point(430, 155);
+            rbPenalty37.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty37.Name = "rbPenalty37";
+            rbPenalty37.Size = new System.Drawing.Size(151, 19);
+            rbPenalty37.TabIndex = 37;
+            rbPenalty37.TabStop = true;
+            rbPenalty37.Text = "Invalid Fair Catch Signal";
+            rbPenalty37.UseVisualStyleBackColor = true;
+            rbPenalty37.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty36
             // 
-            this.rbPenalty36.AutoSize = true;
-            this.rbPenalty36.Location = new System.Drawing.Point(369, 111);
-            this.rbPenalty36.Name = "rbPenalty36";
-            this.rbPenalty36.Size = new System.Drawing.Size(126, 17);
-            this.rbPenalty36.TabIndex = 36;
-            this.rbPenalty36.TabStop = true;
-            this.rbPenalty36.Text = "Intentional Grounding";
-            this.rbPenalty36.UseVisualStyleBackColor = true;
-            this.rbPenalty36.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty36.AutoSize = true;
+            rbPenalty36.Location = new System.Drawing.Point(430, 128);
+            rbPenalty36.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty36.Name = "rbPenalty36";
+            rbPenalty36.Size = new System.Drawing.Size(142, 19);
+            rbPenalty36.TabIndex = 36;
+            rbPenalty36.TabStop = true;
+            rbPenalty36.Text = "Intentional Grounding";
+            rbPenalty36.UseVisualStyleBackColor = true;
+            rbPenalty36.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty35
             // 
-            this.rbPenalty35.AutoSize = true;
-            this.rbPenalty35.Location = new System.Drawing.Point(369, 88);
-            this.rbPenalty35.Name = "rbPenalty35";
-            this.rbPenalty35.Size = new System.Drawing.Size(142, 17);
-            this.rbPenalty35.TabIndex = 35;
-            this.rbPenalty35.TabStop = true;
-            this.rbPenalty35.Text = "Ineligible Downfield Pass";
-            this.rbPenalty35.UseVisualStyleBackColor = true;
-            this.rbPenalty35.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty35.AutoSize = true;
+            rbPenalty35.Location = new System.Drawing.Point(430, 102);
+            rbPenalty35.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty35.Name = "rbPenalty35";
+            rbPenalty35.Size = new System.Drawing.Size(156, 19);
+            rbPenalty35.TabIndex = 35;
+            rbPenalty35.TabStop = true;
+            rbPenalty35.Text = "Ineligible Downfield Pass";
+            rbPenalty35.UseVisualStyleBackColor = true;
+            rbPenalty35.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty34
             // 
-            this.rbPenalty34.AutoSize = true;
-            this.rbPenalty34.Location = new System.Drawing.Point(369, 65);
-            this.rbPenalty34.Name = "rbPenalty34";
-            this.rbPenalty34.Size = new System.Drawing.Size(140, 17);
-            this.rbPenalty34.TabIndex = 34;
-            this.rbPenalty34.TabStop = true;
-            this.rbPenalty34.Text = "Ineligible Downfield Kick";
-            this.rbPenalty34.UseVisualStyleBackColor = true;
-            this.rbPenalty34.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty34.AutoSize = true;
+            rbPenalty34.Location = new System.Drawing.Point(430, 75);
+            rbPenalty34.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty34.Name = "rbPenalty34";
+            rbPenalty34.Size = new System.Drawing.Size(155, 19);
+            rbPenalty34.TabIndex = 34;
+            rbPenalty34.TabStop = true;
+            rbPenalty34.Text = "Ineligible Downfield Kick";
+            rbPenalty34.UseVisualStyleBackColor = true;
+            rbPenalty34.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty33
             // 
-            this.rbPenalty33.AutoSize = true;
-            this.rbPenalty33.Location = new System.Drawing.Point(369, 42);
-            this.rbPenalty33.Name = "rbPenalty33";
-            this.rbPenalty33.Size = new System.Drawing.Size(90, 17);
-            this.rbPenalty33.TabIndex = 33;
-            this.rbPenalty33.TabStop = true;
-            this.rbPenalty33.Text = "Illegal Wedge";
-            this.rbPenalty33.UseVisualStyleBackColor = true;
-            this.rbPenalty33.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty33.AutoSize = true;
+            rbPenalty33.Location = new System.Drawing.Point(430, 48);
+            rbPenalty33.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty33.Name = "rbPenalty33";
+            rbPenalty33.Size = new System.Drawing.Size(96, 19);
+            rbPenalty33.TabIndex = 33;
+            rbPenalty33.TabStop = true;
+            rbPenalty33.Text = "Illegal Wedge";
+            rbPenalty33.UseVisualStyleBackColor = true;
+            rbPenalty33.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty32
             // 
-            this.rbPenalty32.AutoSize = true;
-            this.rbPenalty32.Location = new System.Drawing.Point(369, 19);
-            this.rbPenalty32.Name = "rbPenalty32";
-            this.rbPenalty32.Size = new System.Drawing.Size(122, 17);
-            this.rbPenalty32.TabIndex = 32;
-            this.rbPenalty32.TabStop = true;
-            this.rbPenalty32.Text = "Illegal Use Of Hands";
-            this.rbPenalty32.UseVisualStyleBackColor = true;
-            this.rbPenalty32.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty32.AutoSize = true;
+            rbPenalty32.Location = new System.Drawing.Point(430, 22);
+            rbPenalty32.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty32.Name = "rbPenalty32";
+            rbPenalty32.Size = new System.Drawing.Size(131, 19);
+            rbPenalty32.TabIndex = 32;
+            rbPenalty32.TabStop = true;
+            rbPenalty32.Text = "Illegal Use Of Hands";
+            rbPenalty32.UseVisualStyleBackColor = true;
+            rbPenalty32.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty31
             // 
-            this.rbPenalty31.AutoSize = true;
-            this.rbPenalty31.Location = new System.Drawing.Point(176, 364);
-            this.rbPenalty31.Name = "rbPenalty31";
-            this.rbPenalty31.Size = new System.Drawing.Size(145, 17);
-            this.rbPenalty31.TabIndex = 31;
-            this.rbPenalty31.TabStop = true;
-            this.rbPenalty31.Text = "Illegal Touching of a Kick";
-            this.rbPenalty31.UseVisualStyleBackColor = true;
-            this.rbPenalty31.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty31.AutoSize = true;
+            rbPenalty31.Location = new System.Drawing.Point(205, 420);
+            rbPenalty31.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty31.Name = "rbPenalty31";
+            rbPenalty31.Size = new System.Drawing.Size(156, 19);
+            rbPenalty31.TabIndex = 31;
+            rbPenalty31.TabStop = true;
+            rbPenalty31.Text = "Illegal Touching of a Kick";
+            rbPenalty31.UseVisualStyleBackColor = true;
+            rbPenalty31.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty30
             // 
-            this.rbPenalty30.AutoSize = true;
-            this.rbPenalty30.Location = new System.Drawing.Point(176, 318);
-            this.rbPenalty30.Name = "rbPenalty30";
-            this.rbPenalty30.Size = new System.Drawing.Size(188, 17);
-            this.rbPenalty30.TabIndex = 30;
-            this.rbPenalty30.TabStop = true;
-            this.rbPenalty30.Text = "Illegal Touching of a Forward Pass";
-            this.rbPenalty30.UseVisualStyleBackColor = true;
-            this.rbPenalty30.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty30.AutoSize = true;
+            rbPenalty30.Location = new System.Drawing.Point(205, 367);
+            rbPenalty30.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty30.Name = "rbPenalty30";
+            rbPenalty30.Size = new System.Drawing.Size(203, 19);
+            rbPenalty30.TabIndex = 30;
+            rbPenalty30.TabStop = true;
+            rbPenalty30.Text = "Illegal Touching of a Forward Pass";
+            rbPenalty30.UseVisualStyleBackColor = true;
+            rbPenalty30.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty29
             // 
-            this.rbPenalty29.AutoSize = true;
-            this.rbPenalty29.Location = new System.Drawing.Point(176, 295);
-            this.rbPenalty29.Name = "rbPenalty29";
-            this.rbPenalty29.Size = new System.Drawing.Size(110, 17);
-            this.rbPenalty29.TabIndex = 29;
-            this.rbPenalty29.TabStop = true;
-            this.rbPenalty29.Text = "Illegal Substitution";
-            this.rbPenalty29.UseVisualStyleBackColor = true;
-            this.rbPenalty29.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty29.AutoSize = true;
+            rbPenalty29.Location = new System.Drawing.Point(205, 340);
+            rbPenalty29.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty29.Name = "rbPenalty29";
+            rbPenalty29.Size = new System.Drawing.Size(123, 19);
+            rbPenalty29.TabIndex = 29;
+            rbPenalty29.TabStop = true;
+            rbPenalty29.Text = "Illegal Substitution";
+            rbPenalty29.UseVisualStyleBackColor = true;
+            rbPenalty29.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty28
             // 
-            this.rbPenalty28.AutoSize = true;
-            this.rbPenalty28.Location = new System.Drawing.Point(176, 272);
-            this.rbPenalty28.Name = "rbPenalty28";
-            this.rbPenalty28.Size = new System.Drawing.Size(76, 17);
-            this.rbPenalty28.TabIndex = 28;
-            this.rbPenalty28.TabStop = true;
-            this.rbPenalty28.Text = "Illegal Shift";
-            this.rbPenalty28.UseVisualStyleBackColor = true;
-            this.rbPenalty28.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty28.AutoSize = true;
+            rbPenalty28.Location = new System.Drawing.Point(205, 314);
+            rbPenalty28.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty28.Name = "rbPenalty28";
+            rbPenalty28.Size = new System.Drawing.Size(83, 19);
+            rbPenalty28.TabIndex = 28;
+            rbPenalty28.TabStop = true;
+            rbPenalty28.Text = "Illegal Shift";
+            rbPenalty28.UseVisualStyleBackColor = true;
+            rbPenalty28.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty27
             // 
-            this.rbPenalty27.AutoSize = true;
-            this.rbPenalty27.Location = new System.Drawing.Point(176, 249);
-            this.rbPenalty27.Name = "rbPenalty27";
-            this.rbPenalty27.Size = new System.Drawing.Size(104, 17);
-            this.rbPenalty27.TabIndex = 27;
-            this.rbPenalty27.TabStop = true;
-            this.rbPenalty27.Text = "Illegal Peel Back";
-            this.rbPenalty27.UseVisualStyleBackColor = true;
-            this.rbPenalty27.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty27.AutoSize = true;
+            rbPenalty27.Location = new System.Drawing.Point(205, 287);
+            rbPenalty27.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty27.Name = "rbPenalty27";
+            rbPenalty27.Size = new System.Drawing.Size(109, 19);
+            rbPenalty27.TabIndex = 27;
+            rbPenalty27.TabStop = true;
+            rbPenalty27.Text = "Illegal Peel Back";
+            rbPenalty27.UseVisualStyleBackColor = true;
+            rbPenalty27.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty26
             // 
-            this.rbPenalty26.AutoSize = true;
-            this.rbPenalty26.Location = new System.Drawing.Point(176, 226);
-            this.rbPenalty26.Name = "rbPenalty26";
-            this.rbPenalty26.Size = new System.Drawing.Size(188, 17);
-            this.rbPenalty26.TabIndex = 26;
-            this.rbPenalty26.TabStop = true;
-            this.rbPenalty26.Text = "Illegal Kick And Kicking Loose Ball";
-            this.rbPenalty26.UseVisualStyleBackColor = true;
-            this.rbPenalty26.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty26.AutoSize = true;
+            rbPenalty26.Location = new System.Drawing.Point(205, 261);
+            rbPenalty26.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty26.Name = "rbPenalty26";
+            rbPenalty26.Size = new System.Drawing.Size(204, 19);
+            rbPenalty26.TabIndex = 26;
+            rbPenalty26.TabStop = true;
+            rbPenalty26.Text = "Illegal Kick And Kicking Loose Ball";
+            rbPenalty26.UseVisualStyleBackColor = true;
+            rbPenalty26.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty25
             // 
-            this.rbPenalty25.AutoSize = true;
-            this.rbPenalty25.Location = new System.Drawing.Point(176, 203);
-            this.rbPenalty25.Name = "rbPenalty25";
-            this.rbPenalty25.Size = new System.Drawing.Size(119, 17);
-            this.rbPenalty25.TabIndex = 25;
-            this.rbPenalty25.TabStop = true;
-            this.rbPenalty25.Text = "Illegal Forward Pass";
-            this.rbPenalty25.UseVisualStyleBackColor = true;
-            this.rbPenalty25.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty25.AutoSize = true;
+            rbPenalty25.Location = new System.Drawing.Point(205, 234);
+            rbPenalty25.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty25.Name = "rbPenalty25";
+            rbPenalty25.Size = new System.Drawing.Size(128, 19);
+            rbPenalty25.TabIndex = 25;
+            rbPenalty25.TabStop = true;
+            rbPenalty25.Text = "Illegal Forward Pass";
+            rbPenalty25.UseVisualStyleBackColor = true;
+            rbPenalty25.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty24
             // 
-            this.rbPenalty24.AutoSize = true;
-            this.rbPenalty24.Location = new System.Drawing.Point(176, 180);
-            this.rbPenalty24.Name = "rbPenalty24";
-            this.rbPenalty24.Size = new System.Drawing.Size(134, 17);
-            this.rbPenalty24.TabIndex = 24;
-            this.rbPenalty24.TabStop = true;
-            this.rbPenalty24.Text = "Illegal Forward Handoff";
-            this.rbPenalty24.UseVisualStyleBackColor = true;
-            this.rbPenalty24.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty24.AutoSize = true;
+            rbPenalty24.Location = new System.Drawing.Point(205, 208);
+            rbPenalty24.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty24.Name = "rbPenalty24";
+            rbPenalty24.Size = new System.Drawing.Size(149, 19);
+            rbPenalty24.TabIndex = 24;
+            rbPenalty24.TabStop = true;
+            rbPenalty24.Text = "Illegal Forward Handoff";
+            rbPenalty24.UseVisualStyleBackColor = true;
+            rbPenalty24.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty23
             // 
-            this.rbPenalty23.AutoSize = true;
-            this.rbPenalty23.Location = new System.Drawing.Point(176, 157);
-            this.rbPenalty23.Name = "rbPenalty23";
-            this.rbPenalty23.Size = new System.Drawing.Size(101, 17);
-            this.rbPenalty23.TabIndex = 23;
-            this.rbPenalty23.TabStop = true;
-            this.rbPenalty23.Text = "Illegal Formation";
-            this.rbPenalty23.UseVisualStyleBackColor = true;
-            this.rbPenalty23.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty23.AutoSize = true;
+            rbPenalty23.Location = new System.Drawing.Point(205, 181);
+            rbPenalty23.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty23.Name = "rbPenalty23";
+            rbPenalty23.Size = new System.Drawing.Size(114, 19);
+            rbPenalty23.TabIndex = 23;
+            rbPenalty23.TabStop = true;
+            rbPenalty23.Text = "Illegal Formation";
+            rbPenalty23.UseVisualStyleBackColor = true;
+            rbPenalty23.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty22
             // 
-            this.rbPenalty22.AutoSize = true;
-            this.rbPenalty22.Location = new System.Drawing.Point(176, 134);
-            this.rbPenalty22.Name = "rbPenalty22";
-            this.rbPenalty22.Size = new System.Drawing.Size(101, 17);
-            this.rbPenalty22.TabIndex = 22;
-            this.rbPenalty22.TabStop = true;
-            this.rbPenalty22.Text = "Illegal Cut Block";
-            this.rbPenalty22.UseVisualStyleBackColor = true;
-            this.rbPenalty22.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty22.AutoSize = true;
+            rbPenalty22.Location = new System.Drawing.Point(205, 155);
+            rbPenalty22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty22.Name = "rbPenalty22";
+            rbPenalty22.Size = new System.Drawing.Size(110, 19);
+            rbPenalty22.TabIndex = 22;
+            rbPenalty22.TabStop = true;
+            rbPenalty22.Text = "Illegal Cut Block";
+            rbPenalty22.UseVisualStyleBackColor = true;
+            rbPenalty22.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty21
             // 
-            this.rbPenalty21.AutoSize = true;
-            this.rbPenalty21.Location = new System.Drawing.Point(176, 111);
-            this.rbPenalty21.Name = "rbPenalty21";
-            this.rbPenalty21.Size = new System.Drawing.Size(111, 17);
-            this.rbPenalty21.TabIndex = 21;
-            this.rbPenalty21.TabStop = true;
-            this.rbPenalty21.Text = "Illegal Crack Back";
-            this.rbPenalty21.UseVisualStyleBackColor = true;
-            this.rbPenalty21.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty21.AutoSize = true;
+            rbPenalty21.Location = new System.Drawing.Point(205, 128);
+            rbPenalty21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty21.Name = "rbPenalty21";
+            rbPenalty21.Size = new System.Drawing.Size(117, 19);
+            rbPenalty21.TabIndex = 21;
+            rbPenalty21.TabStop = true;
+            rbPenalty21.Text = "Illegal Crack Back";
+            rbPenalty21.UseVisualStyleBackColor = true;
+            rbPenalty21.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty20
             // 
-            this.rbPenalty20.AutoSize = true;
-            this.rbPenalty20.Location = new System.Drawing.Point(176, 88);
-            this.rbPenalty20.Name = "rbPenalty20";
-            this.rbPenalty20.Size = new System.Drawing.Size(92, 17);
-            this.rbPenalty20.TabIndex = 20;
-            this.rbPenalty20.TabStop = true;
-            this.rbPenalty20.Text = "Illegal Contact";
-            this.rbPenalty20.UseVisualStyleBackColor = true;
-            this.rbPenalty20.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty20.AutoSize = true;
+            rbPenalty20.Location = new System.Drawing.Point(205, 102);
+            rbPenalty20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty20.Name = "rbPenalty20";
+            rbPenalty20.Size = new System.Drawing.Size(101, 19);
+            rbPenalty20.TabIndex = 20;
+            rbPenalty20.TabStop = true;
+            rbPenalty20.Text = "Illegal Contact";
+            rbPenalty20.UseVisualStyleBackColor = true;
+            rbPenalty20.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty19
             // 
-            this.rbPenalty19.AutoSize = true;
-            this.rbPenalty19.Location = new System.Drawing.Point(176, 65);
-            this.rbPenalty19.Name = "rbPenalty19";
-            this.rbPenalty19.Size = new System.Drawing.Size(168, 17);
-            this.rbPenalty19.TabIndex = 19;
-            this.rbPenalty19.TabStop = true;
-            this.rbPenalty19.Text = "Illegal Block Above The Waist";
-            this.rbPenalty19.UseVisualStyleBackColor = true;
-            this.rbPenalty19.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty19.AutoSize = true;
+            rbPenalty19.Location = new System.Drawing.Point(205, 75);
+            rbPenalty19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty19.Name = "rbPenalty19";
+            rbPenalty19.Size = new System.Drawing.Size(179, 19);
+            rbPenalty19.TabIndex = 19;
+            rbPenalty19.TabStop = true;
+            rbPenalty19.Text = "Illegal Block Above The Waist";
+            rbPenalty19.UseVisualStyleBackColor = true;
+            rbPenalty19.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty18
             // 
-            this.rbPenalty18.AutoSize = true;
-            this.rbPenalty18.Location = new System.Drawing.Point(176, 42);
-            this.rbPenalty18.Name = "rbPenalty18";
-            this.rbPenalty18.Size = new System.Drawing.Size(127, 17);
-            this.rbPenalty18.TabIndex = 18;
-            this.rbPenalty18.TabStop = true;
-            this.rbPenalty18.Text = "Illegal Blindside Block";
-            this.rbPenalty18.UseVisualStyleBackColor = true;
-            this.rbPenalty18.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty18.AutoSize = true;
+            rbPenalty18.Location = new System.Drawing.Point(205, 48);
+            rbPenalty18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty18.Name = "rbPenalty18";
+            rbPenalty18.Size = new System.Drawing.Size(139, 19);
+            rbPenalty18.TabIndex = 18;
+            rbPenalty18.TabStop = true;
+            rbPenalty18.Text = "Illegal Blindside Block";
+            rbPenalty18.UseVisualStyleBackColor = true;
+            rbPenalty18.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty17
             // 
-            this.rbPenalty17.AutoSize = true;
-            this.rbPenalty17.Location = new System.Drawing.Point(176, 19);
-            this.rbPenalty17.Name = "rbPenalty17";
-            this.rbPenalty17.Size = new System.Drawing.Size(71, 17);
-            this.rbPenalty17.TabIndex = 17;
-            this.rbPenalty17.TabStop = true;
-            this.rbPenalty17.Text = "Illegal Bat";
-            this.rbPenalty17.UseVisualStyleBackColor = true;
-            this.rbPenalty17.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty17.AutoSize = true;
+            rbPenalty17.Location = new System.Drawing.Point(205, 22);
+            rbPenalty17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty17.Name = "rbPenalty17";
+            rbPenalty17.Size = new System.Drawing.Size(76, 19);
+            rbPenalty17.TabIndex = 17;
+            rbPenalty17.TabStop = true;
+            rbPenalty17.Text = "Illegal Bat";
+            rbPenalty17.UseVisualStyleBackColor = true;
+            rbPenalty17.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty16
             // 
-            this.rbPenalty16.AutoSize = true;
-            this.rbPenalty16.Location = new System.Drawing.Point(6, 364);
-            this.rbPenalty16.Name = "rbPenalty16";
-            this.rbPenalty16.Size = new System.Drawing.Size(82, 17);
-            this.rbPenalty16.TabIndex = 16;
-            this.rbPenalty16.TabStop = true;
-            this.rbPenalty16.Text = "Horse Collar";
-            this.rbPenalty16.UseVisualStyleBackColor = true;
-            this.rbPenalty16.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty16.AutoSize = true;
+            rbPenalty16.Location = new System.Drawing.Point(7, 420);
+            rbPenalty16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty16.Name = "rbPenalty16";
+            rbPenalty16.Size = new System.Drawing.Size(90, 19);
+            rbPenalty16.TabIndex = 16;
+            rbPenalty16.TabStop = true;
+            rbPenalty16.Text = "Horse Collar";
+            rbPenalty16.UseVisualStyleBackColor = true;
+            rbPenalty16.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty15
             // 
-            this.rbPenalty15.AutoSize = true;
-            this.rbPenalty15.Location = new System.Drawing.Point(6, 341);
-            this.rbPenalty15.Name = "rbPenalty15";
-            this.rbPenalty15.Size = new System.Drawing.Size(227, 17);
-            this.rbPenalty15.TabIndex = 15;
-            this.rbPenalty15.TabStop = true;
-            this.rbPenalty15.Text = "Forcibly Contacting a Player Out of Bounds";
-            this.rbPenalty15.UseVisualStyleBackColor = true;
-            this.rbPenalty15.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty15.AutoSize = true;
+            rbPenalty15.Location = new System.Drawing.Point(7, 393);
+            rbPenalty15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty15.Name = "rbPenalty15";
+            rbPenalty15.Size = new System.Drawing.Size(253, 19);
+            rbPenalty15.TabIndex = 15;
+            rbPenalty15.TabStop = true;
+            rbPenalty15.Text = "Forcibly Contacting a Player Out of Bounds";
+            rbPenalty15.UseVisualStyleBackColor = true;
+            rbPenalty15.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty14
             // 
-            this.rbPenalty14.AutoSize = true;
-            this.rbPenalty14.Location = new System.Drawing.Point(6, 318);
-            this.rbPenalty14.Name = "rbPenalty14";
-            this.rbPenalty14.Size = new System.Drawing.Size(75, 17);
-            this.rbPenalty14.TabIndex = 14;
-            this.rbPenalty14.TabStop = true;
-            this.rbPenalty14.Text = "False Start";
-            this.rbPenalty14.UseVisualStyleBackColor = true;
-            this.rbPenalty14.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty14.AutoSize = true;
+            rbPenalty14.Location = new System.Drawing.Point(7, 367);
+            rbPenalty14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty14.Name = "rbPenalty14";
+            rbPenalty14.Size = new System.Drawing.Size(78, 19);
+            rbPenalty14.TabIndex = 14;
+            rbPenalty14.TabStop = true;
+            rbPenalty14.Text = "False Start";
+            rbPenalty14.UseVisualStyleBackColor = true;
+            rbPenalty14.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty13
             // 
-            this.rbPenalty13.AutoSize = true;
-            this.rbPenalty13.Location = new System.Drawing.Point(6, 295);
-            this.rbPenalty13.Name = "rbPenalty13";
-            this.rbPenalty13.Size = new System.Drawing.Size(133, 17);
-            this.rbPenalty13.TabIndex = 13;
-            this.rbPenalty13.TabStop = true;
-            this.rbPenalty13.Text = "Fair Catch Interference";
-            this.rbPenalty13.UseVisualStyleBackColor = true;
-            this.rbPenalty13.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty13.AutoSize = true;
+            rbPenalty13.Location = new System.Drawing.Point(7, 340);
+            rbPenalty13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty13.Name = "rbPenalty13";
+            rbPenalty13.Size = new System.Drawing.Size(144, 19);
+            rbPenalty13.TabIndex = 13;
+            rbPenalty13.TabStop = true;
+            rbPenalty13.Text = "Fair Catch Interference";
+            rbPenalty13.UseVisualStyleBackColor = true;
+            rbPenalty13.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty12
             // 
-            this.rbPenalty12.AutoSize = true;
-            this.rbPenalty12.Location = new System.Drawing.Point(6, 272);
-            this.rbPenalty12.Name = "rbPenalty12";
-            this.rbPenalty12.Size = new System.Drawing.Size(74, 17);
-            this.rbPenalty12.TabIndex = 12;
-            this.rbPenalty12.TabStop = true;
-            this.rbPenalty12.Text = "Facemask";
-            this.rbPenalty12.UseVisualStyleBackColor = true;
-            this.rbPenalty12.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty12.AutoSize = true;
+            rbPenalty12.Location = new System.Drawing.Point(7, 314);
+            rbPenalty12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty12.Name = "rbPenalty12";
+            rbPenalty12.Size = new System.Drawing.Size(77, 19);
+            rbPenalty12.TabIndex = 12;
+            rbPenalty12.TabStop = true;
+            rbPenalty12.Text = "Facemask";
+            rbPenalty12.UseVisualStyleBackColor = true;
+            rbPenalty12.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty11
             // 
-            this.rbPenalty11.AutoSize = true;
-            this.rbPenalty11.Location = new System.Drawing.Point(6, 249);
-            this.rbPenalty11.Name = "rbPenalty11";
-            this.rbPenalty11.Size = new System.Drawing.Size(118, 17);
-            this.rbPenalty11.TabIndex = 11;
-            this.rbPenalty11.TabStop = true;
-            this.rbPenalty11.Text = "Equipment Violation";
-            this.rbPenalty11.UseVisualStyleBackColor = true;
-            this.rbPenalty11.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty11.AutoSize = true;
+            rbPenalty11.Location = new System.Drawing.Point(7, 287);
+            rbPenalty11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty11.Name = "rbPenalty11";
+            rbPenalty11.Size = new System.Drawing.Size(133, 19);
+            rbPenalty11.TabIndex = 11;
+            rbPenalty11.TabStop = true;
+            rbPenalty11.Text = "Equipment Violation";
+            rbPenalty11.UseVisualStyleBackColor = true;
+            rbPenalty11.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty10
             // 
-            this.rbPenalty10.AutoSize = true;
-            this.rbPenalty10.Location = new System.Drawing.Point(6, 226);
-            this.rbPenalty10.Name = "rbPenalty10";
-            this.rbPenalty10.Size = new System.Drawing.Size(94, 17);
-            this.rbPenalty10.TabIndex = 10;
-            this.rbPenalty10.TabStop = true;
-            this.rbPenalty10.Text = "Encroachment";
-            this.rbPenalty10.UseVisualStyleBackColor = true;
-            this.rbPenalty10.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty10.AutoSize = true;
+            rbPenalty10.Location = new System.Drawing.Point(7, 261);
+            rbPenalty10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty10.Name = "rbPenalty10";
+            rbPenalty10.Size = new System.Drawing.Size(102, 19);
+            rbPenalty10.TabIndex = 10;
+            rbPenalty10.TabStop = true;
+            rbPenalty10.Text = "Encroachment";
+            rbPenalty10.UseVisualStyleBackColor = true;
+            rbPenalty10.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty9
             // 
-            this.rbPenalty9.AutoSize = true;
-            this.rbPenalty9.Location = new System.Drawing.Point(6, 203);
-            this.rbPenalty9.Name = "rbPenalty9";
-            this.rbPenalty9.Size = new System.Drawing.Size(96, 17);
-            this.rbPenalty9.TabIndex = 9;
-            this.rbPenalty9.TabStop = true;
-            this.rbPenalty9.Text = "Disqualification";
-            this.rbPenalty9.UseVisualStyleBackColor = true;
-            this.rbPenalty9.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty9.AutoSize = true;
+            rbPenalty9.Location = new System.Drawing.Point(7, 234);
+            rbPenalty9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty9.Name = "rbPenalty9";
+            rbPenalty9.Size = new System.Drawing.Size(107, 19);
+            rbPenalty9.TabIndex = 9;
+            rbPenalty9.TabStop = true;
+            rbPenalty9.Text = "Disqualification";
+            rbPenalty9.UseVisualStyleBackColor = true;
+            rbPenalty9.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty8
             // 
-            this.rbPenalty8.AutoSize = true;
-            this.rbPenalty8.Location = new System.Drawing.Point(6, 180);
-            this.rbPenalty8.Name = "rbPenalty8";
-            this.rbPenalty8.Size = new System.Drawing.Size(163, 17);
-            this.rbPenalty8.TabIndex = 8;
-            this.rbPenalty8.TabStop = true;
-            this.rbPenalty8.Text = "Disconcerting Acts or Signals";
-            this.rbPenalty8.UseVisualStyleBackColor = true;
-            this.rbPenalty8.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty8.AutoSize = true;
+            rbPenalty8.Location = new System.Drawing.Point(7, 208);
+            rbPenalty8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty8.Name = "rbPenalty8";
+            rbPenalty8.Size = new System.Drawing.Size(178, 19);
+            rbPenalty8.TabIndex = 8;
+            rbPenalty8.TabStop = true;
+            rbPenalty8.Text = "Disconcerting Acts or Signals";
+            rbPenalty8.UseVisualStyleBackColor = true;
+            rbPenalty8.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty7
             // 
-            this.rbPenalty7.AutoSize = true;
-            this.rbPenalty7.Location = new System.Drawing.Point(6, 157);
-            this.rbPenalty7.Name = "rbPenalty7";
-            this.rbPenalty7.Size = new System.Drawing.Size(102, 17);
-            this.rbPenalty7.TabIndex = 7;
-            this.rbPenalty7.TabStop = true;
-            this.rbPenalty7.Text = "Delay Of Kickoff";
-            this.rbPenalty7.UseVisualStyleBackColor = true;
-            this.rbPenalty7.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty7.AutoSize = true;
+            rbPenalty7.Location = new System.Drawing.Point(7, 181);
+            rbPenalty7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty7.Name = "rbPenalty7";
+            rbPenalty7.Size = new System.Drawing.Size(110, 19);
+            rbPenalty7.TabIndex = 7;
+            rbPenalty7.TabStop = true;
+            rbPenalty7.Text = "Delay Of Kickoff";
+            rbPenalty7.UseVisualStyleBackColor = true;
+            rbPenalty7.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty6
             // 
-            this.rbPenalty6.AutoSize = true;
-            this.rbPenalty6.Location = new System.Drawing.Point(6, 134);
-            this.rbPenalty6.Name = "rbPenalty6";
-            this.rbPenalty6.Size = new System.Drawing.Size(97, 17);
-            this.rbPenalty6.TabIndex = 6;
-            this.rbPenalty6.TabStop = true;
-            this.rbPenalty6.Text = "Delay Of Game";
-            this.rbPenalty6.UseVisualStyleBackColor = true;
-            this.rbPenalty6.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty6.AutoSize = true;
+            rbPenalty6.Location = new System.Drawing.Point(7, 155);
+            rbPenalty6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty6.Name = "rbPenalty6";
+            rbPenalty6.Size = new System.Drawing.Size(104, 19);
+            rbPenalty6.TabIndex = 6;
+            rbPenalty6.TabStop = true;
+            rbPenalty6.Text = "Delay Of Game";
+            rbPenalty6.UseVisualStyleBackColor = true;
+            rbPenalty6.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty5
             // 
-            this.rbPenalty5.AutoSize = true;
-            this.rbPenalty5.Location = new System.Drawing.Point(6, 111);
-            this.rbPenalty5.Name = "rbPenalty5";
-            this.rbPenalty5.Size = new System.Drawing.Size(109, 17);
-            this.rbPenalty5.TabIndex = 4;
-            this.rbPenalty5.TabStop = true;
-            this.rbPenalty5.Text = "Defensive Offside";
-            this.rbPenalty5.UseVisualStyleBackColor = true;
-            this.rbPenalty5.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty5.AutoSize = true;
+            rbPenalty5.Location = new System.Drawing.Point(7, 128);
+            rbPenalty5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty5.Name = "rbPenalty5";
+            rbPenalty5.Size = new System.Drawing.Size(117, 19);
+            rbPenalty5.TabIndex = 4;
+            rbPenalty5.TabStop = true;
+            rbPenalty5.Text = "Defensive Offside";
+            rbPenalty5.UseVisualStyleBackColor = true;
+            rbPenalty5.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty4
             // 
-            this.rbPenalty4.AutoSize = true;
-            this.rbPenalty4.Location = new System.Drawing.Point(6, 88);
-            this.rbPenalty4.Name = "rbPenalty4";
-            this.rbPenalty4.Size = new System.Drawing.Size(112, 17);
-            this.rbPenalty4.TabIndex = 3;
-            this.rbPenalty4.TabStop = true;
-            this.rbPenalty4.Text = "Defensive Holding";
-            this.rbPenalty4.UseVisualStyleBackColor = true;
-            this.rbPenalty4.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty4.AutoSize = true;
+            rbPenalty4.Location = new System.Drawing.Point(7, 102);
+            rbPenalty4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty4.Name = "rbPenalty4";
+            rbPenalty4.Size = new System.Drawing.Size(122, 19);
+            rbPenalty4.TabIndex = 3;
+            rbPenalty4.TabStop = true;
+            rbPenalty4.Text = "Defensive Holding";
+            rbPenalty4.UseVisualStyleBackColor = true;
+            rbPenalty4.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty3
             // 
-            this.rbPenalty3.AutoSize = true;
-            this.rbPenalty3.Location = new System.Drawing.Point(6, 65);
-            this.rbPenalty3.Name = "rbPenalty3";
-            this.rbPenalty3.Size = new System.Drawing.Size(115, 17);
-            this.rbPenalty3.TabIndex = 2;
-            this.rbPenalty3.TabStop = true;
-            this.rbPenalty3.Text = "Defenseless Player";
-            this.rbPenalty3.UseVisualStyleBackColor = true;
-            this.rbPenalty3.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty3.AutoSize = true;
+            rbPenalty3.Location = new System.Drawing.Point(7, 75);
+            rbPenalty3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty3.Name = "rbPenalty3";
+            rbPenalty3.Size = new System.Drawing.Size(121, 19);
+            rbPenalty3.TabIndex = 2;
+            rbPenalty3.TabStop = true;
+            rbPenalty3.Text = "Defenseless Player";
+            rbPenalty3.UseVisualStyleBackColor = true;
+            rbPenalty3.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty2
             // 
-            this.rbPenalty2.AutoSize = true;
-            this.rbPenalty2.Location = new System.Drawing.Point(6, 42);
-            this.rbPenalty2.Name = "rbPenalty2";
-            this.rbPenalty2.Size = new System.Drawing.Size(62, 17);
-            this.rbPenalty2.TabIndex = 1;
-            this.rbPenalty2.TabStop = true;
-            this.rbPenalty2.Text = "Clipping";
-            this.rbPenalty2.UseVisualStyleBackColor = true;
-            this.rbPenalty2.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty2.AutoSize = true;
+            rbPenalty2.Location = new System.Drawing.Point(7, 48);
+            rbPenalty2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty2.Name = "rbPenalty2";
+            rbPenalty2.Size = new System.Drawing.Size(70, 19);
+            rbPenalty2.TabIndex = 1;
+            rbPenalty2.TabStop = true;
+            rbPenalty2.Text = "Clipping";
+            rbPenalty2.UseVisualStyleBackColor = true;
+            rbPenalty2.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // rbPenalty1
             // 
-            this.rbPenalty1.AutoSize = true;
-            this.rbPenalty1.Location = new System.Drawing.Point(6, 19);
-            this.rbPenalty1.Name = "rbPenalty1";
-            this.rbPenalty1.Size = new System.Drawing.Size(80, 17);
-            this.rbPenalty1.TabIndex = 0;
-            this.rbPenalty1.TabStop = true;
-            this.rbPenalty1.Text = "Chop Block";
-            this.rbPenalty1.UseVisualStyleBackColor = true;
-            this.rbPenalty1.CheckedChanged += new System.EventHandler(this.RbPenalty_CheckedChanged);
+            rbPenalty1.AutoSize = true;
+            rbPenalty1.Location = new System.Drawing.Point(7, 22);
+            rbPenalty1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rbPenalty1.Name = "rbPenalty1";
+            rbPenalty1.Size = new System.Drawing.Size(86, 19);
+            rbPenalty1.TabIndex = 0;
+            rbPenalty1.TabStop = true;
+            rbPenalty1.Text = "Chop Block";
+            rbPenalty1.UseVisualStyleBackColor = true;
+            rbPenalty1.CheckedChanged += RbPenalty_CheckedChanged;
             // 
             // tpMessages
             // 
-            this.tpMessages.Controls.Add(this.rbMessageWeather);
-            this.tpMessages.Controls.Add(this.butSendSupplemental);
-            this.tpMessages.Controls.Add(this.txtSupplemental);
-            this.tpMessages.Controls.Add(this.rbMessageInjury);
-            this.tpMessages.Controls.Add(this.rbMessageClear);
-            this.tpMessages.Location = new System.Drawing.Point(4, 22);
-            this.tpMessages.Margin = new System.Windows.Forms.Padding(2);
-            this.tpMessages.Name = "tpMessages";
-            this.tpMessages.Size = new System.Drawing.Size(774, 393);
-            this.tpMessages.TabIndex = 4;
-            this.tpMessages.Text = "Messages";
-            this.tpMessages.UseVisualStyleBackColor = true;
+            tpMessages.Controls.Add(rbMessageWeather);
+            tpMessages.Controls.Add(butSendSupplemental);
+            tpMessages.Controls.Add(txtSupplemental);
+            tpMessages.Controls.Add(rbMessageInjury);
+            tpMessages.Controls.Add(rbMessageClear);
+            tpMessages.Location = new System.Drawing.Point(4, 24);
+            tpMessages.Margin = new System.Windows.Forms.Padding(2);
+            tpMessages.Name = "tpMessages";
+            tpMessages.Size = new System.Drawing.Size(904, 455);
+            tpMessages.TabIndex = 4;
+            tpMessages.Text = "Messages";
+            tpMessages.UseVisualStyleBackColor = true;
             // 
             // rbMessageWeather
             // 
-            this.rbMessageWeather.AutoSize = true;
-            this.rbMessageWeather.Location = new System.Drawing.Point(6, 54);
-            this.rbMessageWeather.Margin = new System.Windows.Forms.Padding(2);
-            this.rbMessageWeather.Name = "rbMessageWeather";
-            this.rbMessageWeather.Size = new System.Drawing.Size(96, 17);
-            this.rbMessageWeather.TabIndex = 4;
-            this.rbMessageWeather.TabStop = true;
-            this.rbMessageWeather.Text = "Weather Delay";
-            this.rbMessageWeather.UseVisualStyleBackColor = true;
-            this.rbMessageWeather.CheckedChanged += new System.EventHandler(this.RbMessageWeather_CheckedChanged);
+            rbMessageWeather.AutoSize = true;
+            rbMessageWeather.Location = new System.Drawing.Point(7, 62);
+            rbMessageWeather.Margin = new System.Windows.Forms.Padding(2);
+            rbMessageWeather.Name = "rbMessageWeather";
+            rbMessageWeather.Size = new System.Drawing.Size(101, 19);
+            rbMessageWeather.TabIndex = 4;
+            rbMessageWeather.TabStop = true;
+            rbMessageWeather.Text = "Weather Delay";
+            rbMessageWeather.UseVisualStyleBackColor = true;
+            rbMessageWeather.CheckedChanged += RbMessageWeather_CheckedChanged;
             // 
             // butSendSupplemental
             // 
-            this.butSendSupplemental.Location = new System.Drawing.Point(397, 347);
-            this.butSendSupplemental.Name = "butSendSupplemental";
-            this.butSendSupplemental.Size = new System.Drawing.Size(75, 23);
-            this.butSendSupplemental.TabIndex = 3;
-            this.butSendSupplemental.Text = "Send";
-            this.butSendSupplemental.UseVisualStyleBackColor = true;
-            this.butSendSupplemental.Click += new System.EventHandler(this.ButSendSupplemental_Click);
+            butSendSupplemental.Location = new System.Drawing.Point(463, 400);
+            butSendSupplemental.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butSendSupplemental.Name = "butSendSupplemental";
+            butSendSupplemental.Size = new System.Drawing.Size(88, 27);
+            butSendSupplemental.TabIndex = 3;
+            butSendSupplemental.Text = "Send";
+            butSendSupplemental.UseVisualStyleBackColor = true;
+            butSendSupplemental.Click += ButSendSupplemental_Click;
             // 
             // txtSupplemental
             // 
-            this.txtSupplemental.Location = new System.Drawing.Point(6, 327);
-            this.txtSupplemental.Multiline = true;
-            this.txtSupplemental.Name = "txtSupplemental";
-            this.txtSupplemental.Size = new System.Drawing.Size(386, 61);
-            this.txtSupplemental.TabIndex = 2;
+            txtSupplemental.Location = new System.Drawing.Point(7, 377);
+            txtSupplemental.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSupplemental.Multiline = true;
+            txtSupplemental.Name = "txtSupplemental";
+            txtSupplemental.Size = new System.Drawing.Size(450, 70);
+            txtSupplemental.TabIndex = 2;
             // 
             // rbMessageInjury
             // 
-            this.rbMessageInjury.AutoSize = true;
-            this.rbMessageInjury.Location = new System.Drawing.Point(6, 32);
-            this.rbMessageInjury.Margin = new System.Windows.Forms.Padding(2);
-            this.rbMessageInjury.Name = "rbMessageInjury";
-            this.rbMessageInjury.Size = new System.Drawing.Size(80, 17);
-            this.rbMessageInjury.TabIndex = 1;
-            this.rbMessageInjury.TabStop = true;
-            this.rbMessageInjury.Text = "Injury Delay";
-            this.rbMessageInjury.UseVisualStyleBackColor = true;
-            this.rbMessageInjury.CheckedChanged += new System.EventHandler(this.RbMessageInjury_CheckedChanged);
+            rbMessageInjury.AutoSize = true;
+            rbMessageInjury.Location = new System.Drawing.Point(7, 37);
+            rbMessageInjury.Margin = new System.Windows.Forms.Padding(2);
+            rbMessageInjury.Name = "rbMessageInjury";
+            rbMessageInjury.Size = new System.Drawing.Size(102, 19);
+            rbMessageInjury.TabIndex = 1;
+            rbMessageInjury.TabStop = true;
+            rbMessageInjury.Text = "Injury Timeout";
+            rbMessageInjury.UseVisualStyleBackColor = true;
+            rbMessageInjury.CheckedChanged += RbMessageInjury_CheckedChanged;
             // 
             // rbMessageClear
             // 
-            this.rbMessageClear.AutoSize = true;
-            this.rbMessageClear.Location = new System.Drawing.Point(6, 11);
-            this.rbMessageClear.Margin = new System.Windows.Forms.Padding(2);
-            this.rbMessageClear.Name = "rbMessageClear";
-            this.rbMessageClear.Size = new System.Drawing.Size(95, 17);
-            this.rbMessageClear.TabIndex = 0;
-            this.rbMessageClear.TabStop = true;
-            this.rbMessageClear.Text = "Clear Message";
-            this.rbMessageClear.UseVisualStyleBackColor = true;
-            this.rbMessageClear.CheckedChanged += new System.EventHandler(this.RbMessageClear_CheckedChanged);
+            rbMessageClear.AutoSize = true;
+            rbMessageClear.Location = new System.Drawing.Point(7, 13);
+            rbMessageClear.Margin = new System.Windows.Forms.Padding(2);
+            rbMessageClear.Name = "rbMessageClear";
+            rbMessageClear.Size = new System.Drawing.Size(101, 19);
+            rbMessageClear.TabIndex = 0;
+            rbMessageClear.TabStop = true;
+            rbMessageClear.Text = "Clear Message";
+            rbMessageClear.UseVisualStyleBackColor = true;
+            rbMessageClear.CheckedChanged += RbMessageClear_CheckedChanged;
             // 
             // tpPlayerImages
             // 
-            this.tpPlayerImages.Controls.Add(this.butSeparatePlayerImageForm);
-            this.tpPlayerImages.Controls.Add(this.gbAwayPlayers);
-            this.tpPlayerImages.Controls.Add(this.gbHomePlayers);
-            this.tpPlayerImages.Location = new System.Drawing.Point(4, 22);
-            this.tpPlayerImages.Name = "tpPlayerImages";
-            this.tpPlayerImages.Size = new System.Drawing.Size(774, 393);
-            this.tpPlayerImages.TabIndex = 5;
-            this.tpPlayerImages.Text = "Player Images";
-            this.tpPlayerImages.UseVisualStyleBackColor = true;
+            tpPlayerImages.Controls.Add(butSeparatePlayerImageForm);
+            tpPlayerImages.Controls.Add(gbAwayPlayers);
+            tpPlayerImages.Controls.Add(gbHomePlayers);
+            tpPlayerImages.Location = new System.Drawing.Point(4, 24);
+            tpPlayerImages.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpPlayerImages.Name = "tpPlayerImages";
+            tpPlayerImages.Size = new System.Drawing.Size(904, 455);
+            tpPlayerImages.TabIndex = 5;
+            tpPlayerImages.Text = "Player Images";
+            tpPlayerImages.UseVisualStyleBackColor = true;
             // 
             // butSeparatePlayerImageForm
             // 
-            this.butSeparatePlayerImageForm.Location = new System.Drawing.Point(375, 127);
-            this.butSeparatePlayerImageForm.Name = "butSeparatePlayerImageForm";
-            this.butSeparatePlayerImageForm.Size = new System.Drawing.Size(21, 127);
-            this.butSeparatePlayerImageForm.TabIndex = 2;
-            this.butSeparatePlayerImageForm.Text = "Breakout";
-            this.butSeparatePlayerImageForm.UseVisualStyleBackColor = true;
-            this.butSeparatePlayerImageForm.Click += new System.EventHandler(this.ButSeparatePlayerImageForm_Click);
+            butSeparatePlayerImageForm.Location = new System.Drawing.Point(438, 147);
+            butSeparatePlayerImageForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butSeparatePlayerImageForm.Name = "butSeparatePlayerImageForm";
+            butSeparatePlayerImageForm.Size = new System.Drawing.Size(23, 147);
+            butSeparatePlayerImageForm.TabIndex = 2;
+            butSeparatePlayerImageForm.Text = "Breakout";
+            butSeparatePlayerImageForm.UseVisualStyleBackColor = true;
+            butSeparatePlayerImageForm.Click += ButSeparatePlayerImageForm_Click;
             // 
             // gbAwayPlayers
             // 
-            this.gbAwayPlayers.Location = new System.Drawing.Point(402, 8);
-            this.gbAwayPlayers.Name = "gbAwayPlayers";
-            this.gbAwayPlayers.Size = new System.Drawing.Size(361, 373);
-            this.gbAwayPlayers.TabIndex = 1;
-            this.gbAwayPlayers.TabStop = false;
-            this.gbAwayPlayers.Text = "Away Players";
+            gbAwayPlayers.Location = new System.Drawing.Point(469, 9);
+            gbAwayPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAwayPlayers.Name = "gbAwayPlayers";
+            gbAwayPlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbAwayPlayers.Size = new System.Drawing.Size(421, 430);
+            gbAwayPlayers.TabIndex = 1;
+            gbAwayPlayers.TabStop = false;
+            gbAwayPlayers.Text = "Away Players";
             // 
             // gbHomePlayers
             // 
-            this.gbHomePlayers.Location = new System.Drawing.Point(8, 8);
-            this.gbHomePlayers.Name = "gbHomePlayers";
-            this.gbHomePlayers.Size = new System.Drawing.Size(361, 373);
-            this.gbHomePlayers.TabIndex = 0;
-            this.gbHomePlayers.TabStop = false;
-            this.gbHomePlayers.Text = "Home Players";
+            gbHomePlayers.Location = new System.Drawing.Point(9, 9);
+            gbHomePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHomePlayers.Name = "gbHomePlayers";
+            gbHomePlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHomePlayers.Size = new System.Drawing.Size(421, 430);
+            gbHomePlayers.TabIndex = 0;
+            gbHomePlayers.TabStop = false;
+            gbHomePlayers.Text = "Home Players";
             // 
             // tpHotKeys
             // 
-            this.tpHotKeys.Controls.Add(this.gbMisc);
-            this.tpHotKeys.Controls.Add(this.gbClockKeys);
-            this.tpHotKeys.Controls.Add(this.gbHotKeysAway);
-            this.tpHotKeys.Controls.Add(this.gbHotKeysHome);
-            this.tpHotKeys.Controls.Add(this.butSaveHotKey);
-            this.tpHotKeys.Location = new System.Drawing.Point(4, 22);
-            this.tpHotKeys.Name = "tpHotKeys";
-            this.tpHotKeys.Size = new System.Drawing.Size(774, 393);
-            this.tpHotKeys.TabIndex = 2;
-            this.tpHotKeys.Text = "HotKeys";
-            this.tpHotKeys.UseVisualStyleBackColor = true;
+            tpHotKeys.Controls.Add(gbMisc);
+            tpHotKeys.Controls.Add(gbClockKeys);
+            tpHotKeys.Controls.Add(gbHotKeysAway);
+            tpHotKeys.Controls.Add(gbHotKeysHome);
+            tpHotKeys.Controls.Add(butSaveHotKey);
+            tpHotKeys.Location = new System.Drawing.Point(4, 24);
+            tpHotKeys.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpHotKeys.Name = "tpHotKeys";
+            tpHotKeys.Size = new System.Drawing.Size(904, 455);
+            tpHotKeys.TabIndex = 2;
+            tpHotKeys.Text = "HotKeys";
+            tpHotKeys.UseVisualStyleBackColor = true;
             // 
             // gbMisc
             // 
-            this.gbMisc.Controls.Add(this.textBox1);
-            this.gbMisc.Controls.Add(this.label4);
-            this.gbMisc.Controls.Add(this.lblHotKeyFunction);
-            this.gbMisc.Controls.Add(this.lblHotKeyKey);
-            this.gbMisc.Controls.Add(this.txtHotKeyAwayTimeout);
-            this.gbMisc.Controls.Add(this.lblHotKeyNextDown);
-            this.gbMisc.Controls.Add(this.lblHotKeyAwayTimeout);
-            this.gbMisc.Controls.Add(this.txtHotKeyNextDown);
-            this.gbMisc.Controls.Add(this.txtHotKeyHomeTimeout);
-            this.gbMisc.Controls.Add(this.lblHotKeyNextPeriod);
-            this.gbMisc.Controls.Add(this.lblHotKeyHomeTimeout);
-            this.gbMisc.Controls.Add(this.txtHotKeyNextPeriod);
-            this.gbMisc.Controls.Add(this.txtHotKeyFirstDown);
-            this.gbMisc.Controls.Add(this.lblHotKeyPossession);
-            this.gbMisc.Controls.Add(this.lblHotKeyFirstDown);
-            this.gbMisc.Controls.Add(this.txtHotKeyPossession);
-            this.gbMisc.Controls.Add(this.txtHotKeyFlag);
-            this.gbMisc.Controls.Add(this.lblHotKeyFlag);
-            this.gbMisc.Location = new System.Drawing.Point(550, 13);
-            this.gbMisc.Margin = new System.Windows.Forms.Padding(2);
-            this.gbMisc.Name = "gbMisc";
-            this.gbMisc.Padding = new System.Windows.Forms.Padding(2);
-            this.gbMisc.Size = new System.Drawing.Size(217, 253);
-            this.gbMisc.TabIndex = 3;
-            this.gbMisc.TabStop = false;
-            this.gbMisc.Text = "Misc";
+            gbMisc.Controls.Add(textBox1);
+            gbMisc.Controls.Add(label4);
+            gbMisc.Controls.Add(lblHotKeyFunction);
+            gbMisc.Controls.Add(lblHotKeyKey);
+            gbMisc.Controls.Add(txtHotKeyAwayTimeout);
+            gbMisc.Controls.Add(lblHotKeyNextDown);
+            gbMisc.Controls.Add(lblHotKeyAwayTimeout);
+            gbMisc.Controls.Add(txtHotKeyNextDown);
+            gbMisc.Controls.Add(txtHotKeyHomeTimeout);
+            gbMisc.Controls.Add(lblHotKeyNextPeriod);
+            gbMisc.Controls.Add(lblHotKeyHomeTimeout);
+            gbMisc.Controls.Add(txtHotKeyNextPeriod);
+            gbMisc.Controls.Add(txtHotKeyFirstDown);
+            gbMisc.Controls.Add(lblHotKeyPossession);
+            gbMisc.Controls.Add(lblHotKeyFirstDown);
+            gbMisc.Controls.Add(txtHotKeyPossession);
+            gbMisc.Controls.Add(txtHotKeyFlag);
+            gbMisc.Controls.Add(lblHotKeyFlag);
+            gbMisc.Location = new System.Drawing.Point(642, 15);
+            gbMisc.Margin = new System.Windows.Forms.Padding(2);
+            gbMisc.Name = "gbMisc";
+            gbMisc.Padding = new System.Windows.Forms.Padding(2);
+            gbMisc.Size = new System.Drawing.Size(253, 292);
+            gbMisc.TabIndex = 3;
+            gbMisc.TabStop = false;
+            gbMisc.Text = "Misc";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(83, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 7;
+            textBox1.Location = new System.Drawing.Point(97, 253);
+            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(88, 23);
+            textBox1.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 221);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 73;
-            this.label4.Text = "Red Zone";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(6, 255);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(57, 15);
+            label4.TabIndex = 73;
+            label4.Text = "Red Zone";
             // 
             // lblHotKeyFunction
             // 
-            this.lblHotKeyFunction.AutoSize = true;
-            this.lblHotKeyFunction.Location = new System.Drawing.Point(5, 16);
-            this.lblHotKeyFunction.Name = "lblHotKeyFunction";
-            this.lblHotKeyFunction.Size = new System.Drawing.Size(48, 13);
-            this.lblHotKeyFunction.TabIndex = 1;
-            this.lblHotKeyFunction.Text = "Function";
+            lblHotKeyFunction.AutoSize = true;
+            lblHotKeyFunction.Location = new System.Drawing.Point(6, 18);
+            lblHotKeyFunction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyFunction.Name = "lblHotKeyFunction";
+            lblHotKeyFunction.Size = new System.Drawing.Size(54, 15);
+            lblHotKeyFunction.TabIndex = 1;
+            lblHotKeyFunction.Text = "Function";
             // 
             // lblHotKeyKey
             // 
-            this.lblHotKeyKey.AutoSize = true;
-            this.lblHotKeyKey.Location = new System.Drawing.Point(107, 16);
-            this.lblHotKeyKey.Name = "lblHotKeyKey";
-            this.lblHotKeyKey.Size = new System.Drawing.Size(30, 13);
-            this.lblHotKeyKey.TabIndex = 2;
-            this.lblHotKeyKey.Text = "Keys";
+            lblHotKeyKey.AutoSize = true;
+            lblHotKeyKey.Location = new System.Drawing.Point(125, 18);
+            lblHotKeyKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyKey.Name = "lblHotKeyKey";
+            lblHotKeyKey.Size = new System.Drawing.Size(31, 15);
+            lblHotKeyKey.TabIndex = 2;
+            lblHotKeyKey.Text = "Keys";
             // 
             // txtHotKeyAwayTimeout
             // 
-            this.txtHotKeyAwayTimeout.Location = new System.Drawing.Point(83, 193);
-            this.txtHotKeyAwayTimeout.Name = "txtHotKeyAwayTimeout";
-            this.txtHotKeyAwayTimeout.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwayTimeout.TabIndex = 6;
+            txtHotKeyAwayTimeout.Location = new System.Drawing.Point(97, 223);
+            txtHotKeyAwayTimeout.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwayTimeout.Name = "txtHotKeyAwayTimeout";
+            txtHotKeyAwayTimeout.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwayTimeout.TabIndex = 6;
             // 
             // lblHotKeyNextDown
             // 
-            this.lblHotKeyNextDown.AutoSize = true;
-            this.lblHotKeyNextDown.Location = new System.Drawing.Point(5, 65);
-            this.lblHotKeyNextDown.Name = "lblHotKeyNextDown";
-            this.lblHotKeyNextDown.Size = new System.Drawing.Size(60, 13);
-            this.lblHotKeyNextDown.TabIndex = 27;
-            this.lblHotKeyNextDown.Text = "Next Down";
+            lblHotKeyNextDown.AutoSize = true;
+            lblHotKeyNextDown.Location = new System.Drawing.Point(6, 75);
+            lblHotKeyNextDown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyNextDown.Name = "lblHotKeyNextDown";
+            lblHotKeyNextDown.Size = new System.Drawing.Size(66, 15);
+            lblHotKeyNextDown.TabIndex = 27;
+            lblHotKeyNextDown.Text = "Next Down";
             // 
             // lblHotKeyAwayTimeout
             // 
-            this.lblHotKeyAwayTimeout.AutoSize = true;
-            this.lblHotKeyAwayTimeout.Location = new System.Drawing.Point(5, 195);
-            this.lblHotKeyAwayTimeout.Name = "lblHotKeyAwayTimeout";
-            this.lblHotKeyAwayTimeout.Size = new System.Drawing.Size(74, 13);
-            this.lblHotKeyAwayTimeout.TabIndex = 71;
-            this.lblHotKeyAwayTimeout.Text = "Away Timeout";
+            lblHotKeyAwayTimeout.AutoSize = true;
+            lblHotKeyAwayTimeout.Location = new System.Drawing.Point(6, 225);
+            lblHotKeyAwayTimeout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyAwayTimeout.Name = "lblHotKeyAwayTimeout";
+            lblHotKeyAwayTimeout.Size = new System.Drawing.Size(83, 15);
+            lblHotKeyAwayTimeout.TabIndex = 71;
+            lblHotKeyAwayTimeout.Text = "Away Timeout";
             // 
             // txtHotKeyNextDown
             // 
-            this.txtHotKeyNextDown.Location = new System.Drawing.Point(83, 63);
-            this.txtHotKeyNextDown.Name = "txtHotKeyNextDown";
-            this.txtHotKeyNextDown.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyNextDown.TabIndex = 1;
+            txtHotKeyNextDown.Location = new System.Drawing.Point(97, 73);
+            txtHotKeyNextDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyNextDown.Name = "txtHotKeyNextDown";
+            txtHotKeyNextDown.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyNextDown.TabIndex = 1;
             // 
             // txtHotKeyHomeTimeout
             // 
-            this.txtHotKeyHomeTimeout.Location = new System.Drawing.Point(83, 167);
-            this.txtHotKeyHomeTimeout.Name = "txtHotKeyHomeTimeout";
-            this.txtHotKeyHomeTimeout.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomeTimeout.TabIndex = 5;
+            txtHotKeyHomeTimeout.Location = new System.Drawing.Point(97, 193);
+            txtHotKeyHomeTimeout.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomeTimeout.Name = "txtHotKeyHomeTimeout";
+            txtHotKeyHomeTimeout.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomeTimeout.TabIndex = 5;
             // 
             // lblHotKeyNextPeriod
             // 
-            this.lblHotKeyNextPeriod.AutoSize = true;
-            this.lblHotKeyNextPeriod.Location = new System.Drawing.Point(5, 91);
-            this.lblHotKeyNextPeriod.Name = "lblHotKeyNextPeriod";
-            this.lblHotKeyNextPeriod.Size = new System.Drawing.Size(62, 13);
-            this.lblHotKeyNextPeriod.TabIndex = 37;
-            this.lblHotKeyNextPeriod.Text = "Next Period";
+            lblHotKeyNextPeriod.AutoSize = true;
+            lblHotKeyNextPeriod.Location = new System.Drawing.Point(6, 105);
+            lblHotKeyNextPeriod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyNextPeriod.Name = "lblHotKeyNextPeriod";
+            lblHotKeyNextPeriod.Size = new System.Drawing.Size(69, 15);
+            lblHotKeyNextPeriod.TabIndex = 37;
+            lblHotKeyNextPeriod.Text = "Next Period";
             // 
             // lblHotKeyHomeTimeout
             // 
-            this.lblHotKeyHomeTimeout.AutoSize = true;
-            this.lblHotKeyHomeTimeout.Location = new System.Drawing.Point(5, 169);
-            this.lblHotKeyHomeTimeout.Name = "lblHotKeyHomeTimeout";
-            this.lblHotKeyHomeTimeout.Size = new System.Drawing.Size(76, 13);
-            this.lblHotKeyHomeTimeout.TabIndex = 69;
-            this.lblHotKeyHomeTimeout.Text = "Home Timeout";
+            lblHotKeyHomeTimeout.AutoSize = true;
+            lblHotKeyHomeTimeout.Location = new System.Drawing.Point(6, 195);
+            lblHotKeyHomeTimeout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyHomeTimeout.Name = "lblHotKeyHomeTimeout";
+            lblHotKeyHomeTimeout.Size = new System.Drawing.Size(87, 15);
+            lblHotKeyHomeTimeout.TabIndex = 69;
+            lblHotKeyHomeTimeout.Text = "Home Timeout";
             // 
             // txtHotKeyNextPeriod
             // 
-            this.txtHotKeyNextPeriod.Location = new System.Drawing.Point(83, 89);
-            this.txtHotKeyNextPeriod.Name = "txtHotKeyNextPeriod";
-            this.txtHotKeyNextPeriod.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyNextPeriod.TabIndex = 2;
+            txtHotKeyNextPeriod.Location = new System.Drawing.Point(97, 103);
+            txtHotKeyNextPeriod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyNextPeriod.Name = "txtHotKeyNextPeriod";
+            txtHotKeyNextPeriod.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyNextPeriod.TabIndex = 2;
             // 
             // txtHotKeyFirstDown
             // 
-            this.txtHotKeyFirstDown.Location = new System.Drawing.Point(83, 37);
-            this.txtHotKeyFirstDown.Name = "txtHotKeyFirstDown";
-            this.txtHotKeyFirstDown.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyFirstDown.TabIndex = 0;
+            txtHotKeyFirstDown.Location = new System.Drawing.Point(97, 43);
+            txtHotKeyFirstDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyFirstDown.Name = "txtHotKeyFirstDown";
+            txtHotKeyFirstDown.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyFirstDown.TabIndex = 0;
             // 
             // lblHotKeyPossession
             // 
-            this.lblHotKeyPossession.AutoSize = true;
-            this.lblHotKeyPossession.Location = new System.Drawing.Point(5, 117);
-            this.lblHotKeyPossession.Name = "lblHotKeyPossession";
-            this.lblHotKeyPossession.Size = new System.Drawing.Size(60, 13);
-            this.lblHotKeyPossession.TabIndex = 61;
-            this.lblHotKeyPossession.Text = "Possession";
+            lblHotKeyPossession.AutoSize = true;
+            lblHotKeyPossession.Location = new System.Drawing.Point(6, 135);
+            lblHotKeyPossession.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyPossession.Name = "lblHotKeyPossession";
+            lblHotKeyPossession.Size = new System.Drawing.Size(64, 15);
+            lblHotKeyPossession.TabIndex = 61;
+            lblHotKeyPossession.Text = "Possession";
             // 
             // lblHotKeyFirstDown
             // 
-            this.lblHotKeyFirstDown.AutoSize = true;
-            this.lblHotKeyFirstDown.Location = new System.Drawing.Point(5, 39);
-            this.lblHotKeyFirstDown.Name = "lblHotKeyFirstDown";
-            this.lblHotKeyFirstDown.Size = new System.Drawing.Size(57, 13);
-            this.lblHotKeyFirstDown.TabIndex = 67;
-            this.lblHotKeyFirstDown.Text = "First Down";
+            lblHotKeyFirstDown.AutoSize = true;
+            lblHotKeyFirstDown.Location = new System.Drawing.Point(6, 45);
+            lblHotKeyFirstDown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyFirstDown.Name = "lblHotKeyFirstDown";
+            lblHotKeyFirstDown.Size = new System.Drawing.Size(63, 15);
+            lblHotKeyFirstDown.TabIndex = 67;
+            lblHotKeyFirstDown.Text = "First Down";
             // 
             // txtHotKeyPossession
             // 
-            this.txtHotKeyPossession.Location = new System.Drawing.Point(83, 115);
-            this.txtHotKeyPossession.Name = "txtHotKeyPossession";
-            this.txtHotKeyPossession.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyPossession.TabIndex = 3;
+            txtHotKeyPossession.Location = new System.Drawing.Point(97, 133);
+            txtHotKeyPossession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyPossession.Name = "txtHotKeyPossession";
+            txtHotKeyPossession.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyPossession.TabIndex = 3;
             // 
             // txtHotKeyFlag
             // 
-            this.txtHotKeyFlag.Location = new System.Drawing.Point(83, 141);
-            this.txtHotKeyFlag.Name = "txtHotKeyFlag";
-            this.txtHotKeyFlag.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyFlag.TabIndex = 4;
+            txtHotKeyFlag.Location = new System.Drawing.Point(97, 163);
+            txtHotKeyFlag.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyFlag.Name = "txtHotKeyFlag";
+            txtHotKeyFlag.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyFlag.TabIndex = 4;
             // 
             // lblHotKeyFlag
             // 
-            this.lblHotKeyFlag.AutoSize = true;
-            this.lblHotKeyFlag.Location = new System.Drawing.Point(5, 143);
-            this.lblHotKeyFlag.Name = "lblHotKeyFlag";
-            this.lblHotKeyFlag.Size = new System.Drawing.Size(27, 13);
-            this.lblHotKeyFlag.TabIndex = 63;
-            this.lblHotKeyFlag.Text = "Flag";
+            lblHotKeyFlag.AutoSize = true;
+            lblHotKeyFlag.Location = new System.Drawing.Point(6, 165);
+            lblHotKeyFlag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyFlag.Name = "lblHotKeyFlag";
+            lblHotKeyFlag.Size = new System.Drawing.Size(29, 15);
+            lblHotKeyFlag.TabIndex = 63;
+            lblHotKeyFlag.Text = "Flag";
             // 
             // gbClockKeys
             // 
-            this.gbClockKeys.Controls.Add(this.lblHotKeyGameSubtract1s);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyGameSubtract1s);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyGameSubtract10s);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyGameSubtract10s);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyGameAdd1s);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyGameAdd1s);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyGameAdd10s);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyGameAdd10s);
-            this.gbClockKeys.Controls.Add(this.label2);
-            this.gbClockKeys.Controls.Add(this.label3);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyStartStopGameClock);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyClearPlayClock);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyStartStopGameClock);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyClearPlayClock);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyStartStopPlayClock);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyStartStopPlayClock);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyNewDefaultPlayClock);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyNewDefaultPlayClock);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyClearClocks);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyClearClocks);
-            this.gbClockKeys.Controls.Add(this.lblHotKeyNewShortPlayClock);
-            this.gbClockKeys.Controls.Add(this.txtHotKeyNewShortPlayClock);
-            this.gbClockKeys.Location = new System.Drawing.Point(6, 13);
-            this.gbClockKeys.Margin = new System.Windows.Forms.Padding(2);
-            this.gbClockKeys.Name = "gbClockKeys";
-            this.gbClockKeys.Padding = new System.Windows.Forms.Padding(2);
-            this.gbClockKeys.Size = new System.Drawing.Size(212, 287);
-            this.gbClockKeys.TabIndex = 0;
-            this.gbClockKeys.TabStop = false;
-            this.gbClockKeys.Text = "Clock";
+            gbClockKeys.Controls.Add(lblHotKeyGameSubtract1s);
+            gbClockKeys.Controls.Add(txtHotKeyGameSubtract1s);
+            gbClockKeys.Controls.Add(lblHotKeyGameSubtract10s);
+            gbClockKeys.Controls.Add(txtHotKeyGameSubtract10s);
+            gbClockKeys.Controls.Add(lblHotKeyGameAdd1s);
+            gbClockKeys.Controls.Add(txtHotKeyGameAdd1s);
+            gbClockKeys.Controls.Add(lblHotKeyGameAdd10s);
+            gbClockKeys.Controls.Add(txtHotKeyGameAdd10s);
+            gbClockKeys.Controls.Add(label2);
+            gbClockKeys.Controls.Add(label3);
+            gbClockKeys.Controls.Add(lblHotKeyStartStopGameClock);
+            gbClockKeys.Controls.Add(txtHotKeyClearPlayClock);
+            gbClockKeys.Controls.Add(txtHotKeyStartStopGameClock);
+            gbClockKeys.Controls.Add(lblHotKeyClearPlayClock);
+            gbClockKeys.Controls.Add(lblHotKeyStartStopPlayClock);
+            gbClockKeys.Controls.Add(txtHotKeyStartStopPlayClock);
+            gbClockKeys.Controls.Add(lblHotKeyNewDefaultPlayClock);
+            gbClockKeys.Controls.Add(txtHotKeyNewDefaultPlayClock);
+            gbClockKeys.Controls.Add(lblHotKeyClearClocks);
+            gbClockKeys.Controls.Add(txtHotKeyClearClocks);
+            gbClockKeys.Controls.Add(lblHotKeyNewShortPlayClock);
+            gbClockKeys.Controls.Add(txtHotKeyNewShortPlayClock);
+            gbClockKeys.Location = new System.Drawing.Point(7, 15);
+            gbClockKeys.Margin = new System.Windows.Forms.Padding(2);
+            gbClockKeys.Name = "gbClockKeys";
+            gbClockKeys.Padding = new System.Windows.Forms.Padding(2);
+            gbClockKeys.Size = new System.Drawing.Size(247, 331);
+            gbClockKeys.TabIndex = 0;
+            gbClockKeys.TabStop = false;
+            gbClockKeys.Text = "Clock";
             // 
             // lblHotKeyGameSubtract1s
             // 
-            this.lblHotKeyGameSubtract1s.AutoSize = true;
-            this.lblHotKeyGameSubtract1s.Location = new System.Drawing.Point(5, 264);
-            this.lblHotKeyGameSubtract1s.Name = "lblHotKeyGameSubtract1s";
-            this.lblHotKeyGameSubtract1s.Size = new System.Drawing.Size(71, 13);
-            this.lblHotKeyGameSubtract1s.TabIndex = 83;
-            this.lblHotKeyGameSubtract1s.Text = "Game Add 1s";
+            lblHotKeyGameSubtract1s.AutoSize = true;
+            lblHotKeyGameSubtract1s.Location = new System.Drawing.Point(6, 305);
+            lblHotKeyGameSubtract1s.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyGameSubtract1s.Name = "lblHotKeyGameSubtract1s";
+            lblHotKeyGameSubtract1s.Size = new System.Drawing.Size(77, 15);
+            lblHotKeyGameSubtract1s.TabIndex = 83;
+            lblHotKeyGameSubtract1s.Text = "Game Add 1s";
             // 
             // txtHotKeyGameSubtract1s
             // 
-            this.txtHotKeyGameSubtract1s.Location = new System.Drawing.Point(128, 260);
-            this.txtHotKeyGameSubtract1s.Name = "txtHotKeyGameSubtract1s";
-            this.txtHotKeyGameSubtract1s.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyGameSubtract1s.TabIndex = 9;
+            txtHotKeyGameSubtract1s.Location = new System.Drawing.Point(149, 300);
+            txtHotKeyGameSubtract1s.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyGameSubtract1s.Name = "txtHotKeyGameSubtract1s";
+            txtHotKeyGameSubtract1s.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyGameSubtract1s.TabIndex = 9;
             // 
             // lblHotKeyGameSubtract10s
             // 
-            this.lblHotKeyGameSubtract10s.AutoSize = true;
-            this.lblHotKeyGameSubtract10s.Location = new System.Drawing.Point(5, 240);
-            this.lblHotKeyGameSubtract10s.Name = "lblHotKeyGameSubtract10s";
-            this.lblHotKeyGameSubtract10s.Size = new System.Drawing.Size(98, 13);
-            this.lblHotKeyGameSubtract10s.TabIndex = 82;
-            this.lblHotKeyGameSubtract10s.Text = "Game Subtract 10s";
+            lblHotKeyGameSubtract10s.AutoSize = true;
+            lblHotKeyGameSubtract10s.Location = new System.Drawing.Point(6, 277);
+            lblHotKeyGameSubtract10s.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyGameSubtract10s.Name = "lblHotKeyGameSubtract10s";
+            lblHotKeyGameSubtract10s.Size = new System.Drawing.Size(105, 15);
+            lblHotKeyGameSubtract10s.TabIndex = 82;
+            lblHotKeyGameSubtract10s.Text = "Game Subtract 10s";
             // 
             // txtHotKeyGameSubtract10s
             // 
-            this.txtHotKeyGameSubtract10s.Location = new System.Drawing.Point(128, 236);
-            this.txtHotKeyGameSubtract10s.Name = "txtHotKeyGameSubtract10s";
-            this.txtHotKeyGameSubtract10s.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyGameSubtract10s.TabIndex = 8;
+            txtHotKeyGameSubtract10s.Location = new System.Drawing.Point(149, 272);
+            txtHotKeyGameSubtract10s.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyGameSubtract10s.Name = "txtHotKeyGameSubtract10s";
+            txtHotKeyGameSubtract10s.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyGameSubtract10s.TabIndex = 8;
             // 
             // lblHotKeyGameAdd1s
             // 
-            this.lblHotKeyGameAdd1s.AutoSize = true;
-            this.lblHotKeyGameAdd1s.Location = new System.Drawing.Point(5, 214);
-            this.lblHotKeyGameAdd1s.Name = "lblHotKeyGameAdd1s";
-            this.lblHotKeyGameAdd1s.Size = new System.Drawing.Size(71, 13);
-            this.lblHotKeyGameAdd1s.TabIndex = 79;
-            this.lblHotKeyGameAdd1s.Text = "Game Add 1s";
+            lblHotKeyGameAdd1s.AutoSize = true;
+            lblHotKeyGameAdd1s.Location = new System.Drawing.Point(6, 247);
+            lblHotKeyGameAdd1s.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyGameAdd1s.Name = "lblHotKeyGameAdd1s";
+            lblHotKeyGameAdd1s.Size = new System.Drawing.Size(77, 15);
+            lblHotKeyGameAdd1s.TabIndex = 79;
+            lblHotKeyGameAdd1s.Text = "Game Add 1s";
             // 
             // txtHotKeyGameAdd1s
             // 
-            this.txtHotKeyGameAdd1s.Location = new System.Drawing.Point(128, 210);
-            this.txtHotKeyGameAdd1s.Name = "txtHotKeyGameAdd1s";
-            this.txtHotKeyGameAdd1s.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyGameAdd1s.TabIndex = 7;
+            txtHotKeyGameAdd1s.Location = new System.Drawing.Point(149, 242);
+            txtHotKeyGameAdd1s.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyGameAdd1s.Name = "txtHotKeyGameAdd1s";
+            txtHotKeyGameAdd1s.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyGameAdd1s.TabIndex = 7;
             // 
             // lblHotKeyGameAdd10s
             // 
-            this.lblHotKeyGameAdd10s.AutoSize = true;
-            this.lblHotKeyGameAdd10s.Location = new System.Drawing.Point(5, 190);
-            this.lblHotKeyGameAdd10s.Name = "lblHotKeyGameAdd10s";
-            this.lblHotKeyGameAdd10s.Size = new System.Drawing.Size(77, 13);
-            this.lblHotKeyGameAdd10s.TabIndex = 77;
-            this.lblHotKeyGameAdd10s.Text = "Game Add 10s";
+            lblHotKeyGameAdd10s.AutoSize = true;
+            lblHotKeyGameAdd10s.Location = new System.Drawing.Point(6, 219);
+            lblHotKeyGameAdd10s.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyGameAdd10s.Name = "lblHotKeyGameAdd10s";
+            lblHotKeyGameAdd10s.Size = new System.Drawing.Size(83, 15);
+            lblHotKeyGameAdd10s.TabIndex = 77;
+            lblHotKeyGameAdd10s.Text = "Game Add 10s";
             // 
             // txtHotKeyGameAdd10s
             // 
-            this.txtHotKeyGameAdd10s.Location = new System.Drawing.Point(128, 186);
-            this.txtHotKeyGameAdd10s.Name = "txtHotKeyGameAdd10s";
-            this.txtHotKeyGameAdd10s.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyGameAdd10s.TabIndex = 6;
+            txtHotKeyGameAdd10s.Location = new System.Drawing.Point(149, 215);
+            txtHotKeyGameAdd10s.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyGameAdd10s.Name = "txtHotKeyGameAdd10s";
+            txtHotKeyGameAdd10s.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyGameAdd10s.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Keys";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(177, 17);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(31, 15);
+            label2.TabIndex = 75;
+            label2.Text = "Keys";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "Function";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(6, 17);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(54, 15);
+            label3.TabIndex = 74;
+            label3.Text = "Function";
             // 
             // lblHotKeyStartStopGameClock
             // 
-            this.lblHotKeyStartStopGameClock.AutoSize = true;
-            this.lblHotKeyStartStopGameClock.Location = new System.Drawing.Point(5, 35);
-            this.lblHotKeyStartStopGameClock.Name = "lblHotKeyStartStopGameClock";
-            this.lblHotKeyStartStopGameClock.Size = new System.Drawing.Size(117, 13);
-            this.lblHotKeyStartStopGameClock.TabIndex = 0;
-            this.lblHotKeyStartStopGameClock.Text = "Start/Stop Game Clock";
+            lblHotKeyStartStopGameClock.AutoSize = true;
+            lblHotKeyStartStopGameClock.Location = new System.Drawing.Point(6, 40);
+            lblHotKeyStartStopGameClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyStartStopGameClock.Name = "lblHotKeyStartStopGameClock";
+            lblHotKeyStartStopGameClock.Size = new System.Drawing.Size(127, 15);
+            lblHotKeyStartStopGameClock.TabIndex = 0;
+            lblHotKeyStartStopGameClock.Text = "Start/Stop Game Clock";
             // 
             // txtHotKeyClearPlayClock
             // 
-            this.txtHotKeyClearPlayClock.Location = new System.Drawing.Point(128, 136);
-            this.txtHotKeyClearPlayClock.Name = "txtHotKeyClearPlayClock";
-            this.txtHotKeyClearPlayClock.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyClearPlayClock.TabIndex = 4;
+            txtHotKeyClearPlayClock.Location = new System.Drawing.Point(149, 157);
+            txtHotKeyClearPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyClearPlayClock.Name = "txtHotKeyClearPlayClock";
+            txtHotKeyClearPlayClock.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyClearPlayClock.TabIndex = 4;
             // 
             // txtHotKeyStartStopGameClock
             // 
-            this.txtHotKeyStartStopGameClock.Location = new System.Drawing.Point(128, 32);
-            this.txtHotKeyStartStopGameClock.Name = "txtHotKeyStartStopGameClock";
-            this.txtHotKeyStartStopGameClock.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyStartStopGameClock.TabIndex = 0;
+            txtHotKeyStartStopGameClock.Location = new System.Drawing.Point(149, 37);
+            txtHotKeyStartStopGameClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyStartStopGameClock.Name = "txtHotKeyStartStopGameClock";
+            txtHotKeyStartStopGameClock.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyStartStopGameClock.TabIndex = 0;
             // 
             // lblHotKeyClearPlayClock
             // 
-            this.lblHotKeyClearPlayClock.AutoSize = true;
-            this.lblHotKeyClearPlayClock.Location = new System.Drawing.Point(5, 140);
-            this.lblHotKeyClearPlayClock.Name = "lblHotKeyClearPlayClock";
-            this.lblHotKeyClearPlayClock.Size = new System.Drawing.Size(84, 13);
-            this.lblHotKeyClearPlayClock.TabIndex = 73;
-            this.lblHotKeyClearPlayClock.Text = "Clear Play Clock";
+            lblHotKeyClearPlayClock.AutoSize = true;
+            lblHotKeyClearPlayClock.Location = new System.Drawing.Point(6, 162);
+            lblHotKeyClearPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyClearPlayClock.Name = "lblHotKeyClearPlayClock";
+            lblHotKeyClearPlayClock.Size = new System.Drawing.Size(92, 15);
+            lblHotKeyClearPlayClock.TabIndex = 73;
+            lblHotKeyClearPlayClock.Text = "Clear Play Clock";
             // 
             // lblHotKeyStartStopPlayClock
             // 
-            this.lblHotKeyStartStopPlayClock.AutoSize = true;
-            this.lblHotKeyStartStopPlayClock.Location = new System.Drawing.Point(5, 62);
-            this.lblHotKeyStartStopPlayClock.Name = "lblHotKeyStartStopPlayClock";
-            this.lblHotKeyStartStopPlayClock.Size = new System.Drawing.Size(109, 13);
-            this.lblHotKeyStartStopPlayClock.TabIndex = 12;
-            this.lblHotKeyStartStopPlayClock.Text = "Start/Stop Play Clock";
+            lblHotKeyStartStopPlayClock.AutoSize = true;
+            lblHotKeyStartStopPlayClock.Location = new System.Drawing.Point(6, 72);
+            lblHotKeyStartStopPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyStartStopPlayClock.Name = "lblHotKeyStartStopPlayClock";
+            lblHotKeyStartStopPlayClock.Size = new System.Drawing.Size(118, 15);
+            lblHotKeyStartStopPlayClock.TabIndex = 12;
+            lblHotKeyStartStopPlayClock.Text = "Start/Stop Play Clock";
             // 
             // txtHotKeyStartStopPlayClock
             // 
-            this.txtHotKeyStartStopPlayClock.Location = new System.Drawing.Point(128, 58);
-            this.txtHotKeyStartStopPlayClock.Name = "txtHotKeyStartStopPlayClock";
-            this.txtHotKeyStartStopPlayClock.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyStartStopPlayClock.TabIndex = 1;
+            txtHotKeyStartStopPlayClock.Location = new System.Drawing.Point(149, 67);
+            txtHotKeyStartStopPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyStartStopPlayClock.Name = "txtHotKeyStartStopPlayClock";
+            txtHotKeyStartStopPlayClock.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyStartStopPlayClock.TabIndex = 1;
             // 
             // lblHotKeyNewDefaultPlayClock
             // 
-            this.lblHotKeyNewDefaultPlayClock.AutoSize = true;
-            this.lblHotKeyNewDefaultPlayClock.Location = new System.Drawing.Point(5, 88);
-            this.lblHotKeyNewDefaultPlayClock.Name = "lblHotKeyNewDefaultPlayClock";
-            this.lblHotKeyNewDefaultPlayClock.Size = new System.Drawing.Size(119, 13);
-            this.lblHotKeyNewDefaultPlayClock.TabIndex = 17;
-            this.lblHotKeyNewDefaultPlayClock.Text = "New Default Play Clock";
+            lblHotKeyNewDefaultPlayClock.AutoSize = true;
+            lblHotKeyNewDefaultPlayClock.Location = new System.Drawing.Point(6, 102);
+            lblHotKeyNewDefaultPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyNewDefaultPlayClock.Name = "lblHotKeyNewDefaultPlayClock";
+            lblHotKeyNewDefaultPlayClock.Size = new System.Drawing.Size(130, 15);
+            lblHotKeyNewDefaultPlayClock.TabIndex = 17;
+            lblHotKeyNewDefaultPlayClock.Text = "New Default Play Clock";
             // 
             // txtHotKeyNewDefaultPlayClock
             // 
-            this.txtHotKeyNewDefaultPlayClock.Location = new System.Drawing.Point(128, 84);
-            this.txtHotKeyNewDefaultPlayClock.Name = "txtHotKeyNewDefaultPlayClock";
-            this.txtHotKeyNewDefaultPlayClock.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyNewDefaultPlayClock.TabIndex = 2;
+            txtHotKeyNewDefaultPlayClock.Location = new System.Drawing.Point(149, 97);
+            txtHotKeyNewDefaultPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyNewDefaultPlayClock.Name = "txtHotKeyNewDefaultPlayClock";
+            txtHotKeyNewDefaultPlayClock.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyNewDefaultPlayClock.TabIndex = 2;
             // 
             // lblHotKeyClearClocks
             // 
-            this.lblHotKeyClearClocks.AutoSize = true;
-            this.lblHotKeyClearClocks.Location = new System.Drawing.Point(5, 166);
-            this.lblHotKeyClearClocks.Name = "lblHotKeyClearClocks";
-            this.lblHotKeyClearClocks.Size = new System.Drawing.Size(66, 13);
-            this.lblHotKeyClearClocks.TabIndex = 22;
-            this.lblHotKeyClearClocks.Text = "Clear Clocks";
+            lblHotKeyClearClocks.AutoSize = true;
+            lblHotKeyClearClocks.Location = new System.Drawing.Point(6, 192);
+            lblHotKeyClearClocks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyClearClocks.Name = "lblHotKeyClearClocks";
+            lblHotKeyClearClocks.Size = new System.Drawing.Size(72, 15);
+            lblHotKeyClearClocks.TabIndex = 22;
+            lblHotKeyClearClocks.Text = "Clear Clocks";
             // 
             // txtHotKeyClearClocks
             // 
-            this.txtHotKeyClearClocks.Location = new System.Drawing.Point(128, 162);
-            this.txtHotKeyClearClocks.Name = "txtHotKeyClearClocks";
-            this.txtHotKeyClearClocks.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyClearClocks.TabIndex = 5;
+            txtHotKeyClearClocks.Location = new System.Drawing.Point(149, 187);
+            txtHotKeyClearClocks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyClearClocks.Name = "txtHotKeyClearClocks";
+            txtHotKeyClearClocks.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyClearClocks.TabIndex = 5;
             // 
             // lblHotKeyNewShortPlayClock
             // 
-            this.lblHotKeyNewShortPlayClock.AutoSize = true;
-            this.lblHotKeyNewShortPlayClock.Location = new System.Drawing.Point(5, 114);
-            this.lblHotKeyNewShortPlayClock.Name = "lblHotKeyNewShortPlayClock";
-            this.lblHotKeyNewShortPlayClock.Size = new System.Drawing.Size(110, 13);
-            this.lblHotKeyNewShortPlayClock.TabIndex = 65;
-            this.lblHotKeyNewShortPlayClock.Text = "New Short Play Clock";
+            lblHotKeyNewShortPlayClock.AutoSize = true;
+            lblHotKeyNewShortPlayClock.Location = new System.Drawing.Point(6, 132);
+            lblHotKeyNewShortPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHotKeyNewShortPlayClock.Name = "lblHotKeyNewShortPlayClock";
+            lblHotKeyNewShortPlayClock.Size = new System.Drawing.Size(120, 15);
+            lblHotKeyNewShortPlayClock.TabIndex = 65;
+            lblHotKeyNewShortPlayClock.Text = "New Short Play Clock";
             // 
             // txtHotKeyNewShortPlayClock
             // 
-            this.txtHotKeyNewShortPlayClock.Location = new System.Drawing.Point(128, 110);
-            this.txtHotKeyNewShortPlayClock.Name = "txtHotKeyNewShortPlayClock";
-            this.txtHotKeyNewShortPlayClock.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyNewShortPlayClock.TabIndex = 3;
+            txtHotKeyNewShortPlayClock.Location = new System.Drawing.Point(149, 127);
+            txtHotKeyNewShortPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyNewShortPlayClock.Name = "txtHotKeyNewShortPlayClock";
+            txtHotKeyNewShortPlayClock.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyNewShortPlayClock.TabIndex = 3;
             // 
             // gbHotKeysAway
             // 
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayTouchdown);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyTouchdown);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyFunction);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyKey);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeySafety);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwaySafety);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayFieldGoal);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyPatKick);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyFieldGoal);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayPatKick);
-            this.gbHotKeysAway.Controls.Add(this.txtHotKeyAwayPatConversion);
-            this.gbHotKeysAway.Controls.Add(this.lblAwayHotKeyPatConversion);
-            this.gbHotKeysAway.Location = new System.Drawing.Point(387, 13);
-            this.gbHotKeysAway.Name = "gbHotKeysAway";
-            this.gbHotKeysAway.Size = new System.Drawing.Size(158, 169);
-            this.gbHotKeysAway.TabIndex = 2;
-            this.gbHotKeysAway.TabStop = false;
-            this.gbHotKeysAway.Text = "Away Scoring";
+            gbHotKeysAway.Controls.Add(txtHotKeyAwayTouchdown);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyTouchdown);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyFunction);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyKey);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeySafety);
+            gbHotKeysAway.Controls.Add(txtHotKeyAwaySafety);
+            gbHotKeysAway.Controls.Add(txtHotKeyAwayFieldGoal);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyPatKick);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyFieldGoal);
+            gbHotKeysAway.Controls.Add(txtHotKeyAwayPatKick);
+            gbHotKeysAway.Controls.Add(txtHotKeyAwayPatConversion);
+            gbHotKeysAway.Controls.Add(lblAwayHotKeyPatConversion);
+            gbHotKeysAway.Location = new System.Drawing.Point(451, 15);
+            gbHotKeysAway.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHotKeysAway.Name = "gbHotKeysAway";
+            gbHotKeysAway.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHotKeysAway.Size = new System.Drawing.Size(184, 195);
+            gbHotKeysAway.TabIndex = 2;
+            gbHotKeysAway.TabStop = false;
+            gbHotKeysAway.Text = "Away Scoring";
             // 
             // txtHotKeyAwayTouchdown
             // 
-            this.txtHotKeyAwayTouchdown.Location = new System.Drawing.Point(76, 139);
-            this.txtHotKeyAwayTouchdown.Name = "txtHotKeyAwayTouchdown";
-            this.txtHotKeyAwayTouchdown.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwayTouchdown.TabIndex = 4;
+            txtHotKeyAwayTouchdown.Location = new System.Drawing.Point(89, 160);
+            txtHotKeyAwayTouchdown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwayTouchdown.Name = "txtHotKeyAwayTouchdown";
+            txtHotKeyAwayTouchdown.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwayTouchdown.TabIndex = 4;
             // 
             // lblAwayHotKeyTouchdown
             // 
-            this.lblAwayHotKeyTouchdown.AutoSize = true;
-            this.lblAwayHotKeyTouchdown.Location = new System.Drawing.Point(6, 142);
-            this.lblAwayHotKeyTouchdown.Name = "lblAwayHotKeyTouchdown";
-            this.lblAwayHotKeyTouchdown.Size = new System.Drawing.Size(64, 13);
-            this.lblAwayHotKeyTouchdown.TabIndex = 59;
-            this.lblAwayHotKeyTouchdown.Text = "Touchdown";
+            lblAwayHotKeyTouchdown.AutoSize = true;
+            lblAwayHotKeyTouchdown.Location = new System.Drawing.Point(7, 164);
+            lblAwayHotKeyTouchdown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyTouchdown.Name = "lblAwayHotKeyTouchdown";
+            lblAwayHotKeyTouchdown.Size = new System.Drawing.Size(69, 15);
+            lblAwayHotKeyTouchdown.TabIndex = 59;
+            lblAwayHotKeyTouchdown.Text = "Touchdown";
             // 
             // lblAwayHotKeyFunction
             // 
-            this.lblAwayHotKeyFunction.AutoSize = true;
-            this.lblAwayHotKeyFunction.Location = new System.Drawing.Point(6, 16);
-            this.lblAwayHotKeyFunction.Name = "lblAwayHotKeyFunction";
-            this.lblAwayHotKeyFunction.Size = new System.Drawing.Size(36, 13);
-            this.lblAwayHotKeyFunction.TabIndex = 49;
-            this.lblAwayHotKeyFunction.Text = "Points";
+            lblAwayHotKeyFunction.AutoSize = true;
+            lblAwayHotKeyFunction.Location = new System.Drawing.Point(7, 18);
+            lblAwayHotKeyFunction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyFunction.Name = "lblAwayHotKeyFunction";
+            lblAwayHotKeyFunction.Size = new System.Drawing.Size(40, 15);
+            lblAwayHotKeyFunction.TabIndex = 49;
+            lblAwayHotKeyFunction.Text = "Points";
             // 
             // lblAwayHotKeyKey
             // 
-            this.lblAwayHotKeyKey.AutoSize = true;
-            this.lblAwayHotKeyKey.Location = new System.Drawing.Point(73, 16);
-            this.lblAwayHotKeyKey.Name = "lblAwayHotKeyKey";
-            this.lblAwayHotKeyKey.Size = new System.Drawing.Size(30, 13);
-            this.lblAwayHotKeyKey.TabIndex = 50;
-            this.lblAwayHotKeyKey.Text = "Keys";
+            lblAwayHotKeyKey.AutoSize = true;
+            lblAwayHotKeyKey.Location = new System.Drawing.Point(85, 18);
+            lblAwayHotKeyKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyKey.Name = "lblAwayHotKeyKey";
+            lblAwayHotKeyKey.Size = new System.Drawing.Size(31, 15);
+            lblAwayHotKeyKey.TabIndex = 50;
+            lblAwayHotKeyKey.Text = "Keys";
             // 
             // lblAwayHotKeySafety
             // 
-            this.lblAwayHotKeySafety.AutoSize = true;
-            this.lblAwayHotKeySafety.Location = new System.Drawing.Point(6, 38);
-            this.lblAwayHotKeySafety.Name = "lblAwayHotKeySafety";
-            this.lblAwayHotKeySafety.Size = new System.Drawing.Size(37, 13);
-            this.lblAwayHotKeySafety.TabIndex = 52;
-            this.lblAwayHotKeySafety.Text = "Safety";
+            lblAwayHotKeySafety.AutoSize = true;
+            lblAwayHotKeySafety.Location = new System.Drawing.Point(7, 44);
+            lblAwayHotKeySafety.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeySafety.Name = "lblAwayHotKeySafety";
+            lblAwayHotKeySafety.Size = new System.Drawing.Size(39, 15);
+            lblAwayHotKeySafety.TabIndex = 52;
+            lblAwayHotKeySafety.Text = "Safety";
             // 
             // txtHotKeyAwaySafety
             // 
-            this.txtHotKeyAwaySafety.Location = new System.Drawing.Point(76, 35);
-            this.txtHotKeyAwaySafety.Name = "txtHotKeyAwaySafety";
-            this.txtHotKeyAwaySafety.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwaySafety.TabIndex = 0;
+            txtHotKeyAwaySafety.Location = new System.Drawing.Point(89, 40);
+            txtHotKeyAwaySafety.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwaySafety.Name = "txtHotKeyAwaySafety";
+            txtHotKeyAwaySafety.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwaySafety.TabIndex = 0;
             // 
             // txtHotKeyAwayFieldGoal
             // 
-            this.txtHotKeyAwayFieldGoal.Location = new System.Drawing.Point(76, 113);
-            this.txtHotKeyAwayFieldGoal.Name = "txtHotKeyAwayFieldGoal";
-            this.txtHotKeyAwayFieldGoal.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwayFieldGoal.TabIndex = 3;
+            txtHotKeyAwayFieldGoal.Location = new System.Drawing.Point(89, 130);
+            txtHotKeyAwayFieldGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwayFieldGoal.Name = "txtHotKeyAwayFieldGoal";
+            txtHotKeyAwayFieldGoal.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwayFieldGoal.TabIndex = 3;
             // 
             // lblAwayHotKeyPatKick
             // 
-            this.lblAwayHotKeyPatKick.AutoSize = true;
-            this.lblAwayHotKeyPatKick.Location = new System.Drawing.Point(6, 64);
-            this.lblAwayHotKeyPatKick.Name = "lblAwayHotKeyPatKick";
-            this.lblAwayHotKeyPatKick.Size = new System.Drawing.Size(58, 13);
-            this.lblAwayHotKeyPatKick.TabIndex = 54;
-            this.lblAwayHotKeyPatKick.Text = "PAT - Kick";
+            lblAwayHotKeyPatKick.AutoSize = true;
+            lblAwayHotKeyPatKick.Location = new System.Drawing.Point(7, 74);
+            lblAwayHotKeyPatKick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyPatKick.Name = "lblAwayHotKeyPatKick";
+            lblAwayHotKeyPatKick.Size = new System.Drawing.Size(59, 15);
+            lblAwayHotKeyPatKick.TabIndex = 54;
+            lblAwayHotKeyPatKick.Text = "PAT - Kick";
             // 
             // lblAwayHotKeyFieldGoal
             // 
-            this.lblAwayHotKeyFieldGoal.AutoSize = true;
-            this.lblAwayHotKeyFieldGoal.Location = new System.Drawing.Point(6, 116);
-            this.lblAwayHotKeyFieldGoal.Name = "lblAwayHotKeyFieldGoal";
-            this.lblAwayHotKeyFieldGoal.Size = new System.Drawing.Size(54, 13);
-            this.lblAwayHotKeyFieldGoal.TabIndex = 57;
-            this.lblAwayHotKeyFieldGoal.Text = "Field Goal";
+            lblAwayHotKeyFieldGoal.AutoSize = true;
+            lblAwayHotKeyFieldGoal.Location = new System.Drawing.Point(7, 134);
+            lblAwayHotKeyFieldGoal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyFieldGoal.Name = "lblAwayHotKeyFieldGoal";
+            lblAwayHotKeyFieldGoal.Size = new System.Drawing.Size(59, 15);
+            lblAwayHotKeyFieldGoal.TabIndex = 57;
+            lblAwayHotKeyFieldGoal.Text = "Field Goal";
             // 
             // txtHotKeyAwayPatKick
             // 
-            this.txtHotKeyAwayPatKick.Location = new System.Drawing.Point(76, 61);
-            this.txtHotKeyAwayPatKick.Name = "txtHotKeyAwayPatKick";
-            this.txtHotKeyAwayPatKick.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwayPatKick.TabIndex = 1;
+            txtHotKeyAwayPatKick.Location = new System.Drawing.Point(89, 70);
+            txtHotKeyAwayPatKick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwayPatKick.Name = "txtHotKeyAwayPatKick";
+            txtHotKeyAwayPatKick.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwayPatKick.TabIndex = 1;
             // 
             // txtHotKeyAwayPatConversion
             // 
-            this.txtHotKeyAwayPatConversion.Location = new System.Drawing.Point(76, 87);
-            this.txtHotKeyAwayPatConversion.Name = "txtHotKeyAwayPatConversion";
-            this.txtHotKeyAwayPatConversion.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyAwayPatConversion.TabIndex = 2;
+            txtHotKeyAwayPatConversion.Location = new System.Drawing.Point(89, 100);
+            txtHotKeyAwayPatConversion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyAwayPatConversion.Name = "txtHotKeyAwayPatConversion";
+            txtHotKeyAwayPatConversion.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyAwayPatConversion.TabIndex = 2;
             // 
             // lblAwayHotKeyPatConversion
             // 
-            this.lblAwayHotKeyPatConversion.AutoSize = true;
-            this.lblAwayHotKeyPatConversion.Location = new System.Drawing.Point(6, 90);
-            this.lblAwayHotKeyPatConversion.Name = "lblAwayHotKeyPatConversion";
-            this.lblAwayHotKeyPatConversion.Size = new System.Drawing.Size(62, 13);
-            this.lblAwayHotKeyPatConversion.TabIndex = 56;
-            this.lblAwayHotKeyPatConversion.Text = "PAT - Conv";
+            lblAwayHotKeyPatConversion.AutoSize = true;
+            lblAwayHotKeyPatConversion.Location = new System.Drawing.Point(7, 104);
+            lblAwayHotKeyPatConversion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblAwayHotKeyPatConversion.Name = "lblAwayHotKeyPatConversion";
+            lblAwayHotKeyPatConversion.Size = new System.Drawing.Size(65, 15);
+            lblAwayHotKeyPatConversion.TabIndex = 56;
+            lblAwayHotKeyPatConversion.Text = "PAT - Conv";
             // 
             // gbHotKeysHome
             // 
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyTouchdown);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeTouchdown);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPoints);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyKey);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeySafety);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeSafety);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPatKick);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomePatKick);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyPatConversion);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomePatConversion);
-            this.gbHotKeysHome.Controls.Add(this.lblHomeHotKeyFieldGoal);
-            this.gbHotKeysHome.Controls.Add(this.txtHotKeyHomeFieldGoal);
-            this.gbHotKeysHome.Location = new System.Drawing.Point(223, 13);
-            this.gbHotKeysHome.Name = "gbHotKeysHome";
-            this.gbHotKeysHome.Size = new System.Drawing.Size(158, 169);
-            this.gbHotKeysHome.TabIndex = 1;
-            this.gbHotKeysHome.TabStop = false;
-            this.gbHotKeysHome.Text = "Home Scoring";
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyTouchdown);
+            gbHotKeysHome.Controls.Add(txtHotKeyHomeTouchdown);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyPoints);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyKey);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeySafety);
+            gbHotKeysHome.Controls.Add(txtHotKeyHomeSafety);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyPatKick);
+            gbHotKeysHome.Controls.Add(txtHotKeyHomePatKick);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyPatConversion);
+            gbHotKeysHome.Controls.Add(txtHotKeyHomePatConversion);
+            gbHotKeysHome.Controls.Add(lblHomeHotKeyFieldGoal);
+            gbHotKeysHome.Controls.Add(txtHotKeyHomeFieldGoal);
+            gbHotKeysHome.Location = new System.Drawing.Point(260, 15);
+            gbHotKeysHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHotKeysHome.Name = "gbHotKeysHome";
+            gbHotKeysHome.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbHotKeysHome.Size = new System.Drawing.Size(184, 195);
+            gbHotKeysHome.TabIndex = 1;
+            gbHotKeysHome.TabStop = false;
+            gbHotKeysHome.Text = "Home Scoring";
             // 
             // lblHomeHotKeyTouchdown
             // 
-            this.lblHomeHotKeyTouchdown.AutoSize = true;
-            this.lblHomeHotKeyTouchdown.Location = new System.Drawing.Point(6, 142);
-            this.lblHomeHotKeyTouchdown.Name = "lblHomeHotKeyTouchdown";
-            this.lblHomeHotKeyTouchdown.Size = new System.Drawing.Size(64, 13);
-            this.lblHomeHotKeyTouchdown.TabIndex = 49;
-            this.lblHomeHotKeyTouchdown.Text = "Touchdown";
+            lblHomeHotKeyTouchdown.AutoSize = true;
+            lblHomeHotKeyTouchdown.Location = new System.Drawing.Point(7, 164);
+            lblHomeHotKeyTouchdown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyTouchdown.Name = "lblHomeHotKeyTouchdown";
+            lblHomeHotKeyTouchdown.Size = new System.Drawing.Size(69, 15);
+            lblHomeHotKeyTouchdown.TabIndex = 49;
+            lblHomeHotKeyTouchdown.Text = "Touchdown";
             // 
             // txtHotKeyHomeTouchdown
             // 
-            this.txtHotKeyHomeTouchdown.Location = new System.Drawing.Point(76, 139);
-            this.txtHotKeyHomeTouchdown.Name = "txtHotKeyHomeTouchdown";
-            this.txtHotKeyHomeTouchdown.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomeTouchdown.TabIndex = 4;
+            txtHotKeyHomeTouchdown.Location = new System.Drawing.Point(89, 160);
+            txtHotKeyHomeTouchdown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomeTouchdown.Name = "txtHotKeyHomeTouchdown";
+            txtHotKeyHomeTouchdown.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomeTouchdown.TabIndex = 4;
             // 
             // lblHomeHotKeyPoints
             // 
-            this.lblHomeHotKeyPoints.AutoSize = true;
-            this.lblHomeHotKeyPoints.Location = new System.Drawing.Point(6, 16);
-            this.lblHomeHotKeyPoints.Name = "lblHomeHotKeyPoints";
-            this.lblHomeHotKeyPoints.Size = new System.Drawing.Size(36, 13);
-            this.lblHomeHotKeyPoints.TabIndex = 39;
-            this.lblHomeHotKeyPoints.Text = "Points";
+            lblHomeHotKeyPoints.AutoSize = true;
+            lblHomeHotKeyPoints.Location = new System.Drawing.Point(7, 18);
+            lblHomeHotKeyPoints.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyPoints.Name = "lblHomeHotKeyPoints";
+            lblHomeHotKeyPoints.Size = new System.Drawing.Size(40, 15);
+            lblHomeHotKeyPoints.TabIndex = 39;
+            lblHomeHotKeyPoints.Text = "Points";
             // 
             // lblHomeHotKeyKey
             // 
-            this.lblHomeHotKeyKey.AutoSize = true;
-            this.lblHomeHotKeyKey.Location = new System.Drawing.Point(73, 16);
-            this.lblHomeHotKeyKey.Name = "lblHomeHotKeyKey";
-            this.lblHomeHotKeyKey.Size = new System.Drawing.Size(30, 13);
-            this.lblHomeHotKeyKey.TabIndex = 40;
-            this.lblHomeHotKeyKey.Text = "Keys";
+            lblHomeHotKeyKey.AutoSize = true;
+            lblHomeHotKeyKey.Location = new System.Drawing.Point(85, 18);
+            lblHomeHotKeyKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyKey.Name = "lblHomeHotKeyKey";
+            lblHomeHotKeyKey.Size = new System.Drawing.Size(31, 15);
+            lblHomeHotKeyKey.TabIndex = 40;
+            lblHomeHotKeyKey.Text = "Keys";
             // 
             // lblHomeHotKeySafety
             // 
-            this.lblHomeHotKeySafety.AutoSize = true;
-            this.lblHomeHotKeySafety.Location = new System.Drawing.Point(6, 38);
-            this.lblHomeHotKeySafety.Name = "lblHomeHotKeySafety";
-            this.lblHomeHotKeySafety.Size = new System.Drawing.Size(37, 13);
-            this.lblHomeHotKeySafety.TabIndex = 42;
-            this.lblHomeHotKeySafety.Text = "Safety";
+            lblHomeHotKeySafety.AutoSize = true;
+            lblHomeHotKeySafety.Location = new System.Drawing.Point(7, 44);
+            lblHomeHotKeySafety.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeySafety.Name = "lblHomeHotKeySafety";
+            lblHomeHotKeySafety.Size = new System.Drawing.Size(39, 15);
+            lblHomeHotKeySafety.TabIndex = 42;
+            lblHomeHotKeySafety.Text = "Safety";
             // 
             // txtHotKeyHomeSafety
             // 
-            this.txtHotKeyHomeSafety.Location = new System.Drawing.Point(76, 35);
-            this.txtHotKeyHomeSafety.Name = "txtHotKeyHomeSafety";
-            this.txtHotKeyHomeSafety.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomeSafety.TabIndex = 0;
+            txtHotKeyHomeSafety.Location = new System.Drawing.Point(89, 40);
+            txtHotKeyHomeSafety.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomeSafety.Name = "txtHotKeyHomeSafety";
+            txtHotKeyHomeSafety.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomeSafety.TabIndex = 0;
             // 
             // lblHomeHotKeyPatKick
             // 
-            this.lblHomeHotKeyPatKick.AutoSize = true;
-            this.lblHomeHotKeyPatKick.Location = new System.Drawing.Point(6, 64);
-            this.lblHomeHotKeyPatKick.Name = "lblHomeHotKeyPatKick";
-            this.lblHomeHotKeyPatKick.Size = new System.Drawing.Size(58, 13);
-            this.lblHomeHotKeyPatKick.TabIndex = 44;
-            this.lblHomeHotKeyPatKick.Text = "PAT - Kick";
+            lblHomeHotKeyPatKick.AutoSize = true;
+            lblHomeHotKeyPatKick.Location = new System.Drawing.Point(7, 74);
+            lblHomeHotKeyPatKick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyPatKick.Name = "lblHomeHotKeyPatKick";
+            lblHomeHotKeyPatKick.Size = new System.Drawing.Size(59, 15);
+            lblHomeHotKeyPatKick.TabIndex = 44;
+            lblHomeHotKeyPatKick.Text = "PAT - Kick";
             // 
             // txtHotKeyHomePatKick
             // 
-            this.txtHotKeyHomePatKick.Location = new System.Drawing.Point(76, 61);
-            this.txtHotKeyHomePatKick.Name = "txtHotKeyHomePatKick";
-            this.txtHotKeyHomePatKick.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomePatKick.TabIndex = 1;
+            txtHotKeyHomePatKick.Location = new System.Drawing.Point(89, 70);
+            txtHotKeyHomePatKick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomePatKick.Name = "txtHotKeyHomePatKick";
+            txtHotKeyHomePatKick.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomePatKick.TabIndex = 1;
             // 
             // lblHomeHotKeyPatConversion
             // 
-            this.lblHomeHotKeyPatConversion.AutoSize = true;
-            this.lblHomeHotKeyPatConversion.Location = new System.Drawing.Point(6, 90);
-            this.lblHomeHotKeyPatConversion.Name = "lblHomeHotKeyPatConversion";
-            this.lblHomeHotKeyPatConversion.Size = new System.Drawing.Size(62, 13);
-            this.lblHomeHotKeyPatConversion.TabIndex = 46;
-            this.lblHomeHotKeyPatConversion.Text = "PAT - Conv";
+            lblHomeHotKeyPatConversion.AutoSize = true;
+            lblHomeHotKeyPatConversion.Location = new System.Drawing.Point(7, 104);
+            lblHomeHotKeyPatConversion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyPatConversion.Name = "lblHomeHotKeyPatConversion";
+            lblHomeHotKeyPatConversion.Size = new System.Drawing.Size(65, 15);
+            lblHomeHotKeyPatConversion.TabIndex = 46;
+            lblHomeHotKeyPatConversion.Text = "PAT - Conv";
             // 
             // txtHotKeyHomePatConversion
             // 
-            this.txtHotKeyHomePatConversion.Location = new System.Drawing.Point(76, 87);
-            this.txtHotKeyHomePatConversion.Name = "txtHotKeyHomePatConversion";
-            this.txtHotKeyHomePatConversion.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomePatConversion.TabIndex = 2;
+            txtHotKeyHomePatConversion.Location = new System.Drawing.Point(89, 100);
+            txtHotKeyHomePatConversion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomePatConversion.Name = "txtHotKeyHomePatConversion";
+            txtHotKeyHomePatConversion.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomePatConversion.TabIndex = 2;
             // 
             // lblHomeHotKeyFieldGoal
             // 
-            this.lblHomeHotKeyFieldGoal.AutoSize = true;
-            this.lblHomeHotKeyFieldGoal.Location = new System.Drawing.Point(6, 116);
-            this.lblHomeHotKeyFieldGoal.Name = "lblHomeHotKeyFieldGoal";
-            this.lblHomeHotKeyFieldGoal.Size = new System.Drawing.Size(54, 13);
-            this.lblHomeHotKeyFieldGoal.TabIndex = 47;
-            this.lblHomeHotKeyFieldGoal.Text = "Field Goal";
+            lblHomeHotKeyFieldGoal.AutoSize = true;
+            lblHomeHotKeyFieldGoal.Location = new System.Drawing.Point(7, 134);
+            lblHomeHotKeyFieldGoal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeHotKeyFieldGoal.Name = "lblHomeHotKeyFieldGoal";
+            lblHomeHotKeyFieldGoal.Size = new System.Drawing.Size(59, 15);
+            lblHomeHotKeyFieldGoal.TabIndex = 47;
+            lblHomeHotKeyFieldGoal.Text = "Field Goal";
             // 
             // txtHotKeyHomeFieldGoal
             // 
-            this.txtHotKeyHomeFieldGoal.Location = new System.Drawing.Point(76, 113);
-            this.txtHotKeyHomeFieldGoal.Name = "txtHotKeyHomeFieldGoal";
-            this.txtHotKeyHomeFieldGoal.Size = new System.Drawing.Size(76, 20);
-            this.txtHotKeyHomeFieldGoal.TabIndex = 3;
+            txtHotKeyHomeFieldGoal.Location = new System.Drawing.Point(89, 130);
+            txtHotKeyHomeFieldGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyHomeFieldGoal.Name = "txtHotKeyHomeFieldGoal";
+            txtHotKeyHomeFieldGoal.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyHomeFieldGoal.TabIndex = 3;
             // 
             // butSaveHotKey
             // 
-            this.butSaveHotKey.Location = new System.Drawing.Point(692, 365);
-            this.butSaveHotKey.Name = "butSaveHotKey";
-            this.butSaveHotKey.Size = new System.Drawing.Size(75, 23);
-            this.butSaveHotKey.TabIndex = 4;
-            this.butSaveHotKey.Text = "Save";
-            this.butSaveHotKey.UseVisualStyleBackColor = true;
-            this.butSaveHotKey.Click += new System.EventHandler(this.ButSaveHotKey_Click);
+            butSaveHotKey.Location = new System.Drawing.Point(807, 421);
+            butSaveHotKey.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butSaveHotKey.Name = "butSaveHotKey";
+            butSaveHotKey.Size = new System.Drawing.Size(88, 27);
+            butSaveHotKey.TabIndex = 4;
+            butSaveHotKey.Text = "Save";
+            butSaveHotKey.UseVisualStyleBackColor = true;
+            butSaveHotKey.Click += ButSaveHotKey_Click;
             // 
             // tpSettings
             // 
-            this.tpSettings.Controls.Add(this.chkSettingFirstDown);
-            this.tpSettings.Controls.Add(this.lstPlayerImageFileType);
-            this.tpSettings.Controls.Add(this.label1);
-            this.tpSettings.Controls.Add(this.gbPoints);
-            this.tpSettings.Controls.Add(this.chkSubSecond);
-            this.tpSettings.Controls.Add(this.chkTop);
-            this.tpSettings.Controls.Add(this.txtShortPlayClock);
-            this.tpSettings.Controls.Add(this.lblShortPlayClock);
-            this.tpSettings.Controls.Add(this.txtFlagDisplayDuration);
-            this.tpSettings.Controls.Add(this.lblFlagDisplayDuration);
-            this.tpSettings.Controls.Add(this.gbSettingDown);
-            this.tpSettings.Controls.Add(this.gbSettingPeriod);
-            this.tpSettings.Controls.Add(this.chkAdvanceQuarter);
-            this.tpSettings.Controls.Add(this.txtRefreshInterval);
-            this.tpSettings.Controls.Add(this.lblRefreshInterval);
-            this.tpSettings.Controls.Add(this.lblTimeoutsPerHalf);
-            this.tpSettings.Controls.Add(this.txtTimeoutsPerHalf);
-            this.tpSettings.Controls.Add(this.txtGoalText);
-            this.tpSettings.Controls.Add(this.lblGoalDistanceLabel);
-            this.tpSettings.Controls.Add(this.butOutputFolder);
-            this.tpSettings.Controls.Add(this.butSaveSettings);
-            this.tpSettings.Controls.Add(this.txtOutputFolder);
-            this.tpSettings.Controls.Add(this.lblOutputFolder);
-            this.tpSettings.Controls.Add(this.txtDefaultPlayClock);
-            this.tpSettings.Controls.Add(this.lblDefaultPlayClock);
-            this.tpSettings.Controls.Add(this.txtPeriodDuration);
-            this.tpSettings.Controls.Add(this.lblPeriodDuration);
-            this.tpSettings.Location = new System.Drawing.Point(4, 22);
-            this.tpSettings.Name = "tpSettings";
-            this.tpSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSettings.Size = new System.Drawing.Size(774, 393);
-            this.tpSettings.TabIndex = 1;
-            this.tpSettings.Text = "Settings";
-            this.tpSettings.UseVisualStyleBackColor = true;
+            tpSettings.Controls.Add(txtWebSocketServer);
+            tpSettings.Controls.Add(lblWebSocketServer);
+            tpSettings.Controls.Add(txtWebSocketPassword);
+            tpSettings.Controls.Add(lblWebSocketPassword);
+            tpSettings.Controls.Add(txtWebSocketPort);
+            tpSettings.Controls.Add(lblWebSocketPort);
+            tpSettings.Controls.Add(chkSettingFirstDown);
+            tpSettings.Controls.Add(lstPlayerImageFileType);
+            tpSettings.Controls.Add(lblPlayerImageFileType);
+            tpSettings.Controls.Add(gbPoints);
+            tpSettings.Controls.Add(chkSubSecond);
+            tpSettings.Controls.Add(chkTop);
+            tpSettings.Controls.Add(txtShortPlayClock);
+            tpSettings.Controls.Add(lblShortPlayClock);
+            tpSettings.Controls.Add(txtFlagDisplayDuration);
+            tpSettings.Controls.Add(lblFlagDisplayDuration);
+            tpSettings.Controls.Add(gbSettingDown);
+            tpSettings.Controls.Add(gbSettingPeriod);
+            tpSettings.Controls.Add(chkAdvanceQuarter);
+            tpSettings.Controls.Add(txtRefreshInterval);
+            tpSettings.Controls.Add(lblRefreshInterval);
+            tpSettings.Controls.Add(lblTimeoutsPerHalf);
+            tpSettings.Controls.Add(txtTimeoutsPerHalf);
+            tpSettings.Controls.Add(txtGoalText);
+            tpSettings.Controls.Add(lblGoalDistanceLabel);
+            tpSettings.Controls.Add(butOutputFolder);
+            tpSettings.Controls.Add(butSaveSettings);
+            tpSettings.Controls.Add(txtOutputFolder);
+            tpSettings.Controls.Add(lblOutputFolder);
+            tpSettings.Controls.Add(txtDefaultPlayClock);
+            tpSettings.Controls.Add(lblDefaultPlayClock);
+            tpSettings.Controls.Add(txtPeriodDuration);
+            tpSettings.Controls.Add(lblPeriodDuration);
+            tpSettings.Location = new System.Drawing.Point(4, 24);
+            tpSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpSettings.Name = "tpSettings";
+            tpSettings.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpSettings.Size = new System.Drawing.Size(904, 455);
+            tpSettings.TabIndex = 1;
+            tpSettings.Text = "Settings";
+            tpSettings.UseVisualStyleBackColor = true;
+            // 
+            // txtWebSocketServer
+            // 
+            txtWebSocketServer.Location = new System.Drawing.Point(177, 341);
+            txtWebSocketServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtWebSocketServer.Name = "txtWebSocketServer";
+            txtWebSocketServer.Size = new System.Drawing.Size(116, 23);
+            txtWebSocketServer.TabIndex = 10;
+            // 
+            // lblWebSocketServer
+            // 
+            lblWebSocketServer.AutoSize = true;
+            lblWebSocketServer.Location = new System.Drawing.Point(20, 345);
+            lblWebSocketServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWebSocketServer.Name = "lblWebSocketServer";
+            lblWebSocketServer.Size = new System.Drawing.Size(129, 15);
+            lblWebSocketServer.TabIndex = 30;
+            lblWebSocketServer.Text = "OBS Web Socket Server";
+            // 
+            // txtWebSocketPassword
+            // 
+            txtWebSocketPassword.Location = new System.Drawing.Point(177, 399);
+            txtWebSocketPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtWebSocketPassword.Name = "txtWebSocketPassword";
+            txtWebSocketPassword.Size = new System.Drawing.Size(116, 23);
+            txtWebSocketPassword.TabIndex = 12;
+            // 
+            // lblWebSocketPassword
+            // 
+            lblWebSocketPassword.AutoSize = true;
+            lblWebSocketPassword.Location = new System.Drawing.Point(20, 403);
+            lblWebSocketPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWebSocketPassword.Name = "lblWebSocketPassword";
+            lblWebSocketPassword.Size = new System.Drawing.Size(147, 15);
+            lblWebSocketPassword.TabIndex = 32;
+            lblWebSocketPassword.Text = "OBS Web Socket Password";
+            // 
+            // txtWebSocketPort
+            // 
+            txtWebSocketPort.Location = new System.Drawing.Point(177, 370);
+            txtWebSocketPort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtWebSocketPort.Name = "txtWebSocketPort";
+            txtWebSocketPort.Size = new System.Drawing.Size(116, 23);
+            txtWebSocketPort.TabIndex = 11;
+            // 
+            // lblWebSocketPort
+            // 
+            lblWebSocketPort.AutoSize = true;
+            lblWebSocketPort.Location = new System.Drawing.Point(20, 374);
+            lblWebSocketPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWebSocketPort.Name = "lblWebSocketPort";
+            lblWebSocketPort.Size = new System.Drawing.Size(119, 15);
+            lblWebSocketPort.TabIndex = 31;
+            lblWebSocketPort.Text = "OBS Web Socket Port";
             // 
             // chkSettingFirstDown
             // 
-            this.chkSettingFirstDown.AutoSize = true;
-            this.chkSettingFirstDown.Location = new System.Drawing.Point(20, 272);
-            this.chkSettingFirstDown.Name = "chkSettingFirstDown";
-            this.chkSettingFirstDown.Size = new System.Drawing.Size(187, 17);
-            this.chkSettingFirstDown.TabIndex = 10;
-            this.chkSettingFirstDown.Text = "First Down on Possession Change";
-            this.chkSettingFirstDown.UseVisualStyleBackColor = true;
+            chkSettingFirstDown.AutoSize = true;
+            chkSettingFirstDown.Location = new System.Drawing.Point(405, 354);
+            chkSettingFirstDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkSettingFirstDown.Name = "chkSettingFirstDown";
+            chkSettingFirstDown.Size = new System.Drawing.Size(203, 19);
+            chkSettingFirstDown.TabIndex = 13;
+            chkSettingFirstDown.Text = "First Down on Possession Change";
+            chkSettingFirstDown.UseVisualStyleBackColor = true;
             // 
             // lstPlayerImageFileType
             // 
-            this.lstPlayerImageFileType.FormattingEnabled = true;
-            this.lstPlayerImageFileType.Items.AddRange(new object[] {
-            "gif",
-            "jpg",
-            "png"});
-            this.lstPlayerImageFileType.Location = new System.Drawing.Point(152, 222);
-            this.lstPlayerImageFileType.Name = "lstPlayerImageFileType";
-            this.lstPlayerImageFileType.Size = new System.Drawing.Size(100, 43);
-            this.lstPlayerImageFileType.TabIndex = 9;
+            lstPlayerImageFileType.FormattingEnabled = true;
+            lstPlayerImageFileType.Items.AddRange(new object[] { "gif", "jpg", "mov", "mp4", "png" });
+            lstPlayerImageFileType.Location = new System.Drawing.Point(177, 256);
+            lstPlayerImageFileType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lstPlayerImageFileType.Name = "lstPlayerImageFileType";
+            lstPlayerImageFileType.Size = new System.Drawing.Size(116, 79);
+            lstPlayerImageFileType.TabIndex = 9;
             // 
-            // label1
+            // lblPlayerImageFileType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 221);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "Player Image File Type";
+            lblPlayerImageFileType.AutoSize = true;
+            lblPlayerImageFileType.Location = new System.Drawing.Point(20, 255);
+            lblPlayerImageFileType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerImageFileType.Name = "lblPlayerImageFileType";
+            lblPlayerImageFileType.Size = new System.Drawing.Size(123, 15);
+            lblPlayerImageFileType.TabIndex = 29;
+            lblPlayerImageFileType.Text = "Player Image File Type";
             // 
             // gbPoints
             // 
-            this.gbPoints.Controls.Add(this.txtSettingTouchdown);
-            this.gbPoints.Controls.Add(this.txtSettingFieldGoal);
-            this.gbPoints.Controls.Add(this.txtSettingPatConversion);
-            this.gbPoints.Controls.Add(this.txtSettingPatKick);
-            this.gbPoints.Controls.Add(this.txtSettingSafety);
-            this.gbPoints.Controls.Add(this.lblSettingTouchdown);
-            this.gbPoints.Controls.Add(this.lblSettingFieldGoal);
-            this.gbPoints.Controls.Add(this.lblSettingPatConversion);
-            this.gbPoints.Controls.Add(this.lblSettingPatKick);
-            this.gbPoints.Controls.Add(this.lblSettingSafety);
-            this.gbPoints.Location = new System.Drawing.Point(347, 147);
-            this.gbPoints.Name = "gbPoints";
-            this.gbPoints.Size = new System.Drawing.Size(171, 154);
-            this.gbPoints.TabIndex = 15;
-            this.gbPoints.TabStop = false;
-            this.gbPoints.Text = "Points";
+            gbPoints.Controls.Add(txtSettingTouchdown);
+            gbPoints.Controls.Add(txtSettingFieldGoal);
+            gbPoints.Controls.Add(txtSettingPatConversion);
+            gbPoints.Controls.Add(txtSettingPatKick);
+            gbPoints.Controls.Add(txtSettingSafety);
+            gbPoints.Controls.Add(lblSettingTouchdown);
+            gbPoints.Controls.Add(lblSettingFieldGoal);
+            gbPoints.Controls.Add(lblSettingPatConversion);
+            gbPoints.Controls.Add(lblSettingPatKick);
+            gbPoints.Controls.Add(lblSettingSafety);
+            gbPoints.Location = new System.Drawing.Point(405, 170);
+            gbPoints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPoints.Name = "gbPoints";
+            gbPoints.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbPoints.Size = new System.Drawing.Size(200, 178);
+            gbPoints.TabIndex = 18;
+            gbPoints.TabStop = false;
+            gbPoints.Text = "Points";
             // 
             // txtSettingTouchdown
             // 
-            this.txtSettingTouchdown.Location = new System.Drawing.Point(77, 123);
-            this.txtSettingTouchdown.Name = "txtSettingTouchdown";
-            this.txtSettingTouchdown.Size = new System.Drawing.Size(82, 20);
-            this.txtSettingTouchdown.TabIndex = 4;
+            txtSettingTouchdown.Location = new System.Drawing.Point(90, 142);
+            txtSettingTouchdown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingTouchdown.Name = "txtSettingTouchdown";
+            txtSettingTouchdown.Size = new System.Drawing.Size(95, 23);
+            txtSettingTouchdown.TabIndex = 4;
             // 
             // txtSettingFieldGoal
             // 
-            this.txtSettingFieldGoal.Location = new System.Drawing.Point(77, 97);
-            this.txtSettingFieldGoal.Name = "txtSettingFieldGoal";
-            this.txtSettingFieldGoal.Size = new System.Drawing.Size(82, 20);
-            this.txtSettingFieldGoal.TabIndex = 3;
+            txtSettingFieldGoal.Location = new System.Drawing.Point(90, 112);
+            txtSettingFieldGoal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingFieldGoal.Name = "txtSettingFieldGoal";
+            txtSettingFieldGoal.Size = new System.Drawing.Size(95, 23);
+            txtSettingFieldGoal.TabIndex = 3;
             // 
             // txtSettingPatConversion
             // 
-            this.txtSettingPatConversion.Location = new System.Drawing.Point(77, 71);
-            this.txtSettingPatConversion.Name = "txtSettingPatConversion";
-            this.txtSettingPatConversion.Size = new System.Drawing.Size(82, 20);
-            this.txtSettingPatConversion.TabIndex = 2;
+            txtSettingPatConversion.Location = new System.Drawing.Point(90, 82);
+            txtSettingPatConversion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPatConversion.Name = "txtSettingPatConversion";
+            txtSettingPatConversion.Size = new System.Drawing.Size(95, 23);
+            txtSettingPatConversion.TabIndex = 2;
             // 
             // txtSettingPatKick
             // 
-            this.txtSettingPatKick.Location = new System.Drawing.Point(77, 45);
-            this.txtSettingPatKick.Name = "txtSettingPatKick";
-            this.txtSettingPatKick.Size = new System.Drawing.Size(82, 20);
-            this.txtSettingPatKick.TabIndex = 1;
+            txtSettingPatKick.Location = new System.Drawing.Point(90, 52);
+            txtSettingPatKick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPatKick.Name = "txtSettingPatKick";
+            txtSettingPatKick.Size = new System.Drawing.Size(95, 23);
+            txtSettingPatKick.TabIndex = 1;
             // 
             // txtSettingSafety
             // 
-            this.txtSettingSafety.Location = new System.Drawing.Point(77, 19);
-            this.txtSettingSafety.Name = "txtSettingSafety";
-            this.txtSettingSafety.Size = new System.Drawing.Size(82, 20);
-            this.txtSettingSafety.TabIndex = 0;
+            txtSettingSafety.Location = new System.Drawing.Point(90, 22);
+            txtSettingSafety.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingSafety.Name = "txtSettingSafety";
+            txtSettingSafety.Size = new System.Drawing.Size(95, 23);
+            txtSettingSafety.TabIndex = 0;
             // 
             // lblSettingTouchdown
             // 
-            this.lblSettingTouchdown.AutoSize = true;
-            this.lblSettingTouchdown.Location = new System.Drawing.Point(7, 126);
-            this.lblSettingTouchdown.Name = "lblSettingTouchdown";
-            this.lblSettingTouchdown.Size = new System.Drawing.Size(64, 13);
-            this.lblSettingTouchdown.TabIndex = 4;
-            this.lblSettingTouchdown.Text = "Touchdown";
+            lblSettingTouchdown.AutoSize = true;
+            lblSettingTouchdown.Location = new System.Drawing.Point(8, 145);
+            lblSettingTouchdown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingTouchdown.Name = "lblSettingTouchdown";
+            lblSettingTouchdown.Size = new System.Drawing.Size(69, 15);
+            lblSettingTouchdown.TabIndex = 4;
+            lblSettingTouchdown.Text = "Touchdown";
             // 
             // lblSettingFieldGoal
             // 
-            this.lblSettingFieldGoal.AutoSize = true;
-            this.lblSettingFieldGoal.Location = new System.Drawing.Point(7, 100);
-            this.lblSettingFieldGoal.Name = "lblSettingFieldGoal";
-            this.lblSettingFieldGoal.Size = new System.Drawing.Size(54, 13);
-            this.lblSettingFieldGoal.TabIndex = 3;
-            this.lblSettingFieldGoal.Text = "Field Goal";
+            lblSettingFieldGoal.AutoSize = true;
+            lblSettingFieldGoal.Location = new System.Drawing.Point(8, 115);
+            lblSettingFieldGoal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingFieldGoal.Name = "lblSettingFieldGoal";
+            lblSettingFieldGoal.Size = new System.Drawing.Size(59, 15);
+            lblSettingFieldGoal.TabIndex = 3;
+            lblSettingFieldGoal.Text = "Field Goal";
             // 
             // lblSettingPatConversion
             // 
-            this.lblSettingPatConversion.AutoSize = true;
-            this.lblSettingPatConversion.Location = new System.Drawing.Point(7, 74);
-            this.lblSettingPatConversion.Name = "lblSettingPatConversion";
-            this.lblSettingPatConversion.Size = new System.Drawing.Size(62, 13);
-            this.lblSettingPatConversion.TabIndex = 2;
-            this.lblSettingPatConversion.Text = "PAT - Conv";
+            lblSettingPatConversion.AutoSize = true;
+            lblSettingPatConversion.Location = new System.Drawing.Point(8, 85);
+            lblSettingPatConversion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPatConversion.Name = "lblSettingPatConversion";
+            lblSettingPatConversion.Size = new System.Drawing.Size(65, 15);
+            lblSettingPatConversion.TabIndex = 2;
+            lblSettingPatConversion.Text = "PAT - Conv";
             // 
             // lblSettingPatKick
             // 
-            this.lblSettingPatKick.AutoSize = true;
-            this.lblSettingPatKick.Location = new System.Drawing.Point(7, 48);
-            this.lblSettingPatKick.Name = "lblSettingPatKick";
-            this.lblSettingPatKick.Size = new System.Drawing.Size(58, 13);
-            this.lblSettingPatKick.TabIndex = 1;
-            this.lblSettingPatKick.Text = "PAT - Kick";
+            lblSettingPatKick.AutoSize = true;
+            lblSettingPatKick.Location = new System.Drawing.Point(8, 55);
+            lblSettingPatKick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPatKick.Name = "lblSettingPatKick";
+            lblSettingPatKick.Size = new System.Drawing.Size(59, 15);
+            lblSettingPatKick.TabIndex = 1;
+            lblSettingPatKick.Text = "PAT - Kick";
             // 
             // lblSettingSafety
             // 
-            this.lblSettingSafety.AutoSize = true;
-            this.lblSettingSafety.Location = new System.Drawing.Point(7, 22);
-            this.lblSettingSafety.Name = "lblSettingSafety";
-            this.lblSettingSafety.Size = new System.Drawing.Size(37, 13);
-            this.lblSettingSafety.TabIndex = 0;
-            this.lblSettingSafety.Text = "Safety";
+            lblSettingSafety.AutoSize = true;
+            lblSettingSafety.Location = new System.Drawing.Point(8, 25);
+            lblSettingSafety.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingSafety.Name = "lblSettingSafety";
+            lblSettingSafety.Size = new System.Drawing.Size(39, 15);
+            lblSettingSafety.TabIndex = 0;
+            lblSettingSafety.Text = "Safety";
             // 
             // chkSubSecond
             // 
-            this.chkSubSecond.AutoSize = true;
-            this.chkSubSecond.Location = new System.Drawing.Point(20, 343);
-            this.chkSubSecond.Name = "chkSubSecond";
-            this.chkSubSecond.Size = new System.Drawing.Size(146, 17);
-            this.chkSubSecond.TabIndex = 13;
-            this.chkSubSecond.Text = "Sub Second Game Clock";
-            this.chkSubSecond.UseVisualStyleBackColor = true;
+            chkSubSecond.AutoSize = true;
+            chkSubSecond.Location = new System.Drawing.Point(405, 436);
+            chkSubSecond.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkSubSecond.Name = "chkSubSecond";
+            chkSubSecond.Size = new System.Drawing.Size(155, 19);
+            chkSubSecond.TabIndex = 16;
+            chkSubSecond.Text = "Sub Second Game Clock";
+            chkSubSecond.UseVisualStyleBackColor = true;
             // 
             // chkTop
             // 
-            this.chkTop.AutoSize = true;
-            this.chkTop.Location = new System.Drawing.Point(20, 319);
-            this.chkTop.Name = "chkTop";
-            this.chkTop.Size = new System.Drawing.Size(96, 17);
-            this.chkTop.TabIndex = 12;
-            this.chkTop.Text = "Always on Top";
-            this.chkTop.UseVisualStyleBackColor = true;
+            chkTop.AutoSize = true;
+            chkTop.Location = new System.Drawing.Point(405, 408);
+            chkTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTop.Name = "chkTop";
+            chkTop.Size = new System.Drawing.Size(102, 19);
+            chkTop.TabIndex = 15;
+            chkTop.Text = "Always on Top";
+            chkTop.UseVisualStyleBackColor = true;
             // 
             // txtShortPlayClock
             // 
-            this.txtShortPlayClock.Location = new System.Drawing.Point(152, 67);
-            this.txtShortPlayClock.Name = "txtShortPlayClock";
-            this.txtShortPlayClock.Size = new System.Drawing.Size(100, 20);
-            this.txtShortPlayClock.TabIndex = 2;
+            txtShortPlayClock.Location = new System.Drawing.Point(177, 77);
+            txtShortPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtShortPlayClock.Name = "txtShortPlayClock";
+            txtShortPlayClock.Size = new System.Drawing.Size(116, 23);
+            txtShortPlayClock.TabIndex = 2;
             // 
             // lblShortPlayClock
             // 
-            this.lblShortPlayClock.AutoSize = true;
-            this.lblShortPlayClock.Location = new System.Drawing.Point(17, 69);
-            this.lblShortPlayClock.Name = "lblShortPlayClock";
-            this.lblShortPlayClock.Size = new System.Drawing.Size(85, 13);
-            this.lblShortPlayClock.TabIndex = 65;
-            this.lblShortPlayClock.Text = "Short Play Clock";
+            lblShortPlayClock.AutoSize = true;
+            lblShortPlayClock.Location = new System.Drawing.Point(20, 80);
+            lblShortPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblShortPlayClock.Name = "lblShortPlayClock";
+            lblShortPlayClock.Size = new System.Drawing.Size(93, 15);
+            lblShortPlayClock.TabIndex = 23;
+            lblShortPlayClock.Text = "Short Play Clock";
             // 
             // txtFlagDisplayDuration
             // 
-            this.txtFlagDisplayDuration.Location = new System.Drawing.Point(152, 195);
-            this.txtFlagDisplayDuration.Name = "txtFlagDisplayDuration";
-            this.txtFlagDisplayDuration.Size = new System.Drawing.Size(100, 20);
-            this.txtFlagDisplayDuration.TabIndex = 8;
+            txtFlagDisplayDuration.Location = new System.Drawing.Point(177, 225);
+            txtFlagDisplayDuration.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFlagDisplayDuration.Name = "txtFlagDisplayDuration";
+            txtFlagDisplayDuration.Size = new System.Drawing.Size(116, 23);
+            txtFlagDisplayDuration.TabIndex = 8;
             // 
             // lblFlagDisplayDuration
             // 
-            this.lblFlagDisplayDuration.AutoSize = true;
-            this.lblFlagDisplayDuration.Location = new System.Drawing.Point(17, 197);
-            this.lblFlagDisplayDuration.Name = "lblFlagDisplayDuration";
-            this.lblFlagDisplayDuration.Size = new System.Drawing.Size(129, 13);
-            this.lblFlagDisplayDuration.TabIndex = 63;
-            this.lblFlagDisplayDuration.Text = "Flag Display Duration (ms)";
+            lblFlagDisplayDuration.AutoSize = true;
+            lblFlagDisplayDuration.Location = new System.Drawing.Point(20, 227);
+            lblFlagDisplayDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFlagDisplayDuration.Name = "lblFlagDisplayDuration";
+            lblFlagDisplayDuration.Size = new System.Drawing.Size(146, 15);
+            lblFlagDisplayDuration.TabIndex = 28;
+            lblFlagDisplayDuration.Text = "Flag Display Duration (ms)";
             // 
             // gbSettingDown
             // 
-            this.gbSettingDown.Controls.Add(this.txtSettingDown4);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown3);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown2);
-            this.gbSettingDown.Controls.Add(this.txtSettingDown1);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown4);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown3);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown2);
-            this.gbSettingDown.Controls.Add(this.lblSettingDown1);
-            this.gbSettingDown.Location = new System.Drawing.Point(347, 6);
-            this.gbSettingDown.Name = "gbSettingDown";
-            this.gbSettingDown.Size = new System.Drawing.Size(171, 131);
-            this.gbSettingDown.TabIndex = 14;
-            this.gbSettingDown.TabStop = false;
-            this.gbSettingDown.Text = "Down Labels";
+            gbSettingDown.Controls.Add(txtSettingDown4);
+            gbSettingDown.Controls.Add(txtSettingDown3);
+            gbSettingDown.Controls.Add(txtSettingDown2);
+            gbSettingDown.Controls.Add(txtSettingDown1);
+            gbSettingDown.Controls.Add(lblSettingDown4);
+            gbSettingDown.Controls.Add(lblSettingDown3);
+            gbSettingDown.Controls.Add(lblSettingDown2);
+            gbSettingDown.Controls.Add(lblSettingDown1);
+            gbSettingDown.Location = new System.Drawing.Point(405, 7);
+            gbSettingDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbSettingDown.Name = "gbSettingDown";
+            gbSettingDown.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbSettingDown.Size = new System.Drawing.Size(200, 151);
+            gbSettingDown.TabIndex = 17;
+            gbSettingDown.TabStop = false;
+            gbSettingDown.Text = "Down Labels";
             // 
             // txtSettingDown4
             // 
-            this.txtSettingDown4.Location = new System.Drawing.Point(59, 95);
-            this.txtSettingDown4.Name = "txtSettingDown4";
-            this.txtSettingDown4.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown4.TabIndex = 3;
+            txtSettingDown4.Location = new System.Drawing.Point(69, 110);
+            txtSettingDown4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingDown4.Name = "txtSettingDown4";
+            txtSettingDown4.Size = new System.Drawing.Size(116, 23);
+            txtSettingDown4.TabIndex = 3;
             // 
             // txtSettingDown3
             // 
-            this.txtSettingDown3.Location = new System.Drawing.Point(59, 69);
-            this.txtSettingDown3.Name = "txtSettingDown3";
-            this.txtSettingDown3.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown3.TabIndex = 2;
+            txtSettingDown3.Location = new System.Drawing.Point(69, 80);
+            txtSettingDown3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingDown3.Name = "txtSettingDown3";
+            txtSettingDown3.Size = new System.Drawing.Size(116, 23);
+            txtSettingDown3.TabIndex = 2;
             // 
             // txtSettingDown2
             // 
-            this.txtSettingDown2.Location = new System.Drawing.Point(59, 43);
-            this.txtSettingDown2.Name = "txtSettingDown2";
-            this.txtSettingDown2.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown2.TabIndex = 1;
+            txtSettingDown2.Location = new System.Drawing.Point(69, 50);
+            txtSettingDown2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingDown2.Name = "txtSettingDown2";
+            txtSettingDown2.Size = new System.Drawing.Size(116, 23);
+            txtSettingDown2.TabIndex = 1;
             // 
             // txtSettingDown1
             // 
-            this.txtSettingDown1.Location = new System.Drawing.Point(59, 17);
-            this.txtSettingDown1.Name = "txtSettingDown1";
-            this.txtSettingDown1.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingDown1.TabIndex = 0;
+            txtSettingDown1.Location = new System.Drawing.Point(69, 20);
+            txtSettingDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingDown1.Name = "txtSettingDown1";
+            txtSettingDown1.Size = new System.Drawing.Size(116, 23);
+            txtSettingDown1.TabIndex = 0;
             // 
             // lblSettingDown4
             // 
-            this.lblSettingDown4.AutoSize = true;
-            this.lblSettingDown4.Location = new System.Drawing.Point(7, 98);
-            this.lblSettingDown4.Name = "lblSettingDown4";
-            this.lblSettingDown4.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown4.TabIndex = 3;
-            this.lblSettingDown4.Text = "Down 4";
+            lblSettingDown4.AutoSize = true;
+            lblSettingDown4.Location = new System.Drawing.Point(8, 113);
+            lblSettingDown4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingDown4.Name = "lblSettingDown4";
+            lblSettingDown4.Size = new System.Drawing.Size(47, 15);
+            lblSettingDown4.TabIndex = 3;
+            lblSettingDown4.Text = "Down 4";
             // 
             // lblSettingDown3
             // 
-            this.lblSettingDown3.AutoSize = true;
-            this.lblSettingDown3.Location = new System.Drawing.Point(7, 72);
-            this.lblSettingDown3.Name = "lblSettingDown3";
-            this.lblSettingDown3.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown3.TabIndex = 2;
-            this.lblSettingDown3.Text = "Down 3";
+            lblSettingDown3.AutoSize = true;
+            lblSettingDown3.Location = new System.Drawing.Point(8, 83);
+            lblSettingDown3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingDown3.Name = "lblSettingDown3";
+            lblSettingDown3.Size = new System.Drawing.Size(47, 15);
+            lblSettingDown3.TabIndex = 2;
+            lblSettingDown3.Text = "Down 3";
             // 
             // lblSettingDown2
             // 
-            this.lblSettingDown2.AutoSize = true;
-            this.lblSettingDown2.Location = new System.Drawing.Point(7, 46);
-            this.lblSettingDown2.Name = "lblSettingDown2";
-            this.lblSettingDown2.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown2.TabIndex = 1;
-            this.lblSettingDown2.Text = "Down 2";
+            lblSettingDown2.AutoSize = true;
+            lblSettingDown2.Location = new System.Drawing.Point(8, 53);
+            lblSettingDown2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingDown2.Name = "lblSettingDown2";
+            lblSettingDown2.Size = new System.Drawing.Size(47, 15);
+            lblSettingDown2.TabIndex = 1;
+            lblSettingDown2.Text = "Down 2";
             // 
             // lblSettingDown1
             // 
-            this.lblSettingDown1.AutoSize = true;
-            this.lblSettingDown1.Location = new System.Drawing.Point(7, 20);
-            this.lblSettingDown1.Name = "lblSettingDown1";
-            this.lblSettingDown1.Size = new System.Drawing.Size(44, 13);
-            this.lblSettingDown1.TabIndex = 0;
-            this.lblSettingDown1.Text = "Down 1";
+            lblSettingDown1.AutoSize = true;
+            lblSettingDown1.Location = new System.Drawing.Point(8, 23);
+            lblSettingDown1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingDown1.Name = "lblSettingDown1";
+            lblSettingDown1.Size = new System.Drawing.Size(47, 15);
+            lblSettingDown1.TabIndex = 0;
+            lblSettingDown1.Text = "Down 1";
             // 
             // gbSettingPeriod
             // 
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriodFinal);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriodFinal);
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriodHalf);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriodHalf);
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriod4);
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriod3);
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriod2);
-            this.gbSettingPeriod.Controls.Add(this.txtSettingPeriod1);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriod4);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriod3);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriod2);
-            this.gbSettingPeriod.Controls.Add(this.lblSettingPeriod1);
-            this.gbSettingPeriod.Location = new System.Drawing.Point(524, 6);
-            this.gbSettingPeriod.Name = "gbSettingPeriod";
-            this.gbSettingPeriod.Size = new System.Drawing.Size(171, 180);
-            this.gbSettingPeriod.TabIndex = 16;
-            this.gbSettingPeriod.TabStop = false;
-            this.gbSettingPeriod.Text = "Period Labels";
+            gbSettingPeriod.Controls.Add(txtSettingPeriodFinal);
+            gbSettingPeriod.Controls.Add(lblSettingPeriodFinal);
+            gbSettingPeriod.Controls.Add(txtSettingPeriodHalf);
+            gbSettingPeriod.Controls.Add(lblSettingPeriodHalf);
+            gbSettingPeriod.Controls.Add(txtSettingPeriod4);
+            gbSettingPeriod.Controls.Add(txtSettingPeriod3);
+            gbSettingPeriod.Controls.Add(txtSettingPeriod2);
+            gbSettingPeriod.Controls.Add(txtSettingPeriod1);
+            gbSettingPeriod.Controls.Add(lblSettingPeriod4);
+            gbSettingPeriod.Controls.Add(lblSettingPeriod3);
+            gbSettingPeriod.Controls.Add(lblSettingPeriod2);
+            gbSettingPeriod.Controls.Add(lblSettingPeriod1);
+            gbSettingPeriod.Location = new System.Drawing.Point(611, 7);
+            gbSettingPeriod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbSettingPeriod.Name = "gbSettingPeriod";
+            gbSettingPeriod.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gbSettingPeriod.Size = new System.Drawing.Size(200, 208);
+            gbSettingPeriod.TabIndex = 19;
+            gbSettingPeriod.TabStop = false;
+            gbSettingPeriod.Text = "Period Labels";
             // 
             // txtSettingPeriodFinal
             // 
-            this.txtSettingPeriodFinal.Location = new System.Drawing.Point(59, 147);
-            this.txtSettingPeriodFinal.Name = "txtSettingPeriodFinal";
-            this.txtSettingPeriodFinal.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriodFinal.TabIndex = 5;
+            txtSettingPeriodFinal.Location = new System.Drawing.Point(69, 170);
+            txtSettingPeriodFinal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriodFinal.Name = "txtSettingPeriodFinal";
+            txtSettingPeriodFinal.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriodFinal.TabIndex = 5;
             // 
             // lblSettingPeriodFinal
             // 
-            this.lblSettingPeriodFinal.AutoSize = true;
-            this.lblSettingPeriodFinal.Location = new System.Drawing.Point(7, 150);
-            this.lblSettingPeriodFinal.Name = "lblSettingPeriodFinal";
-            this.lblSettingPeriodFinal.Size = new System.Drawing.Size(29, 13);
-            this.lblSettingPeriodFinal.TabIndex = 6;
-            this.lblSettingPeriodFinal.Text = "Final";
+            lblSettingPeriodFinal.AutoSize = true;
+            lblSettingPeriodFinal.Location = new System.Drawing.Point(8, 173);
+            lblSettingPeriodFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriodFinal.Name = "lblSettingPeriodFinal";
+            lblSettingPeriodFinal.Size = new System.Drawing.Size(32, 15);
+            lblSettingPeriodFinal.TabIndex = 6;
+            lblSettingPeriodFinal.Text = "Final";
             // 
             // txtSettingPeriodHalf
             // 
-            this.txtSettingPeriodHalf.Location = new System.Drawing.Point(58, 69);
-            this.txtSettingPeriodHalf.Name = "txtSettingPeriodHalf";
-            this.txtSettingPeriodHalf.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriodHalf.TabIndex = 2;
+            txtSettingPeriodHalf.Location = new System.Drawing.Point(68, 80);
+            txtSettingPeriodHalf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriodHalf.Name = "txtSettingPeriodHalf";
+            txtSettingPeriodHalf.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriodHalf.TabIndex = 2;
             // 
             // lblSettingPeriodHalf
             // 
-            this.lblSettingPeriodHalf.AutoSize = true;
-            this.lblSettingPeriodHalf.Location = new System.Drawing.Point(6, 72);
-            this.lblSettingPeriodHalf.Name = "lblSettingPeriodHalf";
-            this.lblSettingPeriodHalf.Size = new System.Drawing.Size(26, 13);
-            this.lblSettingPeriodHalf.TabIndex = 5;
-            this.lblSettingPeriodHalf.Text = "Half";
+            lblSettingPeriodHalf.AutoSize = true;
+            lblSettingPeriodHalf.Location = new System.Drawing.Point(7, 83);
+            lblSettingPeriodHalf.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriodHalf.Name = "lblSettingPeriodHalf";
+            lblSettingPeriodHalf.Size = new System.Drawing.Size(29, 15);
+            lblSettingPeriodHalf.TabIndex = 5;
+            lblSettingPeriodHalf.Text = "Half";
             // 
             // txtSettingPeriod4
             // 
-            this.txtSettingPeriod4.Location = new System.Drawing.Point(58, 121);
-            this.txtSettingPeriod4.Name = "txtSettingPeriod4";
-            this.txtSettingPeriod4.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriod4.TabIndex = 4;
+            txtSettingPeriod4.Location = new System.Drawing.Point(68, 140);
+            txtSettingPeriod4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriod4.Name = "txtSettingPeriod4";
+            txtSettingPeriod4.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriod4.TabIndex = 4;
             // 
             // txtSettingPeriod3
             // 
-            this.txtSettingPeriod3.Location = new System.Drawing.Point(58, 95);
-            this.txtSettingPeriod3.Name = "txtSettingPeriod3";
-            this.txtSettingPeriod3.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriod3.TabIndex = 3;
+            txtSettingPeriod3.Location = new System.Drawing.Point(68, 110);
+            txtSettingPeriod3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriod3.Name = "txtSettingPeriod3";
+            txtSettingPeriod3.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriod3.TabIndex = 3;
             // 
             // txtSettingPeriod2
             // 
-            this.txtSettingPeriod2.Location = new System.Drawing.Point(59, 43);
-            this.txtSettingPeriod2.Name = "txtSettingPeriod2";
-            this.txtSettingPeriod2.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriod2.TabIndex = 1;
+            txtSettingPeriod2.Location = new System.Drawing.Point(69, 50);
+            txtSettingPeriod2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriod2.Name = "txtSettingPeriod2";
+            txtSettingPeriod2.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriod2.TabIndex = 1;
             // 
             // txtSettingPeriod1
             // 
-            this.txtSettingPeriod1.Location = new System.Drawing.Point(59, 17);
-            this.txtSettingPeriod1.Name = "txtSettingPeriod1";
-            this.txtSettingPeriod1.Size = new System.Drawing.Size(100, 20);
-            this.txtSettingPeriod1.TabIndex = 0;
+            txtSettingPeriod1.Location = new System.Drawing.Point(69, 20);
+            txtSettingPeriod1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtSettingPeriod1.Name = "txtSettingPeriod1";
+            txtSettingPeriod1.Size = new System.Drawing.Size(116, 23);
+            txtSettingPeriod1.TabIndex = 0;
             // 
             // lblSettingPeriod4
             // 
-            this.lblSettingPeriod4.AutoSize = true;
-            this.lblSettingPeriod4.Location = new System.Drawing.Point(6, 124);
-            this.lblSettingPeriod4.Name = "lblSettingPeriod4";
-            this.lblSettingPeriod4.Size = new System.Drawing.Size(46, 13);
-            this.lblSettingPeriod4.TabIndex = 3;
-            this.lblSettingPeriod4.Text = "Period 4";
+            lblSettingPeriod4.AutoSize = true;
+            lblSettingPeriod4.Location = new System.Drawing.Point(7, 143);
+            lblSettingPeriod4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriod4.Name = "lblSettingPeriod4";
+            lblSettingPeriod4.Size = new System.Drawing.Size(50, 15);
+            lblSettingPeriod4.TabIndex = 3;
+            lblSettingPeriod4.Text = "Period 4";
             // 
             // lblSettingPeriod3
             // 
-            this.lblSettingPeriod3.AutoSize = true;
-            this.lblSettingPeriod3.Location = new System.Drawing.Point(6, 98);
-            this.lblSettingPeriod3.Name = "lblSettingPeriod3";
-            this.lblSettingPeriod3.Size = new System.Drawing.Size(46, 13);
-            this.lblSettingPeriod3.TabIndex = 2;
-            this.lblSettingPeriod3.Text = "Period 3";
+            lblSettingPeriod3.AutoSize = true;
+            lblSettingPeriod3.Location = new System.Drawing.Point(7, 113);
+            lblSettingPeriod3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriod3.Name = "lblSettingPeriod3";
+            lblSettingPeriod3.Size = new System.Drawing.Size(50, 15);
+            lblSettingPeriod3.TabIndex = 2;
+            lblSettingPeriod3.Text = "Period 3";
             // 
             // lblSettingPeriod2
             // 
-            this.lblSettingPeriod2.AutoSize = true;
-            this.lblSettingPeriod2.Location = new System.Drawing.Point(7, 46);
-            this.lblSettingPeriod2.Name = "lblSettingPeriod2";
-            this.lblSettingPeriod2.Size = new System.Drawing.Size(46, 13);
-            this.lblSettingPeriod2.TabIndex = 1;
-            this.lblSettingPeriod2.Text = "Period 2";
+            lblSettingPeriod2.AutoSize = true;
+            lblSettingPeriod2.Location = new System.Drawing.Point(8, 53);
+            lblSettingPeriod2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriod2.Name = "lblSettingPeriod2";
+            lblSettingPeriod2.Size = new System.Drawing.Size(50, 15);
+            lblSettingPeriod2.TabIndex = 1;
+            lblSettingPeriod2.Text = "Period 2";
             // 
             // lblSettingPeriod1
             // 
-            this.lblSettingPeriod1.AutoSize = true;
-            this.lblSettingPeriod1.Location = new System.Drawing.Point(7, 20);
-            this.lblSettingPeriod1.Name = "lblSettingPeriod1";
-            this.lblSettingPeriod1.Size = new System.Drawing.Size(46, 13);
-            this.lblSettingPeriod1.TabIndex = 0;
-            this.lblSettingPeriod1.Text = "Period 1";
+            lblSettingPeriod1.AutoSize = true;
+            lblSettingPeriod1.Location = new System.Drawing.Point(8, 23);
+            lblSettingPeriod1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSettingPeriod1.Name = "lblSettingPeriod1";
+            lblSettingPeriod1.Size = new System.Drawing.Size(50, 15);
+            lblSettingPeriod1.TabIndex = 0;
+            lblSettingPeriod1.Text = "Period 1";
             // 
             // chkAdvanceQuarter
             // 
-            this.chkAdvanceQuarter.AutoSize = true;
-            this.chkAdvanceQuarter.Location = new System.Drawing.Point(20, 295);
-            this.chkAdvanceQuarter.Name = "chkAdvanceQuarter";
-            this.chkAdvanceQuarter.Size = new System.Drawing.Size(132, 17);
-            this.chkAdvanceQuarter.TabIndex = 11;
-            this.chkAdvanceQuarter.Text = "Auto-Advance Quarter";
-            this.chkAdvanceQuarter.UseVisualStyleBackColor = true;
+            chkAdvanceQuarter.AutoSize = true;
+            chkAdvanceQuarter.Location = new System.Drawing.Point(405, 381);
+            chkAdvanceQuarter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkAdvanceQuarter.Name = "chkAdvanceQuarter";
+            chkAdvanceQuarter.Size = new System.Drawing.Size(146, 19);
+            chkAdvanceQuarter.TabIndex = 14;
+            chkAdvanceQuarter.Text = "Auto-Advance Quarter";
+            chkAdvanceQuarter.UseVisualStyleBackColor = true;
             // 
             // txtRefreshInterval
             // 
-            this.txtRefreshInterval.Location = new System.Drawing.Point(152, 170);
-            this.txtRefreshInterval.Name = "txtRefreshInterval";
-            this.txtRefreshInterval.Size = new System.Drawing.Size(100, 20);
-            this.txtRefreshInterval.TabIndex = 7;
+            txtRefreshInterval.Location = new System.Drawing.Point(177, 196);
+            txtRefreshInterval.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtRefreshInterval.Name = "txtRefreshInterval";
+            txtRefreshInterval.Size = new System.Drawing.Size(116, 23);
+            txtRefreshInterval.TabIndex = 7;
             // 
             // lblRefreshInterval
             // 
-            this.lblRefreshInterval.AutoSize = true;
-            this.lblRefreshInterval.Location = new System.Drawing.Point(17, 173);
-            this.lblRefreshInterval.Name = "lblRefreshInterval";
-            this.lblRefreshInterval.Size = new System.Drawing.Size(104, 13);
-            this.lblRefreshInterval.TabIndex = 61;
-            this.lblRefreshInterval.Text = "Refresh Interval (ms)";
+            lblRefreshInterval.AutoSize = true;
+            lblRefreshInterval.Location = new System.Drawing.Point(20, 200);
+            lblRefreshInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblRefreshInterval.Name = "lblRefreshInterval";
+            lblRefreshInterval.Size = new System.Drawing.Size(115, 15);
+            lblRefreshInterval.TabIndex = 27;
+            lblRefreshInterval.Text = "Refresh Interval (ms)";
             // 
             // lblTimeoutsPerHalf
             // 
-            this.lblTimeoutsPerHalf.AutoSize = true;
-            this.lblTimeoutsPerHalf.Location = new System.Drawing.Point(17, 147);
-            this.lblTimeoutsPerHalf.Name = "lblTimeoutsPerHalf";
-            this.lblTimeoutsPerHalf.Size = new System.Drawing.Size(91, 13);
-            this.lblTimeoutsPerHalf.TabIndex = 13;
-            this.lblTimeoutsPerHalf.Text = "Timeouts Per Half";
+            lblTimeoutsPerHalf.AutoSize = true;
+            lblTimeoutsPerHalf.Location = new System.Drawing.Point(20, 170);
+            lblTimeoutsPerHalf.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTimeoutsPerHalf.Name = "lblTimeoutsPerHalf";
+            lblTimeoutsPerHalf.Size = new System.Drawing.Size(101, 15);
+            lblTimeoutsPerHalf.TabIndex = 26;
+            lblTimeoutsPerHalf.Text = "Timeouts Per Half";
             // 
             // txtTimeoutsPerHalf
             // 
-            this.txtTimeoutsPerHalf.Location = new System.Drawing.Point(152, 144);
-            this.txtTimeoutsPerHalf.Name = "txtTimeoutsPerHalf";
-            this.txtTimeoutsPerHalf.Size = new System.Drawing.Size(100, 20);
-            this.txtTimeoutsPerHalf.TabIndex = 6;
+            txtTimeoutsPerHalf.Location = new System.Drawing.Point(177, 166);
+            txtTimeoutsPerHalf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtTimeoutsPerHalf.Name = "txtTimeoutsPerHalf";
+            txtTimeoutsPerHalf.Size = new System.Drawing.Size(116, 23);
+            txtTimeoutsPerHalf.TabIndex = 6;
             // 
             // txtGoalText
             // 
-            this.txtGoalText.Location = new System.Drawing.Point(152, 118);
-            this.txtGoalText.Name = "txtGoalText";
-            this.txtGoalText.Size = new System.Drawing.Size(100, 20);
-            this.txtGoalText.TabIndex = 5;
+            txtGoalText.Location = new System.Drawing.Point(177, 136);
+            txtGoalText.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtGoalText.Name = "txtGoalText";
+            txtGoalText.Size = new System.Drawing.Size(116, 23);
+            txtGoalText.TabIndex = 5;
             // 
             // lblGoalDistanceLabel
             // 
-            this.lblGoalDistanceLabel.AutoSize = true;
-            this.lblGoalDistanceLabel.Location = new System.Drawing.Point(17, 121);
-            this.lblGoalDistanceLabel.Name = "lblGoalDistanceLabel";
-            this.lblGoalDistanceLabel.Size = new System.Drawing.Size(103, 13);
-            this.lblGoalDistanceLabel.TabIndex = 10;
-            this.lblGoalDistanceLabel.Text = "Goal Distance Label";
+            lblGoalDistanceLabel.AutoSize = true;
+            lblGoalDistanceLabel.Location = new System.Drawing.Point(20, 140);
+            lblGoalDistanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblGoalDistanceLabel.Name = "lblGoalDistanceLabel";
+            lblGoalDistanceLabel.Size = new System.Drawing.Size(110, 15);
+            lblGoalDistanceLabel.TabIndex = 25;
+            lblGoalDistanceLabel.Text = "Goal Distance Label";
             // 
             // butOutputFolder
             // 
-            this.butOutputFolder.Location = new System.Drawing.Point(258, 88);
-            this.butOutputFolder.Name = "butOutputFolder";
-            this.butOutputFolder.Size = new System.Drawing.Size(85, 23);
-            this.butOutputFolder.TabIndex = 4;
-            this.butOutputFolder.Text = "Select Folder";
-            this.butOutputFolder.UseVisualStyleBackColor = true;
-            this.butOutputFolder.Click += new System.EventHandler(this.ButOutputFolder_Click);
+            butOutputFolder.Location = new System.Drawing.Point(301, 102);
+            butOutputFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butOutputFolder.Name = "butOutputFolder";
+            butOutputFolder.Size = new System.Drawing.Size(99, 27);
+            butOutputFolder.TabIndex = 4;
+            butOutputFolder.Text = "Select Folder";
+            butOutputFolder.UseVisualStyleBackColor = true;
+            butOutputFolder.Click += ButOutputFolder_Click;
             // 
             // butSaveSettings
             // 
-            this.butSaveSettings.Location = new System.Drawing.Point(595, 278);
-            this.butSaveSettings.Name = "butSaveSettings";
-            this.butSaveSettings.Size = new System.Drawing.Size(100, 23);
-            this.butSaveSettings.TabIndex = 17;
-            this.butSaveSettings.Text = "Save";
-            this.butSaveSettings.UseVisualStyleBackColor = true;
-            this.butSaveSettings.Click += new System.EventHandler(this.ButSaveSettings_Click);
+            butSaveSettings.Location = new System.Drawing.Point(694, 321);
+            butSaveSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            butSaveSettings.Name = "butSaveSettings";
+            butSaveSettings.Size = new System.Drawing.Size(117, 27);
+            butSaveSettings.TabIndex = 20;
+            butSaveSettings.Text = "Save";
+            butSaveSettings.UseVisualStyleBackColor = true;
+            butSaveSettings.Click += ButSaveSettings_Click;
             // 
             // txtOutputFolder
             // 
-            this.txtOutputFolder.Location = new System.Drawing.Point(152, 91);
-            this.txtOutputFolder.Name = "txtOutputFolder";
-            this.txtOutputFolder.Size = new System.Drawing.Size(100, 20);
-            this.txtOutputFolder.TabIndex = 3;
+            txtOutputFolder.Location = new System.Drawing.Point(177, 105);
+            txtOutputFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtOutputFolder.Name = "txtOutputFolder";
+            txtOutputFolder.Size = new System.Drawing.Size(116, 23);
+            txtOutputFolder.TabIndex = 3;
             // 
             // lblOutputFolder
             // 
-            this.lblOutputFolder.AutoSize = true;
-            this.lblOutputFolder.Location = new System.Drawing.Point(17, 93);
-            this.lblOutputFolder.Name = "lblOutputFolder";
-            this.lblOutputFolder.Size = new System.Drawing.Size(71, 13);
-            this.lblOutputFolder.TabIndex = 4;
-            this.lblOutputFolder.Text = "Output Folder";
+            lblOutputFolder.AutoSize = true;
+            lblOutputFolder.Location = new System.Drawing.Point(20, 107);
+            lblOutputFolder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblOutputFolder.Name = "lblOutputFolder";
+            lblOutputFolder.Size = new System.Drawing.Size(81, 15);
+            lblOutputFolder.TabIndex = 24;
+            lblOutputFolder.Text = "Output Folder";
             // 
             // txtDefaultPlayClock
             // 
-            this.txtDefaultPlayClock.Location = new System.Drawing.Point(152, 42);
-            this.txtDefaultPlayClock.Name = "txtDefaultPlayClock";
-            this.txtDefaultPlayClock.Size = new System.Drawing.Size(100, 20);
-            this.txtDefaultPlayClock.TabIndex = 1;
+            txtDefaultPlayClock.Location = new System.Drawing.Point(177, 46);
+            txtDefaultPlayClock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtDefaultPlayClock.Name = "txtDefaultPlayClock";
+            txtDefaultPlayClock.Size = new System.Drawing.Size(116, 23);
+            txtDefaultPlayClock.TabIndex = 1;
             // 
             // lblDefaultPlayClock
             // 
-            this.lblDefaultPlayClock.AutoSize = true;
-            this.lblDefaultPlayClock.Location = new System.Drawing.Point(17, 45);
-            this.lblDefaultPlayClock.Name = "lblDefaultPlayClock";
-            this.lblDefaultPlayClock.Size = new System.Drawing.Size(94, 13);
-            this.lblDefaultPlayClock.TabIndex = 2;
-            this.lblDefaultPlayClock.Text = "Default Play Clock";
+            lblDefaultPlayClock.AutoSize = true;
+            lblDefaultPlayClock.Location = new System.Drawing.Point(20, 50);
+            lblDefaultPlayClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDefaultPlayClock.Name = "lblDefaultPlayClock";
+            lblDefaultPlayClock.Size = new System.Drawing.Size(103, 15);
+            lblDefaultPlayClock.TabIndex = 22;
+            lblDefaultPlayClock.Text = "Default Play Clock";
             // 
             // txtPeriodDuration
             // 
-            this.txtPeriodDuration.Location = new System.Drawing.Point(152, 15);
-            this.txtPeriodDuration.Name = "txtPeriodDuration";
-            this.txtPeriodDuration.Size = new System.Drawing.Size(100, 20);
-            this.txtPeriodDuration.TabIndex = 0;
+            txtPeriodDuration.Location = new System.Drawing.Point(177, 17);
+            txtPeriodDuration.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtPeriodDuration.Name = "txtPeriodDuration";
+            txtPeriodDuration.Size = new System.Drawing.Size(116, 23);
+            txtPeriodDuration.TabIndex = 0;
             // 
             // lblPeriodDuration
             // 
-            this.lblPeriodDuration.AutoSize = true;
-            this.lblPeriodDuration.Location = new System.Drawing.Point(17, 18);
-            this.lblPeriodDuration.Name = "lblPeriodDuration";
-            this.lblPeriodDuration.Size = new System.Drawing.Size(117, 13);
-            this.lblPeriodDuration.TabIndex = 0;
-            this.lblPeriodDuration.Text = "Default Period Duration";
+            lblPeriodDuration.AutoSize = true;
+            lblPeriodDuration.Location = new System.Drawing.Point(20, 21);
+            lblPeriodDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPeriodDuration.Name = "lblPeriodDuration";
+            lblPeriodDuration.Size = new System.Drawing.Size(131, 15);
+            lblPeriodDuration.TabIndex = 21;
+            lblPeriodDuration.Text = "Default Period Duration";
             // 
             // tmrClockRefresh
             // 
-            this.tmrClockRefresh.Interval = 500;
-            this.tmrClockRefresh.Tick += new System.EventHandler(this.TmrClockRefresh_Tick);
+            tmrClockRefresh.Interval = 500;
+            tmrClockRefresh.Tick += TmrClockRefresh_Tick;
             // 
             // msMain
             // 
-            this.msMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.msMain.Location = new System.Drawing.Point(0, 0);
-            this.msMain.Name = "msMain";
-            this.msMain.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.msMain.Size = new System.Drawing.Size(779, 24);
-            this.msMain.TabIndex = 1;
+            msMain.ImageScalingSize = new System.Drawing.Size(20, 20);
+            msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
+            msMain.Location = new System.Drawing.Point(0, 0);
+            msMain.Name = "msMain";
+            msMain.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            msMain.Size = new System.Drawing.Size(909, 24);
+            msMain.TabIndex = 1;
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveHotKeysToolStripMenuItem,
-            this.saveSettingsToolStripMenuItem,
-            this.openOutputFolderToolStripMenuItem,
-            this.closeToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { saveHotKeysToolStripMenuItem, saveSettingsToolStripMenuItem, openOutputFolderToolStripMenuItem, closeToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
             // 
             // saveHotKeysToolStripMenuItem
             // 
-            this.saveHotKeysToolStripMenuItem.Name = "saveHotKeysToolStripMenuItem";
-            this.saveHotKeysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveHotKeysToolStripMenuItem.Text = "Save HotKeys";
-            this.saveHotKeysToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemSaveHotKeys_Click);
+            saveHotKeysToolStripMenuItem.Name = "saveHotKeysToolStripMenuItem";
+            saveHotKeysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            saveHotKeysToolStripMenuItem.Text = "Save HotKeys";
+            saveHotKeysToolStripMenuItem.Click += ToolStripMenuItemSaveHotKeys_Click;
             // 
             // saveSettingsToolStripMenuItem
             // 
-            this.saveSettingsToolStripMenuItem.Name = "saveSettingsToolStripMenuItem";
-            this.saveSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveSettingsToolStripMenuItem.Text = "Save Settings";
-            this.saveSettingsToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemSaveSettings_Click);
+            saveSettingsToolStripMenuItem.Name = "saveSettingsToolStripMenuItem";
+            saveSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            saveSettingsToolStripMenuItem.Text = "Save Settings";
+            saveSettingsToolStripMenuItem.Click += ToolStripMenuItemSaveSettings_Click;
             // 
             // openOutputFolderToolStripMenuItem
             // 
-            this.openOutputFolderToolStripMenuItem.Name = "openOutputFolderToolStripMenuItem";
-            this.openOutputFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openOutputFolderToolStripMenuItem.Text = "Open Output Folder";
-            this.openOutputFolderToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemOpenOutputFolder_Click);
+            openOutputFolderToolStripMenuItem.Name = "openOutputFolderToolStripMenuItem";
+            openOutputFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            openOutputFolderToolStripMenuItem.Text = "Open Output Folder";
+            openOutputFolderToolStripMenuItem.Click += ToolStripMenuItemOpenOutputFolder_Click;
             // 
             // closeToolStripMenuItem
             // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeToolStripMenuItem.Text = "Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemClose_Click);
+            closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            closeToolStripMenuItem.Text = "Close";
+            closeToolStripMenuItem.Click += ToolStripMenuItemClose_Click;
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportIssueToolStripMenuItem,
-            this.checkForUpdateToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { reportIssueToolStripMenuItem, checkForUpdateToolStripMenuItem, aboutToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
             // 
             // reportIssueToolStripMenuItem
             // 
-            this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
-            this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.reportIssueToolStripMenuItem.Text = "Report Issue";
-            this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemReportIssue_Click);
+            reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
+            reportIssueToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            reportIssueToolStripMenuItem.Text = "Report Issue";
+            reportIssueToolStripMenuItem.Click += ToolStripMenuItemReportIssue_Click;
             // 
             // checkForUpdateToolStripMenuItem
             // 
-            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
-            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemCheckForUpdate_Click);
+            checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+            checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            checkForUpdateToolStripMenuItem.Text = "Check for Update";
+            checkForUpdateToolStripMenuItem.Click += ToolStripMenuItemCheckForUpdate_Click;
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += ToolStripMenuItemAbout_Click;
             // 
             // tmrFlag
             // 
-            this.tmrFlag.Interval = 15000;
-            this.tmrFlag.Tick += new System.EventHandler(this.TmrFlag_Tick);
+            tmrFlag.Interval = 15000;
+            tmrFlag.Tick += TmrFlag_Tick;
             // 
             // tmrScore
             // 
-            this.tmrScore.Interval = 15000;
-            this.tmrScore.Tick += new System.EventHandler(this.TmrScore_Tick);
+            tmrScore.Interval = 15000;
+            tmrScore.Tick += TmrScore_Tick;
             // 
             // tmrPlayerHome
             // 
-            this.tmrPlayerHome.Interval = 15000;
-            this.tmrPlayerHome.Tick += new System.EventHandler(this.TmrPlayerHome_Tick);
+            tmrPlayerHome.Interval = 15000;
+            tmrPlayerHome.Tick += TmrPlayerHome_Tick;
             // 
             // tmrRed
             // 
-            this.tmrRed.Interval = 15000;
-            this.tmrRed.Tick += new System.EventHandler(this.TmrRed_Tick);
+            tmrRed.Interval = 15000;
+            tmrRed.Tick += TmrRed_Tick;
             // 
             // tmrPlayerAway
             // 
-            this.tmrPlayerAway.Interval = 15000;
-            this.tmrPlayerAway.Tick += new System.EventHandler(this.TmrPlayerAway_Tick);
+            tmrPlayerAway.Interval = 15000;
+            tmrPlayerAway.Tick += TmrPlayerAway_Tick;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 445);
-            this.Controls.Add(this.tabMain);
-            this.Controls.Add(this.msMain);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.msMain;
-            this.Name = "FrmMain";
-            this.Text = "American Football Scoreboard";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.tabMain.ResumeLayout(false);
-            this.tpScoreboard.ResumeLayout(false);
-            this.tpScoreboard.PerformLayout();
-            this.gbScoreByPeriod.ResumeLayout(false);
-            this.gbScoreByPeriod.PerformLayout();
-            this.gbDown.ResumeLayout(false);
-            this.gbDown.PerformLayout();
-            this.gbPeriod.ResumeLayout(false);
-            this.gbPeriod.PerformLayout();
-            this.gbAway.ResumeLayout(false);
-            this.gbAway.PerformLayout();
-            this.gbHome.ResumeLayout(false);
-            this.gbHome.PerformLayout();
-            this.gbClock.ResumeLayout(false);
-            this.gbClock.PerformLayout();
-            this.tpPenalties.ResumeLayout(false);
-            this.gbPenalties.ResumeLayout(false);
-            this.gbPenalties.PerformLayout();
-            this.tpMessages.ResumeLayout(false);
-            this.tpMessages.PerformLayout();
-            this.tpPlayerImages.ResumeLayout(false);
-            this.tpHotKeys.ResumeLayout(false);
-            this.gbMisc.ResumeLayout(false);
-            this.gbMisc.PerformLayout();
-            this.gbClockKeys.ResumeLayout(false);
-            this.gbClockKeys.PerformLayout();
-            this.gbHotKeysAway.ResumeLayout(false);
-            this.gbHotKeysAway.PerformLayout();
-            this.gbHotKeysHome.ResumeLayout(false);
-            this.gbHotKeysHome.PerformLayout();
-            this.tpSettings.ResumeLayout(false);
-            this.tpSettings.PerformLayout();
-            this.gbPoints.ResumeLayout(false);
-            this.gbPoints.PerformLayout();
-            this.gbSettingDown.ResumeLayout(false);
-            this.gbSettingDown.PerformLayout();
-            this.gbSettingPeriod.ResumeLayout(false);
-            this.gbSettingPeriod.PerformLayout();
-            this.msMain.ResumeLayout(false);
-            this.msMain.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(909, 513);
+            Controls.Add(tabMain);
+            Controls.Add(msMain);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = msMain;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "FrmMain";
+            Text = "American Football Scoreboard";
+            FormClosing += FrmMain_FormClosing;
+            Load += FrmMain_Load;
+            tabMain.ResumeLayout(false);
+            tpScoreboard.ResumeLayout(false);
+            tpScoreboard.PerformLayout();
+            gbScoreByPeriod.ResumeLayout(false);
+            gbScoreByPeriod.PerformLayout();
+            gbDown.ResumeLayout(false);
+            gbDown.PerformLayout();
+            gbPeriod.ResumeLayout(false);
+            gbPeriod.PerformLayout();
+            gbAway.ResumeLayout(false);
+            gbAway.PerformLayout();
+            gbHome.ResumeLayout(false);
+            gbHome.PerformLayout();
+            gbClock.ResumeLayout(false);
+            gbClock.PerformLayout();
+            tpPenalties.ResumeLayout(false);
+            gbPenalties.ResumeLayout(false);
+            gbPenalties.PerformLayout();
+            tpMessages.ResumeLayout(false);
+            tpMessages.PerformLayout();
+            tpPlayerImages.ResumeLayout(false);
+            tpHotKeys.ResumeLayout(false);
+            gbMisc.ResumeLayout(false);
+            gbMisc.PerformLayout();
+            gbClockKeys.ResumeLayout(false);
+            gbClockKeys.PerformLayout();
+            gbHotKeysAway.ResumeLayout(false);
+            gbHotKeysAway.PerformLayout();
+            gbHotKeysHome.ResumeLayout(false);
+            gbHotKeysHome.PerformLayout();
+            tpSettings.ResumeLayout(false);
+            tpSettings.PerformLayout();
+            gbPoints.ResumeLayout(false);
+            gbPoints.PerformLayout();
+            gbSettingDown.ResumeLayout(false);
+            gbSettingDown.PerformLayout();
+            gbSettingPeriod.ResumeLayout(false);
+            gbSettingPeriod.PerformLayout();
+            msMain.ResumeLayout(false);
+            msMain.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -3962,7 +4299,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label lblPeriodHome;
         private System.Windows.Forms.Label lblPeriodAway;
         private System.Windows.Forms.ListBox lstPlayerImageFileType;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPlayerImageFileType;
         private System.Windows.Forms.TextBox txtHotKeyFirstDown;
         private System.Windows.Forms.Label lblHotKeyFirstDown;
         private System.Windows.Forms.TextBox txtHotKeyAwayTimeout;
@@ -4069,6 +4406,12 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.GroupBox gbHomePlayers;
         private System.Windows.Forms.Button butSeparatePlayerImageForm;
         private System.Windows.Forms.Timer tmrPlayerAway;
+        private System.Windows.Forms.TextBox txtWebSocketPassword;
+        private System.Windows.Forms.Label lblWebSocketPassword;
+        private System.Windows.Forms.TextBox txtWebSocketPort;
+        private System.Windows.Forms.Label lblWebSocketPort;
+        private System.Windows.Forms.TextBox txtWebSocketServer;
+        private System.Windows.Forms.Label lblWebSocketServer;
     }
 }
 

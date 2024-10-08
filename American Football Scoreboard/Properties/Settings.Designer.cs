@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace American_Football_Scoreboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15:00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("12:00")]
         public string DefaultPeriod {
             get {
                 return ((string)(this["DefaultPeriod"]));
@@ -692,6 +692,42 @@ namespace American_Football_Scoreboard.Properties {
             }
             set {
                 this["HotKeyRedZone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4455")]
+        public string WebSocketPort {
+            get {
+                return ((string)(this["WebSocketPort"]));
+            }
+            set {
+                this["WebSocketPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WebSocketPassword {
+            get {
+                return ((string)(this["WebSocketPassword"]));
+            }
+            set {
+                this["WebSocketPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WebSocketServer {
+            get {
+                return ((string)(this["WebSocketServer"]));
+            }
+            set {
+                this["WebSocketServer"] = value;
             }
         }
     }

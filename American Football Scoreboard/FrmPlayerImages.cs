@@ -1,36 +1,53 @@
-﻿using System;
+﻿using OBSWebsocketDotNet;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace American_Football_Scoreboard
 {
     public partial class FrmPlayerImages : Form
     {
+        protected OBSWebsocket obs;
         public FrmPlayerImages()
         {
             InitializeComponent();
             PopulateImageButtonsAway();
             PopulateImageButtonsHome();
-            tmrPlayerAway.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            obs = new OBSWebsocket();
+            obs.Connected += OnConnect;
+            ObsConnect();
         }
-        static async Task CopyFileAsync(string sourcePath, string destinationPath)
+        private void ObsConnect()
         {
-            using (Stream source = File.Open(path: sourcePath, mode: FileMode.Open))
+            if (!obs.IsConnected)
             {
-                using (Stream destination = File.Create(path: destinationPath))
+                System.Threading.Tasks.Task.Run(() =>
                 {
-                    await source.CopyToAsync(destination: destination);
-                }
+                    try
+                    {
+                        obs.ConnectAsync("ws://127.0.0.1:" + Properties.Settings.Default.WebSocketPort, Properties.Settings.Default.WebSocketPassword);
+                    }
+                    catch (Exception ex)
+                    {
+                        BeginInvoke((MethodInvoker)delegate
+                        {
+                            MessageBox.Show("Connect failed : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        });
+                    }
+                });
+            }
+            else
+            {
+                obs.Disconnect();
             }
         }
-        private void HidePlayer(bool home)
+        private void OnConnect(object sender, EventArgs e)
         {
-            if (home)
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\Blank." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayer." + Properties.Settings.Default["PlayerImageFileType"]));
-            else
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\Blank." + Properties.Settings.Default["PlayerImageFileType"]), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayer." + Properties.Settings.Default["PlayerImageFileType"]));
+            BeginInvoke((MethodInvoker)(() =>
+            {
+            }));
         }
         private void PopulateImageButtonsAway()
         {
@@ -40,20 +57,24 @@ namespace American_Football_Scoreboard
         {
             PopulateImageButtons("HomePlayers", gbHomePlayers, "butHome", ShowHomePlayer);
         }
-        private void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
+        private static void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
         {
+            string playerImageFileType = Properties.Settings.Default["PlayerImageFileType"].ToString().ToUpper();
             groupBox.Controls.Clear();
             string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
             if (Directory.Exists(sourcePath))
             {
                 string[] directoryContents = Directory.GetFiles(sourcePath);
-                List<int> numbers = new List<int>();
+                List<int> numbers = [];
                 foreach (string file in directoryContents)
                 {
-                    string playerNumber = file.Substring(file.LastIndexOf("\\") + 1, file.IndexOf(".") - file.LastIndexOf("\\") - 1);
-                    if (int.TryParse(playerNumber, out int number))
+                    if (file.ToUpper().EndsWith(playerImageFileType))
                     {
-                        numbers.Add(number);
+                        string playerNumber = file.Substring(file.LastIndexOf('\\') + 1, file.IndexOf('.') - file.LastIndexOf('\\') - 1);
+                        if (int.TryParse(playerNumber, out int number))
+                        {
+                            numbers.Add(number);
+                        }
                     }
                 }
                 numbers.Sort((x, y) => x.CompareTo(y));
@@ -61,12 +82,12 @@ namespace American_Football_Scoreboard
                 int buttonColumn = 0;
                 foreach (var number in numbers)
                 {
-                    if (buttonRow >= 17)
+                    if (buttonRow % 18 == 0 && buttonRow > 0)
                     {
                         buttonRow = 0;
                         buttonColumn++;
                     }
-                    Button button = new Button
+                    Button button = new()
                     {
                         Name = buttonPrefix + number.ToString(),
                         Text = number.ToString(),
@@ -81,59 +102,31 @@ namespace American_Football_Scoreboard
         }
         private void ShowAwayPlayer(object sender, EventArgs e)
         {
-            ShowPlayer(false, (sender as Button).Text);
+            Common.ShowPlayer(false, (sender as Button).Text, obs: obs);
+            tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            tmrPlayerHome.Enabled = true;
+            tmrPlayerHome.Start();
         }
         private void ShowHomePlayer(object sender, EventArgs e)
         {
-            ShowPlayer(true, (sender as Button).Text);
-        }
-        private bool ShowPlayer(bool home, string jersey)
-        {
-            bool success = false;
-            string destinationPath;
-            string sourcePath;
-            if (home)
-            {
-                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayer." + Properties.Settings.Default["PlayerImageFileType"]);
-                sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
-            }
-            else
-            {
-                destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayer." + Properties.Settings.Default["PlayerImageFileType"]);
-                sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
-            }
-            if (!File.Exists(sourcePath))
-            {
-                MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-            }
-            else
-            {
-                _ = CopyFileAsync(sourcePath: sourcePath, destinationPath: destinationPath);
-                success = true;
-                if (home)
-                {
-                    tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
-                    tmrPlayerHome.Enabled = true;
-                    tmrPlayerHome.Start();
-                }
-                else
-                {
-                    tmrPlayerAway.Interval = Properties.Settings.Default.FlagDisplayDuration;
-                    tmrPlayerAway.Enabled = true;
-                    tmrPlayerAway.Start();
-                }
-            }
-            return success;
+            Common.ShowPlayer(true, (sender as Button).Text, obs: obs);
+            tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            tmrPlayerHome.Enabled = true;
+            tmrPlayerHome.Start();
         }
         private void TmrPlayerAway_Tick(object sender, EventArgs e)
         {
             tmrPlayerAway.Enabled = false;
-            HidePlayer(home: false);
+            Common.HidePlayer(home: false);
         }
         private void TmrPlayerHome_Tick(object sender, EventArgs e)
         {
             tmrPlayerHome.Enabled = false;
-            HidePlayer(home: true);
+            Common.HidePlayer(home: true);
+        }
+        private void FrmPlayerImages_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            obs.Disconnect();
         }
     }
 }

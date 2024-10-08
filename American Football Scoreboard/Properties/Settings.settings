@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DefaultPeriod" Type="System.String" Scope="User">
-      <Value Profile="(Default)">15:00</Value>
+      <Value Profile="(Default)">12:00</Value>
     </Setting>
     <Setting Name="DefaultPlayClock" Type="System.String" Scope="User">
       <Value Profile="(Default)">40</Value>
@@ -169,6 +169,15 @@
     </Setting>
     <Setting Name="HotKeyRedZone" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + W</Value>
+    </Setting>
+    <Setting Name="WebSocketPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4455</Value>
+    </Setting>
+    <Setting Name="WebSocketPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WebSocketServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
