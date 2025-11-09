@@ -131,7 +131,6 @@ namespace American_Football_Scoreboard
             bool videoFile = false;
             if (Properties.Settings.Default["PlayerImageFileType"].ToString().Equals("MP4", System.StringComparison.CurrentCultureIgnoreCase) || Properties.Settings.Default["PlayerImageFileType"].ToString().Equals("MOV", System.StringComparison.CurrentCultureIgnoreCase))
                 videoFile = true;
-            bool success = false;
             string destinationPath;
             string sourcePath;
             if (home)
@@ -144,15 +143,13 @@ namespace American_Football_Scoreboard
                 destinationPath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayer." + Properties.Settings.Default["PlayerImageFileType"]);
                 sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPlayers\\" + jersey + "." + Properties.Settings.Default["PlayerImageFileType"]);
             }
-            /*
-            if (!File.Exists(sourcePath))
+            bool success = true;
+            try
             {
-                MessageBox.Show(text: "Image not found.", caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-            }
-            else
-            */
-            {
-                CopyFile(sourcePath: sourcePath, destinationPath: destinationPath);
+                if (File.Exists(sourcePath))
+                {
+                    CopyFile(sourcePath: sourcePath, destinationPath: destinationPath);
+                }
                 success = ReadPlayerFromDatabase(home: home, number: int.Parse(jersey), out string height, out string homeTown, out string name, out string position, out string weight, out string year);
                 if (home)
                 {
@@ -180,6 +177,10 @@ namespace American_Football_Scoreboard
                     c.ShowPlayerVideo(obs, destinationPath);
                 }
             }
+            catch
+            {
+                success = false;
+            }
             return success;
         }
         private void ShowPlayerVideo(OBSWebsocket obs, string destinationPath)
@@ -189,7 +190,7 @@ namespace American_Football_Scoreboard
             PlayerVideoTimer.Interval = 500;
             PlayerVideoTimer.Elapsed += new ElapsedEventHandler(PlayerVideoTimer_Elapsed);
             if (!obs.IsConnected)
-                obs.ConnectAsync("ws://" + Settings.Default.WebSocketServer, Settings.Default.WebSocketPassword);
+                obs.ConnectAsync("ws://" + Settings.Default.ObsWebSocketServer, Settings.Default.ObsWebSocketPassword);
             if (obs.IsConnected)
             {
                 var inputSettings = new JObject();

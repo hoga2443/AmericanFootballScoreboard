@@ -12,7 +12,7 @@ namespace American_Football_Scoreboard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -698,36 +698,48 @@ namespace American_Football_Scoreboard.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4455")]
-        public string WebSocketPort {
+        public string ObsWebSocketPort {
             get {
-                return ((string)(this["WebSocketPort"]));
+                return ((string)(this["ObsWebSocketPort"]));
             }
             set {
-                this["WebSocketPort"] = value;
+                this["ObsWebSocketPort"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WebSocketPassword {
+        public string ObsWebSocketPassword {
             get {
-                return ((string)(this["WebSocketPassword"]));
+                return ((string)(this["ObsWebSocketPassword"]));
             }
             set {
-                this["WebSocketPassword"] = value;
+                this["ObsWebSocketPassword"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WebSocketServer {
+        public string ObsWebSocketServer {
             get {
-                return ((string)(this["WebSocketServer"]));
+                return ((string)(this["ObsWebSocketServer"]));
             }
             set {
-                this["WebSocketServer"] = value;
+                this["ObsWebSocketServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8090")]
+        public string HttpListenerPort {
+            get {
+                return ((string)(this["HttpListenerPort"]));
+            }
+            set {
+                this["HttpListenerPort"] = value;
             }
         }
     }

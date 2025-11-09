@@ -170,14 +170,17 @@
     <Setting Name="HotKeyRedZone" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + W</Value>
     </Setting>
-    <Setting Name="WebSocketPort" Type="System.String" Scope="User">
+    <Setting Name="ObsWebSocketPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">4455</Value>
     </Setting>
-    <Setting Name="WebSocketPassword" Type="System.String" Scope="User">
+    <Setting Name="ObsWebSocketPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WebSocketServer" Type="System.String" Scope="User">
+    <Setting Name="ObsWebSocketServer" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HttpListenerPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8090</Value>
     </Setting>
   </Settings>
 </SettingsFile>

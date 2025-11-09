@@ -1,10 +1,14 @@
-﻿using OBSWebsocketDotNet;
+﻿using EmbedIO;
+using EmbedIO.Actions;
+using EmbedIO.Routing;
+using EmbedIO.WebApi;
+using OBSWebsocketDotNet;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;
@@ -13,6 +17,8 @@ namespace American_Football_Scoreboard
     public partial class FrmMain : Form
     {
         protected OBSWebsocket obs;
+        private static readonly HttpListener Listener = new();
+        const string awayPenaltyType = "AwayPenaltyType.txt";
         const string awayPeriodScoreFirst = "AwayPeriodScoreFirst.txt";
         const string awayPeriodScoreSecond = "AwayPeriodScoreSecond.txt";
         const string awayPeriodScoreThird = "AwayPeriodScoreThird.txt";
@@ -21,10 +27,13 @@ namespace American_Football_Scoreboard
         const string awayTeamNameFile = "AwayTeamName.txt";
         const string awayTeamScoreFile = "AwayTeamScore.txt";
         const string awayTimeoutsRemainingFile = "AwayTimeoutsRemaining.txt";
+        private Period currentPeriod = Period.Unknown;
         const string distanceFile = "Distance.txt";
         const string downFile = "Down.txt";
         const string downDistanceFile = "DownDistance.txt";
         const string gameClockFile = "GameClock.txt";
+        private bool gameClockRunning = false;
+        const string homePenaltyType = "HomePenaltyType.txt";
         const string homePeriodScoreFirst = "HomePeriodScoreFirst.txt";
         const string homePeriodScoreSecond = "HomePeriodScoreSecond.txt";
         const string homePeriodScoreThird = "HomePeriodScoreThird.txt";
@@ -33,23 +42,243 @@ namespace American_Football_Scoreboard
         const string homeTeamNameFile = "HomeTeamName.txt";
         const string homeTeamScoreFile = "HomeTeamScore.txt";
         const string homeTimeoutsRemainingFile = "HomeTimeoutsRemaining.txt";
+        public class MyApiController : WebApiController
+        {
+            FrmMain frmMain = (FrmMain)Application.OpenForms["FrmMain"];
+            // GET /api/AwayFieldGoal
+            [Route(HttpVerbs.Get, "/AwayFieldGoal")]
+            public string AwayFieldGoal()
+            {
+                frmMain.ButAwayFieldGoal_Event();
+                return "AwayFieldGoal";
+            }
+            // GET /api/AwayPatKick
+            [Route(HttpVerbs.Get, "/AwayPatKick")]
+            public string AwayPatKick()
+            {
+                frmMain.ButAwayPatKick_Event();
+                return "AwayPatKick";
+            }
+            // GET /api/AwayPatConversion
+            [Route(HttpVerbs.Get, "/AwayPatConversion")]
+            public string AwayPatConversion()
+            {
+                frmMain.ButAwayPatConversion_Event();
+                return "AwayPatConversion";
+            }
+            // GET /api/AwayPossession
+            [Route(HttpVerbs.Get, "/AwayPossession")]
+            public string AwayPossession()
+            {
+                frmMain.AwayPossession_Event();
+                return "AwayPossession";
+            }
+            // GET /api/AwaySafety
+            [Route(HttpVerbs.Get, "/AwaySafety")]
+            public string AwaySafety()
+            {
+                frmMain.ButAwaySafety_Event();
+                return "AwaySafety";
+            }
+            // GET /api/AwayTouchdown
+            [Route(HttpVerbs.Get, "/AwayTouchdown")]
+            public string AwayTouchdown()
+            {
+                frmMain.ButAwayTouchdown_Event();
+                return "AwayTouchdown";
+            }
+            // GET /api/AwayTimeoutAdd
+            [Route(HttpVerbs.Get, "/AwayTimeoutAdd")]
+            public string AwayTimeoutAdd()
+            {
+                frmMain.ButAwayTimeoutsAdd_Event();
+                return "AwayTimeoutAdd";
+            }
+            // GET /api/AwayTimeoutSubtract
+            [Route(HttpVerbs.Get, "/AwayTimeoutSubtract")]
+            public string AwayTimeoutSubtract()
+            {
+                frmMain.ButAwayTimeoutsSubtract_Event();
+                return "AwayTimeoutSubtract";
+            }
+            // GET /api/DownBlank
+            [Route(HttpVerbs.Get, "/DownBlank")]
+            public string DownBlank()
+            {
+                frmMain.RbDownBlank_Event();
+                return "DownBlank";
+            }
+            // GET /api/DownOne
+            [Route(HttpVerbs.Get, "/DownOne")]
+            public string DownOne()
+            {
+                frmMain.RbDownOne_Event();
+                return "DownOne";
+            }
+            // GET /api/DownTwo
+            [Route(HttpVerbs.Get, "/DownTwo")]
+            public string DownTwo()
+            {
+                frmMain.RbDownTwo_Event();
+                return "DownTwo";
+            }
+            // GET /api/DownThree
+            [Route(HttpVerbs.Get, "/DownThree")]
+            public string DownThree()
+            {
+                frmMain.RbDownThree_Event();
+                return "DownThree";
+            }
+            // GET /api/DownFour
+            [Route(HttpVerbs.Get, "/DownFour")]
+            public string DownFour()
+            {
+                frmMain.RbDownFour_Event();
+                return "DownFour";
+            }
+            // GET /api/DownNext
+            [Route(HttpVerbs.Get, "/DownNext")]
+            public string DownNext()
+            {
+                frmMain.NextDown();
+                return "DownNext";
+            }
+            // GET /api/Flag
+            [Route(HttpVerbs.Get, "/Flag")]
+            public string ChkFlagChecked_Event()
+            {
+                frmMain.NextDown();
+                return "Flag";
+            }
+            // GET /api/HomeFieldGoal
+            [Route(HttpVerbs.Get, "/HomeFieldGoal")]
+            public string HomeFieldGoal()
+            {
+                frmMain.ButHomeFieldGoal_Event();
+                return "HomeFieldGoal";
+            }
+            // GET /api/HomePatKick
+            [Route(HttpVerbs.Get, "/HomePatKick")]
+            public string HomePatKick()
+            {
+                frmMain.ButHomePatKick_Event();
+                return "HomePatKick";
+            }
+            // GET /api/HomePatConversion
+            [Route(HttpVerbs.Get, "/HomePatConversion")]
+            public string HomePatConversion()
+            {
+                frmMain.ButHomePatConversion_Event();
+                return "HomePatConversion";
+            }
+            // GET /api/HomePossession
+            [Route(HttpVerbs.Get, "/HomePossession")]
+            public string HomePossession()
+            {
+                frmMain.HomePossession_Event();
+                return "HomePossession";
+            }
+            // GET /api/HomeSafety
+            [Route(HttpVerbs.Get, "/HomeSafety")]
+            public string HomeSafety()
+            {
+                frmMain.ButHomeSafety_Event();
+                return "HomeSafety";
+            }
+            // GET /api/HomeTouchdown
+            [Route(HttpVerbs.Get, "/HomeTouchdown")]
+            public string HomeTouchdown()
+            {
+                frmMain.ButHomeTouchdown_Event();
+                return "HomeTouchdown";
+            }
+            // GET /api/HomeTimeoutAdd
+            [Route(HttpVerbs.Get, "/HomeTimeoutAdd")]
+            public string HomeTimeoutAdd()
+            {
+                frmMain.ButHomeTimeoutsAdd_Event();
+                return "HomeTimeoutAdd";
+            }
+            // GET /api/HomeTimeoutSubtract
+            [Route(HttpVerbs.Get, "/HomeTimeoutSubtract")]
+            public string HomeTimeoutSubtract()
+            {
+                frmMain.ButHomeTimeoutsSubtract_Event();
+                return "HomeTimeoutSubtract";
+            }
+            // GET /api/PeriodOne
+            [Route(HttpVerbs.Get, "/PeriodOne")]
+            public string PeriodOne()
+            {
+                frmMain.RbPeriodOne_Event();
+                return "PeriodOne";
+            }
+            // GET /api/PeriodTwo
+            [Route(HttpVerbs.Get, "/PeriodTwo")]
+            public string PeriodTwo()
+            {
+                frmMain.RbPeriodTwo_Event();
+                return "PeriodTwo";
+            }
+            // GET /api/PeriodHalf
+            [Route(HttpVerbs.Get, "/PeriodHalf")]
+            public string PeriodHalf()
+            {
+                frmMain.RbPeriodHalf_Event();
+                return "PeriodHalf";
+            }
+            // GET /api/PeriodThree
+            [Route(HttpVerbs.Get, "/PeriodThree")]
+            public string PeriodThree()
+            {
+                frmMain.RbPeriodThree_Event();
+                return "PeriodThree";
+            }
+            // GET /api/PeriodFour
+            [Route(HttpVerbs.Get, "/PeriodFour")]
+            public string PeriodFour()
+            {
+                frmMain.RbPeriodFour_Event();
+                return "PeriodFour";
+            }
+            // GET /api/PeriodOT
+            [Route(HttpVerbs.Get, "/PeriodOT")]
+            public string PeriodOT()
+            {
+                frmMain.RbPeriodOT_Event();
+                return "PeriodOT";
+            }
+            // GET /api/PeriodFinal
+            [Route(HttpVerbs.Get, "/PeriodFinal")]
+            public string PeriodFinal()
+            {
+                frmMain.RbPeriodFinal_Event();
+                return "PeriodFinal";
+            }
+            // GET /api/PeriodNext
+            [Route(HttpVerbs.Get, "/PeriodNext")]
+            public string PeriodNext()
+            {
+                frmMain.NextPeriod();
+                return "PeriodNext";
+            }
+        }
+        private readonly TimeSpan oneMinute = new(hours: 0, minutes: 1, seconds: 0);
+        const char padZero = '0';
         const string penaltyType = "PenaltyType.txt";
+        private enum Period { One, Two, Half, Three, Four, OT, Final, Unknown };
         const string periodFile = "Period.txt";
         const string playClockFile = "PlayClock.txt";
         const string scoreDescription = "ScoreDescription.txt";
         const string spotFile = "Spot.txt";
         const string supplementalFile = "Supplemental.txt";
-        const char padZero = '0';
-        private bool gameClockRunning = false;
         private DateTime periodClockEnd = DateTime.UtcNow;
         private TimeSpan periodTimeRemaining = new(hours: 0, minutes: 0, seconds: 0);
         private bool playClockRunning = false;
         private DateTime playTimeEnd = DateTime.UtcNow;
         private TimeSpan playTimeRemaining = new(hours: 0, minutes: 0, seconds: 0);
-        private readonly TimeSpan oneMinute = new(hours: 0, minutes: 1, seconds: 0);
-        private enum Period { One, Two, Half, Three, Four, OT, Final, Unknown };
-        private Period currentPeriod = Period.Unknown;
         private enum Score { FieldGoal, PatKick, PatConversion, Safety, Touchdown };
+        public WebServer server;
         public FrmMain()
         {
             InitializeComponent();
@@ -64,38 +293,8 @@ namespace American_Football_Scoreboard
             this.WindowState = FormWindowState.Normal;
             PopulateImageButtonsAway();
             PopulateImageButtonsHome();
-        }
-        private void ObsConnect()
-        {
-            if (!obs.IsConnected)
-            {
-                System.Threading.Tasks.Task.Run(() =>
-                {
-                    try
-                    {
-                        obs.ConnectAsync("ws://127.0.0.1:" + Properties.Settings.Default.WebSocketPort, Properties.Settings.Default.WebSocketPassword);
-                    }
-                    catch (Exception ex)
-                    {
-                        BeginInvoke((MethodInvoker)delegate
-                        {
-                            MessageBox.Show("Connect failed : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
-                        });
-                    }
-                });
-            }
-            else
-            {
-                obs.Disconnect();
-            }
-        }
-        private void OnConnect(object sender, EventArgs e)
-        {
-            _ = BeginInvoke((MethodInvoker)(() =>
-            {
-                //
-            }));
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.HttpListenerPort))
+                StartHttpListener();
         }
         private void AddScore(bool home, TextBox textBox, int points, string message = "")
         {
@@ -195,7 +394,7 @@ namespace American_Football_Scoreboard
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(fileName: assembly.Location);
             this.Text += $" v.{versionInfo.FileVersion}";
             */
-            this.Text += $" v.3.0.0";
+            this.Text += $" v.3.0.1";
         }
         private void AdvanceQuarter()
         {
@@ -221,21 +420,63 @@ namespace American_Football_Scoreboard
         }
         private void ButAwayFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.FieldGoal);
-            WriteScore(text: "Field Goal");
-            WriteScoreImage(score: Score.FieldGoal);
+            ButAwayFieldGoal_Event();
         }
-        private void ButAwayPatConversion_Click(object sender, EventArgs e)
+        private void ButAwayFieldGoal_Event()
         {
-            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatConversion);
-            WriteScore(text: "Conversion");
-            WriteScoreImage(score: Score.PatConversion);
+            if (txtAwayScore.InvokeRequired)
+            {
+                txtAwayScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayFieldGoal_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.FieldGoal);
+                WriteScore(text: "Field Goal");
+                WriteScoreImage(score: Score.FieldGoal);
+            }
         }
-        private void ButAwayPatKick_Click(object sender, EventArgs e)
+        public void ButAwayPatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatKick);
-            WriteScore(text: "PAT");
-            WriteScoreImage(score: Score.PatKick);
+            ButAwayPatConversion_Event();
+        }
+        public void ButAwayPatConversion_Event()
+        {
+            if (txtAwayScore.InvokeRequired)
+            {
+                txtAwayScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayPatConversion_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatConversion);
+                WriteScore(text: "Conversion");
+                WriteScoreImage(score: Score.PatConversion);
+            }
+        }
+        public void ButAwayPatKick_Click(object sender, EventArgs e)
+        {
+            ButAwayPatKick_Event();
+        }
+        public void ButAwayPatKick_Event()
+        {
+            if (txtAwayScore.InvokeRequired)
+            {
+                txtAwayScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayPatKick_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.PatKick);
+                WriteScore(text: "PAT");
+                WriteScoreImage(score: Score.PatKick);
+            }
         }
         private void ButAwayPlayerShow_Click(object sender, EventArgs e)
         {
@@ -246,25 +487,77 @@ namespace American_Football_Scoreboard
         }
         private void ButAwaySafety_Click(object sender, EventArgs e)
         {
-            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Safety);
-            WriteScore(text: "Safety");
-            WriteScoreImage(score: Score.Safety);
+            ButAwaySafety_Event();
+        }
+        public void ButAwaySafety_Event()
+        {
+            if (txtAwayScore.InvokeRequired)
+            {
+                txtAwayScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwaySafety_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Safety);
+                WriteScore(text: "Safety");
+                WriteScoreImage(score: Score.Safety);
+            }
         }
         private void ButAwayTimeoutsAdd_Click(object sender, EventArgs e)
         {
-            AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: 1);
+            ButAwayTimeoutsAdd_Event();
+        }
+        public void ButAwayTimeoutsAdd_Event()
+        {
+            if (txtAwayTimeouts.InvokeRequired)
+            {
+                txtAwayTimeouts.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayTimeoutsAdd_Event();
+                }));
+            }
+            else
+                AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: 1);
         }
         private void ButAwayTimeoutsSubtract_Click(object sender, EventArgs e)
         {
-            AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: -1);
+            ButAwayTimeoutsSubtract_Event();
+        }
+        public void ButAwayTimeoutsSubtract_Event()
+        {
+            if (txtAwayTimeouts.InvokeRequired)
+            {
+                txtAwayTimeouts.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayTimeoutsSubtract_Event();
+                }));
+            }
+            else
+                AddTimeout(control: txtAwayTimeouts, timeoutsToAdd: -1);
         }
         private void ButAwayTouchdown_Click(object sender, EventArgs e)
         {
-            AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Touchdown);
-            WriteScore(text: "Touchdown");
-            WriteScoreImage(score: Score.Touchdown);
+            ButAwayTouchdown_Event();
         }
-        private void ButClearAll_Click(object sender, EventArgs e)
+        public void ButAwayTouchdown_Event()
+        {
+            if (txtAwayScore.InvokeRequired)
+            {
+                txtAwayScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButAwayTouchdown_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: false, textBox: txtAwayScore, points: Properties.Settings.Default.Touchdown);
+                WriteScore(text: "Touchdown");
+                WriteScoreImage(score: Score.Touchdown);
+            }
+        }
+        public void ButClearAll_Click(object sender, EventArgs e)
         {
             ClearAway();
             ClearClocks();
@@ -272,70 +565,112 @@ namespace American_Football_Scoreboard
             ClearHome();
             ClearPeriod();
         }
-        private void ButClearAway_Click(object sender, EventArgs e)
+        public void ButClearAway_Click(object sender, EventArgs e)
         {
             ClearAway();
         }
-        private void ButClearClocks_Click(object sender, EventArgs e)
+        public void ButClearClocks_Click(object sender, EventArgs e)
         {
             ClearClocks();
         }
-        private void ButClearDown_Click(object sender, EventArgs e)
+        public void ButClearDown_Click(object sender, EventArgs e)
         {
             ClearDown();
         }
-        private void ButClearHome_Click(object sender, EventArgs e)
+        public void ButClearHome_Click(object sender, EventArgs e)
         {
             ClearHome();
         }
-        private void ButClearPeriod_Click(object sender, EventArgs e)
+        public void ButClearPeriod_Click(object sender, EventArgs e)
         {
             ClearPeriod();
         }
-        private void ButClearPlay_Click(object sender, EventArgs e)
+        public void ButClearPlay_Click(object sender, EventArgs e)
         {
             playClockRunning = false;
             txtPlayClock.Text = string.Empty;
             _ = Common.WriteFileAsync(file: playClockFile, content: txtPlayClock.Text);
             butStartStopPlayClock.Text = "Start Play Clock";
         }
-        private void ButDistanceGoal_Click(object sender, EventArgs e)
+        public void ButDistanceGoal_Click(object sender, EventArgs e)
         {
             txtDistance.Text = Properties.Settings.Default["GoalText"].ToString();
         }
-        private void ButGameAdd1_Click(object sender, EventArgs e)
+        public void ButGameAdd1_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: 1);
         }
-        private void ButGameAdd10_Click(object sender, EventArgs e)
+        public void ButGameAdd10_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: 10);
         }
-        private void ButGameSubtract1_Click(object sender, EventArgs e)
+        public void ButGameSubtract1_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: -1);
         }
-        private void ButGameSubtract10_Click(object sender, EventArgs e)
+        public void ButGameSubtract10_Click(object sender, EventArgs e)
         {
             AddGameTime(seconds: -10);
         }
-        private void ButHomeFieldGoal_Click(object sender, EventArgs e)
+        public void ButHomeFieldGoal_Click(object sender, EventArgs e)
         {
-            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.FieldGoal);
-            WriteScore(text: "Field Goal");
-            WriteScoreImage(score: Score.FieldGoal);
+            ButHomeFieldGoal_Event();
         }
-        private void ButHomePatConversion_Click(object sender, EventArgs e)
+        public void ButHomeFieldGoal_Event()
         {
-            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatConversion);
-            WriteScore(text: "Conversion");
-            WriteScoreImage(score: Score.PatConversion);
+            if (txtHomeScore.InvokeRequired)
+            {
+                txtHomeScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomeFieldGoal_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.FieldGoal);
+                WriteScore(text: "Field Goal");
+                WriteScoreImage(score: Score.FieldGoal);
+            }
         }
-        private void ButHomePatKick_Click(object sender, EventArgs e)
+        public void ButHomePatConversion_Click(object sender, EventArgs e)
         {
-            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatKick);
-            WriteScore(text: "PAT");
-            WriteScoreImage(score: Score.PatKick);
+            ButHomePatConversion_Event();
+        }
+        public void ButHomePatConversion_Event()
+        {
+            if (txtHomeScore.InvokeRequired)
+            {
+                txtHomeScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomePatConversion_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatConversion);
+                WriteScore(text: "Conversion");
+                WriteScoreImage(score: Score.PatConversion);
+            }
+        }
+        public void ButHomePatKick_Click(object sender, EventArgs e)
+        {
+            ButHomePatKick_Event();
+        }
+        public void ButHomePatKick_Event()
+        {
+            if (txtHomeScore.InvokeRequired)
+            {
+                txtHomeScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomePatKick_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.PatKick);
+                WriteScore(text: "PAT");
+                WriteScoreImage(score: Score.PatKick);
+            }
         }
         private void ButHomePlayerShow_Click(object sender, EventArgs e)
         {
@@ -346,39 +681,96 @@ namespace American_Football_Scoreboard
         }
         private void ButHomeSafety_Click(object sender, EventArgs e)
         {
-            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Safety);
-            WriteScore(text: "Safety");
-            WriteScoreImage(score: Score.Safety);
+            ButHomeSafety_Event();
+        }
+        public void ButHomeSafety_Event()
+        {
+            if (txtHomeScore.InvokeRequired)
+            {
+                txtHomeScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomeSafety_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Safety);
+                WriteScore(text: "Safety");
+                WriteScoreImage(score: Score.Safety);
+            }
         }
         private void ButHomeTimeoutsAdd_Click(object sender, EventArgs e)
         {
-            AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: 1);
+            ButHomeTimeoutsAdd_Event();
+        }
+        public void ButHomeTimeoutsAdd_Event()
+        {
+            if (txtHomeTimeouts.InvokeRequired)
+            {
+                txtHomeTimeouts.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomeTimeoutsAdd_Event();
+                }));
+            }
+            else
+            {
+                AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: 1);
+            }
         }
         private void ButHomeTimeoutsSubtract_Click(object sender, EventArgs e)
         {
-            AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
+            ButHomeTimeoutsSubtract_Event();
+        }
+        public void ButHomeTimeoutsSubtract_Event()
+        {
+            if (txtHomeTimeouts.InvokeRequired)
+            {
+                txtHomeTimeouts.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomeTimeoutsSubtract_Event();
+                }));
+            }
+            else
+            {
+                AddTimeout(control: txtHomeTimeouts, timeoutsToAdd: -1);
+            }
         }
         private void ButHomeTouchdown_Click(object sender, EventArgs e)
         {
-            AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
-            WriteScore(text: "Touchdown");
-            WriteScoreImage(score: Score.Touchdown);
+            ButHomeTouchdown_Event();
         }
-        private void ButNewDefaultPlay_Click(object sender, EventArgs e)
+        public bool ButHomeTouchdown_Event()
+        {
+            if (txtHomeScore.InvokeRequired)
+            {
+                txtHomeScore.Invoke(new MethodInvoker(delegate
+                {
+                    ButHomeTouchdown_Event();
+                }));
+            }
+            else
+            {
+                AddScore(home: true, textBox: txtHomeScore, points: Properties.Settings.Default.Touchdown);
+                WriteScore(text: "Touchdown");
+                WriteScoreImage(score: Score.Touchdown);
+            }
+            return true;
+        }
+        public void ButNewDefaultPlay_Click(object sender, EventArgs e)
         {
             SetPlayClock(duration: Properties.Settings.Default.DefaultPlayClock, start: true);
         }
-        private void ButNewShortPlay_Click(object sender, EventArgs e)
+        public void ButNewShortPlay_Click(object sender, EventArgs e)
         {
             SetPlayClock(duration: Properties.Settings.Default.ShortPlayClock, start: true);
         }
-        private void ButOutputFolder_Click(object sender, EventArgs e)
+        public void ButOutputFolder_Click(object sender, EventArgs e)
         {
             DialogResult result = fbdOutput.ShowDialog();
             if (result == DialogResult.OK)
                 txtOutputFolder.Text = fbdOutput.SelectedPath;
         }
-        private void ButSaveHotKey_Click(object sender, EventArgs e)
+        public void ButSaveHotKey_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["HotKeyAwayFieldGoal"] = txtHotKeyAwayFieldGoal.Text;
             Properties.Settings.Default["HotKeyAwayPatConversion"] = txtHotKeyAwayPatConversion.Text;
@@ -403,6 +795,7 @@ namespace American_Football_Scoreboard
             Properties.Settings.Default["HotKeyNextDown"] = txtHotKeyNextDown.Text;
             Properties.Settings.Default["HotKeyNextPeriod"] = txtHotKeyNextPeriod.Text;
             Properties.Settings.Default["HotKeyPossession"] = txtHotKeyPossession.Text;
+            Properties.Settings.Default["HotKeyRedZone"] = txtHotKeyRedZone.Text;
             Properties.Settings.Default["HotKeyStartStopGameClock"] = txtHotKeyStartStopGameClock.Text;
             Properties.Settings.Default["HotKeyStartStopPlayClock"] = txtHotKeyStartStopPlayClock.Text;
             Properties.Settings.Default.Save();
@@ -413,7 +806,7 @@ namespace American_Football_Scoreboard
                 Environment.Exit(exitCode: 0);
             }
         }
-        private void ButSaveSettings_Click(object sender, EventArgs e)
+        public void ButSaveSettings_Click(object sender, EventArgs e)
         {
             string errorMessage = String.Empty;
             if (!ValidTime(txtPeriodDuration.Text))
@@ -467,9 +860,10 @@ namespace American_Football_Scoreboard
                 Properties.Settings.Default["SubSecond"] = chkSubSecond.Checked;
                 Properties.Settings.Default["TimeoutsPerHalf"] = txtTimeoutsPerHalf.Text;
                 Properties.Settings.Default["Touchdown"] = patTouchdownPoints;
-                Properties.Settings.Default["WebSocketPort"] = txtWebSocketPort.Text;
-                Properties.Settings.Default["WebSocketPassword"] = txtWebSocketPassword.Text;
-                Properties.Settings.Default["WebSocketServer"] = txtWebSocketServer.Text;
+                Properties.Settings.Default["ObsWebSocketPort"] = txtWebSocketPort.Text;
+                Properties.Settings.Default["ObsWebSocketPassword"] = txtWebSocketPassword.Text;
+                Properties.Settings.Default["ObsWebSocketServer"] = txtWebSocketServer.Text;
+                Properties.Settings.Default["HttpListenerPort"] = txtHttpListenerPort.Text;
                 Properties.Settings.Default.Save();
                 tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 tmrClockRefresh.Interval = Properties.Settings.Default.RefreshInterval;
@@ -482,12 +876,12 @@ namespace American_Football_Scoreboard
                 MessageBox.Show(text: errorMessage.Trim(), caption: "AFS", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
             InitializeDatabase();
         }
-        private void ButSendSupplemental_Click(object sender, EventArgs e)
+        public void ButSendSupplemental_Click(object sender, EventArgs e)
         {
             rbMessageClear.Checked = false;
             SendSupplemental();
         }
-        private void ButStartStopGameClock_Click(object sender, EventArgs e)
+        public void ButStartStopGameClock_Click(object sender, EventArgs e)
         {
             if (gameClockRunning)
             {
@@ -507,7 +901,7 @@ namespace American_Football_Scoreboard
             gameClockRunning = !gameClockRunning;
             tmrClockRefresh.Enabled = gameClockRunning;
         }
-        private void ButStartStopPlayClock_Click(object sender, EventArgs e)
+        public void ButStartStopPlayClock_Click(object sender, EventArgs e)
         {
             if (playClockRunning)
             {
@@ -574,26 +968,68 @@ namespace American_Football_Scoreboard
         private void ChkAwayPossession_CheckedChanged(object sender, EventArgs e)
         {
             if (chkAwayPossession.Checked)
+                AwayPossession_Event();
+            else
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPossession.png"));
+        }
+        public void AwayPossession_Event()
+        {
+            if (chkAwayPossession.InvokeRequired)
             {
+                chkAwayPossession.Invoke(new MethodInvoker(delegate
+                {
+                    AwayPossession_Event();
+                }));
+            }
+            else
+            {
+                if (!chkAwayPossession.Checked)
+                    chkAwayPossession.Checked = true;
                 chkHomePossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\AwayPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPossession.png"));
                 if (Properties.Settings.Default.PossessionChangeFirstDown)
                     rbDownOne.Checked = true;
             }
-            else
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "AwayPossession.png"));
         }
         private void ChkFlag_CheckedChanged(object sender, EventArgs e)
         {
             if (chkFlag.Checked)
+                ChkFlagChecked_Event();
+            else
+                ChkFlagUnchecked_Event();
+        }
+        public void ChkFlagChecked_Event()
+        {
+            if (chkFlag.InvokeRequired)
             {
+                chkFlag.Invoke(new MethodInvoker(delegate
+                {
+                    ChkFlagChecked_Event();
+                }));
+            }
+            else
+            {
+                if (!chkFlag.Checked)
+                    chkFlag.Checked = true;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Flag\\Flag.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Flag.png"));
                 tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
                 tmrFlag.Enabled = true;
                 tmrFlag.Start();
             }
+        }
+        public void ChkFlagUnchecked_Event()
+        {
+            if (chkFlag.InvokeRequired)
+            {
+                chkFlag.Invoke(new MethodInvoker(delegate
+                {
+                    ChkFlagUnchecked_Event();
+                }));
+            }
             else
             {
+                if (chkFlag.Checked)
+                    chkFlag.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Flag\\NoFlag.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Flag.png"));
                 tmrFlag.Stop();
                 tmrFlag.Enabled = false;
@@ -602,14 +1038,28 @@ namespace American_Football_Scoreboard
         private void ChkHomePossession_CheckedChanged(object sender, EventArgs e)
         {
             if (chkHomePossession.Checked)
+                HomePossession_Event();
+            else
+                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
+        }
+        public void HomePossession_Event()
+        {
+            if (chkHomePossession.InvokeRequired)
             {
+                chkHomePossession.Invoke(new MethodInvoker(delegate
+                {
+                    HomePossession_Event();
+                }));
+            }
+            else
+            {
+                if (!chkHomePossession.Checked)
+                    chkHomePossession.Checked = true;
                 chkAwayPossession.Checked = false;
                 _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\HomePossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
                 if (Properties.Settings.Default.PossessionChangeFirstDown)
                     rbDownOne.Checked = true;
             }
-            else
-                _ = CopyFileAsync(sourcePath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "Possession\\NonPossession.png"), destinationPath: Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: "HomePossession.png"));
         }
         private void ChkRed_CheckedChanged(object sender, EventArgs e)
         {
@@ -700,6 +1150,18 @@ namespace American_Football_Scoreboard
             using Stream destination = File.Create(path: destinationPath);
             await source.CopyToAsync(destination: destination);
         }
+        private static WebServer CreateWebServer(string url)
+        {
+            return new WebServer(o => o
+                .WithUrlPrefix(url)
+                .WithMode(HttpListenerMode.EmbedIO))
+                .WithWebApi("/api", m => m.WithController<MyApiController>())
+                .WithModule(new ActionModule("/", HttpVerbs.Get, ctx =>
+                {
+                    ctx.Response.ContentType = "text/plain";
+                    return ctx.SendStringAsync("Root endpoint", "text/plain", System.Text.Encoding.UTF8);
+                }));
+        }
         private void DecrementGameClock()
         {
             periodTimeRemaining = periodClockEnd - DateTime.UtcNow;
@@ -754,6 +1216,26 @@ namespace American_Football_Scoreboard
             txtDistance.GotFocus += TxtDistance_OnFocus;
             txtSpot.Click += TxtSpot_OnFocus;
             txtSpot.GotFocus += TxtSpot_OnFocus;
+        }
+        private async Task HttpListenAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    // Wait for an incoming request
+                    var context = await Listener.GetContextAsync();
+                    Console.WriteLine("Client connected");
+                    // Process the request in a separate task
+                    _ = Task.Run(() => ProcessHttpRequest(context));
+                }
+                catch (HttpListenerException ex) when (ex.ErrorCode == 995)
+                {
+                    // Handle listener shutdown gracefully
+                    // Console.WriteLine("Listener stopped.");
+                    break;
+                }
+            }
         }
         private void HomeTimeoutsSubtract()
         {
@@ -908,9 +1390,10 @@ namespace American_Football_Scoreboard
             txtSettingTouchdown.Text = Properties.Settings.Default.Touchdown.ToString();
             lstPlayerImageFileType.Text = Properties.Settings.Default.PlayerImageFileType.ToString();
             chkSettingFirstDown.Checked = Properties.Settings.Default.PossessionChangeFirstDown;
-            txtWebSocketPort.Text = Properties.Settings.Default.WebSocketPort;
-            txtWebSocketPassword.Text = Properties.Settings.Default.WebSocketPassword;
-            txtWebSocketServer.Text = Properties.Settings.Default.WebSocketServer;
+            txtWebSocketPort.Text = Properties.Settings.Default.ObsWebSocketPort;
+            txtWebSocketPassword.Text = Properties.Settings.Default.ObsWebSocketPassword;
+            txtWebSocketServer.Text = Properties.Settings.Default.ObsWebSocketServer;
+            txtHttpListenerPort.Text = Properties.Settings.Default.HttpListenerPort;
             this.TopMost = Properties.Settings.Default.AlwaysOnTop;
         }
         private void LoadHotKeySettings()
@@ -940,6 +1423,7 @@ namespace American_Football_Scoreboard
             txtHotKeyNextDown.Text = Properties.Settings.Default.HotKeyNextDown;
             txtHotKeyNextPeriod.Text = Properties.Settings.Default.HotKeyNextPeriod;
             txtHotKeyPossession.Text = Properties.Settings.Default.HotKeyPossession;
+            txtHotKeyRedZone.Text = Properties.Settings.Default.HotKeyRedZone;
             txtHotKeyStartStopGameClock.Text = Properties.Settings.Default.HotKeyStartStopGameClock;
             txtHotKeyStartStopPlayClock.Text = Properties.Settings.Default.HotKeyStartStopPlayClock;
         }
@@ -948,39 +1432,93 @@ namespace American_Football_Scoreboard
             LoadApplicationSettings();
             LoadHotKeySettings();
         }
-        private void NextDown()
+        public void NextDown()
         {
-            if (rbDownOne.Checked == true)
-                rbDownTwo.Checked = true;
-            else if (rbDownTwo.Checked == true)
-                rbDownThree.Checked = true;
-            else if (rbDownThree.Checked == true)
-                rbDownFour.Checked = true;
+            if (rbDownOne.InvokeRequired)
+            {
+                rbDownOne.Invoke(new MethodInvoker(delegate
+                {
+                    NextDown();
+                }));
+                return;
+            }
             else
             {
-                rbDownOne.Checked = true;
-                txtDistance.Text = "10";
+                if (rbDownOne.Checked == true)
+                    rbDownTwo.Checked = true;
+                else if (rbDownTwo.Checked == true)
+                    rbDownThree.Checked = true;
+                else if (rbDownThree.Checked == true)
+                    rbDownFour.Checked = true;
+                else
+                {
+                    rbDownOne.Checked = true;
+                    txtDistance.Text = "10";
+                }
             }
         }
-        private void NextPeriod()
+        public void NextPeriod()
         {
-            if (rbPeriodOne.Checked == true)
-                rbPeriodTwo.Checked = true;
-            else if (rbPeriodTwo.Checked == true)
-                rbPeriodHalf.Checked = true;
-            else if (rbPeriodHalf.Checked == true)
-                rbPeriodThree.Checked = true;
-            else if (rbPeriodThree.Checked == true)
-                rbPeriodFour.Checked = true;
-            else if (rbPeriodFour.Checked == true)
-                rbPeriodFinal.Checked = true;
-            else if (rbPeriodOT.Checked == true)
-                rbPeriodFinal.Checked = true;
+            if (rbPeriodOne.InvokeRequired)
+            {
+                rbPeriodOne.Invoke(new MethodInvoker(delegate
+                {
+                    NextPeriod();
+                }));
+                return;
+            }
             else
             {
-                rbPeriodOne.Checked = true;
-                txtDistance.Text = "10";
+                if (rbPeriodOne.Checked == true)
+                    rbPeriodTwo.Checked = true;
+                else if (rbPeriodTwo.Checked == true)
+                    rbPeriodHalf.Checked = true;
+                else if (rbPeriodHalf.Checked == true)
+                    rbPeriodThree.Checked = true;
+                else if (rbPeriodThree.Checked == true)
+                    rbPeriodFour.Checked = true;
+                else if (rbPeriodFour.Checked == true)
+                    rbPeriodFinal.Checked = true;
+                else if (rbPeriodOT.Checked == true)
+                    rbPeriodFinal.Checked = true;
+                else
+                {
+                    rbPeriodOne.Checked = true;
+                    txtDistance.Text = "10";
+                }
             }
+        }
+        private void ObsConnect()
+        {
+            if (!obs.IsConnected)
+            {
+                System.Threading.Tasks.Task.Run(() =>
+                {
+                    try
+                    {
+                        obs.ConnectAsync("ws://127.0.0.1:" + Properties.Settings.Default.ObsWebSocketPort, Properties.Settings.Default.ObsWebSocketPassword);
+                    }
+                    catch (Exception ex)
+                    {
+                        BeginInvoke((MethodInvoker)delegate
+                        {
+                            MessageBox.Show("Connect failed : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        });
+                    }
+                });
+            }
+            else
+            {
+                obs.Disconnect();
+            }
+        }
+        private void OnConnect(object sender, EventArgs e)
+        {
+            _ = BeginInvoke((MethodInvoker)(() =>
+            {
+                //
+            }));
         }
         public void PopulateImageButtonsAway()
         {
@@ -992,6 +1530,7 @@ namespace American_Football_Scoreboard
         }
         private static void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
         {
+            string sqLiteDatabase = Path.Combine(Properties.Settings.Default["OutputPath"].ToString(), "AmericanFootballScoreboard.sqlite3");
             string playerImageFileType = Properties.Settings.Default["PlayerImageFileType"].ToString().ToUpper();
             groupBox.Controls.Clear();
             string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
@@ -1008,6 +1547,23 @@ namespace American_Football_Scoreboard
                         {
                             numbers.Add(number);
                         }
+                    }
+                }
+                using SQLiteConnection sqLiteConnection = new(@"Data Source=" + sqLiteDatabase + ";Version=3;");
+                sqLiteConnection.Open();
+                string sql;
+                if (buttonPrefix == "butHome")
+                    sql = "SELECT Number, Name FROM players WHERE Home = 1";
+                else
+                    sql = "SELECT Number, Name FROM players WHERE Home = 0";
+                using (SQLiteCommand sQLiteCommand = new(sql, sqLiteConnection))
+                {
+                    using SQLiteDataReader reader = sQLiteCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int number = reader.GetInt32(0);
+                        if (!numbers.Contains(number))
+                            numbers.Add(number);
                     }
                 }
                 numbers.Sort((x, y) => x.CompareTo(y));
@@ -1034,9 +1590,103 @@ namespace American_Football_Scoreboard
                 }
             }
         }
+        private async Task ProcessHttpRequest(HttpListenerContext context)
+        {
+            try
+            {
+                // Get the data from the HTTP stream
+                var body = await new StreamReader(context.Request.InputStream).ReadToEndAsync();
+                HttpListenerRequest request = context.Request;
+                if (request.RawUrl.StartsWith("/AwayFieldgoal"))
+                    ButAwayFieldGoal_Event();
+                else if (request.RawUrl.StartsWith("/AwayPatKick"))
+                    ButAwayPatKick_Event();
+                else if (request.RawUrl.StartsWith("/AwayPatConversion"))
+                    ButAwayPatConversion_Event();
+                else if (request.RawUrl.StartsWith("/AwayPossession"))
+                    AwayPossession_Event();
+                else if (request.RawUrl.StartsWith("/AwaySafety"))
+                    ButAwaySafety_Event();
+                else if (request.RawUrl.StartsWith("/AwayTouchdown"))
+                    ButAwayTouchdown_Event();
+                else if (request.RawUrl.StartsWith("/AwayTimeoutAdd"))
+                    ButAwayTimeoutsAdd_Event();
+                else if (request.RawUrl.StartsWith("/AwayTimeoutSubtract"))
+                    ButAwayTimeoutsSubtract_Event();
+                else if (request.RawUrl.StartsWith("/DownBlank"))
+                    RbDownBlank_Event();
+                else if (request.RawUrl.StartsWith("/DownOne"))
+                    RbDownOne_Event();
+                else if (request.RawUrl.StartsWith("/DownTwo"))
+                    RbDownTwo_Event();
+                else if (request.RawUrl.StartsWith("/DownThree"))
+                    RbDownThree_Event();
+                else if (request.RawUrl.StartsWith("/DownFour"))
+                    RbDownFour_Event();
+                else if (request.RawUrl.StartsWith("/DownNext"))
+                    NextDown();
+                else if (request.RawUrl.StartsWith("/Flag"))
+                    ChkFlagChecked_Event();
+                else if (request.RawUrl.StartsWith("/HomeFieldgoal"))
+                    ButHomeFieldGoal_Event();
+                else if (request.RawUrl.StartsWith("/HomePatKick"))
+                    ButHomePatKick_Event();
+                else if (request.RawUrl.StartsWith("/HomePatConversion"))
+                    ButHomePatConversion_Event();
+                else if (request.RawUrl.StartsWith("/HomePossession"))
+                    HomePossession_Event();
+                else if (request.RawUrl.StartsWith("/HomeSafety"))
+                    ButHomeSafety_Event();
+                else if (request.RawUrl.StartsWith("/HomeTouchdown"))
+                    ButHomeTouchdown_Event();
+                else if (request.RawUrl.StartsWith("/HomeTimeoutAdd"))
+                    ButHomeTimeoutsAdd_Event();
+                else if (request.RawUrl.StartsWith("/HomeTimeoutSubtract"))
+                    ButHomeTimeoutsSubtract_Event();
+                else if (request.RawUrl.StartsWith("/PeriodOne"))
+                    RbPeriodOne_Event();
+                else if (request.RawUrl.StartsWith("/PeriodTwo"))
+                    RbPeriodTwo_Event();
+                else if (request.RawUrl.StartsWith("/PeriodHalf"))
+                    RbPeriodHalf_Event();
+                else if (request.RawUrl.StartsWith("/PeriodThree"))
+                    RbPeriodThree_Event();
+                else if (request.RawUrl.StartsWith("/PeriodFour"))
+                    RbPeriodFour_Event();
+                else if (request.RawUrl.StartsWith("/PeriodOT"))
+                    RbPeriodOT_Event();
+                else if (request.RawUrl.StartsWith("/PeriodFinal"))
+                    RbPeriodFinal_Event();
+                else if (request.RawUrl.StartsWith("/PeriodNext"))
+                    NextPeriod();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing request: {ex.Message}");
+            }
+            finally
+            {
+                // Ensure the response is closed
+                context.Response.OutputStream.Close();
+                context.Response.Close();
+            }
+        }
         private void RbDownBlank_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownBlank.Checked)
+                RbDownBlank_Event();
+        }
+        public void RbDownBlank_Event()
+        {
+            if (rbDownBlank.InvokeRequired)
+            {
+                rbDownBlank.Invoke(new MethodInvoker(delegate
+                {
+                    RbDownBlank_Event();
+                }));
+            }
+            else
             {
                 _ = Common.WriteFileAsync(file: downFile, content: string.Empty);
                 txtDistance.Text = string.Empty;
@@ -1045,27 +1695,92 @@ namespace American_Football_Scoreboard
         private void RbDownFour_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownFour.Checked)
+                RbDownFour_Event();
+        }
+        public void RbDownFour_Event()
+        {
+            if (txtDistance.InvokeRequired)
+            {
+                txtDistance.Invoke(new MethodInvoker(delegate
+                {
+                    RbDownFour_Event();
+                }));
+            }
+            else
+            {
+                if (!rbDownFour.Checked)
+                    rbDownFour.Checked = true;
                 _ = Common.WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down4);
+            }
             UpdateDownAndDistance();
         }
         private void RbDownOne_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownOne.Checked)
             {
+                RbDownOne_Event();
+            }
+        }
+        public void RbDownOne_Event()
+        {
+            if (txtDistance.InvokeRequired)
+            {
+                txtDistance.Invoke(new MethodInvoker(delegate
+                {
+                    RbDownOne_Event();
+                }));
+            }
+            else
+            {
+                if (!rbDownOne.Checked)
+                    rbDownOne.Checked = true;
                 _ = Common.WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down1);
                 txtDistance.Text = "10";
             }
+            UpdateDownAndDistance();
         }
         private void RbDownThree_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownThree.Checked)
+                RbDownThree_Event();
+        }
+        public void RbDownThree_Event()
+        {
+            if (txtDistance.InvokeRequired)
+            {
+                txtDistance.Invoke(new MethodInvoker(delegate
+                {
+                    RbDownThree_Event();
+                }));
+            }
+            else
+            {
+                if (!rbDownThree.Checked)
+                    rbDownThree.Checked = true;
                 _ = Common.WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down3);
+            }
             UpdateDownAndDistance();
         }
         private void RbDownTwo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbDownTwo.Checked)
+                RbDownTwo_Event();
+        }
+        public void RbDownTwo_Event()
+        {
+            if (txtDistance.InvokeRequired)
+            {
+                txtDistance.Invoke(new MethodInvoker(delegate
+                {
+                    RbDownTwo_Event();
+                }));
+            }
+            else
+            {
+                if (!rbDownTwo.Checked)
+                    rbDownTwo.Checked = true;
                 _ = Common.WriteFileAsync(file: downFile, content: Properties.Settings.Default.Down2);
+            }
             UpdateDownAndDistance();
         }
         private void RbMessageClear_CheckedChanged(object sender, EventArgs e)
@@ -1095,61 +1810,115 @@ namespace American_Football_Scoreboard
         private void RbPenalty_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rb = (RadioButton)sender;
-            WritePenaltyToFile(rb);
+            if (rb.Checked)
+            {
+                WritePenaltyToFile(rb);
+                tmrFlag.Enabled = true;
+                tmrFlag.Start();
+            }
         }
         private void RbPeriodFinal_CheckedChanged(object sender, EventArgs e)
         {
-            rbDownBlank.Checked = true;
-            txtAwayTimeouts.Text = "0";
-            txtHomeTimeouts.Text = "0";
-            txtDistance.Text = string.Empty;
-            txtSpot.Text = string.Empty;
-            chkAwayPossession.Checked = false;
-            chkHomePossession.Checked = false;
-            _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodFinal);
-            if (string.IsNullOrEmpty(txtPeriodAwayFourth.Text))
-                txtPeriodAwayFourth.Text = "0";
-            if (string.IsNullOrEmpty(txtPeriodHomeFourth.Text))
-                txtPeriodHomeFourth.Text = "0";
-            if (string.IsNullOrEmpty(txtPeriodAwayOT.Text))
-                txtPeriodAwayOT.Text = "0";
-            if (string.IsNullOrEmpty(txtPeriodHomeOT.Text))
-                txtPeriodHomeOT.Text = "0";
-            txtGameClock.Text = string.Empty;
-            tmrClockRefresh.Enabled = false;
-            playClockRunning = false;
-            gameClockRunning = false;
+            if (rbPeriodFinal.Checked)
+                RbPeriodFinal_Event();
+        }
+        public void RbPeriodFinal_Event()
+        {
+            if (rbPeriodFinal.InvokeRequired)
+            {
+                rbPeriodFinal.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodFinal_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodFinal.Checked)
+                    rbPeriodFinal.Checked = true;
+                rbDownBlank.Checked = true;
+                txtAwayTimeouts.Text = "0";
+                txtHomeTimeouts.Text = "0";
+                txtDistance.Text = string.Empty;
+                txtSpot.Text = string.Empty;
+                chkAwayPossession.Checked = false;
+                chkHomePossession.Checked = false;
+                _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodFinal);
+                currentPeriod = Period.Final;
+                if (string.IsNullOrEmpty(txtPeriodAwayFourth.Text))
+                    txtPeriodAwayFourth.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodHomeFourth.Text))
+                    txtPeriodHomeFourth.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodAwayOT.Text))
+                    txtPeriodAwayOT.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodHomeOT.Text))
+                    txtPeriodHomeOT.Text = "0";
+                txtGameClock.Text = string.Empty;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
+            }
         }
         private void RbPeriodFour_CheckedChanged(object sender, EventArgs e)
         {
-            _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
-            currentPeriod = Period.Four;
-            if (string.IsNullOrEmpty(txtPeriodAwayThird.Text))
-                txtPeriodAwayThird.Text = "0";
-            if (string.IsNullOrEmpty(txtPeriodHomeThird.Text))
-                txtPeriodHomeThird.Text = "0";
-            txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
-            tmrClockRefresh.Enabled = false;
-            playClockRunning = false;
-            gameClockRunning = false;
+            if (rbPeriodFour.Checked)
+                RbPeriodFour_Event();
+        }
+        public void RbPeriodFour_Event()
+        {
+            if (rbPeriodFour.InvokeRequired)
+            {
+                rbPeriodFour.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodFour_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodFour.Checked)
+                    rbPeriodFour.Checked = true;
+                _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period4);
+                currentPeriod = Period.Four;
+                if (string.IsNullOrEmpty(txtPeriodAwayThird.Text))
+                    txtPeriodAwayThird.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodHomeThird.Text))
+                    txtPeriodHomeThird.Text = "0";
+                txtGameClock.Text = Properties.Settings.Default.DefaultPeriod;
+                tmrClockRefresh.Enabled = false;
+                playClockRunning = false;
+                gameClockRunning = false;
+            }
         }
         private void RbPeriodHalf_CheckedChanged(object sender, EventArgs e)
         {
-            txtHomeTimeouts.Text = "0";
-            txtAwayTimeouts.Text = "0";
-            rbDownBlank.Checked = true;
-            txtDistance.Text = string.Empty;
-            txtSpot.Text = string.Empty;
-            chkAwayPossession.Checked = false;
-            chkHomePossession.Checked = false;
-            _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodHalf);
-            currentPeriod = Period.Half;
-            if (string.IsNullOrEmpty(txtPeriodAwaySecond.Text))
-                txtPeriodAwaySecond.Text = "0";
-            if (string.IsNullOrEmpty(txtPeriodHomeSecond.Text))
-                txtPeriodHomeSecond.Text = "0";
             if (rbPeriodHalf.Checked)
+                RbPeriodHalf_Event();
+        }
+        public void RbPeriodHalf_Event()
+        {
+            if (rbPeriodHalf.InvokeRequired)
             {
+                rbPeriodHalf.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodHalf_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodHalf.Checked)
+                    rbPeriodHalf.Checked = true;
+                txtHomeTimeouts.Text = "0";
+                txtAwayTimeouts.Text = "0";
+                rbDownBlank.Checked = true;
+                txtDistance.Text = string.Empty;
+                txtSpot.Text = string.Empty;
+                chkAwayPossession.Checked = false;
+                chkHomePossession.Checked = false;
+                _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.PeriodHalf);
+                currentPeriod = Period.Half;
+                if (string.IsNullOrEmpty(txtPeriodAwaySecond.Text))
+                    txtPeriodAwaySecond.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodHomeSecond.Text))
+                    txtPeriodHomeSecond.Text = "0";
                 txtGameClock.Text = string.Empty;
                 tmrClockRefresh.Enabled = false;
                 playClockRunning = false;
@@ -1159,7 +1928,21 @@ namespace American_Football_Scoreboard
         private void RbPeriodOne_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPeriodOne.Checked)
+                RbPeriodOne_Event();
+        }
+        public void RbPeriodOne_Event()
+        {
+            if (rbPeriodOne.InvokeRequired)
             {
+                rbPeriodOne.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodOne_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodOne.Checked)
+                    rbPeriodOne.Checked = true;
                 txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
                 txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
                 _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period1);
@@ -1172,20 +1955,6 @@ namespace American_Football_Scoreboard
         }
         private void RbPeriodOT_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbPeriodTwo.Checked)
-            {
-                if (string.IsNullOrEmpty(txtPeriodAwayFirst.Text))
-                    txtPeriodAwayFirst.Text = "0";
-                if (string.IsNullOrEmpty(txtPeriodHomeFirst.Text))
-                    txtPeriodHomeFirst.Text = "0";
-            }
-            if (rbPeriodThree.Checked)
-            {
-                if (string.IsNullOrEmpty(txtPeriodAwaySecond.Text))
-                    txtPeriodAwayFirst.Text = "0";
-                if (string.IsNullOrEmpty(txtPeriodHomeSecond.Text))
-                    txtPeriodHomeFirst.Text = "0";
-            }
             if (rbPeriodFour.Checked)
             {
                 if (string.IsNullOrEmpty(txtPeriodAwayThird.Text))
@@ -1195,6 +1964,26 @@ namespace American_Football_Scoreboard
             }
             if (rbPeriodOT.Checked)
             {
+                RbPeriodOT_Event();
+            }
+        }
+        public void RbPeriodOT_Event()
+        {
+            if (rbPeriodOT.InvokeRequired)
+            {
+                rbPeriodOT.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodOT_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodOT.Checked)
+                    rbPeriodOT.Checked = true;
+                if (string.IsNullOrEmpty(txtPeriodAwayFourth.Text))
+                    txtPeriodAwayFourth.Text = "0";
+                if (string.IsNullOrEmpty(txtPeriodHomeFourth.Text))
+                    txtPeriodHomeFourth.Text = "0";
                 chkAwayPossession.Checked = false;
                 chkHomePossession.Checked = false;
                 txtAwayTimeouts.Text = "1";
@@ -1209,12 +1998,27 @@ namespace American_Football_Scoreboard
                 tmrClockRefresh.Enabled = false;
                 playClockRunning = false;
                 gameClockRunning = false;
+
             }
         }
         private void RbPeriodThree_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPeriodThree.Checked)
+                RbPeriodThree_Event();
+        }
+        public void RbPeriodThree_Event()
+        {
+            if (rbPeriodThree.InvokeRequired)
             {
+                rbPeriodThree.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodThree_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodThree.Checked)
+                    rbPeriodThree.Checked = true;
                 txtAwayTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
                 txtHomeTimeouts.Text = Properties.Settings.Default.TimeoutsPerHalf;
                 chkAwayPossession.Checked = false;
@@ -1234,7 +2038,21 @@ namespace American_Football_Scoreboard
         private void RbPeriodTwo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPeriodTwo.Checked)
+                RbPeriodTwo_Event();
+        }
+        public void RbPeriodTwo_Event()
+        {
+            if (rbPeriodTwo.InvokeRequired)
             {
+                rbPeriodTwo.Invoke(new MethodInvoker(delegate
+                {
+                    RbPeriodTwo_Event();
+                }));
+            }
+            else
+            {
+                if (!rbPeriodTwo.Checked)
+                    rbPeriodTwo.Checked = true;
                 _ = Common.WriteFileAsync(file: periodFile, content: Properties.Settings.Default.Period2);
                 currentPeriod = Period.Two;
                 if (string.IsNullOrEmpty(txtPeriodAwayFirst.Text))
@@ -1322,6 +2140,26 @@ namespace American_Football_Scoreboard
             tmrPlayerHome.Enabled = true;
             tmrPlayerHome.Start();
         }
+        private void StartHttpListener()
+        {
+            if (!Listener.IsListening)
+            {
+                try
+                {
+                    server = CreateWebServer("http://" + Properties.Settings.Default.HttpListenerPort + "/");
+                    server.Start();
+                    txtListenerState.Text = "Listening";
+                    txtListenerState.BackColor = System.Drawing.Color.LightGreen;
+
+                }
+                catch (HttpListenerException ex)
+                {
+                    MessageBox.Show($"Error starting HTTP listener: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtListenerState.Text = "Error";
+                    txtListenerState.BackColor = System.Drawing.Color.Red;
+                }
+            }
+        }
         private TimeSpan TimeRemainingFromTextBox()
         {
             if (txtGameClock.Text.Contains('.'))
@@ -1343,7 +2181,11 @@ namespace American_Football_Scoreboard
         }
         private void TmrFlag_Tick(object sender, EventArgs e)
         {
+            tmrFlag.Stop();
+            tmrFlag.Enabled = false;
             chkFlag.Checked = false;
+            _ = Common.WriteFileAsync(file: awayPenaltyType, content: string.Empty);
+            _ = Common.WriteFileAsync(file: homePenaltyType, content: string.Empty);
             _ = Common.WriteFileAsync(file: penaltyType, content: string.Empty);
             foreach (Control control in this.gbPenalties.Controls)
             {
@@ -1356,6 +2198,8 @@ namespace American_Football_Scoreboard
                     }
                 }
             }
+            rbAwayPenalty.Checked = false;
+            rbHomePenalty.Checked = false;
         }
         private void TmrPlayerAway_Tick(object sender, EventArgs e)
         {
@@ -1389,17 +2233,11 @@ namespace American_Football_Scoreboard
         private void TogglePossession()
         {
             if (!chkHomePossession.Checked)
-            {
                 chkHomePossession.Checked = true;
-            }
             else
-            {
                 chkAwayPossession.Checked = true;
-            }
             if (Properties.Settings.Default.PossessionChangeFirstDown)
-            {
                 rbDownOne.Checked = true;
-            }
         }
         private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
@@ -1483,9 +2321,7 @@ namespace American_Football_Scoreboard
         private void TxtHomePlayerNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
                 butHomePlayerShow.PerformClick();
-            }
         }
         private void TxtHomeScore_TextChanged(object sender, EventArgs e)
         {
@@ -1632,7 +2468,12 @@ namespace American_Football_Scoreboard
         }
         private void WritePenaltyToFile(RadioButton radioButton)
         {
-            _ = Common.WriteFileAsync(file: penaltyType, content: " " + radioButton.Text + " ");
+            if (rbHomePenalty.Checked)
+                _ = Common.WriteFileAsync(file: homePenaltyType, content: " " + radioButton.Text + " ");
+            else if (rbAwayPenalty.Checked)
+                _ = Common.WriteFileAsync(file: awayPenaltyType, content: " " + radioButton.Text + " ");
+            else
+                _ = Common.WriteFileAsync(file: penaltyType, content: " " + radioButton.Text + " ");
             tmrFlag.Interval = Properties.Settings.Default.FlagDisplayDuration;
             tmrFlag.Enabled = true;
             tmrFlag.Start();

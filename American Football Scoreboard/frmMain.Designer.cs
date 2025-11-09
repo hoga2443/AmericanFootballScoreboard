@@ -131,6 +131,9 @@ namespace American_Football_Scoreboard
             butStartStopPlayClock = new System.Windows.Forms.Button();
             tpPenalties = new System.Windows.Forms.TabPage();
             gbPenalties = new System.Windows.Forms.GroupBox();
+            GbTeam = new System.Windows.Forms.GroupBox();
+            rbHomePenalty = new System.Windows.Forms.RadioButton();
+            rbAwayPenalty = new System.Windows.Forms.RadioButton();
             rbPenalty62 = new System.Windows.Forms.RadioButton();
             rbPenalty61 = new System.Windows.Forms.RadioButton();
             rbPenalty60 = new System.Windows.Forms.RadioButton();
@@ -205,7 +208,7 @@ namespace American_Football_Scoreboard
             gbHomePlayers = new System.Windows.Forms.GroupBox();
             tpHotKeys = new System.Windows.Forms.TabPage();
             gbMisc = new System.Windows.Forms.GroupBox();
-            textBox1 = new System.Windows.Forms.TextBox();
+            txtHotKeyRedZone = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
             lblHotKeyFunction = new System.Windows.Forms.Label();
             lblHotKeyKey = new System.Windows.Forms.Label();
@@ -274,6 +277,9 @@ namespace American_Football_Scoreboard
             txtHotKeyHomeFieldGoal = new System.Windows.Forms.TextBox();
             butSaveHotKey = new System.Windows.Forms.Button();
             tpSettings = new System.Windows.Forms.TabPage();
+            txtListenerState = new System.Windows.Forms.TextBox();
+            txtHttpListenerPort = new System.Windows.Forms.TextBox();
+            lblHttpListenerPort = new System.Windows.Forms.Label();
             txtWebSocketServer = new System.Windows.Forms.TextBox();
             lblWebSocketServer = new System.Windows.Forms.Label();
             txtWebSocketPassword = new System.Windows.Forms.TextBox();
@@ -364,6 +370,7 @@ namespace American_Football_Scoreboard
             gbClock.SuspendLayout();
             tpPenalties.SuspendLayout();
             gbPenalties.SuspendLayout();
+            GbTeam.SuspendLayout();
             tpMessages.SuspendLayout();
             tpPlayerImages.SuspendLayout();
             tpHotKeys.SuspendLayout();
@@ -1550,6 +1557,7 @@ namespace American_Football_Scoreboard
             // 
             // gbPenalties
             // 
+            gbPenalties.Controls.Add(GbTeam);
             gbPenalties.Controls.Add(rbPenalty62);
             gbPenalties.Controls.Add(rbPenalty61);
             gbPenalties.Controls.Add(rbPenalty60);
@@ -1621,10 +1629,43 @@ namespace American_Football_Scoreboard
             gbPenalties.TabStop = false;
             gbPenalties.Text = "Penalties";
             // 
+            // GbTeam
+            // 
+            GbTeam.Controls.Add(rbHomePenalty);
+            GbTeam.Controls.Add(rbAwayPenalty);
+            GbTeam.Location = new System.Drawing.Point(4, 11);
+            GbTeam.Name = "GbTeam";
+            GbTeam.Size = new System.Drawing.Size(192, 40);
+            GbTeam.TabIndex = 64;
+            GbTeam.TabStop = false;
+            GbTeam.Text = "Team";
+            // 
+            // rbHomePenalty
+            // 
+            rbHomePenalty.AutoSize = true;
+            rbHomePenalty.Location = new System.Drawing.Point(88, 16);
+            rbHomePenalty.Name = "rbHomePenalty";
+            rbHomePenalty.Size = new System.Drawing.Size(58, 19);
+            rbHomePenalty.TabIndex = 1;
+            rbHomePenalty.TabStop = true;
+            rbHomePenalty.Text = "Home";
+            rbHomePenalty.UseVisualStyleBackColor = true;
+            // 
+            // rbAwayPenalty
+            // 
+            rbAwayPenalty.AutoSize = true;
+            rbAwayPenalty.Location = new System.Drawing.Point(7, 16);
+            rbAwayPenalty.Name = "rbAwayPenalty";
+            rbAwayPenalty.Size = new System.Drawing.Size(54, 19);
+            rbAwayPenalty.TabIndex = 0;
+            rbAwayPenalty.TabStop = true;
+            rbAwayPenalty.Text = "Away";
+            rbAwayPenalty.UseVisualStyleBackColor = true;
+            // 
             // rbPenalty62
             // 
             rbPenalty62.AutoSize = true;
-            rbPenalty62.Location = new System.Drawing.Point(620, 393);
+            rbPenalty62.Location = new System.Drawing.Point(626, 419);
             rbPenalty62.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty62.Name = "rbPenalty62";
             rbPenalty62.Size = new System.Drawing.Size(102, 19);
@@ -1637,7 +1678,7 @@ namespace American_Football_Scoreboard
             // rbPenalty61
             // 
             rbPenalty61.AutoSize = true;
-            rbPenalty61.Location = new System.Drawing.Point(620, 367);
+            rbPenalty61.Location = new System.Drawing.Point(626, 393);
             rbPenalty61.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty61.Name = "rbPenalty61";
             rbPenalty61.Size = new System.Drawing.Size(163, 19);
@@ -1650,7 +1691,7 @@ namespace American_Football_Scoreboard
             // rbPenalty60
             // 
             rbPenalty60.AutoSize = true;
-            rbPenalty60.Location = new System.Drawing.Point(620, 340);
+            rbPenalty60.Location = new System.Drawing.Point(626, 366);
             rbPenalty60.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty60.Name = "rbPenalty60";
             rbPenalty60.Size = new System.Drawing.Size(152, 19);
@@ -1663,7 +1704,7 @@ namespace American_Football_Scoreboard
             // rbPenalty59
             // 
             rbPenalty59.AutoSize = true;
-            rbPenalty59.Location = new System.Drawing.Point(620, 314);
+            rbPenalty59.Location = new System.Drawing.Point(626, 340);
             rbPenalty59.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty59.Name = "rbPenalty59";
             rbPenalty59.Size = new System.Drawing.Size(251, 19);
@@ -1676,7 +1717,7 @@ namespace American_Football_Scoreboard
             // rbPenalty58
             // 
             rbPenalty58.AutoSize = true;
-            rbPenalty58.Location = new System.Drawing.Point(620, 287);
+            rbPenalty58.Location = new System.Drawing.Point(626, 313);
             rbPenalty58.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty58.Name = "rbPenalty58";
             rbPenalty58.Size = new System.Drawing.Size(68, 19);
@@ -1689,7 +1730,7 @@ namespace American_Football_Scoreboard
             // rbPenalty57
             // 
             rbPenalty57.AutoSize = true;
-            rbPenalty57.Location = new System.Drawing.Point(620, 261);
+            rbPenalty57.Location = new System.Drawing.Point(626, 287);
             rbPenalty57.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty57.Name = "rbPenalty57";
             rbPenalty57.Size = new System.Drawing.Size(151, 19);
@@ -1702,7 +1743,7 @@ namespace American_Football_Scoreboard
             // rbPenalty56
             // 
             rbPenalty56.AutoSize = true;
-            rbPenalty56.Location = new System.Drawing.Point(620, 234);
+            rbPenalty56.Location = new System.Drawing.Point(626, 260);
             rbPenalty56.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty56.Name = "rbPenalty56";
             rbPenalty56.Size = new System.Drawing.Size(71, 19);
@@ -1715,7 +1756,7 @@ namespace American_Football_Scoreboard
             // rbPenalty55
             // 
             rbPenalty55.AutoSize = true;
-            rbPenalty55.Location = new System.Drawing.Point(620, 208);
+            rbPenalty55.Location = new System.Drawing.Point(626, 234);
             rbPenalty55.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty55.Name = "rbPenalty55";
             rbPenalty55.Size = new System.Drawing.Size(246, 19);
@@ -1728,7 +1769,7 @@ namespace American_Football_Scoreboard
             // rbPenalty54
             // 
             rbPenalty54.AutoSize = true;
-            rbPenalty54.Location = new System.Drawing.Point(620, 181);
+            rbPenalty54.Location = new System.Drawing.Point(626, 207);
             rbPenalty54.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty54.Name = "rbPenalty54";
             rbPenalty54.Size = new System.Drawing.Size(120, 19);
@@ -1741,7 +1782,7 @@ namespace American_Football_Scoreboard
             // rbPenalty53
             // 
             rbPenalty53.AutoSize = true;
-            rbPenalty53.Location = new System.Drawing.Point(620, 155);
+            rbPenalty53.Location = new System.Drawing.Point(626, 181);
             rbPenalty53.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty53.Name = "rbPenalty53";
             rbPenalty53.Size = new System.Drawing.Size(151, 19);
@@ -1754,7 +1795,7 @@ namespace American_Football_Scoreboard
             // rbPenalty52
             // 
             rbPenalty52.AutoSize = true;
-            rbPenalty52.Location = new System.Drawing.Point(620, 128);
+            rbPenalty52.Location = new System.Drawing.Point(626, 154);
             rbPenalty52.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty52.Name = "rbPenalty52";
             rbPenalty52.Size = new System.Drawing.Size(135, 19);
@@ -1767,7 +1808,7 @@ namespace American_Football_Scoreboard
             // rbPenalty51
             // 
             rbPenalty51.AutoSize = true;
-            rbPenalty51.Location = new System.Drawing.Point(620, 102);
+            rbPenalty51.Location = new System.Drawing.Point(626, 128);
             rbPenalty51.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty51.Name = "rbPenalty51";
             rbPenalty51.Size = new System.Drawing.Size(134, 19);
@@ -1780,7 +1821,7 @@ namespace American_Football_Scoreboard
             // rbPenalty50
             // 
             rbPenalty50.AutoSize = true;
-            rbPenalty50.Location = new System.Drawing.Point(620, 75);
+            rbPenalty50.Location = new System.Drawing.Point(626, 101);
             rbPenalty50.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty50.Name = "rbPenalty50";
             rbPenalty50.Size = new System.Drawing.Size(136, 19);
@@ -1793,7 +1834,7 @@ namespace American_Football_Scoreboard
             // rbPenalty49
             // 
             rbPenalty49.AutoSize = true;
-            rbPenalty49.Location = new System.Drawing.Point(620, 48);
+            rbPenalty49.Location = new System.Drawing.Point(626, 74);
             rbPenalty49.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty49.Name = "rbPenalty49";
             rbPenalty49.Size = new System.Drawing.Size(147, 19);
@@ -1806,7 +1847,7 @@ namespace American_Football_Scoreboard
             // rbPenalty48
             // 
             rbPenalty48.AutoSize = true;
-            rbPenalty48.Location = new System.Drawing.Point(620, 22);
+            rbPenalty48.Location = new System.Drawing.Point(626, 48);
             rbPenalty48.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty48.Name = "rbPenalty48";
             rbPenalty48.Size = new System.Drawing.Size(183, 19);
@@ -1819,7 +1860,7 @@ namespace American_Football_Scoreboard
             // rbPenalty47
             // 
             rbPenalty47.AutoSize = true;
-            rbPenalty47.Location = new System.Drawing.Point(430, 420);
+            rbPenalty47.Location = new System.Drawing.Point(626, 23);
             rbPenalty47.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty47.Name = "rbPenalty47";
             rbPenalty47.Size = new System.Drawing.Size(114, 19);
@@ -1832,7 +1873,7 @@ namespace American_Football_Scoreboard
             // rbPenalty46
             // 
             rbPenalty46.AutoSize = true;
-            rbPenalty46.Location = new System.Drawing.Point(430, 393);
+            rbPenalty46.Location = new System.Drawing.Point(431, 419);
             rbPenalty46.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty46.Name = "rbPenalty46";
             rbPenalty46.Size = new System.Drawing.Size(132, 19);
@@ -1845,7 +1886,7 @@ namespace American_Football_Scoreboard
             // rbPenalty45
             // 
             rbPenalty45.AutoSize = true;
-            rbPenalty45.Location = new System.Drawing.Point(430, 367);
+            rbPenalty45.Location = new System.Drawing.Point(431, 393);
             rbPenalty45.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty45.Name = "rbPenalty45";
             rbPenalty45.Size = new System.Drawing.Size(116, 19);
@@ -1858,7 +1899,7 @@ namespace American_Football_Scoreboard
             // rbPenalty44
             // 
             rbPenalty44.AutoSize = true;
-            rbPenalty44.Location = new System.Drawing.Point(430, 340);
+            rbPenalty44.Location = new System.Drawing.Point(431, 366);
             rbPenalty44.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty44.Name = "rbPenalty44";
             rbPenalty44.Size = new System.Drawing.Size(121, 19);
@@ -1871,7 +1912,7 @@ namespace American_Football_Scoreboard
             // rbPenalty43
             // 
             rbPenalty43.AutoSize = true;
-            rbPenalty43.Location = new System.Drawing.Point(430, 314);
+            rbPenalty43.Location = new System.Drawing.Point(431, 340);
             rbPenalty43.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty43.Name = "rbPenalty43";
             rbPenalty43.Size = new System.Drawing.Size(148, 19);
@@ -1884,7 +1925,7 @@ namespace American_Football_Scoreboard
             // rbPenalty42
             // 
             rbPenalty42.AutoSize = true;
-            rbPenalty42.Location = new System.Drawing.Point(430, 287);
+            rbPenalty42.Location = new System.Drawing.Point(431, 313);
             rbPenalty42.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty42.Name = "rbPenalty42";
             rbPenalty42.Size = new System.Drawing.Size(79, 19);
@@ -1897,7 +1938,7 @@ namespace American_Football_Scoreboard
             // rbPenalty41
             // 
             rbPenalty41.AutoSize = true;
-            rbPenalty41.Location = new System.Drawing.Point(430, 261);
+            rbPenalty41.Location = new System.Drawing.Point(431, 287);
             rbPenalty41.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty41.Name = "rbPenalty41";
             rbPenalty41.Size = new System.Drawing.Size(72, 19);
@@ -1910,7 +1951,7 @@ namespace American_Football_Scoreboard
             // rbPenalty40
             // 
             rbPenalty40.AutoSize = true;
-            rbPenalty40.Location = new System.Drawing.Point(430, 234);
+            rbPenalty40.Location = new System.Drawing.Point(431, 260);
             rbPenalty40.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty40.Name = "rbPenalty40";
             rbPenalty40.Size = new System.Drawing.Size(67, 19);
@@ -1923,7 +1964,7 @@ namespace American_Football_Scoreboard
             // rbPenalty39
             // 
             rbPenalty39.AutoSize = true;
-            rbPenalty39.Location = new System.Drawing.Point(430, 208);
+            rbPenalty39.Location = new System.Drawing.Point(431, 234);
             rbPenalty39.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty39.Name = "rbPenalty39";
             rbPenalty39.Size = new System.Drawing.Size(144, 19);
@@ -1936,7 +1977,7 @@ namespace American_Football_Scoreboard
             // rbPenalty38
             // 
             rbPenalty38.AutoSize = true;
-            rbPenalty38.Location = new System.Drawing.Point(430, 181);
+            rbPenalty38.Location = new System.Drawing.Point(431, 207);
             rbPenalty38.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty38.Name = "rbPenalty38";
             rbPenalty38.Size = new System.Drawing.Size(147, 19);
@@ -1949,7 +1990,7 @@ namespace American_Football_Scoreboard
             // rbPenalty37
             // 
             rbPenalty37.AutoSize = true;
-            rbPenalty37.Location = new System.Drawing.Point(430, 155);
+            rbPenalty37.Location = new System.Drawing.Point(431, 181);
             rbPenalty37.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty37.Name = "rbPenalty37";
             rbPenalty37.Size = new System.Drawing.Size(151, 19);
@@ -1962,7 +2003,7 @@ namespace American_Football_Scoreboard
             // rbPenalty36
             // 
             rbPenalty36.AutoSize = true;
-            rbPenalty36.Location = new System.Drawing.Point(430, 128);
+            rbPenalty36.Location = new System.Drawing.Point(431, 154);
             rbPenalty36.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty36.Name = "rbPenalty36";
             rbPenalty36.Size = new System.Drawing.Size(142, 19);
@@ -1975,7 +2016,7 @@ namespace American_Football_Scoreboard
             // rbPenalty35
             // 
             rbPenalty35.AutoSize = true;
-            rbPenalty35.Location = new System.Drawing.Point(430, 102);
+            rbPenalty35.Location = new System.Drawing.Point(431, 128);
             rbPenalty35.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty35.Name = "rbPenalty35";
             rbPenalty35.Size = new System.Drawing.Size(156, 19);
@@ -1988,7 +2029,7 @@ namespace American_Football_Scoreboard
             // rbPenalty34
             // 
             rbPenalty34.AutoSize = true;
-            rbPenalty34.Location = new System.Drawing.Point(430, 75);
+            rbPenalty34.Location = new System.Drawing.Point(431, 101);
             rbPenalty34.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty34.Name = "rbPenalty34";
             rbPenalty34.Size = new System.Drawing.Size(155, 19);
@@ -2001,7 +2042,7 @@ namespace American_Football_Scoreboard
             // rbPenalty33
             // 
             rbPenalty33.AutoSize = true;
-            rbPenalty33.Location = new System.Drawing.Point(430, 48);
+            rbPenalty33.Location = new System.Drawing.Point(431, 74);
             rbPenalty33.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty33.Name = "rbPenalty33";
             rbPenalty33.Size = new System.Drawing.Size(96, 19);
@@ -2014,7 +2055,7 @@ namespace American_Football_Scoreboard
             // rbPenalty32
             // 
             rbPenalty32.AutoSize = true;
-            rbPenalty32.Location = new System.Drawing.Point(430, 22);
+            rbPenalty32.Location = new System.Drawing.Point(431, 48);
             rbPenalty32.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty32.Name = "rbPenalty32";
             rbPenalty32.Size = new System.Drawing.Size(131, 19);
@@ -2027,7 +2068,7 @@ namespace American_Football_Scoreboard
             // rbPenalty31
             // 
             rbPenalty31.AutoSize = true;
-            rbPenalty31.Location = new System.Drawing.Point(205, 420);
+            rbPenalty31.Location = new System.Drawing.Point(431, 23);
             rbPenalty31.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty31.Name = "rbPenalty31";
             rbPenalty31.Size = new System.Drawing.Size(156, 19);
@@ -2040,7 +2081,7 @@ namespace American_Football_Scoreboard
             // rbPenalty30
             // 
             rbPenalty30.AutoSize = true;
-            rbPenalty30.Location = new System.Drawing.Point(205, 367);
+            rbPenalty30.Location = new System.Drawing.Point(203, 393);
             rbPenalty30.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty30.Name = "rbPenalty30";
             rbPenalty30.Size = new System.Drawing.Size(203, 19);
@@ -2053,7 +2094,7 @@ namespace American_Football_Scoreboard
             // rbPenalty29
             // 
             rbPenalty29.AutoSize = true;
-            rbPenalty29.Location = new System.Drawing.Point(205, 340);
+            rbPenalty29.Location = new System.Drawing.Point(203, 366);
             rbPenalty29.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty29.Name = "rbPenalty29";
             rbPenalty29.Size = new System.Drawing.Size(123, 19);
@@ -2066,7 +2107,7 @@ namespace American_Football_Scoreboard
             // rbPenalty28
             // 
             rbPenalty28.AutoSize = true;
-            rbPenalty28.Location = new System.Drawing.Point(205, 314);
+            rbPenalty28.Location = new System.Drawing.Point(203, 340);
             rbPenalty28.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty28.Name = "rbPenalty28";
             rbPenalty28.Size = new System.Drawing.Size(83, 19);
@@ -2079,7 +2120,7 @@ namespace American_Football_Scoreboard
             // rbPenalty27
             // 
             rbPenalty27.AutoSize = true;
-            rbPenalty27.Location = new System.Drawing.Point(205, 287);
+            rbPenalty27.Location = new System.Drawing.Point(203, 313);
             rbPenalty27.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty27.Name = "rbPenalty27";
             rbPenalty27.Size = new System.Drawing.Size(109, 19);
@@ -2092,7 +2133,7 @@ namespace American_Football_Scoreboard
             // rbPenalty26
             // 
             rbPenalty26.AutoSize = true;
-            rbPenalty26.Location = new System.Drawing.Point(205, 261);
+            rbPenalty26.Location = new System.Drawing.Point(203, 287);
             rbPenalty26.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty26.Name = "rbPenalty26";
             rbPenalty26.Size = new System.Drawing.Size(204, 19);
@@ -2105,7 +2146,7 @@ namespace American_Football_Scoreboard
             // rbPenalty25
             // 
             rbPenalty25.AutoSize = true;
-            rbPenalty25.Location = new System.Drawing.Point(205, 234);
+            rbPenalty25.Location = new System.Drawing.Point(203, 260);
             rbPenalty25.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty25.Name = "rbPenalty25";
             rbPenalty25.Size = new System.Drawing.Size(128, 19);
@@ -2118,7 +2159,7 @@ namespace American_Football_Scoreboard
             // rbPenalty24
             // 
             rbPenalty24.AutoSize = true;
-            rbPenalty24.Location = new System.Drawing.Point(205, 208);
+            rbPenalty24.Location = new System.Drawing.Point(203, 234);
             rbPenalty24.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty24.Name = "rbPenalty24";
             rbPenalty24.Size = new System.Drawing.Size(149, 19);
@@ -2131,7 +2172,7 @@ namespace American_Football_Scoreboard
             // rbPenalty23
             // 
             rbPenalty23.AutoSize = true;
-            rbPenalty23.Location = new System.Drawing.Point(205, 181);
+            rbPenalty23.Location = new System.Drawing.Point(203, 207);
             rbPenalty23.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty23.Name = "rbPenalty23";
             rbPenalty23.Size = new System.Drawing.Size(114, 19);
@@ -2144,7 +2185,7 @@ namespace American_Football_Scoreboard
             // rbPenalty22
             // 
             rbPenalty22.AutoSize = true;
-            rbPenalty22.Location = new System.Drawing.Point(205, 155);
+            rbPenalty22.Location = new System.Drawing.Point(203, 181);
             rbPenalty22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty22.Name = "rbPenalty22";
             rbPenalty22.Size = new System.Drawing.Size(110, 19);
@@ -2157,7 +2198,7 @@ namespace American_Football_Scoreboard
             // rbPenalty21
             // 
             rbPenalty21.AutoSize = true;
-            rbPenalty21.Location = new System.Drawing.Point(205, 128);
+            rbPenalty21.Location = new System.Drawing.Point(203, 154);
             rbPenalty21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty21.Name = "rbPenalty21";
             rbPenalty21.Size = new System.Drawing.Size(117, 19);
@@ -2170,7 +2211,7 @@ namespace American_Football_Scoreboard
             // rbPenalty20
             // 
             rbPenalty20.AutoSize = true;
-            rbPenalty20.Location = new System.Drawing.Point(205, 102);
+            rbPenalty20.Location = new System.Drawing.Point(203, 128);
             rbPenalty20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty20.Name = "rbPenalty20";
             rbPenalty20.Size = new System.Drawing.Size(101, 19);
@@ -2183,7 +2224,7 @@ namespace American_Football_Scoreboard
             // rbPenalty19
             // 
             rbPenalty19.AutoSize = true;
-            rbPenalty19.Location = new System.Drawing.Point(205, 75);
+            rbPenalty19.Location = new System.Drawing.Point(203, 101);
             rbPenalty19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty19.Name = "rbPenalty19";
             rbPenalty19.Size = new System.Drawing.Size(179, 19);
@@ -2196,7 +2237,7 @@ namespace American_Football_Scoreboard
             // rbPenalty18
             // 
             rbPenalty18.AutoSize = true;
-            rbPenalty18.Location = new System.Drawing.Point(205, 48);
+            rbPenalty18.Location = new System.Drawing.Point(203, 74);
             rbPenalty18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty18.Name = "rbPenalty18";
             rbPenalty18.Size = new System.Drawing.Size(139, 19);
@@ -2209,7 +2250,7 @@ namespace American_Football_Scoreboard
             // rbPenalty17
             // 
             rbPenalty17.AutoSize = true;
-            rbPenalty17.Location = new System.Drawing.Point(205, 22);
+            rbPenalty17.Location = new System.Drawing.Point(203, 48);
             rbPenalty17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty17.Name = "rbPenalty17";
             rbPenalty17.Size = new System.Drawing.Size(76, 19);
@@ -2222,7 +2263,7 @@ namespace American_Football_Scoreboard
             // rbPenalty16
             // 
             rbPenalty16.AutoSize = true;
-            rbPenalty16.Location = new System.Drawing.Point(7, 420);
+            rbPenalty16.Location = new System.Drawing.Point(203, 23);
             rbPenalty16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty16.Name = "rbPenalty16";
             rbPenalty16.Size = new System.Drawing.Size(90, 19);
@@ -2235,7 +2276,7 @@ namespace American_Football_Scoreboard
             // rbPenalty15
             // 
             rbPenalty15.AutoSize = true;
-            rbPenalty15.Location = new System.Drawing.Point(7, 393);
+            rbPenalty15.Location = new System.Drawing.Point(8, 419);
             rbPenalty15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty15.Name = "rbPenalty15";
             rbPenalty15.Size = new System.Drawing.Size(253, 19);
@@ -2248,7 +2289,7 @@ namespace American_Football_Scoreboard
             // rbPenalty14
             // 
             rbPenalty14.AutoSize = true;
-            rbPenalty14.Location = new System.Drawing.Point(7, 367);
+            rbPenalty14.Location = new System.Drawing.Point(8, 393);
             rbPenalty14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty14.Name = "rbPenalty14";
             rbPenalty14.Size = new System.Drawing.Size(78, 19);
@@ -2261,7 +2302,7 @@ namespace American_Football_Scoreboard
             // rbPenalty13
             // 
             rbPenalty13.AutoSize = true;
-            rbPenalty13.Location = new System.Drawing.Point(7, 340);
+            rbPenalty13.Location = new System.Drawing.Point(8, 366);
             rbPenalty13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty13.Name = "rbPenalty13";
             rbPenalty13.Size = new System.Drawing.Size(144, 19);
@@ -2274,7 +2315,7 @@ namespace American_Football_Scoreboard
             // rbPenalty12
             // 
             rbPenalty12.AutoSize = true;
-            rbPenalty12.Location = new System.Drawing.Point(7, 314);
+            rbPenalty12.Location = new System.Drawing.Point(8, 340);
             rbPenalty12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty12.Name = "rbPenalty12";
             rbPenalty12.Size = new System.Drawing.Size(77, 19);
@@ -2287,7 +2328,7 @@ namespace American_Football_Scoreboard
             // rbPenalty11
             // 
             rbPenalty11.AutoSize = true;
-            rbPenalty11.Location = new System.Drawing.Point(7, 287);
+            rbPenalty11.Location = new System.Drawing.Point(8, 313);
             rbPenalty11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty11.Name = "rbPenalty11";
             rbPenalty11.Size = new System.Drawing.Size(133, 19);
@@ -2300,7 +2341,7 @@ namespace American_Football_Scoreboard
             // rbPenalty10
             // 
             rbPenalty10.AutoSize = true;
-            rbPenalty10.Location = new System.Drawing.Point(7, 261);
+            rbPenalty10.Location = new System.Drawing.Point(8, 287);
             rbPenalty10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty10.Name = "rbPenalty10";
             rbPenalty10.Size = new System.Drawing.Size(102, 19);
@@ -2313,7 +2354,7 @@ namespace American_Football_Scoreboard
             // rbPenalty9
             // 
             rbPenalty9.AutoSize = true;
-            rbPenalty9.Location = new System.Drawing.Point(7, 234);
+            rbPenalty9.Location = new System.Drawing.Point(8, 260);
             rbPenalty9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty9.Name = "rbPenalty9";
             rbPenalty9.Size = new System.Drawing.Size(107, 19);
@@ -2326,7 +2367,7 @@ namespace American_Football_Scoreboard
             // rbPenalty8
             // 
             rbPenalty8.AutoSize = true;
-            rbPenalty8.Location = new System.Drawing.Point(7, 208);
+            rbPenalty8.Location = new System.Drawing.Point(8, 234);
             rbPenalty8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty8.Name = "rbPenalty8";
             rbPenalty8.Size = new System.Drawing.Size(178, 19);
@@ -2339,7 +2380,7 @@ namespace American_Football_Scoreboard
             // rbPenalty7
             // 
             rbPenalty7.AutoSize = true;
-            rbPenalty7.Location = new System.Drawing.Point(7, 181);
+            rbPenalty7.Location = new System.Drawing.Point(8, 207);
             rbPenalty7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty7.Name = "rbPenalty7";
             rbPenalty7.Size = new System.Drawing.Size(110, 19);
@@ -2352,7 +2393,7 @@ namespace American_Football_Scoreboard
             // rbPenalty6
             // 
             rbPenalty6.AutoSize = true;
-            rbPenalty6.Location = new System.Drawing.Point(7, 155);
+            rbPenalty6.Location = new System.Drawing.Point(8, 181);
             rbPenalty6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty6.Name = "rbPenalty6";
             rbPenalty6.Size = new System.Drawing.Size(104, 19);
@@ -2365,7 +2406,7 @@ namespace American_Football_Scoreboard
             // rbPenalty5
             // 
             rbPenalty5.AutoSize = true;
-            rbPenalty5.Location = new System.Drawing.Point(7, 128);
+            rbPenalty5.Location = new System.Drawing.Point(8, 154);
             rbPenalty5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty5.Name = "rbPenalty5";
             rbPenalty5.Size = new System.Drawing.Size(117, 19);
@@ -2378,7 +2419,7 @@ namespace American_Football_Scoreboard
             // rbPenalty4
             // 
             rbPenalty4.AutoSize = true;
-            rbPenalty4.Location = new System.Drawing.Point(7, 102);
+            rbPenalty4.Location = new System.Drawing.Point(8, 128);
             rbPenalty4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty4.Name = "rbPenalty4";
             rbPenalty4.Size = new System.Drawing.Size(122, 19);
@@ -2391,7 +2432,7 @@ namespace American_Football_Scoreboard
             // rbPenalty3
             // 
             rbPenalty3.AutoSize = true;
-            rbPenalty3.Location = new System.Drawing.Point(7, 75);
+            rbPenalty3.Location = new System.Drawing.Point(8, 101);
             rbPenalty3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty3.Name = "rbPenalty3";
             rbPenalty3.Size = new System.Drawing.Size(121, 19);
@@ -2404,7 +2445,7 @@ namespace American_Football_Scoreboard
             // rbPenalty2
             // 
             rbPenalty2.AutoSize = true;
-            rbPenalty2.Location = new System.Drawing.Point(7, 48);
+            rbPenalty2.Location = new System.Drawing.Point(8, 74);
             rbPenalty2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty2.Name = "rbPenalty2";
             rbPenalty2.Size = new System.Drawing.Size(70, 19);
@@ -2417,7 +2458,7 @@ namespace American_Football_Scoreboard
             // rbPenalty1
             // 
             rbPenalty1.AutoSize = true;
-            rbPenalty1.Location = new System.Drawing.Point(7, 22);
+            rbPenalty1.Location = new System.Drawing.Point(8, 48);
             rbPenalty1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rbPenalty1.Name = "rbPenalty1";
             rbPenalty1.Size = new System.Drawing.Size(86, 19);
@@ -2564,7 +2605,7 @@ namespace American_Football_Scoreboard
             // 
             // gbMisc
             // 
-            gbMisc.Controls.Add(textBox1);
+            gbMisc.Controls.Add(txtHotKeyRedZone);
             gbMisc.Controls.Add(label4);
             gbMisc.Controls.Add(lblHotKeyFunction);
             gbMisc.Controls.Add(lblHotKeyKey);
@@ -2591,13 +2632,13 @@ namespace American_Football_Scoreboard
             gbMisc.TabStop = false;
             gbMisc.Text = "Misc";
             // 
-            // textBox1
+            // txtHotKeyRedZone
             // 
-            textBox1.Location = new System.Drawing.Point(97, 253);
-            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(88, 23);
-            textBox1.TabIndex = 7;
+            txtHotKeyRedZone.Location = new System.Drawing.Point(97, 253);
+            txtHotKeyRedZone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHotKeyRedZone.Name = "txtHotKeyRedZone";
+            txtHotKeyRedZone.Size = new System.Drawing.Size(88, 23);
+            txtHotKeyRedZone.TabIndex = 7;
             // 
             // label4
             // 
@@ -3267,6 +3308,9 @@ namespace American_Football_Scoreboard
             // 
             // tpSettings
             // 
+            tpSettings.Controls.Add(txtListenerState);
+            tpSettings.Controls.Add(txtHttpListenerPort);
+            tpSettings.Controls.Add(lblHttpListenerPort);
             tpSettings.Controls.Add(txtWebSocketServer);
             tpSettings.Controls.Add(lblWebSocketServer);
             tpSettings.Controls.Add(txtWebSocketPassword);
@@ -3308,6 +3352,33 @@ namespace American_Football_Scoreboard
             tpSettings.TabIndex = 1;
             tpSettings.Text = "Settings";
             tpSettings.UseVisualStyleBackColor = true;
+            // 
+            // txtListenerState
+            // 
+            txtListenerState.Location = new System.Drawing.Point(301, 429);
+            txtListenerState.Name = "txtListenerState";
+            txtListenerState.Size = new System.Drawing.Size(99, 23);
+            txtListenerState.TabIndex = 35;
+            txtListenerState.Text = "Stopped";
+            txtListenerState.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtHttpListenerPort
+            // 
+            txtHttpListenerPort.Location = new System.Drawing.Point(177, 428);
+            txtHttpListenerPort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtHttpListenerPort.Name = "txtHttpListenerPort";
+            txtHttpListenerPort.Size = new System.Drawing.Size(116, 23);
+            txtHttpListenerPort.TabIndex = 13;
+            // 
+            // lblHttpListenerPort
+            // 
+            lblHttpListenerPort.AutoSize = true;
+            lblHttpListenerPort.Location = new System.Drawing.Point(20, 432);
+            lblHttpListenerPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHttpListenerPort.Name = "lblHttpListenerPort";
+            lblHttpListenerPort.Size = new System.Drawing.Size(117, 15);
+            lblHttpListenerPort.TabIndex = 34;
+            lblHttpListenerPort.Text = "HTTP Listener IP:Port";
             // 
             // txtWebSocketServer
             // 
@@ -3370,7 +3441,7 @@ namespace American_Football_Scoreboard
             chkSettingFirstDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkSettingFirstDown.Name = "chkSettingFirstDown";
             chkSettingFirstDown.Size = new System.Drawing.Size(203, 19);
-            chkSettingFirstDown.TabIndex = 13;
+            chkSettingFirstDown.TabIndex = 14;
             chkSettingFirstDown.Text = "First Down on Possession Change";
             chkSettingFirstDown.UseVisualStyleBackColor = true;
             // 
@@ -3411,7 +3482,7 @@ namespace American_Football_Scoreboard
             gbPoints.Name = "gbPoints";
             gbPoints.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             gbPoints.Size = new System.Drawing.Size(200, 178);
-            gbPoints.TabIndex = 18;
+            gbPoints.TabIndex = 19;
             gbPoints.TabStop = false;
             gbPoints.Text = "Points";
             // 
@@ -3512,7 +3583,7 @@ namespace American_Football_Scoreboard
             chkSubSecond.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkSubSecond.Name = "chkSubSecond";
             chkSubSecond.Size = new System.Drawing.Size(155, 19);
-            chkSubSecond.TabIndex = 16;
+            chkSubSecond.TabIndex = 17;
             chkSubSecond.Text = "Sub Second Game Clock";
             chkSubSecond.UseVisualStyleBackColor = true;
             // 
@@ -3523,7 +3594,7 @@ namespace American_Football_Scoreboard
             chkTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkTop.Name = "chkTop";
             chkTop.Size = new System.Drawing.Size(102, 19);
-            chkTop.TabIndex = 15;
+            chkTop.TabIndex = 16;
             chkTop.Text = "Always on Top";
             chkTop.UseVisualStyleBackColor = true;
             // 
@@ -3578,7 +3649,7 @@ namespace American_Football_Scoreboard
             gbSettingDown.Name = "gbSettingDown";
             gbSettingDown.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             gbSettingDown.Size = new System.Drawing.Size(200, 151);
-            gbSettingDown.TabIndex = 17;
+            gbSettingDown.TabIndex = 18;
             gbSettingDown.TabStop = false;
             gbSettingDown.Text = "Down Labels";
             // 
@@ -3673,7 +3744,7 @@ namespace American_Football_Scoreboard
             gbSettingPeriod.Name = "gbSettingPeriod";
             gbSettingPeriod.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             gbSettingPeriod.Size = new System.Drawing.Size(200, 208);
-            gbSettingPeriod.TabIndex = 19;
+            gbSettingPeriod.TabIndex = 20;
             gbSettingPeriod.TabStop = false;
             gbSettingPeriod.Text = "Period Labels";
             // 
@@ -3792,7 +3863,7 @@ namespace American_Football_Scoreboard
             chkAdvanceQuarter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkAdvanceQuarter.Name = "chkAdvanceQuarter";
             chkAdvanceQuarter.Size = new System.Drawing.Size(146, 19);
-            chkAdvanceQuarter.TabIndex = 14;
+            chkAdvanceQuarter.TabIndex = 15;
             chkAdvanceQuarter.Text = "Auto-Advance Quarter";
             chkAdvanceQuarter.UseVisualStyleBackColor = true;
             // 
@@ -3867,7 +3938,7 @@ namespace American_Football_Scoreboard
             butSaveSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             butSaveSettings.Name = "butSaveSettings";
             butSaveSettings.Size = new System.Drawing.Size(117, 27);
-            butSaveSettings.TabIndex = 20;
+            butSaveSettings.TabIndex = 21;
             butSaveSettings.Text = "Save";
             butSaveSettings.UseVisualStyleBackColor = true;
             butSaveSettings.Click += ButSaveSettings_Click;
@@ -4061,6 +4132,8 @@ namespace American_Football_Scoreboard
             tpPenalties.ResumeLayout(false);
             gbPenalties.ResumeLayout(false);
             gbPenalties.PerformLayout();
+            GbTeam.ResumeLayout(false);
+            GbTeam.PerformLayout();
             tpMessages.ResumeLayout(false);
             tpMessages.PerformLayout();
             tpPlayerImages.ResumeLayout(false);
@@ -4397,7 +4470,7 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Button butSendSupplemental;
         private System.Windows.Forms.TextBox txtSupplemental;
         private System.Windows.Forms.RadioButton rbMessageWeather;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHotKeyRedZone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkRed;
         private System.Windows.Forms.Timer tmrRed;
@@ -4412,6 +4485,12 @@ namespace American_Football_Scoreboard
         private System.Windows.Forms.Label lblWebSocketPort;
         private System.Windows.Forms.TextBox txtWebSocketServer;
         private System.Windows.Forms.Label lblWebSocketServer;
+        private System.Windows.Forms.GroupBox GbTeam;
+        private System.Windows.Forms.RadioButton rbAwayPenalty;
+        private System.Windows.Forms.RadioButton rbHomePenalty;
+        private System.Windows.Forms.TextBox txtHttpListenerPort;
+        private System.Windows.Forms.Label lblHttpListenerPort;
+        private System.Windows.Forms.TextBox txtListenerState;
     }
 }
 

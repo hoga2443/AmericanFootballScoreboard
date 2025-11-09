@@ -25,7 +25,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>False</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-	<ForceDesignerDPIUnaware>true</ForceDesignerDPIUnaware>
+	<ForceDesignerDPIUnaware>false</ForceDesignerDPIUnaware>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
@@ -39,23 +39,23 @@
   <PropertyGroup>
     <ManifestKeyFile>American Football Scoreboard_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
-  <PropertyGroup>
+	<PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
-  <PropertyGroup>
+	<PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>American_Football_Scoreboard.Program</StartupObject>
-    <Copyright>2024</Copyright>
+    <Copyright>2025</Copyright>
     <AssemblyVersion>3.0.0</AssemblyVersion>
-    <FileVersion>3.0.0</FileVersion>
+    <FileVersion>3.0.1</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Update="System">
@@ -245,23 +245,24 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EmbedIO" Version="3.5.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DeltaCompressionDotNet" Version="2.0.1" />
-    <PackageReference Include="MessagePack" Version="2.5.172" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+    <PackageReference Include="MessagePack" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.10" />
     <PackageReference Include="Mono.Cecil" Version="0.11.6" />
     <PackageReference Include="obs-websocket-dotnet" Version="5.0.0.3" />
-    <PackageReference Include="SharpCompress" Version="0.38.0" />
+    <PackageReference Include="SharpCompress" Version="0.41.0" />
     <PackageReference Include="SQLite" Version="3.13.0" />
-    <PackageReference Include="SQLitePCLRaw.core" Version="2.1.10" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
-    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.119" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
-    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.2" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="3.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="System.Data.SQLite" Version="2.0.2" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="2.0.2" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.10" />
+    <PackageReference Include="System.Text.Json" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Common.cs">

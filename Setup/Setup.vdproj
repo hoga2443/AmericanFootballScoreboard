@@ -19,6 +19,18 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_19A27BC5A113497796307AB80CBDF7EB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_27C32CC9ED164240B89359F4271FC244"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -44,6 +56,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -108,6 +128,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_19A27BC5A113497796307AB80CBDF7EB"
+            {
+            "SourcePath" = "8:..\\American Football Scoreboard\\img\\AmericanFootballScoreboardIcon.ico"
+            "TargetName" = "8:AmericanFootballScoreboardIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5F087BEDD0834381949FF30DEF082458"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -164,15 +204,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:American Football Scoreboard"
-        "ProductCode" = "8:{C3E8A097-4FE1-4B52-A733-49EFE6BC6C87}"
-        "PackageCode" = "8:{4D98F09D-4106-4FA3-A51A-3A93555DBDEE}"
+        "ProductCode" = "8:{96FE7980-5118-45E9-BFC6-6D255B724C45}"
+        "PackageCode" = "8:{726B774A-D0F1-4AF0-BA9C-227B568DB429}"
         "UpgradeCode" = "8:{E531372E-E2E9-473F-9CF5-95E64A7B1651}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.0.0"
+        "ProductVersion" = "8:3.0.1"
         "Manufacturer" = "8:Hogaboam Law Offices"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -294,23 +334,9 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_0645E447629F40AFB4534B96CF09025A"
-            "Folder" = "8:_31E0B92AA45749ADBE2441916603A953"
+            "Folder" = "8:_5F087BEDD0834381949FF30DEF082458"
             "WorkingFolder" = "8:_5F087BEDD0834381949FF30DEF082458"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D49ED118AE3D4AE28B7E225D75ACE87E"
-            {
-            "Name" = "8:American Football Scoreboard"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_0645E447629F40AFB4534B96CF09025A"
-            "Folder" = "8:_C8ACAD0A2A02458FA0A4AFE4EA76404C"
-            "WorkingFolder" = "8:_5F087BEDD0834381949FF30DEF082458"
-            "Icon" = "8:"
+            "Icon" = "8:_19A27BC5A113497796307AB80CBDF7EB"
             "Feature" = "8:"
             }
         }
@@ -734,6 +760,34 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{C49FC379-F782-4B84-A8F3-9B392E77776D}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_27C32CC9ED164240B89359F4271FC244"
+            {
+            "SourcePath" = "8:..\\American Football Scoreboard\\obj\\Release\\net9.0-windows7.0\\AmericanFootballScoreboard.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C8ACAD0A2A02458FA0A4AFE4EA76404C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{C49FC379-F782-4B84-A8F3-9B392E77776D}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"

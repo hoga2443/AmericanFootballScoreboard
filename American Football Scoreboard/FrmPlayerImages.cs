@@ -1,6 +1,7 @@
 ﻿using OBSWebsocketDotNet;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace American_Football_Scoreboard
                 {
                     try
                     {
-                        obs.ConnectAsync("ws://127.0.0.1:" + Properties.Settings.Default.WebSocketPort, Properties.Settings.Default.WebSocketPassword);
+                        obs.ConnectAsync("ws://127.0.0.1:" + Properties.Settings.Default.ObsWebSocketPort, Properties.Settings.Default.ObsWebSocketPassword);
                     }
                     catch (Exception ex)
                     {
@@ -59,6 +60,7 @@ namespace American_Football_Scoreboard
         }
         private static void PopulateImageButtons(string path, GroupBox groupBox, string buttonPrefix, EventHandler eventName)
         {
+            string sqLiteDatabase = Path.Combine(Properties.Settings.Default["OutputPath"].ToString(), "AmericanFootballScoreboard.sqlite3");
             string playerImageFileType = Properties.Settings.Default["PlayerImageFileType"].ToString().ToUpper();
             groupBox.Controls.Clear();
             string sourcePath = Path.Combine(path1: Properties.Settings.Default.OutputPath, path2: path);
@@ -77,6 +79,23 @@ namespace American_Football_Scoreboard
                         }
                     }
                 }
+                using SQLiteConnection sqLiteConnection = new(@"Data Source=" + sqLiteDatabase + ";Version=3;");
+                sqLiteConnection.Open();
+                string sql;
+                if (buttonPrefix == "butHome")
+                    sql = "SELECT Number, Name FROM players WHERE Home = 1";
+                else
+                    sql = "SELECT Number, Name FROM players WHERE Home = 0";
+                using (SQLiteCommand sQLiteCommand = new(sql, sqLiteConnection))
+                {
+                    using SQLiteDataReader reader = sQLiteCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int number = reader.GetInt32(0);
+                        if (!numbers.Contains(number))
+                            numbers.Add(number);
+                    }
+                }
                 numbers.Sort((x, y) => x.CompareTo(y));
                 int buttonRow = 0;
                 int buttonColumn = 0;
@@ -93,6 +112,7 @@ namespace American_Football_Scoreboard
                         Text = number.ToString(),
                         Top = 20 + buttonRow * 22,
                         Left = 10 + buttonColumn * 80,
+                        Visible = true
                     };
                     button.Click += eventName;
                     groupBox.Controls.Add(button);
@@ -103,9 +123,9 @@ namespace American_Football_Scoreboard
         private void ShowAwayPlayer(object sender, EventArgs e)
         {
             Common.ShowPlayer(false, (sender as Button).Text, obs: obs);
-            tmrPlayerHome.Interval = Properties.Settings.Default.FlagDisplayDuration;
-            tmrPlayerHome.Enabled = true;
-            tmrPlayerHome.Start();
+            tmrPlayerAway.Interval = Properties.Settings.Default.FlagDisplayDuration;
+            tmrPlayerAway.Enabled = true;
+            tmrPlayerAway.Start();
         }
         private void ShowHomePlayer(object sender, EventArgs e)
         {
